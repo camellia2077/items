@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C98E0F57-7467-4E32-864D-7C8C4CE1B331}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RandomLoadout</RootNamespace>
+    <AssemblyName>RandomLoadout</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RandomLoadout.Core\RandomLoadout.Core.csproj">
+      <Project>{8F43F1F5-5826-43D5-8FE8-4B3732F9C58F}</Project>
+      <Name>RandomLoadout.Core</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="Assembly-CSharp">
+      <HintPath>..\..\lib\Assembly-CSharp.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="BepInEx">
+      <HintPath>..\..\lib\BepInEx.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>..\..\lib\UnityEngine.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\..\lib\UnityEngine.CoreModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>..\..\lib\UnityEngine.IMGUIModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>..\..\lib\UnityEngine.TextRenderingModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\RandomLoadout.Core\Commands\GrantCommandParser.cs">
+      <Link>Core\Commands\GrantCommandParser.cs</Link>
+    </Compile>
+    <Compile Include="..\RandomLoadout.Core\Commands\GrantCommandParseResult.cs">
+      <Link>Core\Commands\GrantCommandParseResult.cs</Link>
+    </Compile>
+    <Compile Include="..\RandomLoadout.Core\Commands\GrantCommandRequest.cs">
+      <Link>Core\Commands\GrantCommandRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\RandomLoadout.Core\Commands\GrantCommandTarget.cs">
+      <Link>Core\Commands\GrantCommandTarget.cs</Link>
+    </Compile>
+    <Compile Include="..\RandomLoadout.Core\Configuration\LoadoutConfig.cs">
+      <Link>Core\Configuration\LoadoutConfig.cs</Link>
+    </Compile>
+    <Compile Include="..\RandomLoadout.Core\Configuration\LoadoutRuleConfig.cs">
+      <Link>Core\Configuration\LoadoutRuleConfig.cs</Link>
+    </Compile>
+    <Compile Include="..\RandomLoadout.Core\GrantMode.cs">
+      <Link>Core\GrantMode.cs</Link>
+    </Compile>
+    <Compile Include="..\RandomLoadout.Core\PickupCategory.cs">
+      <Link>Core\PickupCategory.cs</Link>
+    </Compile>
+    <Compile Include="..\RandomLoadout.Core\Seed\ISeedProvider.cs">
+      <Link>Core\Seed\ISeedProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\RandomLoadout.Core\Seed\UtcTickSeedProvider.cs">
+      <Link>Core\Seed\UtcTickSeedProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\RandomLoadout.Core\Selection\LoadoutSelectionRequest.cs">
+      <Link>Core\Selection\LoadoutSelectionRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\RandomLoadout.Core\Selection\LoadoutSelectionResult.cs">
+      <Link>Core\Selection\LoadoutSelectionResult.cs</Link>
+    </Compile>
+    <Compile Include="..\RandomLoadout.Core\Selection\LoadoutSelectionService.cs">
+      <Link>Core\Selection\LoadoutSelectionService.cs</Link>
+    </Compile>
+    <Compile Include="..\RandomLoadout.Core\Selection\SelectedPickup.cs">
+      <Link>Core\Selection\SelectedPickup.cs</Link>
+    </Compile>
+    <Compile Include="..\RandomLoadout.Core\Selection\SelectionWarning.cs">
+      <Link>Core\Selection\SelectionWarning.cs</Link>
+    </Compile>
+    <Compile Include="Configuration\DefaultLoadoutRuleDefinitionFactory.cs" />
+    <Compile Include="Configuration\LoadoutConfigResolutionResult.cs" />
+    <Compile Include="Configuration\LoadoutRuleDefinition.cs" />
+    <Compile Include="Commands\GrantCommandExecutionResult.cs" />
+    <Compile Include="Commands\GrantCommandService.cs" />
+    <Compile Include="Commands\InGameCommandController.cs" />
+    <Compile Include="Etg\EtgGrantOutcome.cs" />
+    <Compile Include="Etg\EtgLoadoutConfigResolver.cs" />
+    <Compile Include="Etg\EtgOwnedPickupReader.cs" />
+    <Compile Include="Etg\EtgPickupGranter.cs" />
+    <Compile Include="Etg\EtgPickupResolveResult.cs" />
+    <Compile Include="Etg\EtgPickupResolver.cs" />
+    <Compile Include="Logging\RandomLoadoutLog.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Plugin.cs" />
+    <Compile Include="Runtime\RunGrantState.cs" />
+    <Compile Include="Runtime\RunSceneWatcher.cs" />
+  </ItemGroup>
+
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
