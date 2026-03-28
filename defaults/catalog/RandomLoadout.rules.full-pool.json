@@ -1,0 +1,5401 @@
+{
+  "generatedUtc": "2026-03-28 01:57:58",
+  "description": "Auto-generated full pickup rule pool. Copy the rules you want into RandomLoadout.rules.json if you want to activate them.",
+  "entryCount": 670,
+  "categoryCounts": {
+    "gun": 379,
+    "passive": 220,
+    "active": 71
+  },
+  "rules": [
+    {
+      "enabled": true,
+      "mode": "random",
+      "category": "gun",
+      "count": 1,
+      "poolIds": [
+        56,
+        681,
+        511,
+        5,
+        716,
+        474,
+        689,
+        545,
+        623,
+        15,
+        221,
+        611,
+        95,
+        726,
+        177,
+        742,
+        57,
+        696,
+        393,
+        621,
+        53,
+        369,
+        520,
+        478,
+        688,
+        7,
+        709,
+        14,
+        703,
+        380,
+        737,
+        157,
+        694,
+        601,
+        169,
+        417,
+        574,
+        813,
+        18,
+        122,
+        678,
+        8,
+        535,
+        539,
+        376,
+        21,
+        599,
+        622,
+        80,
+        652,
+        503,
+        362,
+        717,
+        61,
+        341,
+        740,
+        124,
+        700,
+        481,
+        541,
+        616,
+        357,
+        647,
+        328,
+        200,
+        355,
+        390,
+        223,
+        62,
+        129,
+        723,
+        519,
+        337,
+        359,
+        327,
+        686,
+        624,
+        52,
+        178,
+        687,
+        12,
+        551,
+        274,
+        24,
+        811,
+        81,
+        60,
+        378,
+        484,
+        514,
+        121,
+        146,
+        677,
+        508,
+        9,
+        675,
+        23,
+        750,
+        368,
+        82,
+        672,
+        626,
+        755,
+        377,
+        680,
+        90,
+        149,
+        702,
+        345,
+        762,
+        125,
+        698,
+        275,
+        706,
+        383,
+        657,
+        705,
+        196,
+        40,
+        710,
+        387,
+        87,
+        671,
+        231,
+        130,
+        540,
+        819,
+        180,
+        19,
+        182,
+        210,
+        693,
+        733,
+        731,
+        730,
+        728,
+        729,
+        732,
+        176,
+        739,
+        401,
+        602,
+        198,
+        338,
+        482,
+        91,
+        715,
+        17,
+        229,
+        724,
+        59,
+        699,
+        230,
+        708,
+        41,
+        615,
+        613,
+        614,
+        612,
+        385,
+        670,
+        747,
+        761,
+        346,
+        505,
+        504,
+        695,
+        225,
+        745,
+        486,
+        510,
+        47,
+        721,
+        31,
+        472,
+        690,
+        550,
+        656,
+        668,
+        156,
+        714,
+        54,
+        676,
+        620,
+        595,
+        27,
+        711,
+        332,
+        719,
+        340,
+        648,
+        738,
+        199,
+        701,
+        25,
+        684,
+        96,
+        30,
+        94,
+        186,
+        43,
+        673,
+        0,
+        38,
+        751,
+        339,
+        28,
+        79,
+        480,
+        86,
+        809,
+        365,
+        10,
+        36,
+        619,
+        476,
+        734,
+        394,
+        292,
+        691,
+        594,
+        20,
+        713,
+        515,
+        597,
+        333,
+        608,
+        26,
+        692,
+        93,
+        477,
+        744,
+        228,
+        98,
+        544,
+        197,
+        674,
+        384,
+        736,
+        336,
+        722,
+        207,
+        682,
+        208,
+        97,
+        718,
+        513,
+        251,
+        179,
+        658,
+        720,
+        370,
+        123,
+        475,
+        617,
+        566,
+        743,
+        107,
+        712,
+        358,
+        406,
+        372,
+        506,
+        51,
+        660,
+        763,
+        576,
+        88,
+        812,
+        89,
+        651,
+        39,
+        128,
+        142,
+        609,
+        99,
+        810,
+        50,
+        202,
+        331,
+        3,
+        183,
+        37,
+        22,
+        512,
+        756,
+        757,
+        758,
+        759,
+        760,
+        464,
+        153,
+        697,
+        126,
+        749,
+        347,
+        143,
+        379,
+        335,
+        404,
+        45,
+        382,
+        604,
+        35,
+        752,
+        753,
+        754,
+        360,
+        49,
+        402,
+        679,
+        395,
+        507,
+        4,
+        92,
+        598,
+        741,
+        542,
+        748,
+        479,
+        299,
+        150,
+        175,
+        596,
+        33,
+        725,
+        483,
+        330,
+        563,
+        659,
+        808,
+        562,
+        184,
+        517,
+        518,
+        152,
+        151,
+        543,
+        445,
+        2,
+        685,
+        13,
+        683,
+        618,
+        42,
+        816,
+        154,
+        704,
+        363,
+        444,
+        381,
+        516,
+        577,
+        83,
+        603,
+        806,
+        807,
+        100,
+        649,
+        29,
+        58,
+        593,
+        32,
+        55,
+        537,
+        84,
+        707,
+        1,
+        650,
+        181,
+        334,
+        546,
+        145,
+        610,
+        823,
+        227,
+        16,
+        329,
+        6
+      ]
+    },
+    {
+      "enabled": true,
+      "mode": "random",
+      "category": "passive",
+      "count": 1,
+      "poolIds": [
+        286,
+        373,
+        134,
+        116,
+        158,
+        255,
+        323,
+        259,
+        457,
+        450,
+        664,
+        818,
+        133,
+        287,
+        442,
+        212,
+        115,
+        410,
+        529,
+        114,
+        579,
+        461,
+        312,
+        285,
+        436,
+        524,
+        167,
+        270,
+        487,
+        288,
+        490,
+        493,
+        258,
+        193,
+        418,
+        429,
+        575,
+        434,
+        303,
+        630,
+        112,
+        817,
+        521,
+        325,
+        569,
+        527,
+        572,
+        264,
+        311,
+        309,
+        607,
+        135,
+        214,
+        343,
+        634,
+        240,
+        571,
+        638,
+        187,
+        300,
+        280,
+        375,
+        441,
+        353,
+        304,
+        118,
+        310,
+        277,
+        531,
+        344,
+        278,
+        564,
+        494,
+        453,
+        172,
+        532,
+        565,
+        316,
+        321,
+        641,
+        466,
+        489,
+        315,
+        159,
+        281,
+        253,
+        163,
+        162,
+        161,
+        160,
+        454,
+        424,
+        421,
+        423,
+        422,
+        364,
+        425,
+        164,
+        256,
+        111,
+        568,
+        473,
+        500,
+        631,
+        284,
+        138,
+        295,
+        655,
+        367,
+        170,
+        243,
+        244,
+        245,
+        246,
+        247,
+        248,
+        204,
+        735,
+        127,
+        580,
+        822,
+        273,
+        815,
+        213,
+        148,
+        431,
+        414,
+        322,
+        605,
+        665,
+        533,
+        110,
+        137,
+        140,
+        467,
+        468,
+        469,
+        470,
+        471,
+        119,
+        354,
+        293,
+        313,
+        437,
+        435,
+        314,
+        326,
+        350,
+        165,
+        305,
+        222,
+        219,
+        374,
+        263,
+        661,
+        249,
+        451,
+        260,
+        349,
+        627,
+        348,
+        318,
+        667,
+        269,
+        530,
+        271,
+        254,
+        488,
+        191,
+        294,
+        132,
+        463,
+        456,
+        113,
+        567,
+        190,
+        440,
+        241,
+        102,
+        821,
+        289,
+        352,
+        166,
+        298,
+        426,
+        427,
+        538,
+        407,
+        636,
+        232,
+        452,
+        526,
+        578,
+        523,
+        290,
+        279,
+        301,
+        400,
+        666,
+        397,
+        399,
+        398,
+        633,
+        396,
+        465,
+        632,
+        645,
+        495,
+        342,
+        131,
+        640,
+        307,
+        262,
+        491,
+        492,
+        296,
+        497,
+        501,
+        570,
+        528
+      ]
+    },
+    {
+      "enabled": true,
+      "mode": "random",
+      "category": "active",
+      "count": 1,
+      "poolIds": [
+        237,
+        252,
+        351,
+        443,
+        224,
+        108,
+        448,
+        558,
+        216,
+        439,
+        72,
+        69,
+        409,
+        136,
+        460,
+        206,
+        573,
+        203,
+        308,
+        411,
+        643,
+        71,
+        168,
+        625,
+        239,
+        499,
+        306,
+        438,
+        105,
+        412,
+        250,
+        413,
+        234,
+        109,
+        272,
+        432,
+        106,
+        65,
+        525,
+        814,
+        291,
+        63,
+        403,
+        366,
+        242,
+        267,
+        485,
+        662,
+        205,
+        644,
+        201,
+        174,
+        64,
+        66,
+        104,
+        536,
+        663,
+        458,
+        502,
+        209,
+        820,
+        447,
+        155,
+        462,
+        276,
+        433,
+        77,
+        449,
+        320,
+        356,
+        637
+      ]
+    }
+  ],
+  "reference": {
+    "Gun": [
+      {
+        "pickupId": 56,
+        "displayName": "38 Special",
+        "internalName": "38_special",
+        "quality": "D",
+        "encounterGuid": "a37b074945ee495cb9f126a612f06c54"
+      }      ,
+      {
+        "pickupId": 681,
+        "displayName": "38 Special",
+        "internalName": "38_special_Synergy",
+        "quality": "SPECIAL",
+        "encounterGuid": "0199539e52d546a8a8dfc60409ea3719"
+      }      ,
+      {
+        "pickupId": 511,
+        "displayName": "3rd Party Controller",
+        "internalName": "Controller_Gun",
+        "quality": "A",
+        "encounterGuid": "43e783e5d9e94724a9a1c40928eeca31"
+      }      ,
+      {
+        "pickupId": 5,
+        "displayName": "A.W.P.",
+        "internalName": "AWP",
+        "quality": "A",
+        "encounterGuid": "e8bd6548ce8d45c0b81321f2dd4a28cd"
+      }      ,
+      {
+        "pickupId": 716,
+        "displayName": "A.W.P.",
+        "internalName": "AWP_Synergy",
+        "quality": "SPECIAL",
+        "encounterGuid": "325edd6753cf4a3ba34a319cff88a121"
+      }      ,
+      {
+        "pickupId": 474,
+        "displayName": "Abyssal Tentacle",
+        "internalName": "Tentacle_Gun",
+        "quality": "A",
+        "encounterGuid": "e37f84fa8e7f4babb072f3f962968133"
+      }      ,
+      {
+        "pickupId": 689,
+        "displayName": "Abyssal Tentacle",
+        "internalName": "Tentacle_Gun_Kaliber",
+        "quality": "SPECIAL",
+        "encounterGuid": "71cd6a778cb6454fb0e89bb2d0810ca9"
+      }      ,
+      {
+        "pickupId": 545,
+        "displayName": "AC-15",
+        "internalName": "Armored_A_Gun",
+        "quality": "B",
+        "encounterGuid": "6dd4526f04404e42939590aaa5eadd50"
+      }      ,
+      {
+        "pickupId": 623,
+        "displayName": "Air Shooter",
+        "internalName": "Mega Buster (Air)",
+        "quality": "SPECIAL",
+        "encounterGuid": "9ac1f1420696466bb408113dace2f25b"
+      }      ,
+      {
+        "pickupId": 15,
+        "displayName": "AK-47",
+        "internalName": "AK-47",
+        "quality": "B",
+        "encounterGuid": "5f7d4706f0814142a3545085e0178e06"
+      }      ,
+      {
+        "pickupId": 221,
+        "displayName": "AK-47",
+        "internalName": "AK-47_tutorial",
+        "quality": "SPECIAL",
+        "encounterGuid": "431000dd4b0e4f8fb295c707d0d388ac"
+      }      ,
+      {
+        "pickupId": 611,
+        "displayName": "AK-47",
+        "internalName": "AK-47_Island",
+        "quality": "SPECIAL",
+        "encounterGuid": "9b6ff2e0107d484d8317cd70278f1b21"
+      }      ,
+      {
+        "pickupId": 95,
+        "displayName": "AKEY-47",
+        "internalName": "AKey-47",
+        "quality": "S",
+        "encounterGuid": "2f963fcd852d413da2af28a229a69b6b"
+      }      ,
+      {
+        "pickupId": 726,
+        "displayName": "AKEY-47",
+        "internalName": "AKey-47_Synergy",
+        "quality": "EXCLUDED",
+        "encounterGuid": "a24458f3b72c4ee689558732eed048a2"
+      }      ,
+      {
+        "pickupId": 177,
+        "displayName": "Alien Engine",
+        "internalName": "Jet_Engine",
+        "quality": "B",
+        "encounterGuid": "0dc5720690ef4b48b259cf7b383a6d5d"
+      }      ,
+      {
+        "pickupId": 742,
+        "displayName": "Alien Engine",
+        "internalName": "Jet_Engine_Synergy",
+        "quality": "EXCLUDED",
+        "encounterGuid": "fb2eeb1753084ddc90001e2c060ed4fe"
+      }      ,
+      {
+        "pickupId": 57,
+        "displayName": "Alien Sidearm",
+        "internalName": "Pulse_Handgun",
+        "quality": "D",
+        "encounterGuid": "5b8ba2a546124277822de8cb3c0cf3fd"
+      }      ,
+      {
+        "pickupId": 696,
+        "displayName": "Alien Sidearm",
+        "internalName": "Pulse_Handgun_Synergy",
+        "quality": "SPECIAL",
+        "encounterGuid": "f434767857844c54838ffe3a4d7085a6"
+      }      ,
+      {
+        "pickupId": 393,
+        "displayName": "Anvillain",
+        "internalName": "Anvil_Gun",
+        "quality": "C",
+        "encounterGuid": "c12f5127c0254b9093ec988cede28d3f"
+      }      ,
+      {
+        "pickupId": 621,
+        "displayName": "Atomic Fire",
+        "internalName": "Mega Buster (Heat)",
+        "quality": "SPECIAL",
+        "encounterGuid": "002d18ca40824174b09b139f76ee11f1"
+      }      ,
+      {
+        "pickupId": 53,
+        "displayName": "AU Gun",
+        "internalName": "Golden_Gun",
+        "quality": "S",
+        "encounterGuid": "1d27330146964db197e3c9ea8a3f798d"
+      }      ,
+      {
+        "pickupId": 369,
+        "displayName": "Bait Launcher",
+        "internalName": "Meat_Launcher",
+        "quality": "C",
+        "encounterGuid": "f490476358e74d9d813df9b35a18ec6f"
+      }      ,
+      {
+        "pickupId": 520,
+        "displayName": "Balloon Gun",
+        "internalName": "Balloon_Gun",
+        "quality": "C",
+        "encounterGuid": "2a5b4ba85b704ab5be64b3e4a913a7c1"
+      }      ,
+      {
+        "pickupId": 478,
+        "displayName": "Banana",
+        "internalName": "Banana_Gun",
+        "quality": "C",
+        "encounterGuid": "755429b5fc474d55a3a63ae43c940a15"
+      }      ,
+      {
+        "pickupId": 688,
+        "displayName": "Banana",
+        "internalName": "Banana_Gun_Synergy",
+        "quality": "SPECIAL",
+        "encounterGuid": "81fd66b6b2e240048281a4867f184778"
+      }      ,
+      {
+        "pickupId": 7,
+        "displayName": "Barrel",
+        "internalName": "Fish_Barrel_gun",
+        "quality": "C",
+        "encounterGuid": "d84c1ec810d14fc0abefc5066fbdf0c5"
+      }      ,
+      {
+        "pickupId": 709,
+        "displayName": "Barrel",
+        "internalName": "Fish_Barrel_gun_Synergy",
+        "quality": "SPECIAL",
+        "encounterGuid": "7b987f833e50473399a30ff9c8d8e758"
+      }      ,
+      {
+        "pickupId": 14,
+        "displayName": "Bee Hive",
+        "internalName": "Beehive",
+        "quality": "B",
+        "encounterGuid": "cef80dd757f444c894ddac9675b80d19"
+      }      ,
+      {
+        "pickupId": 703,
+        "displayName": "Bee Hive",
+        "internalName": "Beehive_Synergy",
+        "quality": "SPECIAL",
+        "encounterGuid": "ca22e6a2901641e6a8da06dd3c741c18"
+      }      ,
+      {
+        "pickupId": 380,
+        "displayName": "Betrayer's Shield",
+        "internalName": "Shieldmet_Gun",
+        "quality": "B",
+        "encounterGuid": "1e231d1777bc46cc829f43c0f8cdad27"
+      }      ,
+      {
+        "pickupId": 737,
+        "displayName": "Betrayer's Shield",
+        "internalName": "Shieldmet_Gun_Synergy",
+        "quality": "EXCLUDED",
+        "encounterGuid": "b0a5debf65344a54a739861539ef798c"
+      }      ,
+      {
+        "pickupId": 157,
+        "displayName": "Big Iron",
+        "internalName": "Bigiron",
+        "quality": "B",
+        "encounterGuid": "3a18df36e9584326947f6c39236ffd0c"
+      }      ,
+      {
+        "pickupId": 694,
+        "displayName": "Big Iron",
+        "internalName": "Bigiron_Synergy",
+        "quality": "SPECIAL",
+        "encounterGuid": "e3f406c5498a4de6be88c83dd0a32a67"
+      }      ,
+      {
+        "pickupId": 601,
+        "displayName": "Big Shotgun",
+        "internalName": "Big_Shotgun",
+        "quality": "A",
+        "encounterGuid": "7265fd94e2aa4ff3ab6f6b9fb840a597"
+      }      ,
+      {
+        "pickupId": 169,
+        "displayName": "Black Hole Gun",
+        "internalName": "Black_Hole_Gun",
+        "quality": "A",
+        "encounterGuid": "cdce4335ee9c4f27992ee462a3e446b3"
+      }      ,
+      {
+        "pickupId": 417,
+        "displayName": "Blasphemy",
+        "internalName": "Blasphemy",
+        "quality": "B",
+        "encounterGuid": "dd63542e639c427191feb15174b4db44"
+      }      ,
+      {
+        "pickupId": 574,
+        "displayName": "Blasphemy",
+        "internalName": "Wonderboy",
+        "quality": "SPECIAL",
+        "encounterGuid": "02f254d36b9c4b01ab11ad356a2c6119"
+      }      ,
+      {
+        "pickupId": 813,
+        "displayName": "Blasphemy",
+        "internalName": "Blasphemy_Alt",
+        "quality": "SPECIAL",
+        "encounterGuid": "f64345c3cfca49d487f8167b10871a68"
+      }      ,
+      {
+        "pickupId": 18,
+        "displayName": "Blooper",
+        "internalName": "Looper",
+        "quality": "B",
+        "encounterGuid": "0835341960a94080b503189cdac3af62"
+      }      ,
+      {
+        "pickupId": 122,
+        "displayName": "Blunderbuss",
+        "internalName": "Blunderbuss",
+        "quality": "D",
+        "encounterGuid": "72564766574745519501d2791a376672"
+      }      ,
+      {
+        "pickupId": 678,
+        "displayName": "Blunderbuss",
+        "internalName": "Blunderbuss_Synergy",
+        "quality": "SPECIAL",
+        "encounterGuid": "7917aee994a84159b60bee5af6d59b0d"
+      }      ,
+      {
+        "pickupId": 8,
+        "displayName": "Bow",
+        "internalName": "Bow",
+        "quality": "C",
+        "encounterGuid": "eb5c21e0932442c68c1e3fb8abdae005"
+      }      ,
+      {
+        "pickupId": 535,
+        "displayName": "Bow",
+        "internalName": "Bow_Cool",
+        "quality": "EXCLUDED",
+        "encounterGuid": "57a79c336fa84feeb07c9bf2ef17c025"
+      }      ,
+      {
+        "pickupId": 539,
+        "displayName": "Boxing Glove",
+        "internalName": "Boxing_Glove_Gun",
+        "quality": "C",
+        "encounterGuid": "6860195f1768486981923a24ad113a56"
+      }      ,
+      {
+        "pickupId": 376,
+        "displayName": "Brick Breaker",
+        "internalName": "Block_Gun",
+        "quality": "C",
+        "encounterGuid": "4645c5fd6c3d486fb544f86809b92403"
+      }      ,
+      {
+        "pickupId": 21,
+        "displayName": "BSG",
+        "internalName": "BSG",
+        "quality": "S",
+        "encounterGuid": "7cb9c214ecb24029a671c5a68850f06d"
+      }      ,
+      {
+        "pickupId": 599,
+        "displayName": "Bubble Blaster",
+        "internalName": "Bubble_Blaster",
+        "quality": "C",
+        "encounterGuid": "17af738dda5f40b494c1cd41526b9277"
+      }      ,
+      {
+        "pickupId": 622,
+        "displayName": "Bubble Lead",
+        "internalName": "Mega Buster (Bubble)",
+        "quality": "SPECIAL",
+        "encounterGuid": "98a0678d9e0748108236c12bef576d68"
+      }      ,
+      {
+        "pickupId": 80,
+        "displayName": "Budget Revolver",
+        "internalName": "SNS",
+        "quality": "SPECIAL",
+        "encounterGuid": "decdcb23f7c24193b966435945cbadf4"
+      }      ,
+      {
+        "pickupId": 652,
+        "displayName": "Budget Revolver",
+        "internalName": "SNS_Alt",
+        "quality": "SPECIAL",
+        "encounterGuid": "4cbeae0739af43379c66413dcf4b7a26"
+      }      ,
+      {
+        "pickupId": 503,
+        "displayName": "Bullet",
+        "internalName": "Bullet_Gun",
+        "quality": "C",
+        "encounterGuid": "f065e91d90dd4f4caabf07f833634ac6"
+      }      ,
+      {
+        "pickupId": 362,
+        "displayName": "Bullet Bore",
+        "internalName": "Cerebral_Bore",
+        "quality": "A",
+        "encounterGuid": "240a0cd5ce0543a29c8adf3c2c474973"
+      }      ,
+      {
+        "pickupId": 717,
+        "displayName": "Bullet Bore",
+        "internalName": "Cerebral_Bore_Synergy",
+        "quality": "EXCLUDED",
+        "encounterGuid": "a5d66e31212448678702b761629fdaa3"
+      }      ,
+      {
+        "pickupId": 61,
+        "displayName": "Bundle of Wands",
+        "internalName": "Bundle_Wands",
+        "quality": "C",
+        "encounterGuid": "d6da3e3a8b0542aebfe2b3728dd38af6"
+      }      ,
+      {
+        "pickupId": 341,
+        "displayName": "Buzzkill",
+        "internalName": "Saw_Gun",
+        "quality": "C",
+        "encounterGuid": "9c72362a346f4dba9f300e11d2b91959"
+      }      ,
+      {
+        "pickupId": 740,
+        "displayName": "Buzzkill",
+        "internalName": "Saw_Gun_Synergy",
+        "quality": "EXCLUDED",
+        "encounterGuid": "f3663f81ad4444358fc412fcf4327a5d"
+      }      ,
+      {
+        "pickupId": 124,
+        "displayName": "Cactus",
+        "internalName": "Cactus",
+        "quality": "C",
+        "encounterGuid": "23c64027f60f447cb7c64f9f36f0b625"
+      }      ,
+      {
+        "pickupId": 700,
+        "displayName": "Cactus",
+        "internalName": "Cactus_Synergy",
+        "quality": "SPECIAL",
+        "encounterGuid": "03d6c238b9cc4a00a6fbe14c58090011"
+      }      ,
+      {
+        "pickupId": 481,
+        "displayName": "Camera",
+        "internalName": "Camera_Gun",
+        "quality": "C",
+        "encounterGuid": "0d595a4939904fb3b771506688050bd7"
+      }      ,
+      {
+        "pickupId": 541,
+        "displayName": "Casey",
+        "internalName": "Baseball_Bat_Gun",
+        "quality": "D",
+        "encounterGuid": "13c9365461be4ef188dddca8cbe19966"
+      }      ,
+      {
+        "pickupId": 616,
+        "displayName": "Casey",
+        "internalName": "Nailbat_Gun",
+        "quality": "SPECIAL",
+        "encounterGuid": "7f5e1827fba64235a33c291bcd237ed0"
+      }      ,
+      {
+        "pickupId": 357,
+        "displayName": "Cat Claw",
+        "internalName": "Claw",
+        "quality": "A",
+        "encounterGuid": "4ada7153a8a64ba88b38825cdb7d82f3"
+      }      ,
+      {
+        "pickupId": 647,
+        "displayName": "Chamber Gun",
+        "internalName": "Chamber_Gun_Castle",
+        "quality": "C",
+        "encounterGuid": "efb6d1ba6c1e4ae39d1d26811c704b23"
+      }      ,
+      {
+        "pickupId": 328,
+        "displayName": "Charge Shot",
+        "internalName": "Charge_Shot",
+        "quality": "B",
+        "encounterGuid": "a16e070395f34b0eacdf7b876bedffce"
+      }      ,
+      {
+        "pickupId": 200,
+        "displayName": "Charmed Bow",
+        "internalName": "Bow_Charmed",
+        "quality": "B",
+        "encounterGuid": "ea95c0c60f1a48f3b9cdd465fe45e466"
+      }      ,
+      {
+        "pickupId": 355,
+        "displayName": "Chromesteel Assault Rifle",
+        "internalName": "Hmon_Autorifle",
+        "quality": "EXCLUDED",
+        "encounterGuid": "9995bfbfe7994b0388917476d04e969f"
+      }      ,
+      {
+        "pickupId": 390,
+        "displayName": "Cobalt Hammer",
+        "internalName": "Mjolnir",
+        "quality": "A",
+        "encounterGuid": "2d91904ba70a4c0d861dac03a6417591"
+      }      ,
+      {
+        "pickupId": 223,
+        "displayName": "Cold 45",
+        "internalName": "Cold_45",
+        "quality": "B",
+        "encounterGuid": "6e92a45e8fae4deda34651b9c2ed42f3"
+      }      ,
+      {
+        "pickupId": 62,
+        "displayName": "Colt 1851",
+        "internalName": "colt1851",
+        "quality": "C",
+        "encounterGuid": "29cd064e0ba343008a7c788c7e86b6af"
+      }      ,
+      {
+        "pickupId": 129,
+        "displayName": "Com4nd0",
+        "internalName": "Box_Rocket",
+        "quality": "B",
+        "encounterGuid": "248d530c62a3460282da58027014429b"
+      }      ,
+      {
+        "pickupId": 723,
+        "displayName": "Com4nd0",
+        "internalName": "Box_Rocket_Synergy",
+        "quality": "EXCLUDED",
+        "encounterGuid": "ff451d009d18402991e7e844cf909ed9"
+      }      ,
+      {
+        "pickupId": 519,
+        "displayName": "Combined Rifle",
+        "internalName": "Combine_Rifle",
+        "quality": "B",
+        "encounterGuid": "9bf94b3277334cacbbe9d58910f72828"
+      }      ,
+      {
+        "pickupId": 337,
+        "displayName": "Composite Gun",
+        "internalName": "Composite_Gun",
+        "quality": "S",
+        "encounterGuid": "21503c73bde440da80d1f730b027c5fa"
+      }      ,
+      {
+        "pickupId": 359,
+        "displayName": "Compressed Air Tank",
+        "internalName": "Shark_Gun",
+        "quality": "A",
+        "encounterGuid": "2df46f834b2743a9ac9e1c0941a5e98f"
+      }      ,
+      {
+        "pickupId": 327,
+        "displayName": "Corsair",
+        "internalName": "Sailgun",
+        "quality": "C",
+        "encounterGuid": "c2fb8ce6a5174564868fa57dda813322"
+      }      ,
+      {
+        "pickupId": 686,
+        "displayName": "Corsair",
+        "internalName": "Sailgun_Synergy",
+        "quality": "SPECIAL",
+        "encounterGuid": "c7232c9b38414f7e9be16ff206d5b4ec"
+      }      ,
+      {
+        "pickupId": 624,
+        "displayName": "Crash Bomber",
+        "internalName": "Mega Buster (Crash)",
+        "quality": "SPECIAL",
+        "encounterGuid": "252a61fb2db04f3c9552faaf4d4d37ce"
+      }      ,
+      {
+        "pickupId": 52,
+        "displayName": "Crescent Crossbow",
+        "internalName": "Crescent_Moon_Crossbow",
+        "quality": "A",
+        "encounterGuid": "2cf1657dc5cb4139a2be37047323282f"
+      }      ,
+      {
+        "pickupId": 178,
+        "displayName": "Crestfaller",
+        "internalName": "Crestfallen_Gun",
+        "quality": "C",
+        "encounterGuid": "e49b2594caed4c57a346fc40590d1579"
+      }      ,
+      {
+        "pickupId": 687,
+        "displayName": "Crestfaller",
+        "internalName": "Crestfallen_Gun_Synergy",
+        "quality": "SPECIAL",
+        "encounterGuid": "ace37c1ee38d4c2381a5e141ecd43807"
+      }      ,
+      {
+        "pickupId": 12,
+        "displayName": "Crossbow",
+        "internalName": "CrossBow",
+        "quality": "D",
+        "encounterGuid": "7cb18a630b094fcd8ce5f5f91de6ff7d"
+      }      ,
+      {
+        "pickupId": 551,
+        "displayName": "Crown of Guns",
+        "internalName": "Crown_Of_Guns",
+        "quality": "C",
+        "encounterGuid": "a3bdef6264414c7581960105aebc2ce9"
+      }      ,
+      {
+        "pickupId": 274,
+        "displayName": "Dark Marker",
+        "internalName": "Matter_Antimatter_Gun",
+        "quality": "S",
+        "encounterGuid": "7aa983ec4fc54698a840fcbff8992789"
+      }      ,
+      {
+        "pickupId": 24,
+        "displayName": "Dart Gun",
+        "internalName": "Dart_Gun",
+        "quality": "SPECIAL",
+        "encounterGuid": "377278dc462c4643942bc6d8bdfae562"
+      }      ,
+      {
+        "pickupId": 811,
+        "displayName": "Dart Gun",
+        "internalName": "Dart_Gun_Alt",
+        "quality": "SPECIAL",
+        "encounterGuid": "7fbe0e9643734b0691b5999e0dcfb907"
+      }      ,
+      {
+        "pickupId": 81,
+        "displayName": "Deck4rd",
+        "internalName": "Bladerunner",
+        "quality": "A",
+        "encounterGuid": "d627cdb98d08486f8785eb3be1ecfe61"
+      }      ,
+      {
+        "pickupId": 60,
+        "displayName": "Demon Head",
+        "internalName": "Demon_Head",
+        "quality": "B",
+        "encounterGuid": "99b1d2df37374cdea1f6d93fa33bd689"
+      }      ,
+      {
+        "pickupId": 378,
+        "displayName": "Derringer",
+        "internalName": "Derringer",
+        "quality": "D",
+        "encounterGuid": "08d491d2f35545419bd3d059c645d800"
+      }      ,
+      {
+        "pickupId": 484,
+        "displayName": "Devolver",
+        "internalName": "Devolver",
+        "quality": "C",
+        "encounterGuid": "7c5e4ccfaf7b4b3bbc52f9800f164237"
+      }      ,
+      {
+        "pickupId": 514,
+        "displayName": "Directional Pad",
+        "internalName": "dpad_Gun",
+        "quality": "B",
+        "encounterGuid": "80ffa305427345b5b798d68283f65eac"
+      }      ,
+      {
+        "pickupId": 121,
+        "displayName": "Disintegrator",
+        "internalName": "Energy_Cannon",
+        "quality": "S",
+        "encounterGuid": "f3b12f80b0b94b9ba7afa466d00db112"
+      }      ,
+      {
+        "pickupId": 146,
+        "displayName": "Dragunfire",
+        "internalName": "Dragonbreath_Machine_Gun",
+        "quality": "A",
+        "encounterGuid": "334bbd6b54384d08a714f23b9d465e32"
+      }      ,
+      {
+        "pickupId": 677,
+        "displayName": "Dragunfire",
+        "internalName": "Dragonbreath_Machine_Gun_Kaliber",
+        "quality": "SPECIAL",
+        "encounterGuid": "f09a7f68306642c7bb763b9ff0e7bb59"
+      }      ,
+      {
+        "pickupId": 508,
+        "displayName": "Dueling Laser",
+        "internalName": "Dueling_Laser",
+        "quality": "B",
+        "encounterGuid": "50a86f0ab49e492ea7354c4379142f08"
+      }      ,
+      {
+        "pickupId": 9,
+        "displayName": "Dueling Pistol",
+        "internalName": "Dueling_Pistol",
+        "quality": "D",
+        "encounterGuid": "afd6ae6103ad455fbd107509dab7e294"
+      }      ,
+      {
+        "pickupId": 675,
+        "displayName": "Dueling Pistol",
+        "internalName": "Dueling_Pistol_Synergy",
+        "quality": "SPECIAL",
+        "encounterGuid": "a1f1274e988643a0bf387c15f14b5795"
+      }      ,
+      {
+        "pickupId": 23,
+        "displayName": "Dungeon Eagle",
+        "internalName": "desertEagle",
+        "quality": "C",
+        "encounterGuid": "0986170617b4441aa7972f96871322e4"
+      }      ,
+      {
+        "pickupId": 750,
+        "displayName": "Dungeon Eagle",
+        "internalName": "desertEagle_synergy",
+        "quality": "EXCLUDED",
+        "encounterGuid": "dcc08bd2ee6344fe9e59e56175d8b537"
+      }      ,
+      {
+        "pickupId": 368,
+        "displayName": "El Tigre",
+        "internalName": "Tiger_Gun",
+        "quality": "EXCLUDED",
+        "encounterGuid": "7909593e5b1b4242990b909f89fb1020"
+      }      ,
+      {
+        "pickupId": 82,
+        "displayName": "Elephant Gun",
+        "internalName": "Elephant_Gun",
+        "quality": "C",
+        "encounterGuid": "3e752162df1d442292873e427a21d721"
+      }      ,
+      {
+        "pickupId": 672,
+        "displayName": "Elephant Gun",
+        "internalName": "Elephant_Gun_Synergy",
+        "quality": "SPECIAL",
+        "encounterGuid": "6dd3032388aa4809bbf226013d0485d4"
+      }      ,
+      {
+        "pickupId": 626,
+        "displayName": "Elimentaler",
+        "internalName": "Resourceful_Rat_Gun",
+        "quality": "S",
+        "encounterGuid": "6b153ff5fbc14284921e4ad3eb66ac16"
+      }      ,
+      {
+        "pickupId": 755,
+        "displayName": "Evolver",
+        "internalName": "Evo_Gun_001",
+        "quality": "C",
+        "encounterGuid": "afaacd635d7a442c8f00244f1ccad337"
+      }      ,
+      {
+        "pickupId": 377,
+        "displayName": "Excaliber",
+        "internalName": "Swordgun",
+        "quality": "B",
+        "encounterGuid": "264e27ffc9394864a9aa464910a11171"
+      }      ,
+      {
+        "pickupId": 680,
+        "displayName": "Excaliber",
+        "internalName": "Swordgun_Synergy",
+        "quality": "SPECIAL",
+        "encounterGuid": "e77d532df73d4d7381da9e11fdd1a2d0"
+      }      ,
+      {
+        "pickupId": 90,
+        "displayName": "Eye of the Beholster",
+        "internalName": "Beholster_Gun",
+        "quality": "B",
+        "encounterGuid": "e119de04ed5040a7856a21485b029574"
+      }      ,
+      {
+        "pickupId": 149,
+        "displayName": "Face Melter",
+        "internalName": "Electric_Guitar_Gun",
+        "quality": "B",
+        "encounterGuid": "9b89d588353d4ea490c204b3c95f59c5"
+      }      ,
+      {
+        "pickupId": 702,
+        "displayName": "Face Melter",
+        "internalName": "Electric_Guitar_Gun_Synergy",
+        "quality": "SPECIAL",
+        "encounterGuid": "9874fccb98e6476e9b362ec9136f1b11"
+      }      ,
+      {
+        "pickupId": 345,
+        "displayName": "Fightsabre",
+        "internalName": "Excaliber_Green",
+        "quality": "S",
+        "encounterGuid": "91f14f5a3d0d4413847160205eff9952"
+      }      ,
+      {
+        "pickupId": 762,
+        "displayName": "Finished Gun",
+        "internalName": "Finished_Gun",
+        "quality": "S",
+        "encounterGuid": "90ff5de1e6af41d1baa820c6c0fc7647"
+      }      ,
+      {
+        "pickupId": 125,
+        "displayName": "Flame Hand",
+        "internalName": "Burning_Hand",
+        "quality": "B",
+        "encounterGuid": "8c8392587320474c827b800001c2a178"
+      }      ,
+      {
+        "pickupId": 698,
+        "displayName": "Flame Hand",
+        "internalName": "Burning_Hand_Synergy",
+        "quality": "SPECIAL",
+        "encounterGuid": "4878f77a06074ba6bc12a70853f6518b"
+      }      ,
+      {
+        "pickupId": 275,
+        "displayName": "Flare Gun",
+        "internalName": "Flare_Gun",
+        "quality": "D",
+        "encounterGuid": "2b626b9bc030407286529df35fb2db2d"
+      }      ,
+      {
+        "pickupId": 706,
+        "displayName": "Flare Gun",
+        "internalName": "Flare_Gun_Synergy",
+        "quality": "SPECIAL",
+        "encounterGuid": "3e3690dcfee14f8d9c3e725810d36236"
+      }      ,
+      {
+        "pickupId": 383,
+        "displayName": "Flash Ray",
+        "internalName": "Flash_Raygun",
+        "quality": "D",
+        "encounterGuid": "34c02d01297e4ad593a7884e4042930a"
+      }      ,
+      {
+        "pickupId": 657,
+        "displayName": "Flash Ray",
+        "internalName": "Chamber_Gun_Oubliette",
+        "quality": "SPECIAL",
+        "encounterGuid": "574a78e5d84f4d50bfcd7f8c358a31c3"
+      }      ,
+      {
+        "pickupId": 705,
+        "displayName": "Flash Ray",
+        "internalName": "Flash_Raygun_Synergy",
+        "quality": "EXCLUDED",
+        "encounterGuid": "49c609d7f25546cea265fe53ef4ab2c6"
+      }      ,
+      {
+        "pickupId": 196,
+        "displayName": "Fossilized Gun",
+        "internalName": "Fossilized_Gun",
+        "quality": "D",
+        "encounterGuid": "83e3ccf21661493a8146e58c6a061bf6"
+      }      ,
+      {
+        "pickupId": 40,
+        "displayName": "Freeze Ray",
+        "internalName": "FreezeRay",
+        "quality": "A",
+        "encounterGuid": "16fda73f250141afaf9b231121b30cf4"
+      }      ,
+      {
+        "pickupId": 710,
+        "displayName": "Freeze Ray",
+        "internalName": "FreezeRay_Synergy",
+        "quality": "EXCLUDED",
+        "encounterGuid": "7def8ea85759408bb2a448fa26529fd5"
+      }      ,
+      {
+        "pickupId": 387,
+        "displayName": "Frost Giant",
+        "internalName": "Ice_Giant_Gun",
+        "quality": "B",
+        "encounterGuid": "cc4afd3080fa47c5b36190e2c7e1b7ac"
+      }      ,
+      {
+        "pickupId": 87,
+        "displayName": "Gamma Ray",
+        "internalName": "Radiation_Laser",
+        "quality": "C",
+        "encounterGuid": "52a60d509808400490790bcd1ea4d849"
+      }      ,
+      {
+        "pickupId": 671,
+        "displayName": "Gamma Ray",
+        "internalName": "Radiation_Laser_Synergy",
+        "quality": "SPECIAL",
+        "encounterGuid": "b2419e628d804f1db77f916f748f9616"
+      }      ,
+      {
+        "pickupId": 231,
+        "displayName": "Gilded Hydra",
+        "internalName": "Gilded_Hydra",
+        "quality": "S",
+        "encounterGuid": "322c7e5489b940469192eccb97ab406d"
+      }      ,
+      {
+        "pickupId": 130,
+        "displayName": "Glacier",
+        "internalName": "Ice_Gun",
+        "quality": "A",
+        "encounterGuid": "4e69397ea3404de8941f29d0de8a89b8"
+      }      ,
+      {
+        "pickupId": 540,
+        "displayName": "Glass Cannon",
+        "internalName": "Glass_Cannon",
+        "quality": "C",
+        "encounterGuid": "05a88ce175df4935877da1f2ade29dd7"
+      }      ,
+      {
+        "pickupId": 819,
+        "displayName": "Glass Cannon",
+        "internalName": "Glass_Cannon _Synergy",
+        "quality": "SPECIAL",
+        "encounterGuid": "ec84edb858a143e4946aec055f4f10e6"
+      }      ,
+      {
+        "pickupId": 180,
+        "displayName": "Grasschopper",
+        "internalName": "Noisy_Cricket",
+        "quality": "A",
+        "encounterGuid": "0b3d715d979b4aed8c261e2b69164d11"
+      }      ,
+      {
+        "pickupId": 19,
+        "displayName": "Grenade Launcher",
+        "internalName": "M79_Grenade_Launcher",
+        "quality": "B",
+        "encounterGuid": "c549e097495c4d4c84f965ea0ff8c6bb"
+      }      ,
+      {
+        "pickupId": 182,
+        "displayName": "Grey Mauser",
+        "internalName": "Mauser_Pistol",
+        "quality": "B",
+        "encounterGuid": "abcd75a50e5e49a491b7cf6ca41d2723"
+      }      ,
+      {
+        "pickupId": 210,
+        "displayName": "Gunbow",
+        "internalName": "BulletBow",
+        "quality": "A",
+        "encounterGuid": "efc048ec8f904982a6db7d592dfde03b"
+      }      ,
+      {
+        "pickupId": 693,
+        "displayName": "Gunbow",
+        "internalName": "BulletBow_Synergy",
+        "quality": "SPECIAL",
+        "encounterGuid": "d0ed15b55a0f42c3a91ac511ee6ace58"
+      }      ,
+      {
+        "pickupId": 733,
+        "displayName": "Gunderfury Level 10",
+        "internalName": "Gunderfury_LV_20",
+        "quality": "SPECIAL",
+        "encounterGuid": ""
+      }      ,
+      {
+        "pickupId": 731,
+        "displayName": "Gunderfury Level 20",
+        "internalName": "Gunderfury_LV_30",
+        "quality": "SPECIAL",
+        "encounterGuid": ""
+      }      ,
+      {
+        "pickupId": 730,
+        "displayName": "Gunderfury Level 30",
+        "internalName": "Gunderfury_LV_40",
+        "quality": "SPECIAL",
+        "encounterGuid": ""
+      }      ,
+      {
+        "pickupId": 728,
+        "displayName": "Gunderfury Level 40",
+        "internalName": "Gunderfury_LV_50",
+        "quality": "SPECIAL",
+        "encounterGuid": ""
+      }      ,
+      {
+        "pickupId": 729,
+        "displayName": "Gunderfury Level 50",
+        "internalName": "Gunderfury_LV_60",
+        "quality": "SPECIAL",
+        "encounterGuid": ""
+      }      ,
+      {
+        "pickupId": 732,
+        "displayName": "Gunderfury Lv10",
+        "internalName": "Gunderfury_LV_10",
+        "quality": "A",
+        "encounterGuid": "190c79196f8d47ccb583f7d89af32a84"
+      }      ,
+      {
+        "pickupId": 176,
+        "displayName": "Gungeon Ant",
+        "internalName": "Ant_Gun",
+        "quality": "C",
+        "encounterGuid": "a0125d049e0e435cac1c7127bcb07ef4"
+      }      ,
+      {
+        "pickupId": 739,
+        "displayName": "Gungeon Ant",
+        "internalName": "Ant_Gun_Synergy",
+        "quality": "EXCLUDED",
+        "encounterGuid": "e6f132c6818e45588459a02872cec02a"
+      }      ,
+      {
+        "pickupId": 401,
+        "displayName": "Gungine",
+        "internalName": "Engine_Gun",
+        "quality": "S",
+        "encounterGuid": "e3b972151d9a417592e1c173f8c6526e"
+      }      ,
+      {
+        "pickupId": 602,
+        "displayName": "GuNNER",
+        "internalName": "Gunner",
+        "quality": "B",
+        "encounterGuid": "d370544ac4324a1b81d80706e7ad09d5"
+      }      ,
+      {
+        "pickupId": 198,
+        "displayName": "Gunslinger's Ashes",
+        "internalName": "Urn_Gun",
+        "quality": "C",
+        "encounterGuid": "6a02eca1c521486fa73e7d217bc62c4b"
+      }      ,
+      {
+        "pickupId": 338,
+        "displayName": "Gunther",
+        "internalName": "Mask_Gun",
+        "quality": "S",
+        "encounterGuid": "35d9d851db1446c8871380e81677995b"
+      }      ,
+      {
+        "pickupId": 482,
+        "displayName": "Gunzheng",
+        "internalName": "Guzheng",
+        "quality": "B",
+        "encounterGuid": "43fbc409a1d6469a9a3534d8c4564763"
+      }      ,
+      {
+        "pickupId": 91,
+        "displayName": "H4mmer",
+        "internalName": "H4MMER",
+        "quality": "B",
+        "encounterGuid": "0a90f405eaab49ad8655e66bdc062d2b"
+      }      ,
+      {
+        "pickupId": 715,
+        "displayName": "H4mmer",
+        "internalName": "H4MMER_Synergy",
+        "quality": "SPECIAL",
+        "encounterGuid": "e5df958aad94452bb487a05c90fe284a"
+      }      ,
+      {
+        "pickupId": 17,
+        "displayName": "Heck Blaster",
+        "internalName": "Earthworm Gun",
+        "quality": "B",
+        "encounterGuid": "6009a6302ccc433dac6c39b90aa2fe46"
+      }      ,
+      {
+        "pickupId": 229,
+        "displayName": "Hegemony Carbine",
+        "internalName": "Future_Assault_Rifle",
+        "quality": "C",
+        "encounterGuid": "ada8ebd8dfc44f2795323f885b3f4210"
+      }      ,
+      {
+        "pickupId": 724,
+        "displayName": "Hegemony Carbine",
+        "internalName": "Future_Assault_Rifle_Synergy",
+        "quality": "EXCLUDED",
+        "encounterGuid": "a7c4b60a40c24836a9f538ac4ab5889c"
+      }      ,
+      {
+        "pickupId": 59,
+        "displayName": "Hegemony Rifle",
+        "internalName": "E12_Blaster_Rifle",
+        "quality": "B",
+        "encounterGuid": "d1d5af95f2b942d79f6aa0a8abc9e550"
+      }      ,
+      {
+        "pickupId": 699,
+        "displayName": "Hegemony Rifle",
+        "internalName": "E12_Blaster_Rifle_Synergy",
+        "quality": "SPECIAL",
+        "encounterGuid": "4b3bc12b4bff4a5d9c4b9faf62bec172"
+      }      ,
+      {
+        "pickupId": 230,
+        "displayName": "Helix",
+        "internalName": "Twin_Energy_Blaster",
+        "quality": "C",
+        "encounterGuid": "07719fbab0fb4080b5d00aa18e6b982d"
+      }      ,
+      {
+        "pickupId": 708,
+        "displayName": "Helix",
+        "internalName": "Twin_Energy_Blaster_Synergy",
+        "quality": "SPECIAL",
+        "encounterGuid": "56b1a8b0d32043898e555159921c6087"
+      }      ,
+      {
+        "pickupId": 41,
+        "displayName": "Heroine",
+        "internalName": "Samus Arm",
+        "quality": "B",
+        "encounterGuid": "3a82ff59fd5b4631ae17a3fc776a3cad"
+      }      ,
+      {
+        "pickupId": 615,
+        "displayName": "Heroine (Hyper Beam)",
+        "internalName": "Samus Arm (Hyper)",
+        "quality": "SPECIAL",
+        "encounterGuid": "0fbd1928f828474d94daed76b9fca173"
+      }      ,
+      {
+        "pickupId": 613,
+        "displayName": "Heroine (Ice Beam)",
+        "internalName": "Samus Arm (Ice)",
+        "quality": "SPECIAL",
+        "encounterGuid": "3621ff6c7b5a4fab9e199eb63f92b8f6"
+      }      ,
+      {
+        "pickupId": 614,
+        "displayName": "Heroine (Plasma Beam)",
+        "internalName": "Samus Arm (Plasma)",
+        "quality": "SPECIAL",
+        "encounterGuid": "3bea0991bfc04b41b6fcc10f951166b7"
+      }      ,
+      {
+        "pickupId": 612,
+        "displayName": "Heroine (Wave Beam)",
+        "internalName": "Samus Arm (Wave)",
+        "quality": "SPECIAL",
+        "encounterGuid": "18fc1ee979824d07aba45bf1a209a43b"
+      }      ,
+      {
+        "pickupId": 385,
+        "displayName": "Hexagun",
+        "internalName": "Magic_Sniper_Rifle",
+        "quality": "B",
+        "encounterGuid": "2f52af65260f4d0cb2ea185162d537a0"
+      }      ,
+      {
+        "pickupId": 670,
+        "displayName": "High Dragunfire",
+        "internalName": "HighDragonbreath_Machine_Gun",
+        "quality": "S",
+        "encounterGuid": "755181d817df490e96ebf92b3331b261"
+      }      ,
+      {
+        "pickupId": 747,
+        "displayName": "High Dragunfire",
+        "internalName": "Space_Turtine_Turtle_Gun",
+        "quality": "EXCLUDED",
+        "encounterGuid": "f42eed0b23194641816d557d1eb09a2e"
+      }      ,
+      {
+        "pickupId": 761,
+        "displayName": "High Kaliber",
+        "internalName": "Kthuliber_Gun",
+        "quality": "A",
+        "encounterGuid": "8f8063e8e8ef488dbdcf1411158b80cf"
+      }      ,
+      {
+        "pickupId": 346,
+        "displayName": "Huntsman",
+        "internalName": "Shotgun_Axe",
+        "quality": "C",
+        "encounterGuid": "624c6ca9faee4281be57d3eb96b953f0"
+      }      ,
+      {
+        "pickupId": 505,
+        "displayName": "Huntsman",
+        "internalName": "Wicked_Sister",
+        "quality": "SPECIAL",
+        "encounterGuid": "827f9fa001dd464a9506e567fbd1e882"
+      }      ,
+      {
+        "pickupId": 504,
+        "displayName": "Hyper Light Blaster",
+        "internalName": "HLD_Gun",
+        "quality": "B",
+        "encounterGuid": "ba2cc06a9d5546b6b083a0d204780245"
+      }      ,
+      {
+        "pickupId": 695,
+        "displayName": "Hyper Light Blaster",
+        "internalName": "HLD_Gun_Synergy",
+        "quality": "SPECIAL",
+        "encounterGuid": "dc48d087efc842c29ba0f09aab0205c8"
+      }      ,
+      {
+        "pickupId": 225,
+        "displayName": "Ice Breaker",
+        "internalName": "Ice_Breakers_Gun",
+        "quality": "B",
+        "encounterGuid": "493995f16b7b4aebae75b4bc59729bb6"
+      }      ,
+      {
+        "pickupId": 745,
+        "displayName": "Ice Breaker",
+        "internalName": "Ice_Breakers_Gun_Synergy",
+        "quality": "EXCLUDED",
+        "encounterGuid": "5f46a393b5b54a82a8e5005506fea846"
+      }      ,
+      {
+        "pickupId": 486,
+        "displayName": "ITEMS_STRING_NOT_FOUND",
+        "internalName": "Tank_Treader_Gun",
+        "quality": "EXCLUDED",
+        "encounterGuid": "d3d924e22f3242308e229eff15fd96a0"
+      }      ,
+      {
+        "pickupId": 510,
+        "displayName": "JK-47",
+        "internalName": "JK-47",
+        "quality": "C",
+        "encounterGuid": "38e6ba63165f43899315845cc076ab61"
+      }      ,
+      {
+        "pickupId": 47,
+        "displayName": "Jolter",
+        "internalName": "boltRifle",
+        "quality": "B",
+        "encounterGuid": "9aeb17b0d57b480aaebc50e02f7b3ec5"
+      }      ,
+      {
+        "pickupId": 721,
+        "displayName": "Jolter",
+        "internalName": "boltRifle_Synergy",
+        "quality": "EXCLUDED",
+        "encounterGuid": "9f37a260898d4026a77254c1e522d158"
+      }      ,
+      {
+        "pickupId": 31,
+        "displayName": "Klobbe",
+        "internalName": "Klobb",
+        "quality": "D",
+        "encounterGuid": "4d727815fcfc4fc6a28cdf498742dde7"
+      }      ,
+      {
+        "pickupId": 472,
+        "displayName": "Klobbe",
+        "internalName": "Mummy_Gun",
+        "quality": "EXCLUDED",
+        "encounterGuid": ""
+      }      ,
+      {
+        "pickupId": 690,
+        "displayName": "Klobbe",
+        "internalName": "Klobb_Synergy",
+        "quality": "EXCLUDED",
+        "encounterGuid": "7b025bde17344768aa851c8ca8b8be58"
+      }      ,
+      {
+        "pickupId": 550,
+        "displayName": "Knight's Gun",
+        "internalName": "Shovel_Gun",
+        "quality": "A",
+        "encounterGuid": "07c8cbc1f6a7491e90472d75343994ff"
+      }      ,
+      {
+        "pickupId": 656,
+        "displayName": "Kruller Glaive",
+        "internalName": "Glaive",
+        "quality": "B",
+        "encounterGuid": "fa3d81bebe744efa8cbdd79a828096f5"
+      }      ,
+      {
+        "pickupId": 668,
+        "displayName": "Lamey",
+        "internalName": "Resourceful_Rat_Enemy_Gun",
+        "quality": "SPECIAL",
+        "encounterGuid": ""
+      }      ,
+      {
+        "pickupId": 156,
+        "displayName": "Laser Lotus",
+        "internalName": "Plasma_Cell_Gun",
+        "quality": "A",
+        "encounterGuid": "83912b6624b54a48992d47457b810fe6"
+      }      ,
+      {
+        "pickupId": 714,
+        "displayName": "Laser Lotus",
+        "internalName": "Plasma_Cell_Gun_Synergy",
+        "quality": "SPECIAL",
+        "encounterGuid": "ce1fa9398ca345ef9496d290e7fbf1bb"
+      }      ,
+      {
+        "pickupId": 54,
+        "displayName": "Laser Rifle",
+        "internalName": "Bowcaster",
+        "quality": "C",
+        "encounterGuid": "578d4f70ff89474bbc1b09901f7e3dcd"
+      }      ,
+      {
+        "pickupId": 676,
+        "displayName": "Laser Rifle",
+        "internalName": "Bowcaster_Synergy",
+        "quality": "SPECIAL",
+        "encounterGuid": "b5f31381b69446df927ce240c39e79fb"
+      }      ,
+      {
+        "pickupId": 620,
+        "displayName": "Leaf Shield",
+        "internalName": "Mega Buster (Leaf)",
+        "quality": "SPECIAL",
+        "encounterGuid": "b93a37f84d1f4d46b077388b4b033a4c"
+      }      ,
+      {
+        "pickupId": 595,
+        "displayName": "Life Orb",
+        "internalName": "Life_Orb_Gun",
+        "quality": "A",
+        "encounterGuid": "5d64f2a72568419ba98111327367875d"
+      }      ,
+      {
+        "pickupId": 27,
+        "displayName": "Light Gun",
+        "internalName": "Zapper",
+        "quality": "B",
+        "encounterGuid": "a9dd85c4055a4157a5d20729d5e52e54"
+      }      ,
+      {
+        "pickupId": 711,
+        "displayName": "Light Gun",
+        "internalName": "Zapper_Synergy",
+        "quality": "EXCLUDED",
+        "encounterGuid": "edf3c313a2d64dca9427eff0cea5c19c"
+      }      ,
+      {
+        "pickupId": 332,
+        "displayName": "Lil' Bomber",
+        "internalName": "Bomb_Gun",
+        "quality": "D",
+        "encounterGuid": "ae12db593dfa4a75a78a355e20c520d6"
+      }      ,
+      {
+        "pickupId": 719,
+        "displayName": "Lil' Bomber",
+        "internalName": "Bomb_Gun_Synergy",
+        "quality": "SPECIAL",
+        "encounterGuid": "5d95b559d3f849cd944ef6b26be556cc"
+      }      ,
+      {
+        "pickupId": 340,
+        "displayName": "Lower Case r",
+        "internalName": "Lower_Case_r",
+        "quality": "D",
+        "encounterGuid": "71844363e89d45b0b6c5e3788ad486a3"
+      }      ,
+      {
+        "pickupId": 648,
+        "displayName": "Lower Case r",
+        "internalName": "Circle_Gun",
+        "quality": "SPECIAL",
+        "encounterGuid": "a47715db359840e8bff3ae26682bec4f"
+      }      ,
+      {
+        "pickupId": 738,
+        "displayName": "Lower Case r",
+        "internalName": "Lower_Case_r_synergy",
+        "quality": "EXCLUDED",
+        "encounterGuid": "5b0bfc0ef7a24f2aa2f97ccb515ad7b3"
+      }      ,
+      {
+        "pickupId": 199,
+        "displayName": "Luxin Cannon",
+        "internalName": "Crystal_Gun",
+        "quality": "C",
+        "encounterGuid": "106b02a7c0b4464a816e17fcbe7c6ea8"
+      }      ,
+      {
+        "pickupId": 701,
+        "displayName": "Luxin Cannon",
+        "internalName": "Crystal_Gun_Synergy",
+        "quality": "EXCLUDED",
+        "encounterGuid": "e75b4d0de67d4c989b1cadbe7220dd35"
+      }      ,
+      {
+        "pickupId": 25,
+        "displayName": "M1",
+        "internalName": "M1",
+        "quality": "C",
+        "encounterGuid": "403a6f0e535e40b4a31c791c9a6af13b"
+      }      ,
+      {
+        "pickupId": 684,
+        "displayName": "M1",
+        "internalName": "M1_Synergy",
+        "quality": "SPECIAL",
+        "encounterGuid": "ec6106cb770144049285fddd0503cdfc"
+      }      ,
+      {
+        "pickupId": 96,
+        "displayName": "M16",
+        "internalName": "M16",
+        "quality": "A",
+        "encounterGuid": "aa79140f7aa54ac997eaca8f99e58c22"
+      }      ,
+      {
+        "pickupId": 30,
+        "displayName": "M1911",
+        "internalName": "M1911",
+        "quality": "C",
+        "encounterGuid": "e5ce2aacd1e94d2cbc17c265b2575009"
+      }      ,
+      {
+        "pickupId": 94,
+        "displayName": "MAC10",
+        "internalName": "MAC10",
+        "quality": "C",
+        "encounterGuid": "36aa4b086cc647ce8aa0360e313e10bb"
+      }      ,
+      {
+        "pickupId": 186,
+        "displayName": "Machine Fist",
+        "internalName": "Machine_Gun_Hand",
+        "quality": "A",
+        "encounterGuid": "cd8665fbd3c84ad5987e6d4a7b00eafe"
+      }      ,
+      {
+        "pickupId": 43,
+        "displayName": "Machine Pistol",
+        "internalName": "Uzi",
+        "quality": "D",
+        "encounterGuid": "6a4ef6c6b74d4523a819b18467a3d07b"
+      }      ,
+      {
+        "pickupId": 673,
+        "displayName": "Machine Pistol",
+        "internalName": "Uzi_Synergy",
+        "quality": "EXCLUDED",
+        "encounterGuid": "b8051d174cc44f3591d00609e2a60a29"
+      }      ,
+      {
+        "pickupId": 0,
+        "displayName": "Magic Lamp",
+        "internalName": "Lamp",
+        "quality": "B",
+        "encounterGuid": "e727d09b520d4c4483bc836a5416ba63"
+      }      ,
+      {
+        "pickupId": 38,
+        "displayName": "Magnum",
+        "internalName": "Magnum",
+        "quality": "B",
+        "encounterGuid": "d0d11aec333b48e2abfdc70100392670"
+      }      ,
+      {
+        "pickupId": 751,
+        "displayName": "Magnum",
+        "internalName": "Magnum_Titan",
+        "quality": "SPECIAL",
+        "encounterGuid": "bba06ad9f65a4dc79a2b64eabf344ed9"
+      }      ,
+      {
+        "pickupId": 339,
+        "displayName": "Mahoguny",
+        "internalName": "Wood_Gun",
+        "quality": "C",
+        "encounterGuid": "6697a0fc1f394c0d8fcb9f642c8a984d"
+      }      ,
+      {
+        "pickupId": 28,
+        "displayName": "Mailbox",
+        "internalName": "Mailbox_Gun",
+        "quality": "D",
+        "encounterGuid": "4a582c0387244afda57e0375b032aab3"
+      }      ,
+      {
+        "pickupId": 79,
+        "displayName": "Makarov",
+        "internalName": "Makarov",
+        "quality": "D",
+        "encounterGuid": "1d00824f661c4be783029cb69993972e"
+      }      ,
+      {
+        "pickupId": 480,
+        "displayName": "Makeshift Cannon",
+        "internalName": "Kirkcannon",
+        "quality": "S",
+        "encounterGuid": "9aa3ff827df147c4919dd0e85617d3a5"
+      }      ,
+      {
+        "pickupId": 86,
+        "displayName": "Marine Sidearm",
+        "internalName": "SPMA1",
+        "quality": "SPECIAL",
+        "encounterGuid": "dd73a682dd11467ebe68b55f384afc08"
+      }      ,
+      {
+        "pickupId": 809,
+        "displayName": "Marine Sidearm",
+        "internalName": "SPMA1_Alt",
+        "quality": "SPECIAL",
+        "encounterGuid": "9b330b27009343f1892a2cef3df2c300"
+      }      ,
+      {
+        "pickupId": 365,
+        "displayName": "Mass Shotgun",
+        "internalName": "ME_Shotgun",
+        "quality": "B",
+        "encounterGuid": "8f22900b96fc4dd2b2264bb74d0b3769"
+      }      ,
+      {
+        "pickupId": 10,
+        "displayName": "Mega Douser",
+        "internalName": "Super Soaker",
+        "quality": "D",
+        "encounterGuid": "f18d8757791d45328c13578323520fcc"
+      }      ,
+      {
+        "pickupId": 36,
+        "displayName": "Megahand",
+        "internalName": "Mega Buster",
+        "quality": "B",
+        "encounterGuid": "c3c403c6e3734887917da21e055a3c75"
+      }      ,
+      {
+        "pickupId": 619,
+        "displayName": "Metal Blade",
+        "internalName": "Mega Buster (Metal)",
+        "quality": "SPECIAL",
+        "encounterGuid": "8cc35eef632743aaa71b0ff8c76ab80e"
+      }      ,
+      {
+        "pickupId": 476,
+        "displayName": "Microtransaction Gun",
+        "internalName": "Cash_Register_Gun",
+        "quality": "A",
+        "encounterGuid": "5c2241fc117740d59ad8e29f5324b773"
+      }      ,
+      {
+        "pickupId": 734,
+        "displayName": "Mimic",
+        "internalName": "Mimic_Gun",
+        "quality": "SPECIAL",
+        "encounterGuid": "f680c13a0f774a78bbaf5cd8953c5efb"
+      }      ,
+      {
+        "pickupId": 394,
+        "displayName": "Mine Cutter",
+        "internalName": "Mining_Laser",
+        "quality": "B",
+        "encounterGuid": "4e21dc0296fe4072b064024941809baf"
+      }      ,
+      {
+        "pickupId": 292,
+        "displayName": "Molotov Launcher",
+        "internalName": "Molotov_Cocktail_Launcher",
+        "quality": "C",
+        "encounterGuid": "f9941c07c9af42baa688c7b688ee95f0"
+      }      ,
+      {
+        "pickupId": 691,
+        "displayName": "Molotov Launcher",
+        "internalName": "Molotov_Cocktail_Launcher_Synergy",
+        "quality": "SPECIAL",
+        "encounterGuid": "71787159e41e4c75bc3894429f5e120d"
+      }      ,
+      {
+        "pickupId": 594,
+        "displayName": "Moonlight Tiara",
+        "internalName": "Moon_Crown",
+        "quality": "SPECIAL",
+        "encounterGuid": "8969480cea754e0d8df20a7df98ad7d4"
+      }      ,
+      {
+        "pickupId": 20,
+        "displayName": "Moonscraper",
+        "internalName": "moonrakerLaser",
+        "quality": "C",
+        "encounterGuid": "8c89bd713ca045fca5c713f26e5310a2"
+      }      ,
+      {
+        "pickupId": 713,
+        "displayName": "Moonscraper",
+        "internalName": "moonrakerLaser_Synergy",
+        "quality": "EXCLUDED",
+        "encounterGuid": "d6a2ce15f9004ba2a9ae8a5f79d50514"
+      }      ,
+      {
+        "pickupId": 515,
+        "displayName": "Mourning Star",
+        "internalName": "Hammer_of_Dawn",
+        "quality": "S",
+        "encounterGuid": "6fe7a116a69e4fe1bc2e00f678b8c69c"
+      }      ,
+      {
+        "pickupId": 597,
+        "displayName": "Mr. Accretion Jr.",
+        "internalName": "Planet_Gun",
+        "quality": "B",
+        "encounterGuid": "cfc4adbd26f94ef38638e95fd371ead7"
+      }      ,
+      {
+        "pickupId": 333,
+        "displayName": "Mutation",
+        "internalName": "Mutant_Arm",
+        "quality": "B",
+        "encounterGuid": "527c024997c14ad8a0ce332a51c69eae"
+      }      ,
+      {
+        "pickupId": 608,
+        "displayName": "Mutation",
+        "internalName": "Mutant_TechArm",
+        "quality": "SPECIAL",
+        "encounterGuid": "f7482c1b6eed4e71a32f0b5b60beb5d6"
+      }      ,
+      {
+        "pickupId": 26,
+        "displayName": "Nail Gun",
+        "internalName": "Nailgun",
+        "quality": "D",
+        "encounterGuid": "188556f8b6db406daf146d96604b010d"
+      }      ,
+      {
+        "pickupId": 692,
+        "displayName": "Nail Gun",
+        "internalName": "Nailgun_Synergy",
+        "quality": "SPECIAL",
+        "encounterGuid": "907595e3a03d444faced53520701935c"
+      }      ,
+      {
+        "pickupId": 93,
+        "displayName": "Old Goldie",
+        "internalName": "Gold_Double_Barrel_Shotgun",
+        "quality": "A",
+        "encounterGuid": "e532d4f557484f4eba365ebfef460599"
+      }      ,
+      {
+        "pickupId": 477,
+        "displayName": "Origuni",
+        "internalName": "Origami_Gun",
+        "quality": "C",
+        "encounterGuid": "77471784fe1b44baa33d72a62bd8a23b"
+      }      ,
+      {
+        "pickupId": 744,
+        "displayName": "Origuni",
+        "internalName": "Origami_Gun_Synergy",
+        "quality": "EXCLUDED",
+        "encounterGuid": "f1685b9957e24c5f803a43a2f3c3977f"
+      }      ,
+      {
+        "pickupId": 228,
+        "displayName": "Particulator",
+        "internalName": "Distortion_Launcher",
+        "quality": "S",
+        "encounterGuid": "a92e45fac9c841dca37411fc3940ccd9"
+      }      ,
+      {
+        "pickupId": 98,
+        "displayName": "Patriot",
+        "internalName": "Excaliber",
+        "quality": "S",
+        "encounterGuid": "fb7789dcea354f959ae52403c1628a34"
+      }      ,
+      {
+        "pickupId": 544,
+        "displayName": "Patriot",
+        "internalName": "Armored_B_Gun",
+        "quality": "EXCLUDED",
+        "encounterGuid": "4ddab503278742ba96da8fa02b9d0f55"
+      }      ,
+      {
+        "pickupId": 197,
+        "displayName": "Pea Shooter",
+        "internalName": "Pea_Shooter",
+        "quality": "D",
+        "encounterGuid": "b6498bbe38b04da68888297f05227fb1"
+      }      ,
+      {
+        "pickupId": 674,
+        "displayName": "Pea Shooter",
+        "internalName": "Pea_Shooter_Synergy",
+        "quality": "SPECIAL",
+        "encounterGuid": "b5ed23743bc64de08a7aed727731e210"
+      }      ,
+      {
+        "pickupId": 384,
+        "displayName": "Phoenix",
+        "internalName": "Phoenix",
+        "quality": "D",
+        "encounterGuid": "4812a566e57347fbb5d08af429958a1e"
+      }      ,
+      {
+        "pickupId": 736,
+        "displayName": "Phoenix",
+        "internalName": "Phoenix_Synergy",
+        "quality": "EXCLUDED",
+        "encounterGuid": "d146eea5286b41be897918f238546ee4"
+      }      ,
+      {
+        "pickupId": 336,
+        "displayName": "Pitchfork",
+        "internalName": "Pitchfork",
+        "quality": "C",
+        "encounterGuid": "989a7d4ef32849d58a64e365041f0ce1"
+      }      ,
+      {
+        "pickupId": 722,
+        "displayName": "Pitchfork",
+        "internalName": "Pitchfork_Synergy",
+        "quality": "EXCLUDED",
+        "encounterGuid": "d1377cd0514d4cb8bbb66a0834199085"
+      }      ,
+      {
+        "pickupId": 207,
+        "displayName": "Plague Pistol",
+        "internalName": "Rusty_Goop_Gun",
+        "quality": "D",
+        "encounterGuid": "5f24f29e15a54207aee635b9bb6ec6bd"
+      }      ,
+      {
+        "pickupId": 682,
+        "displayName": "Plague Pistol",
+        "internalName": "Rusty_Goop_Gun_Synergy",
+        "quality": "SPECIAL",
+        "encounterGuid": "48eac2e8c0954d239536ba105aa32f0e"
+      }      ,
+      {
+        "pickupId": 208,
+        "displayName": "Plunger",
+        "internalName": "Syringe_Gun",
+        "quality": "C",
+        "encounterGuid": "bf7ec895b1c04de5b3c10957cf951a88"
+      }      ,
+      {
+        "pickupId": 97,
+        "displayName": "Polaris",
+        "internalName": "Polar_Star",
+        "quality": "B",
+        "encounterGuid": "b5b9fdc14ca2466aa678aa7dae4d9b99"
+      }      ,
+      {
+        "pickupId": 718,
+        "displayName": "Polaris",
+        "internalName": "Polar_Star_Synergy",
+        "quality": "SPECIAL",
+        "encounterGuid": "b6d7012a0ba74254abee8d5794432cab"
+      }      ,
+      {
+        "pickupId": 513,
+        "displayName": "Poxcannon",
+        "internalName": "Poxcannon_Gun",
+        "quality": "C",
+        "encounterGuid": "fa7bddfd6c1f4943ab87b111ea96dbff"
+      }      ,
+      {
+        "pickupId": 251,
+        "displayName": "Prize Pistol",
+        "internalName": "ArtfulDodger_ChallengeGun",
+        "quality": "SPECIAL",
+        "encounterGuid": "f18361d3fc0b4dd6a2f040c2c1a560e9"
+      }      ,
+      {
+        "pickupId": 179,
+        "displayName": "Proton Backpack",
+        "internalName": "Proton_Pack_Beam",
+        "quality": "B",
+        "encounterGuid": "2af84e0a8c57412589046e59718f6ee2"
+      }      ,
+      {
+        "pickupId": 658,
+        "displayName": "Proton Backpack",
+        "internalName": "Chamber_Gun_Forge",
+        "quality": "SPECIAL",
+        "encounterGuid": "eaf9f76d16f342009a143505d334699e"
+      }      ,
+      {
+        "pickupId": 720,
+        "displayName": "Proton Backpack",
+        "internalName": "Proton_Pack_Beam_Synergy",
+        "quality": "EXCLUDED",
+        "encounterGuid": "f68a3a1bee22400d9fcc62588b5f9875"
+      }      ,
+      {
+        "pickupId": 370,
+        "displayName": "Prototype Railgun",
+        "internalName": "Railgun Variant",
+        "quality": "A",
+        "encounterGuid": "b5469c52bc53421d812d4deabed2d75d"
+      }      ,
+      {
+        "pickupId": 123,
+        "displayName": "Pulse Cannon",
+        "internalName": "Pulse_Rifle",
+        "quality": "C",
+        "encounterGuid": "2b663cf91c864717928b915dff9893c8"
+      }      ,
+      {
+        "pickupId": 475,
+        "displayName": "Quad Laser",
+        "internalName": "Quad_Laser",
+        "quality": "C",
+        "encounterGuid": "d1765d957cbf401698ae4a180000a330"
+      }      ,
+      {
+        "pickupId": 617,
+        "displayName": "Quick Boomerang",
+        "internalName": "Mega Buster (Quick)",
+        "quality": "SPECIAL",
+        "encounterGuid": "1dbde3dbed10449d86f5d41904cd3944"
+      }      ,
+      {
+        "pickupId": 566,
+        "displayName": "Rad Gun",
+        "internalName": "Rad_Gun",
+        "quality": "B",
+        "encounterGuid": "3896e802bf654a1192b55c36f31451fe"
+      }      ,
+      {
+        "pickupId": 743,
+        "displayName": "Rad Gun",
+        "internalName": "Rad_Gun_Synergy",
+        "quality": "EXCLUDED",
+        "encounterGuid": "153d03e3682a40f7a7ccb49a178bbede"
+      }      ,
+      {
+        "pickupId": 107,
+        "displayName": "Raiden Coil",
+        "internalName": "Raiden_Laser",
+        "quality": "A",
+        "encounterGuid": "4d8bd503c6fd458fb820a9bb184cfff7"
+      }      ,
+      {
+        "pickupId": 712,
+        "displayName": "Raiden Coil",
+        "internalName": "Raiden_Laser_Synergy",
+        "quality": "EXCLUDED",
+        "encounterGuid": "5997c67638384d79888b0454c5a6ca1f"
+      }      ,
+      {
+        "pickupId": 358,
+        "displayName": "Railgun",
+        "internalName": "Railgun",
+        "quality": "S",
+        "encounterGuid": "d82a459ee7fb4cd48af96de3e9be69f1"
+      }      ,
+      {
+        "pickupId": 406,
+        "displayName": "Rattler",
+        "internalName": "Rattler_Shotgun",
+        "quality": "B",
+        "encounterGuid": "e668583b3c8b4fcfb7128ef3ceda4819"
+      }      ,
+      {
+        "pickupId": 372,
+        "displayName": "RC Rocket",
+        "internalName": "Nikita",
+        "quality": "A",
+        "encounterGuid": "dc1be645504444758b44d1713f35e4dd"
+      }      ,
+      {
+        "pickupId": 506,
+        "displayName": "Really Special Lute",
+        "internalName": "Lute_Gun",
+        "quality": "C",
+        "encounterGuid": "678364e95be744a09dfea84d2bc7493e"
+      }      ,
+      {
+        "pickupId": 51,
+        "displayName": "Regular Shotgun",
+        "internalName": "shotgun",
+        "quality": "D",
+        "encounterGuid": "ce96fa68430747bd9395a3db7cc71d1f"
+      }      ,
+      {
+        "pickupId": 660,
+        "displayName": "Regular Shotgun",
+        "internalName": "Chamber_Gun_Gungeon",
+        "quality": "SPECIAL",
+        "encounterGuid": "9899fbe1f4234e71a71401301ced24e1"
+      }      ,
+      {
+        "pickupId": 763,
+        "displayName": "Regular Shotgun",
+        "internalName": "Chamber_Gun_Hell",
+        "quality": "SPECIAL",
+        "encounterGuid": "4d0c98f75ea841568c3548d5681ed52f"
+      }      ,
+      {
+        "pickupId": 576,
+        "displayName": "Robot's Left Hand",
+        "internalName": "Uberbot_Gun_Hand",
+        "quality": "A",
+        "encounterGuid": "1bf89cc99b334d4e9f65db7cb38fdab9"
+      }      ,
+      {
+        "pickupId": 88,
+        "displayName": "Robot's Right Hand",
+        "internalName": "Robot_Gunhand",
+        "quality": "SPECIAL",
+        "encounterGuid": "0927502638a34909b43e23fc9eb32ad7"
+      }      ,
+      {
+        "pickupId": 812,
+        "displayName": "Robot's Right Hand",
+        "internalName": "Robot_Gunhand_Alt",
+        "quality": "SPECIAL",
+        "encounterGuid": "915e99ffec354f33b4c0bdccd7dfc6cc"
+      }      ,
+      {
+        "pickupId": 89,
+        "displayName": "Rogue Special",
+        "internalName": "Knav3",
+        "quality": "SPECIAL",
+        "encounterGuid": "82b3c877d9d84cfcaf94ce076be13ce6"
+      }      ,
+      {
+        "pickupId": 651,
+        "displayName": "Rogue Special",
+        "internalName": "Knav3_Alt",
+        "quality": "SPECIAL",
+        "encounterGuid": "eacb9e605cd146af878e1f32ae5da0a8"
+      }      ,
+      {
+        "pickupId": 39,
+        "displayName": "RPG",
+        "internalName": "RPG",
+        "quality": "B",
+        "encounterGuid": "189e699b932b40d589501907cf842406"
+      }      ,
+      {
+        "pickupId": 128,
+        "displayName": "RUBE-ADYNE MK.II",
+        "internalName": "Purple_Raygun",
+        "quality": "A",
+        "encounterGuid": "72bcd95d10074e17a48ebecc5ff6acc4"
+      }      ,
+      {
+        "pickupId": 142,
+        "displayName": "RUBE-ADYNE Prototype",
+        "internalName": "Yellow_Blaster",
+        "quality": "B",
+        "encounterGuid": "67edf62eba264907b9c22ffc4e514242"
+      }      ,
+      {
+        "pickupId": 609,
+        "displayName": "Rubenstein's Monster",
+        "internalName": "Rubeadyne_Rifle",
+        "quality": "SPECIAL",
+        "encounterGuid": "9136ceec8cb84fc4b43dd3891ab465b7"
+      }      ,
+      {
+        "pickupId": 99,
+        "displayName": "Rusty Sidearm",
+        "internalName": "Rusty_Sidearm",
+        "quality": "SPECIAL",
+        "encounterGuid": "29254e578a8248d597945be36d5739b3"
+      }      ,
+      {
+        "pickupId": 810,
+        "displayName": "Rusty Sidearm",
+        "internalName": "Rusty_Sidearm_Alt",
+        "quality": "SPECIAL",
+        "encounterGuid": "bb65083dfad04783b04e4bb2ab33f531"
+      }      ,
+      {
+        "pickupId": 50,
+        "displayName": "SAA",
+        "internalName": "SAA",
+        "quality": "B",
+        "encounterGuid": "e07935e6f26848ccb8ffe7f3ffeb8fd7"
+      }      ,
+      {
+        "pickupId": 202,
+        "displayName": "Sawed-Off",
+        "internalName": "Sawedoff_Shotgun",
+        "quality": "D",
+        "encounterGuid": "41d3f84b3c534acabdf759f305bdaf90"
+      }      ,
+      {
+        "pickupId": 331,
+        "displayName": "Science Cannon",
+        "internalName": "Disintegrator",
+        "quality": "B",
+        "encounterGuid": "a409e3085bce40c89eba1ca14e3a2998"
+      }      ,
+      {
+        "pickupId": 3,
+        "displayName": "Screecher",
+        "internalName": "Screech_Gun",
+        "quality": "C",
+        "encounterGuid": "e8e578b70b8f44bdb52af67e029ea797"
+      }      ,
+      {
+        "pickupId": 183,
+        "displayName": "Ser Manuel's Revolver",
+        "internalName": "Tutorial_Knight_Revolver",
+        "quality": "EXCLUDED",
+        "encounterGuid": "f4bf8034ca3048ddb4ce6d4050e15366"
+      }      ,
+      {
+        "pickupId": 37,
+        "displayName": "Serious Cannon",
+        "internalName": "Serious Cannon",
+        "quality": "A",
+        "encounterGuid": "42dcc00431fd435dba18cae5ff5492bb"
+      }      ,
+      {
+        "pickupId": 22,
+        "displayName": "Shades's Revolver",
+        "internalName": "Bro Revolver Red",
+        "quality": "C",
+        "encounterGuid": "00495e9a77824f5794379824d621ead6"
+      }      ,
+      {
+        "pickupId": 512,
+        "displayName": "Shell",
+        "internalName": "Shotgun_Gun",
+        "quality": "B",
+        "encounterGuid": "fae5ed1160054427845814256723fb65"
+      }      ,
+      {
+        "pickupId": 756,
+        "displayName": "Shell",
+        "internalName": "Evo_Gun_002",
+        "quality": "SPECIAL",
+        "encounterGuid": "6a13c22eefb646778fcfe519303ad924"
+      }      ,
+      {
+        "pickupId": 757,
+        "displayName": "Shell",
+        "internalName": "Evo_Gun_003",
+        "quality": "SPECIAL",
+        "encounterGuid": "351d0a53d85641eb9da931661a749f14"
+      }      ,
+      {
+        "pickupId": 758,
+        "displayName": "Shell",
+        "internalName": "Evo_Gun_004",
+        "quality": "SPECIAL",
+        "encounterGuid": "54ce71cdc6e64366a7bf19e682f9a369"
+      }      ,
+      {
+        "pickupId": 759,
+        "displayName": "Shell",
+        "internalName": "Evo_Gun_005",
+        "quality": "SPECIAL",
+        "encounterGuid": "fc8483b205414020b44719ade15234c7"
+      }      ,
+      {
+        "pickupId": 760,
+        "displayName": "Shell",
+        "internalName": "Evo_Gun_006",
+        "quality": "SPECIAL",
+        "encounterGuid": "ff9c06b81fac4344bbec3906ba26ca72"
+      }      ,
+      {
+        "pickupId": 464,
+        "displayName": "Shellegun",
+        "internalName": "Shellegun",
+        "quality": "B",
+        "encounterGuid": "74396344e5ab4b84aa95e3610269819b"
+      }      ,
+      {
+        "pickupId": 153,
+        "displayName": "Shock Rifle",
+        "internalName": "Electric_Rifle",
+        "quality": "B",
+        "encounterGuid": "37bd2b4b5b164324ace7cd403abf299f"
+      }      ,
+      {
+        "pickupId": 697,
+        "displayName": "Shock Rifle",
+        "internalName": "Electric_Rifle_Synergy",
+        "quality": "EXCLUDED",
+        "encounterGuid": "971eb9bfbb324e06b88d0cd26bbe5878"
+      }      ,
+      {
+        "pickupId": 126,
+        "displayName": "Shotbow",
+        "internalName": "Crossbow_Shotgun",
+        "quality": "B",
+        "encounterGuid": "e438545bb0b24166a2c4f903f93bb17b"
+      }      ,
+      {
+        "pickupId": 749,
+        "displayName": "Shotbow",
+        "internalName": "Crossbow_Shotgun_Synergy",
+        "quality": "EXCLUDED",
+        "encounterGuid": "ef273125eca54fb8aa98a490d82b8d37"
+      }      ,
+      {
+        "pickupId": 347,
+        "displayName": "Shotgrub",
+        "internalName": "Shotgrub",
+        "quality": "C",
+        "encounterGuid": "50913843ce8042c8b013272ab533104d"
+      }      ,
+      {
+        "pickupId": 143,
+        "displayName": "Shotgun Full of Hate",
+        "internalName": "Shotgun_Hate",
+        "quality": "A",
+        "encounterGuid": "6f28a6aea0b8479f9b8338b9d4331a29"
+      }      ,
+      {
+        "pickupId": 379,
+        "displayName": "Shotgun Full of Love",
+        "internalName": "Shotgun_Love",
+        "quality": "A",
+        "encounterGuid": "2aaa2fa9a6054fadaa9c263f85ef8a43"
+      }      ,
+      {
+        "pickupId": 335,
+        "displayName": "Silencer",
+        "internalName": "Pillow",
+        "quality": "C",
+        "encounterGuid": "50ba57841fc34589b3d2ee76ea5fbac5"
+      }      ,
+      {
+        "pickupId": 404,
+        "displayName": "Siren",
+        "internalName": "Mermaid_Gun",
+        "quality": "C",
+        "encounterGuid": "4271e4a63c90463085db87c1e9989414"
+      }      ,
+      {
+        "pickupId": 45,
+        "displayName": "Skull Spitter",
+        "internalName": "Skull_Gun",
+        "quality": "C",
+        "encounterGuid": "abb38327c8e5477bb89ec3b5c89ae526"
+      }      ,
+      {
+        "pickupId": 382,
+        "displayName": "Sling",
+        "internalName": "Sling",
+        "quality": "D",
+        "encounterGuid": "017345ade77d47f8ac55ed0ccece95b9"
+      }      ,
+      {
+        "pickupId": 604,
+        "displayName": "Slinger",
+        "internalName": "Slinger_Gun",
+        "quality": "SPECIAL",
+        "encounterGuid": "2ce17dabf4f74c50a75ada8b38dec53e"
+      }      ,
+      {
+        "pickupId": 35,
+        "displayName": "Smiley's Revolver",
+        "internalName": "Bro Revolver Green",
+        "quality": "B",
+        "encounterGuid": "294b2274071845d6989bb28285a40052"
+      }      ,
+      {
+        "pickupId": 752,
+        "displayName": "Smiley's Revolver",
+        "internalName": "Bro West Revolver Nome",
+        "quality": "EXCLUDED",
+        "encounterGuid": "33e74e1a3589492981ec3df42947fc78"
+      }      ,
+      {
+        "pickupId": 753,
+        "displayName": "Smiley's Revolver",
+        "internalName": "Bro West Revolver Tuco",
+        "quality": "EXCLUDED",
+        "encounterGuid": "172cbb8638b64155a76db90e9c565f1a"
+      }      ,
+      {
+        "pickupId": 754,
+        "displayName": "Smiley's Revolver",
+        "internalName": "Bro West Revolver Angel",
+        "quality": "EXCLUDED",
+        "encounterGuid": "e0dfa8af09e94863a0efcad019f6c02d"
+      }      ,
+      {
+        "pickupId": 360,
+        "displayName": "Snakemaker",
+        "internalName": "Snakepoof_Gun",
+        "quality": "A",
+        "encounterGuid": "abe0a0fd95f34350a5a99b01c6d5ded8"
+      }      ,
+      {
+        "pickupId": 49,
+        "displayName": "Sniper Rifle",
+        "internalName": "Sniper Rifle",
+        "quality": "C",
+        "encounterGuid": "0ae126796a414e8b928eab6e15a0a561"
+      }      ,
+      {
+        "pickupId": 402,
+        "displayName": "Snowballer",
+        "internalName": "Snowball_Launcher",
+        "quality": "D",
+        "encounterGuid": "e17c710438f04749994b2f79dc43fd5e"
+      }      ,
+      {
+        "pickupId": 679,
+        "displayName": "Snowballer",
+        "internalName": "Snowball_Launcher_Synergy",
+        "quality": "SPECIAL",
+        "encounterGuid": "e64895e77fc3436f925613256c55179c"
+      }      ,
+      {
+        "pickupId": 395,
+        "displayName": "Staff of Firepower",
+        "internalName": "Hybrid_Magic_Gun",
+        "quality": "A",
+        "encounterGuid": "730d4edc1abc4f5baa7976bc4e50537d"
+      }      ,
+      {
+        "pickupId": 507,
+        "displayName": "Starpew",
+        "internalName": "Starpew",
+        "quality": "A",
+        "encounterGuid": "19372cc4d14345ec8369d7d9bc212a74"
+      }      ,
+      {
+        "pickupId": 4,
+        "displayName": "Sticky Crossbow",
+        "internalName": "Sticky_Crossbow",
+        "quality": "C",
+        "encounterGuid": "4c56aebca2474ddb993dc174cb6245c7"
+      }      ,
+      {
+        "pickupId": 92,
+        "displayName": "Stinger",
+        "internalName": "Missile_Launcher",
+        "quality": "B",
+        "encounterGuid": "93dd3570b93e4409a1ef47f2cda65b3b"
+      }      ,
+      {
+        "pickupId": 598,
+        "displayName": "Stone Dome",
+        "internalName": "Big_Giant_Head_Gun",
+        "quality": "B",
+        "encounterGuid": "01b42b4b551748d09c1aca2e872083a8"
+      }      ,
+      {
+        "pickupId": 741,
+        "displayName": "Stone Dome",
+        "internalName": "Eyeball_Head_Synergy",
+        "quality": "EXCLUDED",
+        "encounterGuid": "a56102a6f57042b88be9d068ae2c52be"
+      }      ,
+      {
+        "pickupId": 542,
+        "displayName": "STRAFE® Gun",
+        "internalName": "StrafeNailGun",
+        "quality": "S",
+        "encounterGuid": "9bc2b8a763ae4e16918839c4c3f06873"
+      }      ,
+      {
+        "pickupId": 748,
+        "displayName": "Sunlight Javelin",
+        "internalName": "Sunlight_Spear",
+        "quality": "B",
+        "encounterGuid": "e1f22df012ea4c4bbaf689fdb8df63c7"
+      }      ,
+      {
+        "pickupId": 479,
+        "displayName": "Super Meat Gun",
+        "internalName": "Super_Meat_Gun",
+        "quality": "A",
+        "encounterGuid": "0a787f6d92d14063ab2370505ffb30bc"
+      }      ,
+      {
+        "pickupId": 299,
+        "displayName": "Super Space Turtle",
+        "internalName": "SST_ISSUE",
+        "quality": "EXCLUDED",
+        "encounterGuid": "05bbeb63130e4099bacb9055a119b4a8"
+      }      ,
+      {
+        "pickupId": 150,
+        "displayName": "T-Shirt Cannon",
+        "internalName": "TShirt_Gun",
+        "quality": "D",
+        "encounterGuid": "d369a7bd0ef448d58e566c9407d3b050"
+      }      ,
+      {
+        "pickupId": 175,
+        "displayName": "Tangler",
+        "internalName": "Rectangle_Gun",
+        "quality": "C",
+        "encounterGuid": "0ba81f870fbb48f48de64b94dec0d44d"
+      }      ,
+      {
+        "pickupId": 596,
+        "displayName": "Teapot",
+        "internalName": "Teapot_Gun",
+        "quality": "C",
+        "encounterGuid": "177156a2d02a4dbca4600b61634203aa"
+      }      ,
+      {
+        "pickupId": 33,
+        "displayName": "Tear Jerker",
+        "internalName": "Eyeball_Gun",
+        "quality": "C",
+        "encounterGuid": "29b877bc05514cf6b68f58a749c31d35"
+      }      ,
+      {
+        "pickupId": 725,
+        "displayName": "Tear Jerker",
+        "internalName": "Eyeball_Gun_Synergy",
+        "quality": "EXCLUDED",
+        "encounterGuid": "095893bc5d8947afaade277a381bde56"
+      }      ,
+      {
+        "pickupId": 483,
+        "displayName": "Tetrominator",
+        "internalName": "Tetris_Gun",
+        "quality": "B",
+        "encounterGuid": "d17ba8ad8b174cc7922baa3e4346b625"
+      }      ,
+      {
+        "pickupId": 330,
+        "displayName": "The Emperor",
+        "internalName": "Electro_Shark_Gun",
+        "quality": "A",
+        "encounterGuid": "ee8eda8eb7ff4ac6a0db31eb6636b8a6"
+      }      ,
+      {
+        "pickupId": 563,
+        "displayName": "The Exotic",
+        "internalName": "Exotic_Gun",
+        "quality": "A",
+        "encounterGuid": "97688579c8cd415284324970301dc650"
+      }      ,
+      {
+        "pickupId": 659,
+        "displayName": "The Exotic",
+        "internalName": "Chamber_Gun_Catacomb",
+        "quality": "SPECIAL",
+        "encounterGuid": "7be1dede01034676bdaf746474a7f6c8"
+      }      ,
+      {
+        "pickupId": 808,
+        "displayName": "The Exotic",
+        "internalName": "Chamber_Gun_Rat",
+        "quality": "SPECIAL",
+        "encounterGuid": "e92fb66c565740fba64f6a1028ccd8a9"
+      }      ,
+      {
+        "pickupId": 562,
+        "displayName": "The Fat Line",
+        "internalName": "Tachyon_Gun",
+        "quality": "B",
+        "encounterGuid": "721caf38fccc4967a9ec97b86fd6ee5f"
+      }      ,
+      {
+        "pickupId": 184,
+        "displayName": "The Judge",
+        "internalName": "Lawgiver",
+        "quality": "B",
+        "encounterGuid": "93d3ffc400f441a1b4afdda43de08528"
+      }      ,
+      {
+        "pickupId": 517,
+        "displayName": "The Judge",
+        "internalName": "Trigun_Hand_Gun",
+        "quality": "SPECIAL",
+        "encounterGuid": "ababcf68a2f5465d96858af30215640b"
+      }      ,
+      {
+        "pickupId": 518,
+        "displayName": "The Judge",
+        "internalName": "Trigun_Angel_Gun",
+        "quality": "SPECIAL",
+        "encounterGuid": "abc8d7c8a78342e693b3f758b4bade9d"
+      }      ,
+      {
+        "pickupId": 152,
+        "displayName": "The Kiln",
+        "internalName": "Squad_Red_Gun",
+        "quality": "C",
+        "encounterGuid": "4af6587dd752486fbf862a7c18c8d88d"
+      }      ,
+      {
+        "pickupId": 151,
+        "displayName": "The Membrane",
+        "internalName": "Squad_Green_Gun",
+        "quality": "C",
+        "encounterGuid": "7a65b5f6ad494c9881c9193e2abecec6"
+      }      ,
+      {
+        "pickupId": 543,
+        "displayName": "The Predator",
+        "internalName": "Predator_Gun",
+        "quality": "B",
+        "encounterGuid": "7325a8767100483e919fba17e50ac7e3"
+      }      ,
+      {
+        "pickupId": 445,
+        "displayName": "The Scrambler",
+        "internalName": "Scrambler",
+        "quality": "C",
+        "encounterGuid": "77751a1ceffd48aa956b35b0c3a5b4b8"
+      }      ,
+      {
+        "pickupId": 2,
+        "displayName": "Thompson Sub-Machinegun",
+        "internalName": "Thompson",
+        "quality": "C",
+        "encounterGuid": "f48eea25e4804606960c1995e4152322"
+      }      ,
+      {
+        "pickupId": 685,
+        "displayName": "Thompson Sub-Machinegun",
+        "internalName": "Thompson_Synergy",
+        "quality": "SPECIAL",
+        "encounterGuid": "ea3a65610ff044038e7d22f9319e65a6"
+      }      ,
+      {
+        "pickupId": 13,
+        "displayName": "Thunderclap",
+        "internalName": "Plasma_Rifle",
+        "quality": "A",
+        "encounterGuid": "30c3780415a74f47ae7c20ea482b1549"
+      }      ,
+      {
+        "pickupId": 683,
+        "displayName": "Thunderclap",
+        "internalName": "Plasma_Rifle_Synergy",
+        "quality": "SPECIAL",
+        "encounterGuid": "b423fab029384097911ef0c70ce89c57"
+      }      ,
+      {
+        "pickupId": 618,
+        "displayName": "Time Stopper",
+        "internalName": "Mega Buster (Flash)",
+        "quality": "SPECIAL",
+        "encounterGuid": "69734072a24e4d1cb038f77872824646"
+      }      ,
+      {
+        "pickupId": 42,
+        "displayName": "Trank Gun",
+        "internalName": "Baretta",
+        "quality": "C",
+        "encounterGuid": "2fe0e06ab8434404996de9fc3860d67c"
+      }      ,
+      {
+        "pickupId": 816,
+        "displayName": "Trank Gun",
+        "internalName": "Baretta_Tranq",
+        "quality": "SPECIAL",
+        "encounterGuid": "6f1f365455f54eaa9c5727cede2c4d48"
+      }      ,
+      {
+        "pickupId": 154,
+        "displayName": "Trashcannon",
+        "internalName": "Trash_Gun",
+        "quality": "C",
+        "encounterGuid": "47402c772f7e4037965b77157827200e"
+      }      ,
+      {
+        "pickupId": 704,
+        "displayName": "Trashcannon",
+        "internalName": "Trash_Gun_Synergy",
+        "quality": "SPECIAL",
+        "encounterGuid": "e4951a7c37b9470faa510a03c780391b"
+      }      ,
+      {
+        "pickupId": 363,
+        "displayName": "Trick Gun",
+        "internalName": "Trick_Gun",
+        "quality": "C",
+        "encounterGuid": "36bbe0a56a5c40e5a13fad56f6a51e68"
+      }      ,
+      {
+        "pickupId": 444,
+        "displayName": "Trident",
+        "internalName": "Trident",
+        "quality": "A",
+        "encounterGuid": "1b37506518734d69ab9cc7a225b3efb6"
+      }      ,
+      {
+        "pickupId": 381,
+        "displayName": "Triple Crossbow",
+        "internalName": "Triple_Crossbow",
+        "quality": "C",
+        "encounterGuid": "76c76133834c432c8da5e55ea09e21e5"
+      }      ,
+      {
+        "pickupId": 516,
+        "displayName": "Triple Gun",
+        "internalName": "Trigun_Gun",
+        "quality": "B",
+        "encounterGuid": "ba94f6ba1b7e4e46b3064be0dc9b4381"
+      }      ,
+      {
+        "pickupId": 577,
+        "displayName": "Turbo-Gun",
+        "internalName": "Recharge_Gun",
+        "quality": "C",
+        "encounterGuid": "9fca0bd0a7624d1daed7186ba9af5d31"
+      }      ,
+      {
+        "pickupId": 83,
+        "displayName": "Unfinished Gun",
+        "internalName": "Raw_Iron_Gun",
+        "quality": "D",
+        "encounterGuid": "bd3e5e3c778b462e9d7f128bb09f3af1"
+      }      ,
+      {
+        "pickupId": 603,
+        "displayName": "Unfinished Gun",
+        "internalName": "Lamey_Gun",
+        "quality": "EXCLUDED",
+        "encounterGuid": "142b3861a43749a98d369762e6f575ae"
+      }      ,
+      {
+        "pickupId": 806,
+        "displayName": "Unfinished Gun",
+        "internalName": "Chamber_Gun_Abbey",
+        "quality": "SPECIAL",
+        "encounterGuid": "624f3e1d6d82400ca32250407dfc7108"
+      }      ,
+      {
+        "pickupId": 807,
+        "displayName": "Unfinished Gun",
+        "internalName": "Chamber_Gun_Mine",
+        "quality": "SPECIAL",
+        "encounterGuid": "d9edf626cc9b4f968b2ec5dfd01fa9ff"
+      }      ,
+      {
+        "pickupId": 100,
+        "displayName": "Unicorn Horn",
+        "internalName": "Unicorn_Horn 2",
+        "quality": "A",
+        "encounterGuid": "747514dcb1d246e78d8af5873c9dd1f9"
+      }      ,
+      {
+        "pickupId": 649,
+        "displayName": "Uppercase R",
+        "internalName": "Upper_Case_R",
+        "quality": "SPECIAL",
+        "encounterGuid": "beb98abccecf4abcb3a160c93a8b95b4"
+      }      ,
+      {
+        "pickupId": 29,
+        "displayName": "VertebraeK-47",
+        "internalName": "Spine_Gun",
+        "quality": "B",
+        "encounterGuid": "e79fc0bec9e54aaf95b437ffb4630ae4"
+      }      ,
+      {
+        "pickupId": 58,
+        "displayName": "Void Core Assault Rifle",
+        "internalName": "space_rifle",
+        "quality": "B",
+        "encounterGuid": "999cb39757984c8a84cd0f04efe6e531"
+      }      ,
+      {
+        "pickupId": 593,
+        "displayName": "Void Core Cannon",
+        "internalName": "Voidcore_Rocket_Launcher",
+        "quality": "B",
+        "encounterGuid": "a5929cb10aeb403ca6fb1fdbcb9d8d0f"
+      }      ,
+      {
+        "pickupId": 32,
+        "displayName": "Void Marshal",
+        "internalName": "dl45",
+        "quality": "B",
+        "encounterGuid": "62fac4c6de4e4b58a06c95219fda7af0"
+      }      ,
+      {
+        "pickupId": 55,
+        "displayName": "Void Shotgun",
+        "internalName": "space_shotgun",
+        "quality": "B",
+        "encounterGuid": "0510261426504262b59dd0e8f1e20be7"
+      }      ,
+      {
+        "pickupId": 537,
+        "displayName": "Vorpal Gun",
+        "internalName": "Critical_Pistol",
+        "quality": "B",
+        "encounterGuid": "4576a31bf3ab4e8c869f80e0c7e70958"
+      }      ,
+      {
+        "pickupId": 84,
+        "displayName": "Vulcan Cannon",
+        "internalName": "Minigun",
+        "quality": "S",
+        "encounterGuid": "0cc6266f2366471a95191a6ea3880ca6"
+      }      ,
+      {
+        "pickupId": 707,
+        "displayName": "Vulcan Cannon",
+        "internalName": "Minigun_Synergy",
+        "quality": "SPECIAL",
+        "encounterGuid": "3d80e433346b4a75ac0ac13af4ec0f15"
+      }      ,
+      {
+        "pickupId": 1,
+        "displayName": "Winchester",
+        "internalName": "Winchester_Shotgun",
+        "quality": "C",
+        "encounterGuid": "d41c211ae774493a842853a9d165d9d9"
+      }      ,
+      {
+        "pickupId": 650,
+        "displayName": "Winchester",
+        "internalName": "PaydayShoot_Shotgun",
+        "quality": "SPECIAL",
+        "encounterGuid": "75eafc2768454e5bbf74d72118815395"
+      }      ,
+      {
+        "pickupId": 181,
+        "displayName": "Winchester Rifle",
+        "internalName": "Winchester_rifle",
+        "quality": "D",
+        "encounterGuid": "1052558fc61349a1bdcae0250f595bfd"
+      }      ,
+      {
+        "pickupId": 334,
+        "displayName": "Wind Up Gun",
+        "internalName": "Wind_Up_Gun",
+        "quality": "D",
+        "encounterGuid": "86c503c2d33f4f4c81a1391b0b6ecafc"
+      }      ,
+      {
+        "pickupId": 546,
+        "displayName": "Windgunner",
+        "internalName": "Sprun_Gun",
+        "quality": "SPECIAL",
+        "encounterGuid": "a56de0d9dc184a798a4fbe01a5043eed"
+      }      ,
+      {
+        "pickupId": 145,
+        "displayName": "Witch Pistol",
+        "internalName": "Magic_Revolver",
+        "quality": "C",
+        "encounterGuid": "a1bd22dcaae54d8799d62baaded31a94"
+      }      ,
+      {
+        "pickupId": 610,
+        "displayName": "Wood Beam",
+        "internalName": "Wood_Beam",
+        "quality": "B",
+        "encounterGuid": "bcd377a55f6f4d8c81d1cc84a57c9d68"
+      }      ,
+      {
+        "pickupId": 823,
+        "displayName": "Wood Beam",
+        "internalName": "Chamber_Office_Gun",
+        "quality": "SPECIAL",
+        "encounterGuid": "3d274368e2f847759152077386a7d27e"
+      }      ,
+      {
+        "pickupId": 227,
+        "displayName": "Wristbow",
+        "internalName": "Hand_Crossbow",
+        "quality": "EXCLUDED",
+        "encounterGuid": "81241f082e3e4d30ba08b9337cc5e57b"
+      }      ,
+      {
+        "pickupId": 16,
+        "displayName": "Yari Launcher",
+        "internalName": "Yari_Rocket_Launcher",
+        "quality": "S",
+        "encounterGuid": "13dddb7275eb400ab4b7a07a8bbc008a"
+      }      ,
+      {
+        "pickupId": 329,
+        "displayName": "Zilla Shotgun",
+        "internalName": "Zilla_Combat_Shotgun",
+        "quality": "A",
+        "encounterGuid": "e3d13dcfae154309946550b8064fdb95"
+      }      ,
+      {
+        "pickupId": 6,
+        "displayName": "Zorgun",
+        "internalName": "Zorgun",
+        "quality": "A",
+        "encounterGuid": "4ffb3f8bf8fd44c7ae59fb5a86402af0"
+      }    ],
+    "Passive": [
+      {
+        "pickupId": 286,
+        "displayName": "+1 Bullets",
+        "internalName": "BetterBullets",
+        "quality": "C",
+        "encounterGuid": "468eea6a1d034b0889cec8f876d6db49"
+      }      ,
+      {
+        "pickupId": 373,
+        "displayName": "Alpha Bullet",
+        "internalName": "AlphaItem",
+        "quality": "A",
+        "encounterGuid": "985f08d1f10740ef906633f1bf11e843"
+      }      ,
+      {
+        "pickupId": 134,
+        "displayName": "Ammo Belt",
+        "internalName": "AmmoBelt",
+        "quality": "D",
+        "encounterGuid": "204d0114c20544c590195066720e0054"
+      }      ,
+      {
+        "pickupId": 116,
+        "displayName": "Ammo Synthesizer",
+        "internalName": "Tweezers",
+        "quality": "D",
+        "encounterGuid": "576e57d90cf7474ca05e244e49359b1f"
+      }      ,
+      {
+        "pickupId": 158,
+        "displayName": "Amulet of the Pit Lord",
+        "internalName": "AmuletPitLord",
+        "quality": "D",
+        "encounterGuid": "718f610feedd40769342b134ab8e91c9"
+      }      ,
+      {
+        "pickupId": 255,
+        "displayName": "Ancient Hero's Bandana",
+        "internalName": "BlueBandana",
+        "quality": "S",
+        "encounterGuid": "f81b3f9c340b47ce93d056ea5845e684"
+      }      ,
+      {
+        "pickupId": 323,
+        "displayName": "Angry Bullets",
+        "internalName": "CrazyBullets",
+        "quality": "C",
+        "encounterGuid": "295cee62cb4248c5b6e10e0d96f2b673"
+      }      ,
+      {
+        "pickupId": 259,
+        "displayName": "Antibody",
+        "internalName": "Antibody",
+        "quality": "B",
+        "encounterGuid": "210670f9bb414b95b903d37edb32fb46"
+      }      ,
+      {
+        "pickupId": 457,
+        "displayName": "Armor of Thorns",
+        "internalName": "SpikedArmor",
+        "quality": "C",
+        "encounterGuid": "e7e50fe558ea4a75b9e8078f02ef2136"
+      }      ,
+      {
+        "pickupId": 450,
+        "displayName": "Armor Synthesizer",
+        "internalName": "ArmorSynthesizer",
+        "quality": "A",
+        "encounterGuid": "34d9da12d0914c5f810d32e6fd85f257"
+      }      ,
+      {
+        "pickupId": 664,
+        "displayName": "Baby Good Mimic",
+        "internalName": "BabyMimicItem",
+        "quality": "B",
+        "encounterGuid": "7fe8468c91df48e69b90e923f1314f07"
+      }      ,
+      {
+        "pickupId": 818,
+        "displayName": "Baby Good Shelleton",
+        "internalName": "BabyShelletonItem",
+        "quality": "S",
+        "encounterGuid": "02a3b83e8a2e494585cc4f7659bd3e69"
+      }      ,
+      {
+        "pickupId": 133,
+        "displayName": "Backpack",
+        "internalName": "Backpack",
+        "quality": "D",
+        "encounterGuid": "9e8abb325bbf4d3b80a01e80a0474245"
+      }      ,
+      {
+        "pickupId": 287,
+        "displayName": "Backup Gun",
+        "internalName": "HandMirror",
+        "quality": "B",
+        "encounterGuid": "2ae2ba9c1c63424f9093efb5fb50ab15"
+      }      ,
+      {
+        "pickupId": 442,
+        "displayName": "Badge",
+        "internalName": "CopBadge",
+        "quality": "A",
+        "encounterGuid": "7db21ea127c74b7a88a332f5a70ac4a4"
+      }      ,
+      {
+        "pickupId": 212,
+        "displayName": "Ballistic Boots",
+        "internalName": "Ballistic Boots",
+        "quality": "B",
+        "encounterGuid": "af9d5061e2a04e69adf4a47f819cdf6e"
+      }      ,
+      {
+        "pickupId": 115,
+        "displayName": "Ballot",
+        "internalName": "ZShirt",
+        "quality": "C",
+        "encounterGuid": "be708c894a804463ba4819931ab05345"
+      }      ,
+      {
+        "pickupId": 410,
+        "displayName": "Battery Bullets",
+        "internalName": "RobotBullets",
+        "quality": "D",
+        "encounterGuid": "3fc33a1453c84a35a237717e6cb5210d"
+      }      ,
+      {
+        "pickupId": 529,
+        "displayName": "Battle Standard",
+        "internalName": "BattleStandard",
+        "quality": "D",
+        "encounterGuid": "d589f1c6ea63414e984b0ccbd0f91448"
+      }      ,
+      {
+        "pickupId": 114,
+        "displayName": "Bionic Leg",
+        "internalName": "BionicLeg",
+        "quality": "C",
+        "encounterGuid": "db2c996bcac543f3ad55bae61b46a9e9"
+      }      ,
+      {
+        "pickupId": 579,
+        "displayName": "Blank Bullets",
+        "internalName": "BlankBullets",
+        "quality": "S",
+        "encounterGuid": "999ea483fad04ae384fe369f334b71d9"
+      }      ,
+      {
+        "pickupId": 461,
+        "displayName": "Blank Companion's Ring",
+        "internalName": "RingOfBlankCompanionship",
+        "quality": "A",
+        "encounterGuid": "bba6c7903c1846559b752f4f9239214f"
+      }      ,
+      {
+        "pickupId": 312,
+        "displayName": "Blast Helmet",
+        "internalName": "Helmet",
+        "quality": "D",
+        "encounterGuid": "07d936cafe6c43b6b5f400389a6b5da8"
+      }      ,
+      {
+        "pickupId": 285,
+        "displayName": "Blood Brooch",
+        "internalName": "VampiricArmor",
+        "quality": "A",
+        "encounterGuid": "dcf7f50b06ec4898b363cd657583665b"
+      }      ,
+      {
+        "pickupId": 436,
+        "displayName": "Bloodied Scarf",
+        "internalName": "RedBandana",
+        "quality": "B",
+        "encounterGuid": "d8f56b28bdf447d8b142454f807cd0a2"
+      }      ,
+      {
+        "pickupId": 524,
+        "displayName": "Bloody 9mm",
+        "internalName": "Bloody9MMBullet",
+        "quality": "B",
+        "encounterGuid": "f613b5ac5a18452abbe6c68cedd0c346"
+      }      ,
+      {
+        "pickupId": 167,
+        "displayName": "Bloody Eye",
+        "internalName": "BloodyEye",
+        "quality": "B",
+        "encounterGuid": "bc10024416bd436db358c1619cb2f007"
+      }      ,
+      {
+        "pickupId": 270,
+        "displayName": "Blue Guon Stone",
+        "internalName": "IounStone_DarkBlueItem",
+        "quality": "B",
+        "encounterGuid": "f471f93e75234adba0f9aa8bf7172fbb"
+      }      ,
+      {
+        "pickupId": 487,
+        "displayName": "Book of Chest Anatomy",
+        "internalName": "BookOfChestAnatomy",
+        "quality": "C",
+        "encounterGuid": "191020f648774f468ea03efa07ac4817"
+      }      ,
+      {
+        "pickupId": 288,
+        "displayName": "Bouncy Bullets",
+        "internalName": "FlubberBullets",
+        "quality": "C",
+        "encounterGuid": "6644be24da4145638508eb1058435782"
+      }      ,
+      {
+        "pickupId": 490,
+        "displayName": "Brick of Cash",
+        "internalName": "BrickBribe",
+        "quality": "B",
+        "encounterGuid": "087cdd588f814aaf97046fc0d31fedca"
+      }      ,
+      {
+        "pickupId": 493,
+        "displayName": "Briefcase of Cash",
+        "internalName": "BriefcaseFullOfCash",
+        "quality": "A",
+        "encounterGuid": "4ae69efbb7e040c78eca2c574dcd1bc4"
+      }      ,
+      {
+        "pickupId": 258,
+        "displayName": "Broccoli",
+        "internalName": "EyeOfTheTiger",
+        "quality": "A",
+        "encounterGuid": "58108277af4d467480a817aeb7f35841"
+      }      ,
+      {
+        "pickupId": 193,
+        "displayName": "Bug Boots",
+        "internalName": "SecretOfTheOoze",
+        "quality": "B",
+        "encounterGuid": "89ee9ae3943d4ee0913990516db48118"
+      }      ,
+      {
+        "pickupId": 418,
+        "displayName": "Bug Boots",
+        "internalName": "Item_Blueprint_TruckGeneric",
+        "quality": "SPECIAL",
+        "encounterGuid": "bfa0e86b750c4bcab87090d9db902ae7"
+      }      ,
+      {
+        "pickupId": 429,
+        "displayName": "Bug Boots",
+        "internalName": "Item_Blueprint_GoopGeneric",
+        "quality": "SPECIAL",
+        "encounterGuid": "02ba606ae3e94c4c8a9e12cc30ff105c"
+      }      ,
+      {
+        "pickupId": 575,
+        "displayName": "Bug Boots",
+        "internalName": "Item_Blueprint_PoopGeneric",
+        "quality": "SPECIAL",
+        "encounterGuid": "b646612f508740bd98ae59619f21ef1e"
+      }      ,
+      {
+        "pickupId": 434,
+        "displayName": "Bullet Idol",
+        "internalName": "BulletIdol",
+        "quality": "B",
+        "encounterGuid": "852e77de2d824f09acc2fd63dc57946c"
+      }      ,
+      {
+        "pickupId": 303,
+        "displayName": "Bullet That Can Kill The Past",
+        "internalName": "BulletThatCanKillThePast",
+        "quality": "S",
+        "encounterGuid": "4d42225af3104ce2900777423a05b684"
+      }      ,
+      {
+        "pickupId": 630,
+        "displayName": "Bumbullets",
+        "internalName": "BeeBullets",
+        "quality": "B",
+        "encounterGuid": "6bb8c26ffa824535a595113caae491db"
+      }      ,
+      {
+        "pickupId": 112,
+        "displayName": "Cartographer's Ring",
+        "internalName": "CartographersRing",
+        "quality": "C",
+        "encounterGuid": "339125affce3496aabf134d03b7c1085"
+      }      ,
+      {
+        "pickupId": 817,
+        "displayName": "Cat Bullet King Throne",
+        "internalName": "CatBulletKingThrone",
+        "quality": "B",
+        "encounterGuid": "34f0215d55334138910c2703fef999a2"
+      }      ,
+      {
+        "pickupId": 521,
+        "displayName": "Chance Bullets",
+        "internalName": "Randomizer",
+        "quality": "B",
+        "encounterGuid": "53969d23c0704de09cdd7b87be694d9e"
+      }      ,
+      {
+        "pickupId": 325,
+        "displayName": "Chaos Ammolet",
+        "internalName": "BlankTriEffectItem",
+        "quality": "A",
+        "encounterGuid": "b9a7db98a6f1434f885e7ec1e5658c23"
+      }      ,
+      {
+        "pickupId": 569,
+        "displayName": "Chaos Bullets",
+        "internalName": "ChaosBullets",
+        "quality": "A",
+        "encounterGuid": "e320b8bb15c747f396566012eea814f7"
+      }      ,
+      {
+        "pickupId": 527,
+        "displayName": "Charming Rounds",
+        "internalName": "CharmBullets",
+        "quality": "B",
+        "encounterGuid": "9123ef3e9617402ba179addc578488b4"
+      }      ,
+      {
+        "pickupId": 572,
+        "displayName": "Chicken Flute",
+        "internalName": "CuccoItem",
+        "quality": "B",
+        "encounterGuid": "b8b5f572ac854cc294b8e1d73c106ebf"
+      }      ,
+      {
+        "pickupId": 264,
+        "displayName": "Clear Guon Stone",
+        "internalName": "IounStone_LightBlueItem",
+        "quality": "D",
+        "encounterGuid": "82cdc8cd9ff748b59f68f5a686a6b644"
+      }      ,
+      {
+        "pickupId": 311,
+        "displayName": "Clone",
+        "internalName": "NextQuarter",
+        "quality": "S",
+        "encounterGuid": "aa991772a68049548157afa9f21e5951"
+      }      ,
+      {
+        "pickupId": 309,
+        "displayName": "Cloranthy Ring",
+        "internalName": "CloranthyRing",
+        "quality": "C",
+        "encounterGuid": "3209f683a39a4fc280f43306c92e8c55"
+      }      ,
+      {
+        "pickupId": 607,
+        "displayName": "Clown Mask",
+        "internalName": "BankMask",
+        "quality": "B",
+        "encounterGuid": "ec93989641df47cb87efe4e8bf04b580"
+      }      ,
+      {
+        "pickupId": 135,
+        "displayName": "Cog Of Battle",
+        "internalName": "CogOfBattle",
+        "quality": "C",
+        "encounterGuid": "34a7c15b314845c7bf6b2c70b55bca79"
+      }      ,
+      {
+        "pickupId": 214,
+        "displayName": "Coin Crown",
+        "internalName": "CrownOfTheCoinKing",
+        "quality": "C",
+        "encounterGuid": "8470e404123c461f9786594c5e86b29c"
+      }      ,
+      {
+        "pickupId": 343,
+        "displayName": "Copper Ammolet",
+        "internalName": "BlankFireItem",
+        "quality": "B",
+        "encounterGuid": "950f0e5cea3f4921a44c3f606fe8be3d"
+      }      ,
+      {
+        "pickupId": 634,
+        "displayName": "Crisis Stone",
+        "internalName": "CrisisStone",
+        "quality": "A",
+        "encounterGuid": "d79c4d32290f485da977aeff91875c1a"
+      }      ,
+      {
+        "pickupId": 240,
+        "displayName": "Crutch",
+        "internalName": "Crutch",
+        "quality": "B",
+        "encounterGuid": "140eac2695344f0286ccdb95d8b6b558"
+      }      ,
+      {
+        "pickupId": 571,
+        "displayName": "Cursed Bullets",
+        "internalName": "CurseBullets",
+        "quality": "C",
+        "encounterGuid": "6850fffe879940c5abf6f96aaf86db6b"
+      }      ,
+      {
+        "pickupId": 638,
+        "displayName": "Devolver Rounds",
+        "internalName": "DevolverBullets",
+        "quality": "B",
+        "encounterGuid": "1d817b81bf044557989273c24dd31ed2"
+      }      ,
+      {
+        "pickupId": 187,
+        "displayName": "Disarming Personality",
+        "internalName": "NiceSmile",
+        "quality": "C",
+        "encounterGuid": "0eee70059d3a4b5b9800c6f1f5051f33"
+      }      ,
+      {
+        "pickupId": 300,
+        "displayName": "Dog",
+        "internalName": "DogItem",
+        "quality": "D",
+        "encounterGuid": "5c42754734344dfda87c4c9cb87e227e"
+      }      ,
+      {
+        "pickupId": 280,
+        "displayName": "Drum Clip",
+        "internalName": "DrumClip",
+        "quality": "B",
+        "encounterGuid": "6a89381119bf4768b1e22c365563fa66"
+      }      ,
+      {
+        "pickupId": 375,
+        "displayName": "Easy Reload Bullets",
+        "internalName": "DodgeRollReloadItem",
+        "quality": "C",
+        "encounterGuid": "8216dfc34ddf49b59bb1fd3ffebaab6c"
+      }      ,
+      {
+        "pickupId": 441,
+        "displayName": "Emerald Bracelet",
+        "internalName": "ThrowBracelet_Green",
+        "quality": "EXCLUDED",
+        "encounterGuid": "d863b9fe8e3547aca8c8167400877227"
+      }      ,
+      {
+        "pickupId": 353,
+        "displayName": "Enraging Photo",
+        "internalName": "Rage",
+        "quality": "D",
+        "encounterGuid": "62f1d9dfe179405ea29892583793fa93"
+      }      ,
+      {
+        "pickupId": 304,
+        "displayName": "Explosive Rounds",
+        "internalName": "ExplodingBullets",
+        "quality": "A",
+        "encounterGuid": "5b43a890af2e4efb915c8d8eb999e70f"
+      }      ,
+      {
+        "pickupId": 118,
+        "displayName": "Eyepatch",
+        "internalName": "Eyepatch",
+        "quality": "A",
+        "encounterGuid": "4b9f098c07ac49c8a2c3b1a51a5fdd7c"
+      }      ,
+      {
+        "pickupId": 310,
+        "displayName": "Fairy Wings",
+        "internalName": "FairyWings",
+        "quality": "EXCLUDED",
+        "encounterGuid": "2f7909f685f44c1d805eab8a117ececf"
+      }      ,
+      {
+        "pickupId": 277,
+        "displayName": "Fat Bullets",
+        "internalName": "FatBullets",
+        "quality": "A",
+        "encounterGuid": "fee4a1b2c7f14c40a8830e5ff406e949"
+      }      ,
+      {
+        "pickupId": 531,
+        "displayName": "Flak Bullets",
+        "internalName": "FlakBullets",
+        "quality": "C",
+        "encounterGuid": "c22cf1d0ad0e441787fb052154c7545a"
+      }      ,
+      {
+        "pickupId": 344,
+        "displayName": "Frost Ammolet",
+        "internalName": "BlankIceItem",
+        "quality": "B",
+        "encounterGuid": "a2be94842aee4f99b6ab39bd5516d0b9"
+      }      ,
+      {
+        "pickupId": 278,
+        "displayName": "Frost Bullets ",
+        "internalName": "Condenser",
+        "quality": "A",
+        "encounterGuid": "6e43ba08ff9e4548ac5fc7fafcafb229"
+      }      ,
+      {
+        "pickupId": 564,
+        "displayName": "Full Metal Jacket",
+        "internalName": "AutoblankVest",
+        "quality": "B",
+        "encounterGuid": "fcf169df661f48069fdd1f43d05cba63"
+      }      ,
+      {
+        "pickupId": 494,
+        "displayName": "Galactic Medal of Valor",
+        "internalName": "MedalOfValor",
+        "quality": "B",
+        "encounterGuid": "61d915700566458b8359bc85cfe4ab42"
+      }      ,
+      {
+        "pickupId": 453,
+        "displayName": "Gas Mask",
+        "internalName": "GasMask",
+        "quality": "D",
+        "encounterGuid": "240610ffa98c4fa49e01642570c5e32b"
+      }      ,
+      {
+        "pickupId": 172,
+        "displayName": "Ghost Bullets",
+        "internalName": "PierceBullets",
+        "quality": "C",
+        "encounterGuid": "445bed5f2f8d4385a339f6ba65fe6b89"
+      }      ,
+      {
+        "pickupId": 532,
+        "displayName": "Gilded Bullets",
+        "internalName": "GoldBullets",
+        "quality": "B",
+        "encounterGuid": "fda12cfbba934c92a8d36cba568290c6"
+      }      ,
+      {
+        "pickupId": 565,
+        "displayName": "Glass Guon Stone",
+        "internalName": "IounStone_GlassItem",
+        "quality": "COMMON",
+        "encounterGuid": "8b7fc2875d3e4441bd46d10ab590f848"
+      }      ,
+      {
+        "pickupId": 316,
+        "displayName": "Gnawed Key",
+        "internalName": "Key_ResourcefulRatLair",
+        "quality": "SPECIAL",
+        "encounterGuid": "d4e6947dcf004e82bebc45b387bae233"
+      }      ,
+      {
+        "pickupId": 321,
+        "displayName": "Gold Ammolet",
+        "internalName": "BlankDamageItem",
+        "quality": "B",
+        "encounterGuid": "76cf5d2721e1491e9cae49eda0539ad4"
+      }      ,
+      {
+        "pickupId": 641,
+        "displayName": "Gold Junk",
+        "internalName": "GoldJunk",
+        "quality": "SPECIAL",
+        "encounterGuid": "7e4d6002cacb4589813c3e72277b404c"
+      }      ,
+      {
+        "pickupId": 466,
+        "displayName": "Green Guon Stone",
+        "internalName": "IounStone_GreenItem",
+        "quality": "A",
+        "encounterGuid": "4bc4b83e3cd4414e9baa39f9d354e09c"
+      }      ,
+      {
+        "pickupId": 489,
+        "displayName": "Gun Soul",
+        "internalName": "DemonSoul",
+        "quality": "A",
+        "encounterGuid": "5d322c68a1d64182a8d1c648255ffc6d"
+      }      ,
+      {
+        "pickupId": 315,
+        "displayName": "Gunboots",
+        "internalName": "DownwellBoots",
+        "quality": "C",
+        "encounterGuid": "b450cfb05bda447981cc78edcd871de6"
+      }      ,
+      {
+        "pickupId": 159,
+        "displayName": "Gundromeda Strain",
+        "internalName": "GundromedaStrain",
+        "quality": "S",
+        "encounterGuid": "999df89a11894fafbf6400c736d34d11"
+      }      ,
+      {
+        "pickupId": 281,
+        "displayName": "Gungeon Blueprint",
+        "internalName": "GungeonBlueprint",
+        "quality": "S",
+        "encounterGuid": "a29a2979fd9b4fb0a917e4a44fe18ba8"
+      }      ,
+      {
+        "pickupId": 253,
+        "displayName": "Gungeon Pepper",
+        "internalName": "SolarRadiation",
+        "quality": "C",
+        "encounterGuid": "29b5725e277d457c86ac14ed0078f59d"
+      }      ,
+      {
+        "pickupId": 163,
+        "displayName": "Gunknight Armor",
+        "internalName": "BulletArmor_Chest",
+        "quality": "B",
+        "encounterGuid": "d3189ac0b6044080b63265b256f7a7f8"
+      }      ,
+      {
+        "pickupId": 162,
+        "displayName": "Gunknight Gauntlet",
+        "internalName": "BulletArmor_Glove",
+        "quality": "C",
+        "encounterGuid": "ec6156dbad9648eea674af2f1fa96553"
+      }      ,
+      {
+        "pickupId": 161,
+        "displayName": "Gunknight Greaves",
+        "internalName": "BulletArmor_Boot",
+        "quality": "C",
+        "encounterGuid": "de79ac9ac2194d2aa6526b6214d037de"
+      }      ,
+      {
+        "pickupId": 160,
+        "displayName": "Gunknight Helmet",
+        "internalName": "BulletArmor_Helmet",
+        "quality": "A",
+        "encounterGuid": "a421ddc5391045fcb283f27f9ab5b5bc"
+      }      ,
+      {
+        "pickupId": 454,
+        "displayName": "Hazmat Suit",
+        "internalName": "HazmatSuit",
+        "quality": "B",
+        "encounterGuid": "f850ed028ef84e579e9a29508b9a3d33"
+      }      ,
+      {
+        "pickupId": 424,
+        "displayName": "Heart Bottle",
+        "internalName": "Heart_Bottle",
+        "quality": "B",
+        "encounterGuid": "1c55478b264847e08fe4d242a8e508d6"
+      }      ,
+      {
+        "pickupId": 421,
+        "displayName": "Heart Holster",
+        "internalName": "Heart_Holster",
+        "quality": "B",
+        "encounterGuid": "baf3370ccd624fa598964b9ce8b983ec"
+      }      ,
+      {
+        "pickupId": 423,
+        "displayName": "Heart Locket",
+        "internalName": "Heart_Locket",
+        "quality": "B",
+        "encounterGuid": "64ed592840bc41c086e752047d1f06d0"
+      }      ,
+      {
+        "pickupId": 422,
+        "displayName": "Heart Lunchbox",
+        "internalName": "Heart_Lunchbox",
+        "quality": "B",
+        "encounterGuid": "5f0c6a769675407e95147bdd8ed92aa2"
+      }      ,
+      {
+        "pickupId": 364,
+        "displayName": "Heart of Ice",
+        "internalName": "HeartOfIce",
+        "quality": "A",
+        "encounterGuid": "9c06af3d3dbf4e879f418e9ed766435b"
+      }      ,
+      {
+        "pickupId": 425,
+        "displayName": "Heart Purse",
+        "internalName": "Heart_Purse",
+        "quality": "B",
+        "encounterGuid": "1da56ceaf45f49c2a675190dabad8a42"
+      }      ,
+      {
+        "pickupId": 164,
+        "displayName": "Heart Synthesizer",
+        "internalName": "HeartSynthesizer",
+        "quality": "A",
+        "encounterGuid": "d2d4d715c5d64e42af319000623929f6"
+      }      ,
+      {
+        "pickupId": 256,
+        "displayName": "Heavy Boots",
+        "internalName": "HeavyBoots",
+        "quality": "D",
+        "encounterGuid": "7b97e1b3d3084a82af199425641aead6"
+      }      ,
+      {
+        "pickupId": 111,
+        "displayName": "Heavy Bullets",
+        "internalName": "HeavyBullets",
+        "quality": "C",
+        "encounterGuid": "a1624eaf13a44925b49e014f72f6c60d"
+      }      ,
+      {
+        "pickupId": 568,
+        "displayName": "Helix Bullets",
+        "internalName": "HelixBullets",
+        "quality": "B",
+        "encounterGuid": "50cdf31455f14f118b5914e5d8492b16"
+      }      ,
+      {
+        "pickupId": 473,
+        "displayName": "Hidden Compartment",
+        "internalName": "Hidden Compartments",
+        "quality": "SPECIAL",
+        "encounterGuid": "8fe242b445c64ebf91563a9fc00ae8a5"
+      }      ,
+      {
+        "pickupId": 500,
+        "displayName": "Hip Holster",
+        "internalName": "HipHolster",
+        "quality": "B",
+        "encounterGuid": "cb446a92fb3e4a96a94fbc3697b75e42"
+      }      ,
+      {
+        "pickupId": 631,
+        "displayName": "Holey Grail",
+        "internalName": "BlankPersonality",
+        "quality": "D",
+        "encounterGuid": "5f74acbf19dc4e61aa66edd4cacc52ff"
+      }      ,
+      {
+        "pickupId": 284,
+        "displayName": "Homing Bullets",
+        "internalName": "SmartBullets",
+        "quality": "B",
+        "encounterGuid": "87b91f5f278e4d7e9d497825c2615da5"
+      }      ,
+      {
+        "pickupId": 138,
+        "displayName": "Honeycomb",
+        "internalName": "Honeycomb",
+        "quality": "C",
+        "encounterGuid": "cbc9d61e7ee54137bd3025472bba5eab"
+      }      ,
+      {
+        "pickupId": 295,
+        "displayName": "Hot Lead",
+        "internalName": "FireBullets",
+        "quality": "B",
+        "encounterGuid": "e7fcef6f09d147019854dc3f49a6a76e"
+      }      ,
+      {
+        "pickupId": 655,
+        "displayName": "Hungry Bullets",
+        "internalName": "HungryBullets",
+        "quality": "A",
+        "encounterGuid": "2462dca7c34445619f0bea3afa1e3d62"
+      }      ,
+      {
+        "pickupId": 367,
+        "displayName": "Hunter's Journal",
+        "internalName": "TreasureHuntress",
+        "quality": "EXCLUDED",
+        "encounterGuid": "b86c342643a0423093b3d6a13f7b3cc7"
+      }      ,
+      {
+        "pickupId": 170,
+        "displayName": "Ice Cube",
+        "internalName": "IceCube",
+        "quality": "B",
+        "encounterGuid": "8a03d3561fcd48ddab788a3823a6ce48"
+      }      ,
+      {
+        "pickupId": 243,
+        "displayName": "Infuriating Note",
+        "internalName": "ResourcefulRatNote_01",
+        "quality": "SPECIAL",
+        "encounterGuid": "70823fd76dc1421aa35d26a8148821a3"
+      }      ,
+      {
+        "pickupId": 244,
+        "displayName": "Infuriating Note",
+        "internalName": "ResourcefulRatNote_02",
+        "quality": "SPECIAL",
+        "encounterGuid": "5f89d0b449484ceda59759d40fc9322f"
+      }      ,
+      {
+        "pickupId": 245,
+        "displayName": "Infuriating Note",
+        "internalName": "ResourcefulRatNote_03",
+        "quality": "SPECIAL",
+        "encounterGuid": "e61d8e724f4843d2a6233c8e7dd9612e"
+      }      ,
+      {
+        "pickupId": 246,
+        "displayName": "Infuriating Note",
+        "internalName": "ResourcefulRatNote_04",
+        "quality": "SPECIAL",
+        "encounterGuid": "43aad971570b4bdfbfc92512a3ee4e75"
+      }      ,
+      {
+        "pickupId": 247,
+        "displayName": "Infuriating Note",
+        "internalName": "ResourcefulRatNote_05",
+        "quality": "SPECIAL",
+        "encounterGuid": "ef3e2aae453a474888a6aceffd4ba943"
+      }      ,
+      {
+        "pickupId": 248,
+        "displayName": "Infuriating Note",
+        "internalName": "ResourcefulRatNote_06",
+        "quality": "SPECIAL",
+        "encounterGuid": "88da8c7c1f604df0aa917ae445d5b0a0"
+      }      ,
+      {
+        "pickupId": 204,
+        "displayName": "Irradiated Lead",
+        "internalName": "Poison Shot",
+        "quality": "B",
+        "encounterGuid": "fc7350f80a0c41d5a4a9e0e94df7b073"
+      }      ,
+      {
+        "pickupId": 735,
+        "displayName": "ITEMS_STRING_NOT_FOUND",
+        "internalName": "BabyDragunItem",
+        "quality": "SPECIAL",
+        "encounterGuid": "19c719eded464831be9b383557a2ce52"
+      }      ,
+      {
+        "pickupId": 127,
+        "displayName": "Junk",
+        "internalName": "Junk",
+        "quality": "SPECIAL",
+        "encounterGuid": "f61c1b4448dc44fcb1745e5f2bea395a"
+      }      ,
+      {
+        "pickupId": 580,
+        "displayName": "Junk",
+        "internalName": "SackKnightBoon",
+        "quality": "C",
+        "encounterGuid": "3d531a43ce07417dbc8ccfbc76c828b6"
+      }      ,
+      {
+        "pickupId": 822,
+        "displayName": "Katana Bullets",
+        "internalName": "KatanaBullets",
+        "quality": "C",
+        "encounterGuid": "e251874fa47249bda091189c184621c8"
+      }      ,
+      {
+        "pickupId": 273,
+        "displayName": "Laser Sight",
+        "internalName": "LaserSight",
+        "quality": "C",
+        "encounterGuid": "f2b1262af7b345a693027b7df9fab3dc"
+      }      ,
+      {
+        "pickupId": 815,
+        "displayName": "Lich's Eye Bullets",
+        "internalName": "LichEyeBullets",
+        "quality": "S",
+        "encounterGuid": "dd5d16ffbf9549269ed9dfbd8b5207b0"
+      }      ,
+      {
+        "pickupId": 213,
+        "displayName": "Lichy Trigger Finger",
+        "internalName": "Lichy Trigger Finger",
+        "quality": "D",
+        "encounterGuid": "4666e5425de6423388bb08a5d94d09ff"
+      }      ,
+      {
+        "pickupId": 148,
+        "displayName": "Lies",
+        "internalName": "Junk_Truth",
+        "quality": "SPECIAL",
+        "encounterGuid": "e2d56919d34449ffa577b7f697f7a083"
+      }      ,
+      {
+        "pickupId": 431,
+        "displayName": "Liquid Valkyrie",
+        "internalName": "Barrel of Slow",
+        "quality": "A",
+        "encounterGuid": "7646c9c63e7049bc97ddbe4f8da4a28a"
+      }      ,
+      {
+        "pickupId": 414,
+        "displayName": "Live Ammo",
+        "internalName": "LiveAmmo",
+        "quality": "SPECIAL",
+        "encounterGuid": "c4a72743f40945a08b413ea1fd800295"
+      }      ,
+      {
+        "pickupId": 322,
+        "displayName": "Lodestone Ammolet",
+        "internalName": "BlankForceItem",
+        "quality": "D",
+        "encounterGuid": "ccd1ebf1cb4c4ddd8356cac33b9a44ad"
+      }      ,
+      {
+        "pickupId": 605,
+        "displayName": "Loot Bag",
+        "internalName": "BankBag",
+        "quality": "C",
+        "encounterGuid": "12eaa4d6488340228efed16baf33a89b"
+      }      ,
+      {
+        "pickupId": 665,
+        "displayName": "Macho Brace",
+        "internalName": "MachoBrace",
+        "quality": "C",
+        "encounterGuid": "31ea7f545249433ba4e8858f7a01640e"
+      }      ,
+      {
+        "pickupId": 533,
+        "displayName": "Magic Bullets",
+        "internalName": "MagicBullets",
+        "quality": "B",
+        "encounterGuid": "ea2b37d200d44f81a7b8fadd0d8b17ad"
+      }      ,
+      {
+        "pickupId": 110,
+        "displayName": "Magic Sweet",
+        "internalName": "RareCandy",
+        "quality": "A",
+        "encounterGuid": "48fbe88f548e46e7bc2dc1ed770d1cec"
+      }      ,
+      {
+        "pickupId": 137,
+        "displayName": "Map",
+        "internalName": "GungeonMap",
+        "quality": "D",
+        "encounterGuid": "6040fee5bebd4506856cddb33cb657dc"
+      }      ,
+      {
+        "pickupId": 140,
+        "displayName": "Master of Unlocking",
+        "internalName": "MasterOfUnlocking",
+        "quality": "B",
+        "encounterGuid": "62b48b042e3e4c16844cc18cf9a10a46"
+      }      ,
+      {
+        "pickupId": 467,
+        "displayName": "Master Round",
+        "internalName": "MasteryToken_Forge",
+        "quality": "SPECIAL",
+        "encounterGuid": "6bdd54ecda914601b682ab69bce9bcd4"
+      }      ,
+      {
+        "pickupId": 468,
+        "displayName": "Master Round",
+        "internalName": "MasteryToken_Mines",
+        "quality": "SPECIAL",
+        "encounterGuid": "ca6a034bec0a4b118f5ea17ebcb39520"
+      }      ,
+      {
+        "pickupId": 469,
+        "displayName": "Master Round",
+        "internalName": "MasteryToken_Castle",
+        "quality": "SPECIAL",
+        "encounterGuid": "316aeb40e2984b8491093ac04a0742f3"
+      }      ,
+      {
+        "pickupId": 470,
+        "displayName": "Master Round",
+        "internalName": "MasteryToken_Catacombs",
+        "quality": "SPECIAL",
+        "encounterGuid": "7d86337c0b43460b98ce7593d2c8ccbd"
+      }      ,
+      {
+        "pickupId": 471,
+        "displayName": "Master Round",
+        "internalName": "MasteryToken_Gungeon",
+        "quality": "SPECIAL",
+        "encounterGuid": "288f1d72d96e4c7c9f119d9568d0b62c"
+      }      ,
+      {
+        "pickupId": 119,
+        "displayName": "Metronome",
+        "internalName": "Metronome",
+        "quality": "B",
+        "encounterGuid": "3bdc3f758e6b4e2fb7c43fde15cc7024"
+      }      ,
+      {
+        "pickupId": 354,
+        "displayName": "Military Training",
+        "internalName": "MilitaryTraining",
+        "quality": "C",
+        "encounterGuid": "598e84ee9ba248b8a563c16d70e512ce"
+      }      ,
+      {
+        "pickupId": 293,
+        "displayName": "Mimic Tooth Necklace",
+        "internalName": "MimicToothNecklace",
+        "quality": "A",
+        "encounterGuid": "0f67bbaaed174dd9927a61c07831b6be"
+      }      ,
+      {
+        "pickupId": 313,
+        "displayName": "Monster Blood",
+        "internalName": "MonsterBlood",
+        "quality": "C",
+        "encounterGuid": "74215c920c2446a0a54e95d69e914e90"
+      }      ,
+      {
+        "pickupId": 437,
+        "displayName": "Muscle Relaxant",
+        "internalName": "Diazapam",
+        "quality": "B",
+        "encounterGuid": "e12d5c047aad4b0d85d45b0c42325a45"
+      }      ,
+      {
+        "pickupId": 435,
+        "displayName": "Mustache",
+        "internalName": "MustacheItem",
+        "quality": "C",
+        "encounterGuid": "015e02f3f48544a19f8d6705f5e8f792"
+      }      ,
+      {
+        "pickupId": 314,
+        "displayName": "Nanomachines",
+        "internalName": "Nanomachines",
+        "quality": "B",
+        "encounterGuid": "621465b995064c598c6a795cf5d1f6de"
+      }      ,
+      {
+        "pickupId": 326,
+        "displayName": "Number 2",
+        "internalName": "CoopPassive",
+        "quality": "A",
+        "encounterGuid": "74cfd367acb84a78b16a301f49d5faaa"
+      }      ,
+      {
+        "pickupId": 350,
+        "displayName": "Obsidian Shell Casing",
+        "internalName": "PastBullet_ObsidianShellCasing",
+        "quality": "SPECIAL",
+        "encounterGuid": "c1542939b7be473ead1b5cb28e244426"
+      }      ,
+      {
+        "pickupId": 165,
+        "displayName": "Oiled Cylinder",
+        "internalName": "ReloadSpeedItem",
+        "quality": "C",
+        "encounterGuid": "598de6acb95c491981de74416eb78227"
+      }      ,
+      {
+        "pickupId": 305,
+        "displayName": "Old Crest",
+        "internalName": "CathedralCrest",
+        "quality": "B",
+        "encounterGuid": "5020db86fbde4825a85b1d6f33227ff3"
+      }      ,
+      {
+        "pickupId": 222,
+        "displayName": "Old Knight's Helm",
+        "internalName": "Tutorial_Knight_Helm",
+        "quality": "D",
+        "encounterGuid": "6b81c2fd3d404573a6f50478eb8a14d2"
+      }      ,
+      {
+        "pickupId": 219,
+        "displayName": "Old Knight's Shield",
+        "internalName": "Tutorial_Knight_Shield",
+        "quality": "D",
+        "encounterGuid": "ffee24603ae84a07869fa6522c18c8ea"
+      }      ,
+      {
+        "pickupId": 374,
+        "displayName": "Omega Bullets",
+        "internalName": "OmegaItem",
+        "quality": "A",
+        "encounterGuid": "a5107ffc2244423b9d088f3cab6aec07"
+      }      ,
+      {
+        "pickupId": 263,
+        "displayName": "Orange Guon Stone",
+        "internalName": "IounStone_OrangeItem",
+        "quality": "A",
+        "encounterGuid": "f91be8b289d8416790ce17a15f2f94dd"
+      }      ,
+      {
+        "pickupId": 661,
+        "displayName": "Orbital Bullets",
+        "internalName": "OrbitBullets",
+        "quality": "A",
+        "encounterGuid": "18821aa9d6544b03b7e8380a22436160"
+      }      ,
+      {
+        "pickupId": 249,
+        "displayName": "Owl",
+        "internalName": "OwlOrbitalItem",
+        "quality": "S",
+        "encounterGuid": "726be41b816f481ea3903776de06ee1f"
+      }      ,
+      {
+        "pickupId": 451,
+        "displayName": "Pig",
+        "internalName": "PigItem",
+        "quality": "A",
+        "encounterGuid": "1fb9644afee440178905b2865e4d0968"
+      }      ,
+      {
+        "pickupId": 260,
+        "displayName": "Pink Guon Stone",
+        "internalName": "IounStone_PinkItem",
+        "quality": "B",
+        "encounterGuid": "977a9c9c509f4a7bb9959a8cbe27e0ff"
+      }      ,
+      {
+        "pickupId": 349,
+        "displayName": "Planar Lead",
+        "internalName": "PastBullet_AstralSlug",
+        "quality": "SPECIAL",
+        "encounterGuid": "b92eaaecde8d4c0f8e1c8b911ccd53df"
+      }      ,
+      {
+        "pickupId": 627,
+        "displayName": "Platinum Bullets",
+        "internalName": "PlatinumBullets",
+        "quality": "S",
+        "encounterGuid": "4d03f00859ac463a8f90b86f54534aed"
+      }      ,
+      {
+        "pickupId": 348,
+        "displayName": "Prime Primer",
+        "internalName": "PastBullet_AncientPrimer",
+        "quality": "SPECIAL",
+        "encounterGuid": "e42d972609b64abe80599c096e8d697a"
+      }      ,
+      {
+        "pickupId": 318,
+        "displayName": "R2G2",
+        "internalName": "R22Item",
+        "quality": "S",
+        "encounterGuid": "3b1130de4b2a443a92514fb23ad850ac"
+      }      ,
+      {
+        "pickupId": 667,
+        "displayName": "Rat Boots",
+        "internalName": "RatBootsItem",
+        "quality": "C",
+        "encounterGuid": "77dfb45fda7c44ff8a31f5f2d44d6037"
+      }      ,
+      {
+        "pickupId": 269,
+        "displayName": "Red Guon Stone",
+        "internalName": "IounStone_RedItem",
+        "quality": "B",
+        "encounterGuid": "d9fe7431b7684119b969496c364d3d52"
+      }      ,
+      {
+        "pickupId": 530,
+        "displayName": "Remote Bullets",
+        "internalName": "RemoteBullets",
+        "quality": "C",
+        "encounterGuid": "4ffaa183dcbb45e69ac427c2c1e415a2"
+      }      ,
+      {
+        "pickupId": 271,
+        "displayName": "Riddle of Lead",
+        "internalName": "WhatItTakes",
+        "quality": "S",
+        "encounterGuid": "1e8c95e3258f42e4b1fc458778a3e3cf"
+      }      ,
+      {
+        "pickupId": 254,
+        "displayName": "Ring of Chest Friendship",
+        "internalName": "GloriousChestAhead",
+        "quality": "B",
+        "encounterGuid": "fe99c902c3d54166975984f8e3d906f5"
+      }      ,
+      {
+        "pickupId": 488,
+        "displayName": "Ring of Chest Vampirism",
+        "internalName": "RingOfChestVampirism",
+        "quality": "C",
+        "encounterGuid": "346b3a2e294644dcab1c31dee617a7b7"
+      }      ,
+      {
+        "pickupId": 191,
+        "displayName": "Ring of Fire Resistance",
+        "internalName": "RingOfFireResistance",
+        "quality": "C",
+        "encounterGuid": "b79e64aa13d04cf18302dbf02c61c7d0"
+      }      ,
+      {
+        "pickupId": 294,
+        "displayName": "Ring of Mimic Friendship",
+        "internalName": "RingOfMimicFriendship",
+        "quality": "D",
+        "encounterGuid": "2501c1cbec4a4c1f8469387e00c983b6"
+      }      ,
+      {
+        "pickupId": 132,
+        "displayName": "Ring of Miserly Protection",
+        "internalName": "RingOfMiserlyProtection",
+        "quality": "C",
+        "encounterGuid": "d8a3fd7c70de4ababe379167febde0a3"
+      }      ,
+      {
+        "pickupId": 463,
+        "displayName": "Ring of the Resourceful Rat",
+        "internalName": "RingOfResourcefulRat",
+        "quality": "B",
+        "encounterGuid": "f2663b6391f442dca22f5eb2522d8fbf"
+      }      ,
+      {
+        "pickupId": 456,
+        "displayName": "Ring of Triggers",
+        "internalName": "BulletSynergyItem",
+        "quality": "A",
+        "encounterGuid": "0b8edefbb9eb4bccb3c50ae3111513c6"
+      }      ,
+      {
+        "pickupId": 113,
+        "displayName": "Rocket-Powered Bullets",
+        "internalName": "RocketBullets",
+        "quality": "B",
+        "encounterGuid": "0af27589c91145b7b123759b9a06ec7c"
+      }      ,
+      {
+        "pickupId": 567,
+        "displayName": "Roll Bomb",
+        "internalName": "MetroidBombs",
+        "quality": "C",
+        "encounterGuid": "cee0cb8db5bd4bdb80ff9832edd849b5"
+      }      ,
+      {
+        "pickupId": 190,
+        "displayName": "Rolling Eye",
+        "internalName": "RollingEye",
+        "quality": "C",
+        "encounterGuid": "ab51b7ab15b448009d84d801316be0d3"
+      }      ,
+      {
+        "pickupId": 440,
+        "displayName": "Ruby Bracelet",
+        "internalName": "ThrowBracelet_Red",
+        "quality": "D",
+        "encounterGuid": "db05254a8abe4e6c8c31787ccbd13476"
+      }      ,
+      {
+        "pickupId": 241,
+        "displayName": "Scattershot",
+        "internalName": "Scattershot",
+        "quality": "B",
+        "encounterGuid": "23920dfbbf0d49bdac3f382411a3b977"
+      }      ,
+      {
+        "pickupId": 102,
+        "displayName": "Scope",
+        "internalName": "Scope",
+        "quality": "D",
+        "encounterGuid": "c856d9ed686249899de6fffcfa219609"
+      }      ,
+      {
+        "pickupId": 821,
+        "displayName": "Scouter",
+        "internalName": "Scouter",
+        "quality": "C",
+        "encounterGuid": "f3a675c753a14cbd87d42fbf4e8959d2"
+      }      ,
+      {
+        "pickupId": 289,
+        "displayName": "Seven-Leaf Clover",
+        "internalName": "SevenLeafClover",
+        "quality": "S",
+        "encounterGuid": "ccac89332d2c443fa60064ae0e33c1aa"
+      }      ,
+      {
+        "pickupId": 352,
+        "displayName": "Shadow Bullets",
+        "internalName": "ShadowBullets",
+        "quality": "B",
+        "encounterGuid": "401fc7019288420e866275fc88323b1b"
+      }      ,
+      {
+        "pickupId": 166,
+        "displayName": "Shelleton Key",
+        "internalName": "ShelletonKey",
+        "quality": "S",
+        "encounterGuid": "747ecc1df8c54a798903da8f3467f1a7"
+      }      ,
+      {
+        "pickupId": 298,
+        "displayName": "Shock Rounds",
+        "internalName": "TeslaCoil",
+        "quality": "A",
+        "encounterGuid": "971b713b40544ac69bcbfdc7ac232e25"
+      }      ,
+      {
+        "pickupId": 426,
+        "displayName": "Shotga Cola",
+        "internalName": "Shotgun Cola",
+        "quality": "C",
+        "encounterGuid": "3a6a958c50cd400b97127824bda0e800"
+      }      ,
+      {
+        "pickupId": 427,
+        "displayName": "Shotgun Coffee",
+        "internalName": "Shotgun Coffee",
+        "quality": "C",
+        "encounterGuid": "8c2d23e3ed404a75b2bbd1e599aa2d0b"
+      }      ,
+      {
+        "pickupId": 538,
+        "displayName": "Silver Bullets",
+        "internalName": "SilverBullets",
+        "quality": "C",
+        "encounterGuid": "75ddeaea6b8844898b5ae81ead4fdecc"
+      }      ,
+      {
+        "pickupId": 407,
+        "displayName": "Sixth Chamber",
+        "internalName": "ChamberOfEvil",
+        "quality": "A",
+        "encounterGuid": "45b0c9e32ea34d6ea0503ee3ff6302e9"
+      }      ,
+      {
+        "pickupId": 636,
+        "displayName": "Snowballets",
+        "internalName": "SnowballBullets",
+        "quality": "A",
+        "encounterGuid": "ac92a63860304dab87ff0366c85c4bb6"
+      }      ,
+      {
+        "pickupId": 232,
+        "displayName": "Space Friend",
+        "internalName": "RaidenOrbitalItem",
+        "quality": "B",
+        "encounterGuid": "cf97ebd7ad904317bfbac06748874978"
+      }      ,
+      {
+        "pickupId": 452,
+        "displayName": "Sponge",
+        "internalName": "MagicMop",
+        "quality": "C",
+        "encounterGuid": "5a9a972525ca43f380eeea5779e4c42c"
+      }      ,
+      {
+        "pickupId": 526,
+        "displayName": "Springheel Boots",
+        "internalName": "PegasusBoots",
+        "quality": "D",
+        "encounterGuid": "d43d67d0092d4a479a08562861023b5a"
+      }      ,
+      {
+        "pickupId": 578,
+        "displayName": "Sprun",
+        "internalName": "SprenOrbitalItem",
+        "quality": "A",
+        "encounterGuid": "57327d9ad6a24eca85c17cddfa75c745"
+      }      ,
+      {
+        "pickupId": 523,
+        "displayName": "Stout Bullets",
+        "internalName": "StoutBullets",
+        "quality": "B",
+        "encounterGuid": "b788fca0b3f44bde8c856e845ff6ae74"
+      }      ,
+      {
+        "pickupId": 290,
+        "displayName": "Sunglasses",
+        "internalName": "Sunglasses",
+        "quality": "C",
+        "encounterGuid": "c8d7c4c989514cb195af106d93f77e18"
+      }      ,
+      {
+        "pickupId": 279,
+        "displayName": "Super Hot Watch",
+        "internalName": "Superhot",
+        "quality": "S",
+        "encounterGuid": "40f4d6bc092347bcb43b20a3eecd4841"
+      }      ,
+      {
+        "pickupId": 301,
+        "displayName": "Super Space Turtle",
+        "internalName": "TurtleShell",
+        "quality": "B",
+        "encounterGuid": "4c4232bc355e4e14ba08cc8e077e1943"
+      }      ,
+      {
+        "pickupId": 400,
+        "displayName": "Table Tech Blanks",
+        "internalName": "TableBlank",
+        "quality": "C",
+        "encounterGuid": "5e00f65fdf8b431c94228431bf9d2eb1"
+      }      ,
+      {
+        "pickupId": 666,
+        "displayName": "Table Tech Heat",
+        "internalName": "TableHeat",
+        "quality": "D",
+        "encounterGuid": "397c2300fdf04bdf820d194a38088017"
+      }      ,
+      {
+        "pickupId": 397,
+        "displayName": "Table Tech Money",
+        "internalName": "TableMoney",
+        "quality": "D",
+        "encounterGuid": "2799f83be18c4397a135c5682b491b3b"
+      }      ,
+      {
+        "pickupId": 399,
+        "displayName": "Table Tech Rage",
+        "internalName": "TableRage",
+        "quality": "D",
+        "encounterGuid": "310c2574d02f42d7b2863949bb4bc1d1"
+      }      ,
+      {
+        "pickupId": 398,
+        "displayName": "Table Tech Rocket",
+        "internalName": "TableRocket",
+        "quality": "C",
+        "encounterGuid": "b1ea3d56a4514f3f8325daca35195f5f"
+      }      ,
+      {
+        "pickupId": 633,
+        "displayName": "Table Tech Shotgun",
+        "internalName": "TableShotgun",
+        "quality": "D",
+        "encounterGuid": "21fe5b42cd35412b9a48e8d2559f67f8"
+      }      ,
+      {
+        "pickupId": 396,
+        "displayName": "Table Tech Sight",
+        "internalName": "TableVision",
+        "quality": "D",
+        "encounterGuid": "2022dda0abdf425286b1169e24939ecc"
+      }      ,
+      {
+        "pickupId": 465,
+        "displayName": "Table Tech Stun",
+        "internalName": "TableStun",
+        "quality": "C",
+        "encounterGuid": "7f6aa3d6b71b43e6afaa3bc0e5d2cc40"
+      }      ,
+      {
+        "pickupId": 632,
+        "displayName": "Turkey",
+        "internalName": "TurkeyItem",
+        "quality": "C",
+        "encounterGuid": "d807bcb717134a31b1122e5ec490cc9a"
+      }      ,
+      {
+        "pickupId": 645,
+        "displayName": "Turtle Problem",
+        "internalName": "TurtleProblem",
+        "quality": "C",
+        "encounterGuid": "830ea3aa6bd64eb1a2374016dfbc132c"
+      }      ,
+      {
+        "pickupId": 495,
+        "displayName": "Unity",
+        "internalName": "OurPowersCombined",
+        "quality": "B",
+        "encounterGuid": "5423dc9b6af84d4098c8053f8e62a8a7"
+      }      ,
+      {
+        "pickupId": 342,
+        "displayName": "Uranium Ammolet",
+        "internalName": "BlankPoisonItem",
+        "quality": "B",
+        "encounterGuid": "4ccfdcdc5afb41e5994663de0dd83e26"
+      }      ,
+      {
+        "pickupId": 131,
+        "displayName": "Utility Belt",
+        "internalName": "UtilityBelt",
+        "quality": "C",
+        "encounterGuid": "8354e7b7a9df42e684d88f1ce4f27b40"
+      }      ,
+      {
+        "pickupId": 640,
+        "displayName": "Vorpal Bullets",
+        "internalName": "CriticalBullets",
+        "quality": "A",
+        "encounterGuid": "b097f9adc8524dc0b60e046c1b8466e9"
+      }      ,
+      {
+        "pickupId": 307,
+        "displayName": "Wax Wings",
+        "internalName": "WhiteWings",
+        "quality": "B",
+        "encounterGuid": "f94c33fc3fdb4c109668849fcabc555b"
+      }      ,
+      {
+        "pickupId": 262,
+        "displayName": "White Guon Stone",
+        "internalName": "IounStone_WhiteItem",
+        "quality": "B",
+        "encounterGuid": "c3c1a9bb91ce4147b98b83b47a5d152a"
+      }      ,
+      {
+        "pickupId": 491,
+        "displayName": "Wingman",
+        "internalName": "WingmanItem",
+        "quality": "A",
+        "encounterGuid": "a3203921fca042999894acbcf621679e"
+      }      ,
+      {
+        "pickupId": 492,
+        "displayName": "Wolf",
+        "internalName": "WolfItem",
+        "quality": "B",
+        "encounterGuid": "841ab7e9183c49ca8f28efe695b6bc71"
+      }      ,
+      {
+        "pickupId": 296,
+        "displayName": "Yari Launcher",
+        "internalName": "Gun_Blueprint_Yari",
+        "quality": "SPECIAL",
+        "encounterGuid": "5de7aa08325a4f0b8353a750982eb19e"
+      }      ,
+      {
+        "pickupId": 497,
+        "displayName": "Yari Launcher",
+        "internalName": "Item_Blueprint_MetaGeneric",
+        "quality": "SPECIAL",
+        "encounterGuid": "8a149afdb7cb4098a8764d8697d5fdec"
+      }      ,
+      {
+        "pickupId": 501,
+        "displayName": "Yari Launcher",
+        "internalName": "Item_Blueprint_MetaGenericItem",
+        "quality": "SPECIAL",
+        "encounterGuid": "11232581db5e42a8ba625103f1db21fa"
+      }      ,
+      {
+        "pickupId": 570,
+        "displayName": "Yellow Chamber",
+        "internalName": "YellowChamber",
+        "quality": "S",
+        "encounterGuid": "a7891fff69a34f35aa64a61e990a4800"
+      }      ,
+      {
+        "pickupId": 528,
+        "displayName": "Zombie Bullets",
+        "internalName": "ZombieBullets",
+        "quality": "C",
+        "encounterGuid": "d5e7d4577ac1454a89c7b8add0ecd36b"
+      }    ],
+    "Active": [
+      {
+        "pickupId": 237,
+        "displayName": "Aged Bell",
+        "internalName": "TStopper",
+        "quality": "A",
+        "encounterGuid": "dc6273775ed74b87acb6bf93d03905f3"
+      }      ,
+      {
+        "pickupId": 252,
+        "displayName": "Air Strike",
+        "internalName": "AirStrike",
+        "quality": "B",
+        "encounterGuid": "b79a0ba19f3a43b6af5a7ba39de85dd2"
+      }      ,
+      {
+        "pickupId": 351,
+        "displayName": "Arcane Gunpowder",
+        "internalName": "PastBullet_ArcaneGunpowder",
+        "quality": "SPECIAL",
+        "encounterGuid": "40916fc1e8934e7ea600d96f17b40a30"
+      }      ,
+      {
+        "pickupId": 443,
+        "displayName": "Big Boy",
+        "internalName": "NukeItem",
+        "quality": "B",
+        "encounterGuid": "81629b45cbd549b5b4d8d28ccdf5b20a"
+      }      ,
+      {
+        "pickupId": 224,
+        "displayName": "Blank",
+        "internalName": "Blank",
+        "quality": "COMMON",
+        "encounterGuid": "fc9211e4b86b43c3a910102e3a308c7b"
+      }      ,
+      {
+        "pickupId": 108,
+        "displayName": "Bomb",
+        "internalName": "BombItem",
+        "quality": "D",
+        "encounterGuid": "40832254f1784dce9b15e290d8e3ddc2"
+      }      ,
+      {
+        "pickupId": 448,
+        "displayName": "Boomerang",
+        "internalName": "BoomerangItem",
+        "quality": "B",
+        "encounterGuid": "43850da6f2d34191a934adb617ab43a6"
+      }      ,
+      {
+        "pickupId": 558,
+        "displayName": "Bottle",
+        "internalName": "EmptyBottle",
+        "quality": "D",
+        "encounterGuid": "ed3ad30c7ff94b7190687a4f8c62e8bf"
+      }      ,
+      {
+        "pickupId": 216,
+        "displayName": "Box",
+        "internalName": "CardboardBoxItem",
+        "quality": "A",
+        "encounterGuid": "f1e91eeddd01443184db1c50ce34f8e8"
+      }      ,
+      {
+        "pickupId": 439,
+        "displayName": "Bracket Key",
+        "internalName": "BracketKey",
+        "quality": "S",
+        "encounterGuid": "c1e6cde76c0e424a801c1f53677d7735"
+      }      ,
+      {
+        "pickupId": 72,
+        "displayName": "Bubble Shield",
+        "internalName": "BubbleShield",
+        "quality": "COMMON",
+        "encounterGuid": ""
+      }      ,
+      {
+        "pickupId": 69,
+        "displayName": "Bullet Time",
+        "internalName": "TimeSlow",
+        "quality": "D",
+        "encounterGuid": "a8fb6ed42ee54eb0bc8c9a03e0fb4528"
+      }      ,
+      {
+        "pickupId": 409,
+        "displayName": "Busted Television",
+        "internalName": "BustedTelevision",
+        "quality": "SPECIAL",
+        "encounterGuid": "023bbfe38259459989377717c7fab922"
+      }      ,
+      {
+        "pickupId": 136,
+        "displayName": "C4",
+        "internalName": "C4Item",
+        "quality": "D",
+        "encounterGuid": "d5b86f90cf574f46a1e9c0a8161f4267"
+      }      ,
+      {
+        "pickupId": 460,
+        "displayName": "Chaff Grenade",
+        "internalName": "ChaffGrenade",
+        "quality": "C",
+        "encounterGuid": "478bbd1b61c342128416cd701eb2961f"
+      }      ,
+      {
+        "pickupId": 206,
+        "displayName": "Charm Horn",
+        "internalName": "CharmHorn",
+        "quality": "B",
+        "encounterGuid": "2d019be927eb47c2a030c0d50fed5625"
+      }      ,
+      {
+        "pickupId": 573,
+        "displayName": "Chest Teleporter",
+        "internalName": "ChestTeleporter",
+        "quality": "A",
+        "encounterGuid": "0af89b9766ca41d29d3787c54487d471"
+      }      ,
+      {
+        "pickupId": 203,
+        "displayName": "Cigarettes",
+        "internalName": "CigarettesItem",
+        "quality": "D",
+        "encounterGuid": "0c38c3b61329490eb468d8260d4016a8"
+      }      ,
+      {
+        "pickupId": 308,
+        "displayName": "Cluster Mine",
+        "internalName": "ClusterMineItem",
+        "quality": "C",
+        "encounterGuid": "1b9df15d3d04436189407901771ca517"
+      }      ,
+      {
+        "pickupId": 411,
+        "displayName": "Coolant Leak",
+        "internalName": "CoolantLeak",
+        "quality": "SPECIAL",
+        "encounterGuid": "3c2a97ab464a4da4b9a2477786c2b38d"
+      }      ,
+      {
+        "pickupId": 643,
+        "displayName": "Daruma",
+        "internalName": "KiPulseItem",
+        "quality": "B",
+        "encounterGuid": "334a0aa80ccd4bbb92f915b029f3f34a"
+      }      ,
+      {
+        "pickupId": 71,
+        "displayName": "Decoy",
+        "internalName": "DecoyItem",
+        "quality": "D",
+        "encounterGuid": "b9c63d11f20d4807aed772877cdc0703"
+      }      ,
+      {
+        "pickupId": 168,
+        "displayName": "Double Vision",
+        "internalName": "DoubleVision",
+        "quality": "D",
+        "encounterGuid": "98d2b64ecf5f483586285c659a431ffe"
+      }      ,
+      {
+        "pickupId": 625,
+        "displayName": "Drill",
+        "internalName": "PaydayDrill",
+        "quality": "D",
+        "encounterGuid": "342b3f59009c45a693b47a367df554d1"
+      }      ,
+      {
+        "pickupId": 239,
+        "displayName": "Duct Tape",
+        "internalName": "DuctTape",
+        "quality": "A",
+        "encounterGuid": "7ffd8e351c34441589f7cc7a0d1913e5"
+      }      ,
+      {
+        "pickupId": 499,
+        "displayName": "Elder Blank",
+        "internalName": "ReusableBlank",
+        "quality": "B",
+        "encounterGuid": "816b12e11f4a41bf97c8e2c29e85237f"
+      }      ,
+      {
+        "pickupId": 306,
+        "displayName": "Escape Rope",
+        "internalName": "EscapeRope",
+        "quality": "D",
+        "encounterGuid": "8264fd8515b64547aa827d792956514e"
+      }      ,
+      {
+        "pickupId": 438,
+        "displayName": "Explosive Decoy",
+        "internalName": "ExplodingDecoyItem",
+        "quality": "C",
+        "encounterGuid": "9940c8600ea64187817cce08f5243548"
+      }      ,
+      {
+        "pickupId": 105,
+        "displayName": "Fortune's Favor",
+        "internalName": "FortunesFavor",
+        "quality": "B",
+        "encounterGuid": "bdecc9a4c0234542bf55a97835865fb4"
+      }      ,
+      {
+        "pickupId": 412,
+        "displayName": "Friendship Cookie",
+        "internalName": "FriendshipCookie",
+        "quality": "SPECIAL",
+        "encounterGuid": "25c6a3106d734700aefcd23a019b2af3"
+      }      ,
+      {
+        "pickupId": 250,
+        "displayName": "Grappling Hook",
+        "internalName": "GrapplingHookItem",
+        "quality": "D",
+        "encounterGuid": "5e5cd1c7c2094c71a76795c147cd6334"
+      }      ,
+      {
+        "pickupId": 413,
+        "displayName": "Hero's Sword",
+        "internalName": "HeroSword",
+        "quality": "EXCLUDED",
+        "encounterGuid": "921c2e93fbcc4e94ad5ebc5183fbdfe7"
+      }      ,
+      {
+        "pickupId": 234,
+        "displayName": "iBomb Companion App",
+        "internalName": "iBombCompanionAppItem",
+        "quality": "C",
+        "encounterGuid": "5abedc76f30340d88332e61b28361829"
+      }      ,
+      {
+        "pickupId": 109,
+        "displayName": "Ice Bomb",
+        "internalName": "IceBombItem",
+        "quality": "D",
+        "encounterGuid": "d8b1118a71674b5f81ff546cae4f47cb"
+      }      ,
+      {
+        "pickupId": 272,
+        "displayName": "Iron Coin",
+        "internalName": "IronCoin",
+        "quality": "C",
+        "encounterGuid": "db949690e2924f7eaca39de6dbea597b"
+      }      ,
+      {
+        "pickupId": 432,
+        "displayName": "Jar of Bees",
+        "internalName": "JarOfBees",
+        "quality": "C",
+        "encounterGuid": "58cae0b165ed4de4b332016446d689bf"
+      }      ,
+      {
+        "pickupId": 106,
+        "displayName": "Jetpack",
+        "internalName": "Jetpack",
+        "quality": "C",
+        "encounterGuid": "8cc683f857f54aa7aa4c2c49499541b1"
+      }      ,
+      {
+        "pickupId": 65,
+        "displayName": "Knife Shield",
+        "internalName": "KnifeShieldItem",
+        "quality": "D",
+        "encounterGuid": "1c08709cd3c44e4786dac72e3fe5637d"
+      }      ,
+      {
+        "pickupId": 525,
+        "displayName": "Lament Configurum",
+        "internalName": "LamentBox",
+        "quality": "B",
+        "encounterGuid": "1b61d60f8eaa4721a123dc0f12db75b7"
+      }      ,
+      {
+        "pickupId": 814,
+        "displayName": "Magazine Rack",
+        "internalName": "MagazineRackItem",
+        "quality": "C",
+        "encounterGuid": "1dbaf0306da74c31a2773f90876f81cc"
+      }      ,
+      {
+        "pickupId": 291,
+        "displayName": "Meatbun",
+        "internalName": "MeatBun",
+        "quality": "D",
+        "encounterGuid": "b4eb499fda574643bad1409d42789c34"
+      }      ,
+      {
+        "pickupId": 63,
+        "displayName": "Medkit",
+        "internalName": "Medkit",
+        "quality": "C",
+        "encounterGuid": "a06c1fe7506b4da49f1483ad4f5051fa"
+      }      ,
+      {
+        "pickupId": 403,
+        "displayName": "Melted Rock",
+        "internalName": "MeltedRock",
+        "quality": "C",
+        "encounterGuid": "3d1fadf5e6c342618aa63dbcce928663"
+      }      ,
+      {
+        "pickupId": 366,
+        "displayName": "Molotov",
+        "internalName": "MolotovItem",
+        "quality": "D",
+        "encounterGuid": "8e1e0009cd804ac1923383e36d0e8594"
+      }      ,
+      {
+        "pickupId": 242,
+        "displayName": "Napalm Strike",
+        "internalName": "NapalmStrike",
+        "quality": "C",
+        "encounterGuid": "03dfbff998b3454eb8cb857f21b91340"
+      }      ,
+      {
+        "pickupId": 267,
+        "displayName": "Old Knight's Flask",
+        "internalName": "EstusFlask",
+        "quality": "A",
+        "encounterGuid": "88c3e99d5a4f4f24ac4536209e9abeef"
+      }      ,
+      {
+        "pickupId": 485,
+        "displayName": "Orange",
+        "internalName": "Orange",
+        "quality": "B",
+        "encounterGuid": "a1baf19433f4443fad350ea12cc0a9e5"
+      }      ,
+      {
+        "pickupId": 662,
+        "displayName": "Partially-Eaten Cheese",
+        "internalName": "CheeseWheelItem",
+        "quality": "A",
+        "encounterGuid": "d2b098494229415487ba31b81d9fb773"
+      }      ,
+      {
+        "pickupId": 205,
+        "displayName": "Poison Vial",
+        "internalName": "PoisonGoopVialItem",
+        "quality": "D",
+        "encounterGuid": "e7c17094ac664013af6ab747986d2ced"
+      }      ,
+      {
+        "pickupId": 644,
+        "displayName": "Portable Table Device",
+        "internalName": "FoldingTableItem",
+        "quality": "D",
+        "encounterGuid": "f21ed9891e61411198bdae4d2b44489f"
+      }      ,
+      {
+        "pickupId": 201,
+        "displayName": "Portable Turret",
+        "internalName": "TurretItem",
+        "quality": "B",
+        "encounterGuid": "62bb944e489a48c5adeed366f4957f73"
+      }      ,
+      {
+        "pickupId": 174,
+        "displayName": "Potion of Gun Friendship",
+        "internalName": "PotionOfGunFriendship",
+        "quality": "D",
+        "encounterGuid": "669b811e149c4b889dea96ab0efae8a8"
+      }      ,
+      {
+        "pickupId": 64,
+        "displayName": "Potion of Lead Skin",
+        "internalName": "MetalSkin",
+        "quality": "D",
+        "encounterGuid": "9a7feac849a3467ca2232de3d684891a"
+      }      ,
+      {
+        "pickupId": 66,
+        "displayName": "Proximity Mine",
+        "internalName": "ProximityMineItem",
+        "quality": "D",
+        "encounterGuid": "d8f3182cb88e4d35bb766df1001e5b88"
+      }      ,
+      {
+        "pickupId": 104,
+        "displayName": "Ration",
+        "internalName": "Ration",
+        "quality": "C",
+        "encounterGuid": "cd5fb09890834a9cb034c19f5d49d626"
+      }      ,
+      {
+        "pickupId": 536,
+        "displayName": "Relodestone",
+        "internalName": "Relodestone",
+        "quality": "S",
+        "encounterGuid": "6504125fa07a4dde8fd586b4b058a1e6"
+      }      ,
+      {
+        "pickupId": 663,
+        "displayName": "Resourceful Sack",
+        "internalName": "RatSackItem",
+        "quality": "A",
+        "encounterGuid": "e095cdb1ed104de4a67734617e4835fb"
+      }      ,
+      {
+        "pickupId": 458,
+        "displayName": "Ring of Ethereal Form",
+        "internalName": "RingOfGaseousForm",
+        "quality": "B",
+        "encounterGuid": "c8ffd302c2d24716b0aab0b945094d67"
+      }      ,
+      {
+        "pickupId": 502,
+        "displayName": "RogueShipFakeItem",
+        "internalName": "RogueShipFakeItem",
+        "quality": "SPECIAL",
+        "encounterGuid": ""
+      }      ,
+      {
+        "pickupId": 209,
+        "displayName": "Sense of Direction",
+        "internalName": "SenseOfDirection",
+        "quality": "D",
+        "encounterGuid": "93f1026ac23240e7a1d7711b46778f8b"
+      }      ,
+      {
+        "pickupId": 820,
+        "displayName": "Shadow Clone",
+        "internalName": "KageBunshinNoItem",
+        "quality": "D",
+        "encounterGuid": "7391c2f51ec1417fb057f9f4998a7a71"
+      }      ,
+      {
+        "pickupId": 447,
+        "displayName": "Shield of the Maiden",
+        "internalName": "EitrShield",
+        "quality": "C",
+        "encounterGuid": "d2d3a7a83e0e4a0ca1b964c1ba6ca332"
+      }      ,
+      {
+        "pickupId": 155,
+        "displayName": "Singularity",
+        "internalName": "BlackHoleItem",
+        "quality": "C",
+        "encounterGuid": "c08ce6f5084040338fb5e61aca7e82f8"
+      }      ,
+      {
+        "pickupId": 462,
+        "displayName": "Smoke Bomb",
+        "internalName": "SmokeBombItem",
+        "quality": "C",
+        "encounterGuid": "29e54d72fee64ca3838916d6496e8e77"
+      }      ,
+      {
+        "pickupId": 276,
+        "displayName": "Spice",
+        "internalName": "Spice",
+        "quality": "A",
+        "encounterGuid": "8ebf9323fdf94f4184b7eb7692bbfc85"
+      }      ,
+      {
+        "pickupId": 433,
+        "displayName": "Stuffed Star",
+        "internalName": "StuffedStar",
+        "quality": "B",
+        "encounterGuid": "2ce7ffd4d6764c579b3fc29aa92cffcc"
+      }      ,
+      {
+        "pickupId": 77,
+        "displayName": "Supply Drop",
+        "internalName": "SupplyDropItem",
+        "quality": "D",
+        "encounterGuid": "317d9d7fda0641cebe8132f7b0eb3751"
+      }      ,
+      {
+        "pickupId": 449,
+        "displayName": "Teleporter Prototype",
+        "internalName": "TeleporterPrototype",
+        "quality": "B",
+        "encounterGuid": "0f4ae92464684fcfba6237987e7e18f7"
+      }      ,
+      {
+        "pickupId": 320,
+        "displayName": "Ticket",
+        "internalName": "TicketToTheGunShow",
+        "quality": "A",
+        "encounterGuid": "cac3c280eed1455293a278357cb226f4"
+      }      ,
+      {
+        "pickupId": 356,
+        "displayName": "Trusty Lockpicks",
+        "internalName": "Lockpicks",
+        "quality": "D",
+        "encounterGuid": "2b97db995823471ab147bd9a1358b2e9"
+      }      ,
+      {
+        "pickupId": 637,
+        "displayName": "Weird Egg",
+        "internalName": "GungeonEggItem",
+        "quality": "D",
+        "encounterGuid": "08328e6e8dbd4e259be2a68fa24a672f"
+      }    ]
+  }
+}

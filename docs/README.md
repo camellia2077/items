@@ -6,14 +6,17 @@ The repository root `README.md` is intended to stay as a high-level project over
 ## Quick Links
 
 - [Development](./development.md)
+- [Architecture](./architecture.md)
 - [Deploy](./deploy.md)
 - [Logging](./logging.md)
 - [Commands](./commands.md)
+- [Pickups](./pickups.md)
 - [Research entry](./etg-random-loadout-research.md)
 - [Project scope](./research/project-scope.md)
 - [Stack and tooling](./research/stack-and-tooling.md)
 - [Reference index](./research/reference-index.md)
 - [Implementation guidance](./research/implementation-guidance.md)
+- [History: 0.1.1](./history/0.1.1.md)
 - [History: 0.1.0](./history/0.1.0.md)
 - [Command notes](./note/cmd.md)
 - [lib dependency notes](../lib/README.md)
@@ -24,12 +27,18 @@ The repository root `README.md` is intended to stay as a high-level project over
   Stable research entry and summary
 - `development.md`
   Build, test, dependencies, and local tooling workflow
+- `architecture.md`
+  Lightweight responsibility map for runtime, core, scripts, defaults, and docs
 - `deploy.md`
   Deployment workflow and release/debug deploy notes
+- repository baseline files under `defaults/`
+  Read-only shipped config and pickup catalog snapshots for first deploys
 - `logging.md`
   Log prefixes and log extraction script usage
 - `commands.md`
   In-game command panel usage and current behavior
+- `pickups.md`
+  Generated player-facing pickup reference grouped by category
 - `research/project-scope.md`
   Goals, scope boundaries, and constraints
 - `research/stack-and-tooling.md`

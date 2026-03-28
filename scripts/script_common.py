@@ -10,6 +10,18 @@ from pathlib import Path
 PROJECT_NAME = "RandomLoadout"
 CONFIGURATION_CHOICES = ("Debug", "Release")
 MSBUILD_PATH = Path(r"C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe")
+DEFAULT_CONFIG_DIRECTORY = Path("defaults") / "config"
+DEFAULT_CATALOG_DIRECTORY = Path("defaults") / "catalog"
+DEFAULT_CONFIG_FILE_NAMES = (
+    "randomgun.randomloadout.cfg",
+    "RandomLoadout.aliases.json",
+    "RandomLoadout.rules.json",
+)
+DEFAULT_CATALOG_FILE_NAMES = (
+    "RandomLoadout.pickups.json",
+    "RandomLoadout.pickups.by-category.json",
+    "RandomLoadout.rules.full-pool.json",
+)
 REQUIRED_BUILD_DLLS = (
     "Assembly-CSharp.dll",
     "BepInEx.dll",
@@ -61,6 +73,28 @@ def get_plugin_output_path(repo_root: Path, configuration: str) -> Path:
     return (
         repo_root / "src" / PROJECT_NAME / "bin" / configuration / "{0}.dll".format(PROJECT_NAME)
     )
+
+
+def get_default_config_dir(repo_root: Path) -> Path:
+    return repo_root / DEFAULT_CONFIG_DIRECTORY
+
+
+def get_default_config_paths(repo_root: Path) -> list[Path]:
+    config_dir = get_default_config_dir(repo_root)
+    return [config_dir / file_name for file_name in DEFAULT_CONFIG_FILE_NAMES]
+
+
+def get_default_catalog_dir(repo_root: Path) -> Path:
+    return repo_root / DEFAULT_CATALOG_DIRECTORY
+
+
+def get_default_catalog_paths(repo_root: Path) -> list[Path]:
+    catalog_dir = get_default_catalog_dir(repo_root)
+    return [catalog_dir / file_name for file_name in DEFAULT_CATALOG_FILE_NAMES]
+
+
+def get_default_sync_paths(repo_root: Path) -> list[Path]:
+    return get_default_config_paths(repo_root) + get_default_catalog_paths(repo_root)
 
 
 def get_test_output_path(repo_root: Path, configuration: str) -> Path:
