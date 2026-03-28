@@ -12,8 +12,9 @@ namespace RandomLoadout
             _pickupResolver = pickupResolver;
         }
 
-        public LoadoutConfigResolutionResult Resolve(LoadoutRuleDefinition[] definitions)
+        public LoadoutConfigResolutionResult Resolve(LoadoutRuleDefinition[] definitions, PickupAliasRegistry aliasRegistry)
         {
+            PickupAliasRegistry effectiveAliasRegistry = aliasRegistry ?? PickupAliasRegistry.Empty;
             List<LoadoutRuleConfig> rules = new List<LoadoutRuleConfig>();
             List<SelectionWarning> warnings = new List<SelectionWarning>();
 
@@ -35,10 +36,79 @@ namespace RandomLoadout
                 switch (definition.Mode)
                 {
                     case GrantMode.Random:
-                        rules.Add(LoadoutRuleConfig.CreateRandom(definition.Category, definition.Count, definition.PoolIds));
+                        List<int> resolvedPoolIds = new List<int>();
+                        HashSet<int> seenPoolIds = new HashSet<int>();
+
+                        for (int poolIdIndex = 0; poolIdIndex < definition.PoolIds.Length; poolIdIndex++)
+                        {
+                            EtgPickupResolveResult idResolveResult = _pickupResolver.Resolve(definition.Category, definition.PoolIds[poolIdIndex]);
+                            if (idResolveResult.Succeeded)
+                            {
+                                if (seenPoolIds.Add(idResolveResult.PickupId))
+                                {
+                                    resolvedPoolIds.Add(idResolveResult.PickupId);
+                                }
+                            }
+                            else if (idResolveResult.Warning != null)
+                            {
+                                warnings.Add(idResolveResult.Warning);
+                            }
+                        }
+
+                        for (int poolAliasIndex = 0; poolAliasIndex < definition.PoolAliases.Length; poolAliasIndex++)
+                        {
+                            string pickupAlias = definition.PoolAliases[poolAliasIndex];
+                            int resolvedAliasPickupId;
+                            if (!effectiveAliasRegistry.TryResolve(pickupAlias, out resolvedAliasPickupId))
+                            {
+                                warnings.Add(
+                                    new SelectionWarning(
+                                        definition.Category,
+                                        "RandomAliasNotFound",
+                                        "No pickup alias matched the configured random pool alias '" + pickupAlias + "'."));
+                                continue;
+                            }
+
+                            EtgPickupResolveResult aliasResolveResult = _pickupResolver.Resolve(definition.Category, resolvedAliasPickupId);
+                            if (aliasResolveResult.Succeeded)
+                            {
+                                if (seenPoolIds.Add(aliasResolveResult.PickupId))
+                                {
+                                    resolvedPoolIds.Add(aliasResolveResult.PickupId);
+                                }
+                            }
+                            else if (aliasResolveResult.Warning != null)
+                            {
+                                warnings.Add(
+                                    new SelectionWarning(
+                                        definition.Category,
+                                        aliasResolveResult.Warning.Code,
+                                        "Alias '" + pickupAlias + "' resolved to pickup ID " + resolvedAliasPickupId + ", but " +
+                                        aliasResolveResult.Warning.Message));
+                            }
+                        }
+
+                        for (int poolIndex = 0; poolIndex < definition.PoolNames.Length; poolIndex++)
+                        {
+                            string pickupName = definition.PoolNames[poolIndex];
+                            EtgPickupResolveResult randomResolveResult = _pickupResolver.Resolve(definition.Category, pickupName);
+                            if (randomResolveResult.Succeeded)
+                            {
+                                if (seenPoolIds.Add(randomResolveResult.PickupId))
+                                {
+                                    resolvedPoolIds.Add(randomResolveResult.PickupId);
+                                }
+                            }
+                            else if (randomResolveResult.Warning != null)
+                            {
+                                warnings.Add(randomResolveResult.Warning);
+                            }
+                        }
+
+                        rules.Add(LoadoutRuleConfig.CreateRandom(definition.Category, definition.Count, resolvedPoolIds));
                         break;
                     case GrantMode.Specific:
-                        EtgPickupResolveResult resolveResult = _pickupResolver.Resolve(definition.Category, definition.SpecificName);
+                        EtgPickupResolveResult resolveResult = ResolveSpecificDefinition(definition, effectiveAliasRegistry);
                         if (resolveResult.Succeeded)
                         {
                             rules.Add(LoadoutRuleConfig.CreateSpecific(definition.Category, resolveResult.PickupId));
@@ -56,6 +126,50 @@ namespace RandomLoadout
             }
 
             return new LoadoutConfigResolutionResult(new LoadoutConfig(rules), warnings.ToArray());
+        }
+
+        private EtgPickupResolveResult ResolveSpecificDefinition(LoadoutRuleDefinition definition, PickupAliasRegistry aliasRegistry)
+        {
+            if (definition.SpecificPickupId.HasValue)
+            {
+                return _pickupResolver.Resolve(definition.Category, definition.SpecificPickupId.Value);
+            }
+
+            if (!string.IsNullOrEmpty(definition.SpecificAlias))
+            {
+                int resolvedAliasPickupId;
+                if (!aliasRegistry.TryResolve(definition.SpecificAlias, out resolvedAliasPickupId))
+                {
+                    return new EtgPickupResolveResult(
+                        false,
+                        definition.Category,
+                        0,
+                        string.Empty,
+                        new SelectionWarning(
+                            definition.Category,
+                            "SpecificAliasNotFound",
+                            "No pickup alias matched the configured specific pickup alias '" + definition.SpecificAlias + "'."));
+                }
+
+                EtgPickupResolveResult aliasResolveResult = _pickupResolver.Resolve(definition.Category, resolvedAliasPickupId);
+                if (!aliasResolveResult.Succeeded && aliasResolveResult.Warning != null)
+                {
+                    return new EtgPickupResolveResult(
+                        false,
+                        definition.Category,
+                        0,
+                        string.Empty,
+                        new SelectionWarning(
+                            definition.Category,
+                            aliasResolveResult.Warning.Code,
+                            "Alias '" + definition.SpecificAlias + "' resolved to pickup ID " + resolvedAliasPickupId + ", but " +
+                            aliasResolveResult.Warning.Message));
+                }
+
+                return aliasResolveResult;
+            }
+
+            return _pickupResolver.Resolve(definition.Category, definition.SpecificName);
         }
     }
 }

@@ -85,7 +85,7 @@ namespace RandomLoadout
             GUI.Label(new Rect(panelRect.x + 14f, panelRect.y + 12f, panelRect.width - 28f, 24f), "RandomLoadout Command", _titleStyle);
             GUI.Label(
                 new Rect(panelRect.x + 14f, panelRect.y + 40f, panelRect.width - 28f, 20f),
-                "Use: gun/passive/active/item <name>",
+                "Use: gun/passive/active/item <name, alias, or id>",
                 _hintStyle);
             GUI.Label(
                 new Rect(panelRect.x + 14f, panelRect.y + 58f, panelRect.width - 28f, 20f),

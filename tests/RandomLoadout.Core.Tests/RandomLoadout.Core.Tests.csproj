@@ -34,9 +34,38 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssertEx.cs" />
+    <Compile Include="AliasRegistryTests.cs" />
     <Compile Include="GrantCommandParserTests.cs" />
+    <Compile Include="RuleFileProviderTests.cs" />
     <Compile Include="LoadoutSelectionServiceTests.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="..\..\src\RandomLoadout\Configuration\AliasEntryModel.cs">
+      <Link>Plugin\Configuration\AliasEntryModel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\src\RandomLoadout\Configuration\AliasLoadResult.cs">
+      <Link>Plugin\Configuration\AliasLoadResult.cs</Link>
+    </Compile>
+    <Compile Include="..\..\src\RandomLoadout\Configuration\JsonLoadoutRuleFileProvider.cs">
+      <Link>Plugin\Configuration\JsonLoadoutRuleFileProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\..\src\RandomLoadout\Configuration\JsonPickupAliasFileProvider.cs">
+      <Link>Plugin\Configuration\JsonPickupAliasFileProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\..\src\RandomLoadout\Configuration\LoadoutRuleDefinition.cs">
+      <Link>Plugin\Configuration\LoadoutRuleDefinition.cs</Link>
+    </Compile>
+    <Compile Include="..\..\src\RandomLoadout\Configuration\LoadoutRuleFileLoadResult.cs">
+      <Link>Plugin\Configuration\LoadoutRuleFileLoadResult.cs</Link>
+    </Compile>
+    <Compile Include="..\..\src\RandomLoadout\Configuration\LoadoutRuleFileModel.cs">
+      <Link>Plugin\Configuration\LoadoutRuleFileModel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\src\RandomLoadout\Configuration\PickupAliasEntry.cs">
+      <Link>Plugin\Configuration\PickupAliasEntry.cs</Link>
+    </Compile>
+    <Compile Include="..\..\src\RandomLoadout\Configuration\PickupAliasRegistry.cs">
+      <Link>Plugin\Configuration\PickupAliasRegistry.cs</Link>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\RandomLoadout.Core\RandomLoadout.Core.csproj">

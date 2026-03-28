@@ -34,5 +34,10 @@ namespace RandomLoadout
         {
             return Format("Command", message);
         }
+
+        public static string Alias(string message)
+        {
+            return Format("Alias", message);
+        }
     }
 }

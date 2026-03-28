@@ -22,6 +22,16 @@ namespace RandomLoadout.Core.Tests
             AssertEx.Equal("Scope", result.Request.PickupName, "The parser should preserve the pickup name.");
         }
 
+        public static void PreservesPastedPickupCatalogLine()
+        {
+            GrantCommandParser parser = new GrantCommandParser();
+            GrantCommandParseResult result = parser.Parse("gun 541 Casey Baseball_Bat_Gun");
+
+            AssertEx.True(result.Succeeded, "The parser should accept a command that starts with a pickup ID.");
+            AssertEx.Equal(GrantCommandTarget.Gun, result.Request.Target, "The parser should detect the gun target.");
+            AssertEx.Equal("541 Casey Baseball_Bat_Gun", result.Request.PickupName, "The parser should preserve the pasted value for downstream ID detection.");
+        }
+
         public static void RejectsUnknownTarget()
         {
             GrantCommandParser parser = new GrantCommandParser();

@@ -114,13 +114,24 @@
     <Compile Include="..\RandomLoadout.Core\Selection\SelectionWarning.cs">
       <Link>Core\Selection\SelectionWarning.cs</Link>
     </Compile>
+    <Compile Include="Configuration\AliasEntryModel.cs" />
+    <Compile Include="Configuration\AliasLoadResult.cs" />
     <Compile Include="Configuration\DefaultLoadoutRuleDefinitionFactory.cs" />
+    <Compile Include="Configuration\JsonLoadoutRuleFileProvider.cs" />
+    <Compile Include="Configuration\JsonPickupAliasFileProvider.cs" />
     <Compile Include="Configuration\LoadoutConfigResolutionResult.cs" />
+    <Compile Include="Configuration\LoadoutRuleFileLoadResult.cs" />
     <Compile Include="Configuration\LoadoutRuleDefinition.cs" />
+    <Compile Include="Configuration\LoadoutRuleFileModel.cs" />
+    <Compile Include="Configuration\PickupAliasEntry.cs" />
+    <Compile Include="Configuration\PickupAliasRegistry.cs" />
     <Compile Include="Commands\GrantCommandExecutionResult.cs" />
     <Compile Include="Commands\GrantCommandService.cs" />
     <Compile Include="Commands\InGameCommandController.cs" />
     <Compile Include="Etg\EtgGrantOutcome.cs" />
+    <Compile Include="Etg\EtgPickupCatalogEntry.cs" />
+    <Compile Include="Etg\EtgPickupCatalogExportResult.cs" />
+    <Compile Include="Etg\EtgPickupCatalogExporter.cs" />
     <Compile Include="Etg\EtgLoadoutConfigResolver.cs" />
     <Compile Include="Etg\EtgOwnedPickupReader.cs" />
     <Compile Include="Etg\EtgPickupGranter.cs" />

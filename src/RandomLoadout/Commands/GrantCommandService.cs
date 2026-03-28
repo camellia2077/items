@@ -6,12 +6,17 @@ namespace RandomLoadout
     {
         private readonly EtgPickupResolver _pickupResolver;
         private readonly EtgPickupGranter _pickupGranter;
+        private readonly System.Func<PickupAliasRegistry> _aliasRegistryProvider;
         private readonly System.Random _random = new System.Random();
 
-        public GrantCommandService(EtgPickupResolver pickupResolver, EtgPickupGranter pickupGranter)
+        public GrantCommandService(
+            EtgPickupResolver pickupResolver,
+            EtgPickupGranter pickupGranter,
+            System.Func<PickupAliasRegistry> aliasRegistryProvider)
         {
             _pickupResolver = pickupResolver;
             _pickupGranter = pickupGranter;
+            _aliasRegistryProvider = aliasRegistryProvider;
         }
 
         public GrantCommandExecutionResult Execute(PlayerController player, GrantCommandRequest request)
@@ -74,19 +79,98 @@ namespace RandomLoadout
 
         private EtgPickupResolveResult ResolvePickup(GrantCommandRequest request)
         {
+            int pickupId;
+            if (TryParseLeadingPickupId(request.PickupName, out pickupId))
+            {
+                return ResolvePickupById(request.Target, pickupId);
+            }
+
+            PickupAliasRegistry aliasRegistry = _aliasRegistryProvider != null ? _aliasRegistryProvider() : PickupAliasRegistry.Empty;
+            if (aliasRegistry == null)
+            {
+                aliasRegistry = PickupAliasRegistry.Empty;
+            }
+
+            if (aliasRegistry.TryResolve(request.PickupName, out pickupId))
+            {
+                return ResolvePickupById(request.Target, pickupId);
+            }
+
+            EtgPickupResolveResult resolveResult;
             switch (request.Target)
             {
                 case GrantCommandTarget.Gun:
-                    return _pickupResolver.Resolve(PickupCategory.Gun, request.PickupName);
+                    resolveResult = _pickupResolver.Resolve(PickupCategory.Gun, request.PickupName);
+                    break;
                 case GrantCommandTarget.Passive:
-                    return _pickupResolver.Resolve(PickupCategory.Passive, request.PickupName);
+                    resolveResult = _pickupResolver.Resolve(PickupCategory.Passive, request.PickupName);
+                    break;
                 case GrantCommandTarget.Active:
-                    return _pickupResolver.Resolve(PickupCategory.Active, request.PickupName);
+                    resolveResult = _pickupResolver.Resolve(PickupCategory.Active, request.PickupName);
+                    break;
                 case GrantCommandTarget.Any:
-                    return _pickupResolver.ResolveAny(request.PickupName);
+                    resolveResult = _pickupResolver.ResolveAny(request.PickupName);
+                    break;
                 default:
                     return new EtgPickupResolveResult(false, null, 0, string.Empty, new SelectionWarning(null, "CommandTargetUnsupported", "The command target was not supported."));
             }
+
+            if (!resolveResult.Succeeded &&
+                resolveResult.Warning != null &&
+                string.Equals(resolveResult.Warning.Code, "SpecificNameAmbiguous", System.StringComparison.Ordinal))
+            {
+                return new EtgPickupResolveResult(
+                    false,
+                    resolveResult.Category,
+                    0,
+                    string.Empty,
+                    new SelectionWarning(
+                        resolveResult.Warning.Category,
+                        resolveResult.Warning.Code,
+                        resolveResult.Warning.Message + " Try using a configured alias or the pickup ID from RandomLoadout.pickups.txt, for example: gun casey_bat or gun 541."));
+            }
+
+            return resolveResult;
+        }
+
+        private EtgPickupResolveResult ResolvePickupById(GrantCommandTarget target, int pickupId)
+        {
+            switch (target)
+            {
+                case GrantCommandTarget.Gun:
+                    return _pickupResolver.Resolve(PickupCategory.Gun, pickupId);
+                case GrantCommandTarget.Passive:
+                    return _pickupResolver.Resolve(PickupCategory.Passive, pickupId);
+                case GrantCommandTarget.Active:
+                    return _pickupResolver.Resolve(PickupCategory.Active, pickupId);
+                case GrantCommandTarget.Any:
+                    return _pickupResolver.ResolveAny(pickupId);
+                default:
+                    return new EtgPickupResolveResult(false, null, 0, string.Empty, new SelectionWarning(null, "CommandTargetUnsupported", "The command target was not supported."));
+            }
+        }
+
+        private static bool TryParseLeadingPickupId(string rawValue, out int pickupId)
+        {
+            pickupId = 0;
+            if (string.IsNullOrEmpty(rawValue))
+            {
+                return false;
+            }
+
+            string trimmed = rawValue.Trim();
+            if (trimmed.Length == 0)
+            {
+                return false;
+            }
+
+            string[] parts = trimmed.Split(new[] { ' ', '\t' }, System.StringSplitOptions.RemoveEmptyEntries);
+            if (parts.Length == 0)
+            {
+                return false;
+            }
+
+            return int.TryParse(parts[0], out pickupId);
         }
     }
 }

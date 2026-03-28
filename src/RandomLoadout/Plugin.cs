@@ -1,5 +1,7 @@
 using System.Collections;
+using System.IO;
 using BepInEx;
+using BepInEx.Configuration;
 using RandomLoadout.Core;
 using UnityEngine;
 
@@ -10,10 +12,16 @@ namespace RandomLoadout
     {
         public const string GUID = "randomgun.randomloadout";
         public const string NAME = "RandomLoadout";
-        public const string VERSION = "0.1.0";
+        public const string VERSION = "0.1.1";
 
-        private const string BreachSceneName = "tt_breach";
+        private const string BreachSceneName = "tt_foyer";
+        private const string LegacyBreachSceneName = "tt_breach";
+        private const string LoadingSceneName = "LoadingDungeon";
         private const float GrantDelaySeconds = 1.5f;
+        private const string PickupCatalogTextFileName = NAME + ".pickups.txt";
+        private const string PickupCatalogJsonFileName = NAME + ".pickups.json";
+        private const string PickupCatalogGroupedJsonFileName = NAME + ".pickups.by-category.json";
+        private const string PickupCatalogRulePoolFileName = NAME + ".rules.full-pool.json";
 
         private readonly EtgPickupResolver _pickupResolver = new EtgPickupResolver();
         private readonly EtgOwnedPickupReader _ownedPickupReader = new EtgOwnedPickupReader();
@@ -21,23 +29,47 @@ namespace RandomLoadout
         private readonly LoadoutSelectionService _selectionService = new LoadoutSelectionService();
         private readonly ISeedProvider _seedProvider = new UtcTickSeedProvider();
 
+        private ConfigEntry<bool> _enableRandomLoadoutConfig;
         private LoadoutRuleDefinition[] _ruleDefinitions;
         private LoadoutConfig _resolvedLoadoutConfig;
+        private PickupAliasRegistry _aliasRegistry;
+        private bool _hasLoadedAliasRegistry;
         private bool _hasResolvedLoadoutConfig;
+        private JsonPickupAliasFileProvider _aliasFileProvider;
         private EtgLoadoutConfigResolver _configResolver;
+        private EtgPickupCatalogExporter _pickupCatalogExporter;
+        private JsonLoadoutRuleFileProvider _ruleFileProvider;
         private InGameCommandController _commandController;
+        private bool _hasExportedPickupCatalog;
+        private string _lastPickupCatalogExportFailure;
         private RunGrantState _runState;
         private RunSceneWatcher _sceneWatcher;
 
         private void Awake()
         {
+            _enableRandomLoadoutConfig = Config.Bind(
+                "General",
+                "EnableRandomLoadout",
+                true,
+                "Enable or disable the automatic start-of-run loadout grant.");
+            _aliasRegistry = PickupAliasRegistry.Empty;
             _configResolver = new EtgLoadoutConfigResolver(_pickupResolver);
-            _commandController = new InGameCommandController(new GrantCommandService(_pickupResolver, _pickupGranter));
-            _ruleDefinitions = DefaultLoadoutRuleDefinitionFactory.CreateDefault();
+            _pickupCatalogExporter = new EtgPickupCatalogExporter(
+                Path.Combine(Paths.ConfigPath, PickupCatalogTextFileName),
+                Path.Combine(Paths.ConfigPath, PickupCatalogJsonFileName),
+                Path.Combine(Paths.ConfigPath, PickupCatalogGroupedJsonFileName),
+                Path.Combine(Paths.ConfigPath, PickupCatalogRulePoolFileName));
+            _aliasFileProvider = new JsonPickupAliasFileProvider(Path.Combine(Paths.ConfigPath, NAME + ".aliases.json"));
+            _commandController = new InGameCommandController(new GrantCommandService(_pickupResolver, _pickupGranter, GetAliasRegistry));
+            _ruleFileProvider = new JsonLoadoutRuleFileProvider(
+                Path.Combine(Paths.ConfigPath, NAME + ".rules.json"),
+                Path.Combine(Paths.ConfigPath, PickupCatalogRulePoolFileName));
+            _ruleDefinitions = new LoadoutRuleDefinition[0];
             _runState = new RunGrantState(BreachSceneName);
             _sceneWatcher = new RunSceneWatcher(BreachSceneName);
 
             Logger.LogInfo(RandomLoadoutLog.Init("Waiting for GameManager startup."));
+            Logger.LogInfo(RandomLoadoutLog.Init("Automatic random loadout is " + (_enableRandomLoadoutConfig.Value ? "enabled" : "disabled") + "."));
             StartCoroutine(WaitForGameManagerAndSubscribe());
         }
 
@@ -51,6 +83,8 @@ namespace RandomLoadout
 
         private void Update()
         {
+            TryExportPickupCatalogOnce();
+
             PlayerController player = null;
             GameManager gameManager = GameManager.Instance;
             if ((object)gameManager != null)
@@ -79,7 +113,9 @@ namespace RandomLoadout
                 yield return null;
             }
 
+            EnsureAliasRegistryLoaded();
             _sceneWatcher.Subscribe(GameManager.Instance, OnNewLevelFullyLoaded);
+            TryExportPickupCatalogOnce();
             Logger.LogInfo(RandomLoadoutLog.Init(NAME + " v" + VERSION + " started successfully."));
         }
 
@@ -101,7 +137,6 @@ namespace RandomLoadout
             {
                 return;
             }
-
             string previousSceneName = _runState.LastObservedSceneName;
             bool sceneChanged = _runState.ObserveScene(sceneName);
             if (sceneChanged)
@@ -109,7 +144,7 @@ namespace RandomLoadout
                 Logger.LogInfo(RandomLoadoutLog.Run("Observed scene change via " + source + ": " + previousSceneName + " -> " + sceneName));
             }
 
-            if (_sceneWatcher.IsBreachScene(sceneName))
+            if (IsResetScene(sceneName))
             {
                 if (_runState.HasGrantedThisRun || _runState.CurrentSeed != 0)
                 {
@@ -117,6 +152,11 @@ namespace RandomLoadout
                 }
 
                 _runState.ResetForBreach();
+                return;
+            }
+
+            if (!IsGrantableDungeonScene(sceneName))
+            {
                 return;
             }
 
@@ -128,6 +168,16 @@ namespace RandomLoadout
 
             if (_runState.HasGrantedThisRun)
             {
+                return;
+            }
+
+            if (!_enableRandomLoadoutConfig.Value)
+            {
+                if (sceneChanged)
+                {
+                    Logger.LogInfo(RandomLoadoutLog.Run("Automatic random loadout is disabled by config."));
+                }
+
                 return;
             }
 
@@ -207,7 +257,21 @@ namespace RandomLoadout
                 return;
             }
 
-            LoadoutConfigResolutionResult resolutionResult = _configResolver.Resolve(_ruleDefinitions);
+            EnsureAliasRegistryLoaded();
+
+            LoadoutRuleFileLoadResult ruleFileLoadResult = _ruleFileProvider.Load();
+            _ruleDefinitions = ruleFileLoadResult.Definitions;
+            for (int i = 0; i < ruleFileLoadResult.Messages.Length; i++)
+            {
+                Logger.LogInfo(RandomLoadoutLog.Init(ruleFileLoadResult.Messages[i]));
+            }
+
+            for (int i = 0; i < ruleFileLoadResult.Warnings.Length; i++)
+            {
+                Logger.LogWarning(RandomLoadoutLog.Init(ruleFileLoadResult.Warnings[i]));
+            }
+
+            LoadoutConfigResolutionResult resolutionResult = _configResolver.Resolve(_ruleDefinitions, _aliasRegistry);
             _resolvedLoadoutConfig = resolutionResult.Config;
             _hasResolvedLoadoutConfig = true;
 
@@ -222,6 +286,99 @@ namespace RandomLoadout
                 string categoryPrefix = warning.Category.HasValue ? warning.Category.Value + ": " : string.Empty;
                 Logger.LogWarning(RandomLoadoutLog.Grant(categoryPrefix + warning.Message + " [Code=" + warning.Code + "]"));
             }
+        }
+
+        private PickupAliasRegistry GetAliasRegistry()
+        {
+            if (!_hasLoadedAliasRegistry)
+            {
+                EnsureAliasRegistryLoaded();
+            }
+
+            return _aliasRegistry ?? PickupAliasRegistry.Empty;
+        }
+
+        private void EnsureAliasRegistryLoaded()
+        {
+            if (_hasLoadedAliasRegistry || _aliasFileProvider == null)
+            {
+                return;
+            }
+
+            if ((object)GameManager.Instance == null)
+            {
+                return;
+            }
+
+            AliasLoadResult aliasLoadResult = _aliasFileProvider.Load(IsSupportedGrantablePickupId);
+            _aliasRegistry = aliasLoadResult.Registry ?? PickupAliasRegistry.Empty;
+            _hasLoadedAliasRegistry = true;
+
+            for (int i = 0; i < aliasLoadResult.Messages.Length; i++)
+            {
+                Logger.LogInfo(RandomLoadoutLog.Alias(aliasLoadResult.Messages[i]));
+            }
+
+            for (int i = 0; i < aliasLoadResult.Warnings.Length; i++)
+            {
+                Logger.LogWarning(RandomLoadoutLog.Alias(aliasLoadResult.Warnings[i]));
+            }
+        }
+
+        private bool IsSupportedGrantablePickupId(int pickupId)
+        {
+            return _pickupResolver.ResolveAny(pickupId).Succeeded;
+        }
+
+        private void TryExportPickupCatalogOnce()
+        {
+            if (_hasExportedPickupCatalog || _pickupCatalogExporter == null)
+            {
+                return;
+            }
+
+            EtgPickupCatalogExportResult exportResult = _pickupCatalogExporter.Export(_pickupResolver);
+            if (exportResult.Succeeded)
+            {
+                _hasExportedPickupCatalog = true;
+                _lastPickupCatalogExportFailure = null;
+                Logger.LogInfo(
+                    RandomLoadoutLog.Init(
+                        "Exported grantable pickup catalog to '" + exportResult.TextOutputPath + "', '" + exportResult.JsonOutputPath + "', '" + exportResult.GroupedJsonOutputPath + "', and '" + exportResult.RulePoolOutputPath + "' (" + exportResult.EntryCount + " entries)."));
+                return;
+            }
+
+            if (!string.Equals(_lastPickupCatalogExportFailure, exportResult.FailureReason, System.StringComparison.Ordinal))
+            {
+                _lastPickupCatalogExportFailure = exportResult.FailureReason;
+                Logger.LogWarning(RandomLoadoutLog.Init("Failed to export grantable pickup catalog: " + exportResult.FailureReason));
+            }
+        }
+
+        private static bool IsResetScene(string sceneName)
+        {
+            return string.Equals(sceneName, BreachSceneName, System.StringComparison.Ordinal) ||
+                   string.Equals(sceneName, LegacyBreachSceneName, System.StringComparison.Ordinal);
+        }
+
+        private static bool IsGrantableDungeonScene(string sceneName)
+        {
+            if (string.IsNullOrEmpty(sceneName))
+            {
+                return false;
+            }
+
+            if (IsResetScene(sceneName))
+            {
+                return false;
+            }
+
+            if (string.Equals(sceneName, LoadingSceneName, System.StringComparison.Ordinal))
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }
