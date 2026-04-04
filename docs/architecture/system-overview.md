@@ -98,9 +98,9 @@ When adding or changing behavior:
 ## Recommended Reading Order
 
 - `src/AGENTS.md`
-- `docs/architecture.md`
-- `docs/development.md`
-- `docs/deploy.md`
-- `docs/commands.md`
+- `docs/architecture/system-overview.md`
+- `docs/getting-started/development-setup.md`
+- `docs/operations/deploy.md`
+- `docs/reference/commands.md`
 
 Then drill into source files as needed.

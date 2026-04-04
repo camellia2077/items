@@ -5,9 +5,9 @@ It is intentionally brief so it stays stable as the code evolves.
 
 ## Start Here
 
-- Read [`../docs/architecture.md`](../docs/architecture.md) for the current responsibility split.
-- Read [`../docs/development.md`](../docs/development.md) for build and test workflow.
-- Read [`../docs/deploy.md`](../docs/deploy.md) if your change affects shipped files or the game install layout.
+- Read [`../docs/architecture/system-overview.md`](../docs/architecture/system-overview.md) for the current responsibility split.
+- Read [`../docs/getting-started/development-setup.md`](../docs/getting-started/development-setup.md) for build and test workflow.
+- Read [`../docs/operations/deploy.md`](../docs/operations/deploy.md) if your change affects shipped files or the game install layout.
 
 ## Directory Intent
 

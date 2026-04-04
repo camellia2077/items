@@ -54,6 +54,15 @@ This project currently builds on the following open source projects and ecosyste
 
 The mod also depends on local game assemblies from `Enter the Gungeon` and Unity for compilation, but those are not open source project dependencies of this repository.
 
+## Referenced Repositories
+
+The project also references the following repositories for implementation patterns and modding workflow context:
+
+- [`SpecialAPI/ModTheGungeonAPI`](https://github.com/SpecialAPI/ModTheGungeonAPI)
+  Used as a practical reference for ETG runtime interaction patterns (for example, character switching flows).
+- [`SpecialAPI/SaveAPI`](https://github.com/SpecialAPI/SaveAPI)
+  Used as a practical reference for save and persistence workflow patterns in ETG modding.
+
 ## Documentation
 
 Detailed usage and maintenance notes have been moved under [`docs/`](./docs/README.md).
@@ -62,27 +71,27 @@ Useful entry points:
 
 - [`docs/README.md`](./docs/README.md)
   General documentation index
-- [`docs/development.md`](./docs/development.md)
+- [`docs/getting-started/development-setup.md`](./docs/getting-started/development-setup.md)
   Build, test, dependencies, and tooling workflow
-- [`docs/architecture.md`](./docs/architecture.md)
+- [`docs/architecture/system-overview.md`](./docs/architecture/system-overview.md)
   Lightweight repository responsibility map
-- [`docs/deploy.md`](./docs/deploy.md)
+- [`docs/operations/deploy.md`](./docs/operations/deploy.md)
   Deployment steps and notes
-- [`docs/logging.md`](./docs/logging.md)
+- [`docs/operations/logging.md`](./docs/operations/logging.md)
   Log prefixes and log extraction workflow
-- [`docs/commands.md`](./docs/commands.md)
+- [`docs/reference/commands.md`](./docs/reference/commands.md)
   In-game command panel usage
-- [`docs/pickups.md`](./docs/pickups.md)
+- [`docs/reference/pickups.md`](./docs/reference/pickups.md)
   Generated player-facing pickup reference grouped by category
 - [`docs/history/0.1.1.md`](./docs/history/0.1.1.md)
   Latest milestone history
 - [`docs/history/0.1.0.md`](./docs/history/0.1.0.md)
   Initial working baseline milestone
-- [`docs/note/cmd.md`](./docs/note/cmd.md)
+- [`docs/operations/notes/cmd.md`](./docs/operations/notes/cmd.md)
   Command-related working notes
-- [`docs/research/project-scope.md`](./docs/research/project-scope.md)
+- [`docs/architecture/research/project-scope.md`](./docs/architecture/research/project-scope.md)
   Scope and constraints
-- [`docs/research/implementation-guidance.md`](./docs/research/implementation-guidance.md)
+- [`docs/architecture/research/implementation-guidance.md`](./docs/architecture/research/implementation-guidance.md)
   Implementation guidance and next-step context
 
 ## Development Entry Points

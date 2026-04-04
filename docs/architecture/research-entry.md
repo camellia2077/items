@@ -2,7 +2,7 @@
 
 最后整理时间：2026-03-25
 
-这份文件现在作为研究入口和摘要使用，详细内容已拆分到 `docs/research/`，避免单文件继续膨胀。
+这份文件现在作为研究入口和摘要使用，详细内容已拆分到 `docs/architecture/research/`，避免单文件继续膨胀。
 
 ## 快速结论
 
@@ -16,7 +16,7 @@
 
 ## 阅读导航
 
-- 总导航：[README.md](./README.md)
+- 总导航：[README.md](../README.md)
 - 项目目标与约束：[research/project-scope.md](./research/project-scope.md)
 - 技术栈与选型结论：[research/stack-and-tooling.md](./research/stack-and-tooling.md)
 - 外部资料索引与用途说明：[research/reference-index.md](./research/reference-index.md)
@@ -41,4 +41,3 @@
 - `AddGunToInventory`
 - `OnNewLevelFullyLoaded`
 - `new run`
-

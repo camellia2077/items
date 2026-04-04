@@ -42,14 +42,14 @@ The scripts use the system `.NET Framework` MSBuild at:
 
 - `C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe`
 
-Build logic and test logic now live in Python scripts under [`scripts/`](../scripts/).
+Build logic and test logic now live in Python scripts under [`scripts/`](../../scripts/).
 The PowerShell files are thin wrappers that forward arguments to Python.
 
 ## Local Dependencies
 
 Required local DLLs are described in:
 
-- [`../lib/README.md`](../lib/README.md)
+- [`../../lib/README.md`](../../lib/README.md)
 
 ## IDE
 
