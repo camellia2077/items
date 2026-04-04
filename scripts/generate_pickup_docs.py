@@ -9,8 +9,8 @@ from script_common import fail, get_repo_root, run_cli
 
 
 DEFAULT_INPUT = Path("defaults") / "catalog" / "RandomLoadout.pickups.by-category.json"
-DEFAULT_OUTPUT = Path("docs") / "pickups.md"
-DEFAULT_ALIAS_INPUT = Path("defaults") / "config" / "RandomLoadout.aliases.json"
+DEFAULT_OUTPUT = Path("docs") / "reference" / "pickups.md"
+DEFAULT_ALIAS_INPUT = Path("defaults") / "config" / "RandomLoadout.aliases.json5"
 CATEGORY_ORDER = ("Gun", "Passive", "Active")
 
 
@@ -28,12 +28,12 @@ def parse_args() -> argparse.Namespace:
         "-o",
         "--output",
         default=str(DEFAULT_OUTPUT),
-        help="Path to write the generated Markdown document. Defaults to docs/pickups.md.",
+        help="Path to write the generated Markdown document. Defaults to docs/reference/pickups.md.",
     )
     parser.add_argument(
         "--alias-input",
         default=str(DEFAULT_ALIAS_INPUT),
-        help="Optional alias JSON file used to annotate known aliases. Defaults to defaults/config/RandomLoadout.aliases.json.",
+        help="Optional alias JSON5 file used to annotate known aliases. Defaults to defaults/config/RandomLoadout.aliases.json5.",
     )
     return parser.parse_args()
 

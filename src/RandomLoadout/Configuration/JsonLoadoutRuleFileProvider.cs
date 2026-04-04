@@ -38,7 +38,7 @@ namespace RandomLoadout
             {
                 try
                 {
-                    string rawJson = File.ReadAllText(_filePath, Encoding.UTF8);
+                    string rawJson = Json5TextNormalizer.Normalize(File.ReadAllText(_filePath, Encoding.UTF8));
                     fileModel = ParseRuleFile(rawJson);
                 }
                 catch (Exception exception)
@@ -71,7 +71,7 @@ namespace RandomLoadout
 
             try
             {
-                string fallbackRawJson = File.ReadAllText(_fallbackFilePath, Encoding.UTF8);
+                string fallbackRawJson = Json5TextNormalizer.Normalize(File.ReadAllText(_fallbackFilePath, Encoding.UTF8));
                 fileModel = ParseRuleFile(fallbackRawJson);
                 messages.Add(reason + ", so RandomLoadout loaded fallback rules from '" + _fallbackFilePath + "'.");
             }
@@ -95,7 +95,7 @@ namespace RandomLoadout
                 return new LoadoutRuleFileModel();
             }
 
-            if (rawJson.IndexOf("\"rules\"", StringComparison.OrdinalIgnoreCase) < 0)
+            if (!Regex.IsMatch(rawJson, "(?:\"rules\"|'rules'|\\brules\\b)\\s*:", RegexOptions.IgnoreCase))
             {
                 throw new FormatException("Rule file must contain a 'rules' array.");
             }
@@ -105,7 +105,7 @@ namespace RandomLoadout
             for (int i = 0; i < ruleMatches.Count; i++)
             {
                 string body = ruleMatches[i].Groups["body"].Value;
-                if (body.IndexOf("\"mode\"", StringComparison.OrdinalIgnoreCase) < 0)
+                if (!Regex.IsMatch(body, GetPropertyPrefixPattern("mode"), RegexOptions.IgnoreCase))
                 {
                     continue;
                 }
@@ -267,21 +267,24 @@ namespace RandomLoadout
         {
             Match match = Regex.Match(
                 body,
-                "\"" + Regex.Escape(propertyName) + "\"\\s*:\\s*\"(?<value>(?:\\\\.|[^\"])*)\"",
+                GetPropertyPrefixPattern(propertyName) + "(?:\"(?<dq>(?:\\\\.|[^\"])*)\"|'(?<sq>(?:\\\\.|[^'])*)')",
                 RegexOptions.IgnoreCase);
             if (!match.Success)
             {
                 return string.Empty;
             }
 
-            return UnescapeJsonString(match.Groups["value"].Value);
+            string value = match.Groups["dq"].Success
+                ? match.Groups["dq"].Value
+                : match.Groups["sq"].Value;
+            return UnescapeJsonString(value);
         }
 
         private static bool ParseBool(string body, string propertyName, bool defaultValue)
         {
             Match match = Regex.Match(
                 body,
-                "\"" + Regex.Escape(propertyName) + "\"\\s*:\\s*(?<value>true|false)",
+                GetPropertyPrefixPattern(propertyName) + "(?<value>true|false)",
                 RegexOptions.IgnoreCase);
             if (!match.Success)
             {
@@ -295,7 +298,7 @@ namespace RandomLoadout
         {
             Match match = Regex.Match(
                 body,
-                "\"" + Regex.Escape(propertyName) + "\"\\s*:\\s*(?<value>-?\\d+)",
+                GetPropertyPrefixPattern(propertyName) + "(?<value>-?\\d+)",
                 RegexOptions.IgnoreCase);
             if (!match.Success)
             {
@@ -310,7 +313,7 @@ namespace RandomLoadout
         {
             Match match = Regex.Match(
                 body,
-                "\"" + Regex.Escape(propertyName) + "\"\\s*:\\s*(?<value>-?\\d+)",
+                GetPropertyPrefixPattern(propertyName) + "(?<value>-?\\d+)",
                 RegexOptions.IgnoreCase);
             if (!match.Success)
             {
@@ -325,7 +328,7 @@ namespace RandomLoadout
         {
             Match match = Regex.Match(
                 body,
-                "\"" + Regex.Escape(propertyName) + "\"\\s*:\\s*\\[(?<value>[\\s\\S]*?)\\]",
+                GetPropertyPrefixPattern(propertyName) + "\\[(?<value>[\\s\\S]*?)\\]",
                 RegexOptions.IgnoreCase);
             if (!match.Success)
             {
@@ -350,18 +353,23 @@ namespace RandomLoadout
         {
             Match match = Regex.Match(
                 body,
-                "\"" + Regex.Escape(propertyName) + "\"\\s*:\\s*\\[(?<value>[\\s\\S]*?)\\]",
+                GetPropertyPrefixPattern(propertyName) + "\\[(?<value>[\\s\\S]*?)\\]",
                 RegexOptions.IgnoreCase);
             if (!match.Success)
             {
                 return new string[0];
             }
 
-            MatchCollection itemMatches = Regex.Matches(match.Groups["value"].Value, "\"(?<item>(?:\\\\.|[^\"])*)\"");
+            MatchCollection itemMatches = Regex.Matches(
+                match.Groups["value"].Value,
+                "(?:\"(?<dq>(?:\\\\.|[^\"])*)\"|'(?<sq>(?:\\\\.|[^'])*)')");
             List<string> values = new List<string>();
             for (int i = 0; i < itemMatches.Count; i++)
             {
-                values.Add(UnescapeJsonString(itemMatches[i].Groups["item"].Value));
+                string itemValue = itemMatches[i].Groups["dq"].Success
+                    ? itemMatches[i].Groups["dq"].Value
+                    : itemMatches[i].Groups["sq"].Value;
+                values.Add(UnescapeJsonString(itemValue));
             }
 
             return values.ToArray();
@@ -371,10 +379,17 @@ namespace RandomLoadout
         {
             return value
                 .Replace("\\\"", "\"")
+                .Replace("\\'", "'")
                 .Replace("\\\\", "\\")
                 .Replace("\\n", "\n")
                 .Replace("\\r", "\r")
                 .Replace("\\t", "\t");
+        }
+
+        private static string GetPropertyPrefixPattern(string propertyName)
+        {
+            string escaped = Regex.Escape(propertyName);
+            return "(?:\"" + escaped + "\"|'" + escaped + "'|\\b" + escaped + "\\b)\\s*:\\s*";
         }
     }
 }

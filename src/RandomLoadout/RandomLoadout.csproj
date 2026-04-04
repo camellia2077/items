@@ -117,6 +117,7 @@
     <Compile Include="Configuration\AliasEntryModel.cs" />
     <Compile Include="Configuration\AliasLoadResult.cs" />
     <Compile Include="Configuration\DefaultLoadoutRuleDefinitionFactory.cs" />
+    <Compile Include="Configuration\Json5TextNormalizer.cs" />
     <Compile Include="Configuration\JsonLoadoutRuleFileProvider.cs" />
     <Compile Include="Configuration\JsonPickupAliasFileProvider.cs" />
     <Compile Include="Configuration\LoadoutConfigResolutionResult.cs" />
@@ -127,7 +128,11 @@
     <Compile Include="Configuration\PickupAliasRegistry.cs" />
     <Compile Include="Commands\GrantCommandExecutionResult.cs" />
     <Compile Include="Commands\GrantCommandService.cs" />
+    <Compile Include="Commands\FoyerCharacterOption.cs" />
+    <Compile Include="Commands\FoyerCharacterSwitchService.cs" />
     <Compile Include="Commands\InGameCommandController.cs" />
+    <Compile Include="Commands\PlayerDebugCommandService.cs" />
+    <Compile Include="Commands\RapidFireToggleService.cs" />
     <Compile Include="Etg\EtgGrantOutcome.cs" />
     <Compile Include="Etg\EtgPickupCatalogEntry.cs" />
     <Compile Include="Etg\EtgPickupCatalogExportResult.cs" />
@@ -141,6 +146,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Runtime\RunGrantState.cs" />
+    <Compile Include="Runtime\RunLifecycleObservation.cs" />
+    <Compile Include="Runtime\RunLifecycleTracker.cs" />
     <Compile Include="Runtime\RunSceneWatcher.cs" />
   </ItemGroup>
 

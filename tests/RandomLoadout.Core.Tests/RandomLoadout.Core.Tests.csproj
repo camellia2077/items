@@ -45,6 +45,9 @@
     <Compile Include="..\..\src\RandomLoadout\Configuration\AliasLoadResult.cs">
       <Link>Plugin\Configuration\AliasLoadResult.cs</Link>
     </Compile>
+    <Compile Include="..\..\src\RandomLoadout\Configuration\Json5TextNormalizer.cs">
+      <Link>Plugin\Configuration\Json5TextNormalizer.cs</Link>
+    </Compile>
     <Compile Include="..\..\src\RandomLoadout\Configuration\JsonLoadoutRuleFileProvider.cs">
       <Link>Plugin\Configuration\JsonLoadoutRuleFileProvider.cs</Link>
     </Compile>

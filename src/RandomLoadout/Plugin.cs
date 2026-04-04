@@ -21,7 +21,7 @@ namespace RandomLoadout
         private const string PickupCatalogTextFileName = NAME + ".pickups.txt";
         private const string PickupCatalogJsonFileName = NAME + ".pickups.json";
         private const string PickupCatalogGroupedJsonFileName = NAME + ".pickups.by-category.json";
-        private const string PickupCatalogRulePoolFileName = NAME + ".rules.full-pool.json";
+        private const string PickupCatalogRulePoolFileName = NAME + ".rules.full-pool.json5";
 
         private readonly EtgPickupResolver _pickupResolver = new EtgPickupResolver();
         private readonly EtgOwnedPickupReader _ownedPickupReader = new EtgOwnedPickupReader();
@@ -40,9 +40,11 @@ namespace RandomLoadout
         private EtgPickupCatalogExporter _pickupCatalogExporter;
         private JsonLoadoutRuleFileProvider _ruleFileProvider;
         private InGameCommandController _commandController;
+        private RapidFireToggleService _rapidFireToggleService;
         private bool _hasExportedPickupCatalog;
         private string _lastPickupCatalogExportFailure;
         private RunGrantState _runState;
+        private RunLifecycleTracker _runLifecycleTracker;
         private RunSceneWatcher _sceneWatcher;
 
         private void Awake()
@@ -59,13 +61,19 @@ namespace RandomLoadout
                 Path.Combine(Paths.ConfigPath, PickupCatalogJsonFileName),
                 Path.Combine(Paths.ConfigPath, PickupCatalogGroupedJsonFileName),
                 Path.Combine(Paths.ConfigPath, PickupCatalogRulePoolFileName));
-            _aliasFileProvider = new JsonPickupAliasFileProvider(Path.Combine(Paths.ConfigPath, NAME + ".aliases.json"));
-            _commandController = new InGameCommandController(new GrantCommandService(_pickupResolver, _pickupGranter, GetAliasRegistry));
+            _aliasFileProvider = new JsonPickupAliasFileProvider(Path.Combine(Paths.ConfigPath, NAME + ".aliases.json5"));
+            _rapidFireToggleService = new RapidFireToggleService();
+            _commandController = new InGameCommandController(
+                new GrantCommandService(_pickupResolver, _pickupGranter, GetAliasRegistry),
+                new PlayerDebugCommandService(),
+                new FoyerCharacterSwitchService(),
+                _rapidFireToggleService);
             _ruleFileProvider = new JsonLoadoutRuleFileProvider(
-                Path.Combine(Paths.ConfigPath, NAME + ".rules.json"),
+                Path.Combine(Paths.ConfigPath, NAME + ".rules.json5"),
                 Path.Combine(Paths.ConfigPath, PickupCatalogRulePoolFileName));
             _ruleDefinitions = new LoadoutRuleDefinition[0];
-            _runState = new RunGrantState(BreachSceneName);
+            _runState = new RunGrantState();
+            _runLifecycleTracker = new RunLifecycleTracker(BreachSceneName, LegacyBreachSceneName, LoadingSceneName);
             _sceneWatcher = new RunSceneWatcher(BreachSceneName);
 
             Logger.LogInfo(RandomLoadoutLog.Init("Waiting for GameManager startup."));
@@ -75,6 +83,11 @@ namespace RandomLoadout
 
         private void OnDestroy()
         {
+            if (_rapidFireToggleService != null)
+            {
+                _rapidFireToggleService.Reset();
+            }
+
             if (_sceneWatcher != null)
             {
                 _sceneWatcher.Unsubscribe(OnNewLevelFullyLoaded);
@@ -95,6 +108,11 @@ namespace RandomLoadout
             if (_commandController != null)
             {
                 _commandController.Update();
+            }
+
+            if (_rapidFireToggleService != null)
+            {
+                _rapidFireToggleService.Update(player);
             }
 
             if (_sceneWatcher == null || !_sceneWatcher.IsPollDue(Time.unscaledTime))
@@ -137,33 +155,51 @@ namespace RandomLoadout
             {
                 return;
             }
-            string previousSceneName = _runState.LastObservedSceneName;
-            bool sceneChanged = _runState.ObserveScene(sceneName);
-            if (sceneChanged)
+            PlayerController player = gameManager.PrimaryPlayer;
+            int playerInstanceId = (object)player != null ? player.GetInstanceID() : 0;
+            RunLifecycleObservation lifecycle = _runLifecycleTracker.Observe(sceneName, playerInstanceId);
+            if (lifecycle.SceneChanged)
             {
-                Logger.LogInfo(RandomLoadoutLog.Run("Observed scene change via " + source + ": " + previousSceneName + " -> " + sceneName));
+                Logger.LogInfo(RandomLoadoutLog.Run("Observed scene change via " + source + ": " + lifecycle.PreviousSceneName + " -> " + lifecycle.SceneName));
             }
 
-            if (IsResetScene(sceneName))
+            if (lifecycle.ResetKind == RunLifecycleResetKind.PrimaryPlayerChanged)
+            {
+                if (_runState.HasGrantedThisRun || _runState.CurrentSeed != 0)
+                {
+                    Logger.LogInfo(RandomLoadoutLog.Run("Detected a new PrimaryPlayer instance in scene " + lifecycle.SceneName + ". Resetting run grant state."));
+                }
+
+                _runState.Reset();
+            }
+
+            if (lifecycle.ResetKind == RunLifecycleResetKind.EnteredBreach)
             {
                 if (_runState.HasGrantedThisRun || _runState.CurrentSeed != 0)
                 {
                     Logger.LogInfo(RandomLoadoutLog.Run("Entered breach. Resetting run grant state."));
                 }
 
-                _runState.ResetForBreach();
+                _runState.Reset();
                 return;
             }
 
-            if (!IsGrantableDungeonScene(sceneName))
+            if (!lifecycle.IsGrantableDungeonScene)
             {
                 return;
             }
 
-            if (sceneChanged)
+            if (lifecycle.ShouldScheduleGrant)
             {
                 _runState.ScheduleGrant(Time.unscaledTime, GrantDelaySeconds);
-                Logger.LogInfo(RandomLoadoutLog.Run("Scene " + sceneName + " entered. Delaying loadout grant by " + GrantDelaySeconds + " seconds."));
+                if (lifecycle.PlayerChanged && !lifecycle.SceneChanged)
+                {
+                    Logger.LogInfo(RandomLoadoutLog.Run("PrimaryPlayer changed inside scene " + lifecycle.SceneName + ". Delaying loadout grant by " + GrantDelaySeconds + " seconds."));
+                }
+                else
+                {
+                    Logger.LogInfo(RandomLoadoutLog.Run("Scene " + lifecycle.SceneName + " entered. Delaying loadout grant by " + GrantDelaySeconds + " seconds."));
+                }
             }
 
             if (_runState.HasGrantedThisRun)
@@ -173,7 +209,7 @@ namespace RandomLoadout
 
             if (!_enableRandomLoadoutConfig.Value)
             {
-                if (sceneChanged)
+                if (lifecycle.SceneChanged)
                 {
                     Logger.LogInfo(RandomLoadoutLog.Run("Automatic random loadout is disabled by config."));
                 }
@@ -181,12 +217,11 @@ namespace RandomLoadout
                 return;
             }
 
-            PlayerController player = gameManager.PrimaryPlayer;
             if ((object)player == null)
             {
-                if (sceneChanged)
+                if (lifecycle.SceneChanged)
                 {
-                    Logger.LogInfo(RandomLoadoutLog.Run("Scene " + sceneName + " is active, but PrimaryPlayer is not ready yet."));
+                    Logger.LogInfo(RandomLoadoutLog.Run("Scene " + lifecycle.SceneName + " is active, but PrimaryPlayer is not ready yet."));
                 }
 
                 return;
@@ -197,7 +232,7 @@ namespace RandomLoadout
                 return;
             }
 
-            GrantConfiguredLoadout(player, sceneName);
+            GrantConfiguredLoadout(player, lifecycle.SceneName);
         }
 
         private void GrantConfiguredLoadout(PlayerController player, string sceneName)
@@ -355,30 +390,5 @@ namespace RandomLoadout
             }
         }
 
-        private static bool IsResetScene(string sceneName)
-        {
-            return string.Equals(sceneName, BreachSceneName, System.StringComparison.Ordinal) ||
-                   string.Equals(sceneName, LegacyBreachSceneName, System.StringComparison.Ordinal);
-        }
-
-        private static bool IsGrantableDungeonScene(string sceneName)
-        {
-            if (string.IsNullOrEmpty(sceneName))
-            {
-                return false;
-            }
-
-            if (IsResetScene(sceneName))
-            {
-                return false;
-            }
-
-            if (string.Equals(sceneName, LoadingSceneName, System.StringComparison.Ordinal))
-            {
-                return false;
-            }
-
-            return true;
-        }
     }
 }

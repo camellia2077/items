@@ -14,13 +14,13 @@ DEFAULT_CONFIG_DIRECTORY = Path("defaults") / "config"
 DEFAULT_CATALOG_DIRECTORY = Path("defaults") / "catalog"
 DEFAULT_CONFIG_FILE_NAMES = (
     "randomgun.randomloadout.cfg",
-    "RandomLoadout.aliases.json",
-    "RandomLoadout.rules.json",
+    "RandomLoadout.aliases.json5",
+    "RandomLoadout.rules.json5",
 )
 DEFAULT_CATALOG_FILE_NAMES = (
     "RandomLoadout.pickups.json",
     "RandomLoadout.pickups.by-category.json",
-    "RandomLoadout.rules.full-pool.json",
+    "RandomLoadout.rules.full-pool.json5",
 )
 REQUIRED_BUILD_DLLS = (
     "Assembly-CSharp.dll",

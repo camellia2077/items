@@ -27,7 +27,7 @@ namespace RandomLoadout
                 warnings.Add(
                     "Pickup alias file was not found at '" + _filePath + "'. " +
                     "This build now expects the repository default config to be deployed into BepInEx\\config. " +
-                    "Run deploy_mod.py again, or copy the repository default RandomLoadout.aliases.json into the game config directory. " +
+                    "Run deploy_mod.py again, or copy the repository default RandomLoadout.aliases.json5 into the game config directory. " +
                     "Falling back to built-in default aliases for this session.");
                 usedBuiltInDefault = true;
             }
@@ -35,7 +35,7 @@ namespace RandomLoadout
             {
                 try
                 {
-                    string rawJson = File.ReadAllText(_filePath, Encoding.UTF8);
+                    string rawJson = Json5TextNormalizer.Normalize(File.ReadAllText(_filePath, Encoding.UTF8));
                     fileModel = ParseAliasFile(rawJson);
                 }
                 catch (Exception exception)
@@ -77,7 +77,7 @@ namespace RandomLoadout
             for (int i = 0; i < aliasMatches.Count; i++)
             {
                 string body = aliasMatches[i].Groups["body"].Value;
-                if (body.IndexOf("\"alias\"", StringComparison.OrdinalIgnoreCase) < 0)
+                if (!Regex.IsMatch(body, GetPropertyPrefixPattern("alias"), RegexOptions.IgnoreCase))
                 {
                     continue;
                 }
@@ -110,15 +110,19 @@ namespace RandomLoadout
         {
             Match match = Regex.Match(
                 body,
-                "\"" + Regex.Escape(propertyName) + "\"\\s*:\\s*\"(?<value>(?:\\\\.|[^\"])*)\"",
+                GetPropertyPrefixPattern(propertyName) + "(?:\"(?<dq>(?:\\\\.|[^\"])*)\"|'(?<sq>(?:\\\\.|[^'])*)')",
                 RegexOptions.IgnoreCase);
             if (!match.Success)
             {
                 return string.Empty;
             }
 
-            return match.Groups["value"].Value
+            string value = match.Groups["dq"].Success
+                ? match.Groups["dq"].Value
+                : match.Groups["sq"].Value;
+            return value
                 .Replace("\\\"", "\"")
+                .Replace("\\'", "'")
                 .Replace("\\\\", "\\")
                 .Replace("\\n", "\n")
                 .Replace("\\r", "\r")
@@ -129,7 +133,7 @@ namespace RandomLoadout
         {
             Match match = Regex.Match(
                 body,
-                "\"" + Regex.Escape(propertyName) + "\"\\s*:\\s*(?<value>-?\\d+)",
+                GetPropertyPrefixPattern(propertyName) + "(?<value>-?\\d+)",
                 RegexOptions.IgnoreCase);
             if (!match.Success)
             {
@@ -138,6 +142,12 @@ namespace RandomLoadout
 
             int value;
             return int.TryParse(match.Groups["value"].Value, out value) ? value : defaultValue;
+        }
+
+        private static string GetPropertyPrefixPattern(string propertyName)
+        {
+            string escaped = Regex.Escape(propertyName);
+            return "(?:\"" + escaped + "\"|'" + escaped + "'|\\b" + escaped + "\\b)\\s*:\\s*";
         }
     }
 }

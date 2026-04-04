@@ -1,7 +1,8 @@
 {
+  // Shared aliases for command panel and rule files.
   "aliases": [
     { "alias": "casey_bat", "id": 541 },
     { "alias": "casey_nail", "id": 616 },
-    { "alias": "eyepatch", "id": 118 }
-  ]
+    { "alias": "eyepatch", "id": 118 },
+  ],
 }

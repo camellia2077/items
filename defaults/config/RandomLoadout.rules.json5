@@ -1,0 +1,27 @@
+{
+  // Default startup loadout: Casey + two random Casey-synergy passives.
+  "rules": [
+    {
+      "enabled": true,
+      "mode": "specific",
+      "category": "gun",
+      "id": 541
+    },
+    {
+      "enabled": true,
+      "mode": "random",
+      "category": "passive",
+      "count": 2,
+      "poolIds": [
+        427, // Shotgun Coffee
+        114, // Bionic Leg
+        118, // Eyepatch
+        457, // Armor of Thorns
+        579, // Blank Bullets
+        440, // Ruby Bracelet
+        313, // Monster Blood
+        436, // Bloodied Scarf
+      ],
+    },
+  ]
+}
