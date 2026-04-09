@@ -4,6 +4,12 @@ namespace RandomLoadout
     {
         private const float HalfHeartAmount = 0.5f;
         private const float SingleArmorAmount = 1f;
+        private const int SingleKeyAmount = 1;
+        // Run currency (casings): drops during dungeon runs and is consumed in-run.
+        private const int CurrencyBundleAmount = 50;
+        // Breach meta currency (hegemony credits): used in the character-select hub economy.
+        // META_CURRENCY is applied as a direct 1:1 stat increment in ETG runtime.
+        private const float MetaCurrencyBundleAmount = 50f;
 
         public GrantCommandExecutionResult FullHeal(PlayerController player)
         {
@@ -171,6 +177,60 @@ namespace RandomLoadout
 
             string gunLabel = !string.IsNullOrEmpty(currentGun.DisplayName) ? currentGun.DisplayName : currentGun.name;
             return new GrantCommandExecutionResult(true, "Refilled ammo for " + gunLabel + ".");
+        }
+
+        public GrantCommandExecutionResult AddKey(PlayerController player)
+        {
+            if ((object)player == null)
+            {
+                return new GrantCommandExecutionResult(false, "The player is not ready yet.");
+            }
+
+            PlayerConsumables consumables = player.carriedConsumables;
+            if ((object)consumables == null)
+            {
+                return new GrantCommandExecutionResult(false, "The player's consumables component was not ready.");
+            }
+
+            if (consumables.InfiniteKeys)
+            {
+                return new GrantCommandExecutionResult(false, "The player already has infinite keys.");
+            }
+
+            consumables.KeyBullets = consumables.KeyBullets + SingleKeyAmount;
+            return new GrantCommandExecutionResult(true, "Added 1 key.");
+        }
+
+        public GrantCommandExecutionResult AddCurrency(PlayerController player)
+        {
+            if ((object)player == null)
+            {
+                return new GrantCommandExecutionResult(false, "The player is not ready yet.");
+            }
+
+            PlayerConsumables consumables = player.carriedConsumables;
+            if ((object)consumables == null)
+            {
+                return new GrantCommandExecutionResult(false, "The player's consumables component was not ready.");
+            }
+
+            consumables.Currency = consumables.Currency + CurrencyBundleAmount;
+            return new GrantCommandExecutionResult(true, "Added 50 casings.");
+        }
+
+        public GrantCommandExecutionResult AddMetaCurrency(PlayerController player)
+        {
+            GameStatsManager stats = GameStatsManager.Instance;
+            if ((object)stats == null)
+            {
+                return new GrantCommandExecutionResult(false, "The game stats manager was not ready.");
+            }
+
+            // META_CURRENCY is the Breach (character-select hub) currency, not in-run casings.
+            // Runtime behavior is 1:1 with RegisterStatChange for this tracked stat.
+            stats.RegisterStatChange(TrackedStats.META_CURRENCY, MetaCurrencyBundleAmount);
+            GameStatsManager.Save();
+            return new GrantCommandExecutionResult(true, "Added 50 hegemony credits.");
         }
     }
 }

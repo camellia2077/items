@@ -10,6 +10,7 @@ namespace RandomLoadout
         {
             Command,
             Characters,
+            Currency,
         }
 
         private enum CharacterActionMode
@@ -25,12 +26,15 @@ namespace RandomLoadout
         private const float BasePanelHeight = 200f;
         private const float CharacterPanelBaseHeaderHeight = 126f;
         private const float CharacterPanelFooterHeight = 26f;
+        private const float CurrencyPanelHeight = 208f;
         private const float PanelBottomMargin = 92f;
         private const float StatusMaxWidth = 560f;
         private const float StatusMinHeight = 40f;
         private const float StatusGap = 14f;
         private const float ButtonWidth = 92f;
         private const float ButtonGap = 8f;
+        private const float CurrencyMenuButtonWidth = 108f;
+        private const float CurrencyActionButtonWidth = 180f;
         private const float CharacterButtonWidth = 108f;
         private const int CharacterButtonsPerRow = 5;
         private const float CharacterModeButtonWidth = 180f;
@@ -115,6 +119,10 @@ namespace RandomLoadout
                 characterAvailability = _cachedCharacterAvailability;
                 panelHeight = GetPanelHeight(characterOptions, characterAvailability);
             }
+            else if (_isVisible && _currentPage == PanelPage.Currency)
+            {
+                panelHeight = CurrencyPanelHeight;
+            }
 
             DrawStatusOverlay(panelHeight);
             if (!_isVisible)
@@ -134,8 +142,22 @@ namespace RandomLoadout
                 DrawCharacterPage(panelRect, characterOptions, characterAvailability, logger);
                 return;
             }
+            if (_currentPage == PanelPage.Currency)
+            {
+                DrawCurrencyPage(panelRect, player, logger);
+                return;
+            }
 
-            GUI.Label(new Rect(panelRect.x + 14f, panelRect.y + 12f, panelRect.width - 28f, 24f), "RandomLoadout Command", _titleStyle);
+            Rect currencyMenuButtonRect = new Rect(panelRect.x + panelRect.width - CurrencyMenuButtonWidth - 14f, panelRect.y + 12f, CurrencyMenuButtonWidth, 30f);
+            if (GUI.Button(currencyMenuButtonRect, "Currency", _buttonStyle))
+            {
+                OpenCurrencyPage(logger);
+            }
+
+            GUI.Label(
+                new Rect(panelRect.x + 14f, panelRect.y + 12f, panelRect.width - CurrencyMenuButtonWidth - ButtonGap - 28f, 24f),
+                "RandomLoadout Command",
+                _titleStyle);
             GUI.Label(
                 new Rect(panelRect.x + 14f, panelRect.y + 40f, panelRect.width - 28f, 20f),
                 "Use: gun/passive/active/item <name, alias, or id>",
@@ -193,7 +215,7 @@ namespace RandomLoadout
                 OpenCharacterPage(logger);
             }
 
-            string rapidButtonLabel = _rapidFireToggleService != null && _rapidFireToggleService.IsEnabled ? "Rapid ON" : "Rapid OFF";
+            string rapidButtonLabel = _rapidFireToggleService != null && _rapidFireToggleService.IsEnabledFor(player) ? "Rapid ON" : "Rapid OFF";
             if (GUI.Button(rapidButtonRect, rapidButtonLabel, _buttonStyle))
             {
                 ExecuteToggleRapidFire(player, logger);
@@ -399,6 +421,54 @@ namespace RandomLoadout
             }
         }
 
+        private void ExecuteAddKey(PlayerController player, ManualLogSource logger)
+        {
+            GrantCommandExecutionResult executionResult = _playerDebugCommandService.AddKey(player);
+            ShowStatus(executionResult.Message, !executionResult.Succeeded);
+
+            if (executionResult.Succeeded)
+            {
+                logger.LogInfo(RandomLoadoutLog.Command(executionResult.Message));
+                _focusInputField = true;
+            }
+            else
+            {
+                logger.LogWarning(RandomLoadoutLog.Command(executionResult.Message));
+            }
+        }
+
+        private void ExecuteAddCurrency(PlayerController player, ManualLogSource logger)
+        {
+            GrantCommandExecutionResult executionResult = _playerDebugCommandService.AddCurrency(player);
+            ShowStatus(executionResult.Message, !executionResult.Succeeded);
+
+            if (executionResult.Succeeded)
+            {
+                logger.LogInfo(RandomLoadoutLog.Command(executionResult.Message));
+                _focusInputField = true;
+            }
+            else
+            {
+                logger.LogWarning(RandomLoadoutLog.Command(executionResult.Message));
+            }
+        }
+
+        private void ExecuteAddMetaCurrency(PlayerController player, ManualLogSource logger)
+        {
+            GrantCommandExecutionResult executionResult = _playerDebugCommandService.AddMetaCurrency(player);
+            ShowStatus(executionResult.Message, !executionResult.Succeeded);
+
+            if (executionResult.Succeeded)
+            {
+                logger.LogInfo(RandomLoadoutLog.Command(executionResult.Message));
+                _focusInputField = true;
+            }
+            else
+            {
+                logger.LogWarning(RandomLoadoutLog.Command(executionResult.Message));
+            }
+        }
+
         private void ExecuteToggleRapidFire(PlayerController player, ManualLogSource logger)
         {
             if (_rapidFireToggleService == null)
@@ -429,6 +499,47 @@ namespace RandomLoadout
             else
             {
                 logger.LogWarning(RandomLoadoutLog.Command(executionResult.Message));
+            }
+        }
+
+        private void DrawCurrencyPage(Rect panelRect, PlayerController player, ManualLogSource logger)
+        {
+            Rect backButtonRect = new Rect(panelRect.x + panelRect.width - ButtonWidth - 14f, panelRect.y + 12f, ButtonWidth, 30f);
+            if (GUI.Button(backButtonRect, "Back", _buttonStyle))
+            {
+                _currentPage = PanelPage.Command;
+                _focusInputField = true;
+                return;
+            }
+
+            GUI.Label(new Rect(panelRect.x + 14f, panelRect.y + 12f, panelRect.width - ButtonWidth - 32f, 24f), "Currency Menu", _titleStyle);
+            GUI.Label(
+                new Rect(panelRect.x + 14f, panelRect.y + 40f, panelRect.width - 28f, 20f),
+                "Choose a resource action.",
+                _hintStyle);
+            GUI.Label(
+                new Rect(panelRect.x + 14f, panelRect.y + 58f, panelRect.width - 28f, 20f),
+                "These actions affect current run resources only.",
+                _hintStyle);
+
+            Rect addKeyButtonRect = new Rect(panelRect.x + 14f, panelRect.y + 92f, CurrencyActionButtonWidth, 34f);
+            Rect addCurrencyButtonRect = new Rect(addKeyButtonRect.xMax + ButtonGap, addKeyButtonRect.y, CurrencyActionButtonWidth, 34f);
+            Rect addMetaCurrencyButtonRect = new Rect(panelRect.x + 14f, addKeyButtonRect.yMax + ButtonGap, CurrencyActionButtonWidth, 34f);
+            if (GUI.Button(addKeyButtonRect, "+1 Key", _buttonStyle))
+            {
+                ExecuteAddKey(player, logger);
+            }
+
+            if (GUI.Button(addCurrencyButtonRect, "+50 Casings", _buttonStyle))
+            {
+                // Dungeon run currency (casings).
+                ExecuteAddCurrency(player, logger);
+            }
+
+            if (GUI.Button(addMetaCurrencyButtonRect, "+50 Hegemony", _buttonStyle))
+            {
+                // Breach hub meta currency (hegemony credits).
+                ExecuteAddMetaCurrency(player, logger);
             }
         }
 
@@ -506,6 +617,17 @@ namespace RandomLoadout
                 }
 
                 GUI.enabled = wasEnabled;
+            }
+        }
+
+        private void OpenCurrencyPage(ManualLogSource logger)
+        {
+            _currentPage = PanelPage.Currency;
+            _focusInputField = false;
+
+            if (logger != null)
+            {
+                logger.LogInfo(RandomLoadoutLog.Command("Currency menu opened."));
             }
         }
 

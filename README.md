@@ -12,7 +12,7 @@ The project started as a random starting-loadout prototype and is now being reor
   - `1` active
 - Supports rule-driven selection in code:
   - random rules
-  - specific pickup-by-name rules
+  - specific pickup rules via `pickupId`, `alias`, `internalName`, or compatible `displayName` input
 - Includes a minimal in-game command panel for quick manual grants and debugging
 - Separates Unity/ETG integration from testable core selection logic
 
@@ -43,23 +43,21 @@ The current codebase is centered on three goals:
 
 ## Open Source Dependencies
 
-This project currently builds on the following open source projects and ecosystems:
+This project currently has one direct open source runtime dependency:
 
 - [`BepInEx`](https://github.com/BepInEx/BepInEx)
   The plugin loader and runtime framework used to load the mod into `Enter the Gungeon`
-- [`HarmonyX`](https://github.com/BepInEx/HarmonyX)
-  Part of the BepInEx ecosystem commonly used for runtime patching and compatibility in Unity modding setups
-- [`MonoMod`](https://github.com/MonoMod/MonoMod)
-  Part of the broader Unity/.NET modding toolchain used alongside BepInEx-based environments
 
-The mod also depends on local game assemblies from `Enter the Gungeon` and Unity for compilation, but those are not open source project dependencies of this repository.
+The mod also depends on local game and Unity assemblies for compilation, including `Assembly-CSharp.dll` and `UnityEngine*.dll`, but those are installation-local dependencies rather than open source repository dependencies of this project.
+
+`HarmonyX` and `MonoMod` remain relevant parts of the broader `BepInEx` ecosystem, but they are not currently direct project references in this repository.
 
 ## Referenced Repositories
 
-The project also references the following repositories for implementation patterns and modding workflow context:
+The project also uses the following repositories as implementation references and workflow guidance:
 
 - [`SpecialAPI/ModTheGungeonAPI`](https://github.com/SpecialAPI/ModTheGungeonAPI)
-  Used as a practical reference for ETG runtime interaction patterns (for example, character switching flows).
+  Used as a practical reference for ETG runtime interaction patterns, especially command-style item grant flow and character switching behavior.
 - [`SpecialAPI/SaveAPI`](https://github.com/SpecialAPI/SaveAPI)
   Used as a practical reference for save and persistence workflow patterns in ETG modding.
 
@@ -83,11 +81,9 @@ Useful entry points:
   In-game command panel usage
 - [`docs/reference/pickups.md`](./docs/reference/pickups.md)
   Generated player-facing pickup reference grouped by category
-- [`docs/history/0.1.1.md`](./docs/history/0.1.1.md)
-  Latest milestone history
-- [`docs/history/0.1.0.md`](./docs/history/0.1.0.md)
-  Initial working baseline milestone
-- [`docs/operations/notes/cmd.md`](./docs/operations/notes/cmd.md)
+- [`docs/history/`](./docs/history/)
+  Version history snapshots
+- [`docs/notes/cmd.md`](./docs/notes/cmd.md)
   Command-related working notes
 - [`docs/architecture/research/project-scope.md`](./docs/architecture/research/project-scope.md)
   Scope and constraints

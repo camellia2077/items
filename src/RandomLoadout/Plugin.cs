@@ -12,7 +12,7 @@ namespace RandomLoadout
     {
         public const string GUID = "randomgun.randomloadout";
         public const string NAME = "RandomLoadout";
-        public const string VERSION = "0.1.1";
+        public const string VERSION = "0.2.0";
 
         private const string BreachSceneName = "tt_foyer";
         private const string LegacyBreachSceneName = "tt_breach";
@@ -254,14 +254,17 @@ namespace RandomLoadout
                 EtgGrantOutcome outcome = _pickupGranter.Grant(player, selection);
                 if (outcome.Succeeded)
                 {
-                    Logger.LogInfo(RandomLoadoutLog.Grant("Granted " + outcome.Category + ": " + outcome.PickupLabel + " (ID " + outcome.PickupId + ")."));
+                    Logger.LogInfo(
+                        RandomLoadoutLog.Grant(
+                            "Granted " + outcome.Category + ": " + outcome.PickupLabel + " (ID " + outcome.PickupId + "). " +
+                            "[Path=" + outcome.GrantPath + "; Detail=" + outcome.GrantDetail + "]"));
                     continue;
                 }
 
                 Logger.LogWarning(
                     RandomLoadoutLog.Grant(
                         "Failed to grant " + outcome.Category + " pickup ID " + outcome.PickupId + " (" + outcome.PickupLabel + "): " +
-                        outcome.FailureReason));
+                        outcome.FailureReason + " [Path=" + outcome.GrantPath + "; Detail=" + outcome.GrantDetail + "]"));
             }
 
             if (selectionResult.Selections.Length == 0)

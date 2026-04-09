@@ -38,6 +38,8 @@ python .\scripts\deploy_mod.py "C:\Game\steam\steamapps\common\Enter the Gungeon
 
 ## Notes
 
+- `deploy_mod.py` now builds the selected configuration first by default, then copies the generated DLL
+- pass `--skip-build` if you want to deploy an already-built DLL without triggering a build step
 - `deploy_mod.py` copies an already-built DLL and syncs the repository default config files
 - the repository also ships baseline pickup catalog snapshots and a generated full random rule pool template under `defaults/catalog/`
 - if deployment fails while the game is open, close the game and try again

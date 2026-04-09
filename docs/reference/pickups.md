@@ -5,13 +5,15 @@ Do not hand-edit it; regenerate it from the grouped pickup catalog snapshot when
 
 ## How To Use
 
-- Use the exact `Display Name` in the in-game command panel when the name is unique.
-- Use `pickupId` when a name is ambiguous or when exact text input is inconvenient.
-- Use `alias` when one is listed. Alias is resolved before display name.
+- Prefer `pickupId` when exact matching matters or when you are copying values from config/catlog files.
+- Prefer `internalName` for string input. This matches the project command behavior more closely to `ModTheGungeonAPI give`.
+- Use `alias` when one is listed.
+- `Display Name` is still accepted as a compatibility fallback, but it can be less stable because it depends on runtime-localized strings.
 - Command examples:
   - `gun Casey`
   - `gun 541`
   - `gun casey_bat`
+  - `passive PlatinumBullets`
 
 ## Snapshot
 
@@ -25,385 +27,385 @@ Count: `379`
 
 | Display Name | ID | Alias | Quality | Internal Name | Notes |
 | --- | --- | --- | --- | --- | --- |
-| 38 Special | `56` | - | `D` | `38_special` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| 38 Special | `681` | - | `SPECIAL` | `38_special_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| 3rd Party Controller | `511` | - | `A` | `Controller_Gun` | Exact name input should work. |
-| A.W.P. | `5` | - | `A` | `AWP` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| A.W.P. | `716` | - | `SPECIAL` | `AWP_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Abyssal Tentacle | `474` | - | `A` | `Tentacle_Gun` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Abyssal Tentacle | `689` | - | `SPECIAL` | `Tentacle_Gun_Kaliber` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| AC-15 | `545` | - | `B` | `Armored_A_Gun` | Exact name input should work. |
-| Air Shooter | `623` | - | `SPECIAL` | `Mega Buster (Air)` | Exact name input should work. |
-| AK-47 | `15` | - | `B` | `AK-47` | Name is ambiguous (3 matches). Prefer `id` or `alias`. |
-| AK-47 | `221` | - | `SPECIAL` | `AK-47_tutorial` | Name is ambiguous (3 matches). Prefer `id` or `alias`. |
-| AK-47 | `611` | - | `SPECIAL` | `AK-47_Island` | Name is ambiguous (3 matches). Prefer `id` or `alias`. |
-| AKEY-47 | `95` | - | `S` | `AKey-47` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| AKEY-47 | `726` | - | `EXCLUDED` | `AKey-47_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Alien Engine | `177` | - | `B` | `Jet_Engine` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Alien Engine | `742` | - | `EXCLUDED` | `Jet_Engine_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Alien Sidearm | `57` | - | `D` | `Pulse_Handgun` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Alien Sidearm | `696` | - | `SPECIAL` | `Pulse_Handgun_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Anvillain | `393` | - | `C` | `Anvil_Gun` | Exact name input should work. |
-| Atomic Fire | `621` | - | `SPECIAL` | `Mega Buster (Heat)` | Exact name input should work. |
-| AU Gun | `53` | - | `S` | `Golden_Gun` | Exact name input should work. |
-| Bait Launcher | `369` | - | `C` | `Meat_Launcher` | Exact name input should work. |
-| Balloon Gun | `520` | - | `C` | `Balloon_Gun` | Exact name input should work. |
-| Banana | `478` | - | `C` | `Banana_Gun` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Banana | `688` | - | `SPECIAL` | `Banana_Gun_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Barrel | `7` | - | `C` | `Fish_Barrel_gun` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Barrel | `709` | - | `SPECIAL` | `Fish_Barrel_gun_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Bee Hive | `14` | - | `B` | `Beehive` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Bee Hive | `703` | - | `SPECIAL` | `Beehive_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Betrayer's Shield | `380` | - | `B` | `Shieldmet_Gun` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Betrayer's Shield | `737` | - | `EXCLUDED` | `Shieldmet_Gun_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Big Iron | `157` | - | `B` | `Bigiron` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Big Iron | `694` | - | `SPECIAL` | `Bigiron_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Big Shotgun | `601` | - | `A` | `Big_Shotgun` | Exact name input should work. |
-| Black Hole Gun | `169` | - | `A` | `Black_Hole_Gun` | Exact name input should work. |
-| Blasphemy | `417` | - | `B` | `Blasphemy` | Name is ambiguous (3 matches). Prefer `id` or `alias`. |
-| Blasphemy | `574` | - | `SPECIAL` | `Wonderboy` | Name is ambiguous (3 matches). Prefer `id` or `alias`. |
-| Blasphemy | `813` | - | `SPECIAL` | `Blasphemy_Alt` | Name is ambiguous (3 matches). Prefer `id` or `alias`. |
-| Blooper | `18` | - | `B` | `Looper` | Exact name input should work. |
-| Blunderbuss | `122` | - | `D` | `Blunderbuss` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Blunderbuss | `678` | - | `SPECIAL` | `Blunderbuss_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Bow | `8` | - | `C` | `Bow` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Bow | `535` | - | `EXCLUDED` | `Bow_Cool` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Boxing Glove | `539` | - | `C` | `Boxing_Glove_Gun` | Exact name input should work. |
-| Brick Breaker | `376` | - | `C` | `Block_Gun` | Exact name input should work. |
-| BSG | `21` | - | `S` | `BSG` | Exact name input should work. |
-| Bubble Blaster | `599` | - | `C` | `Bubble_Blaster` | Exact name input should work. |
-| Bubble Lead | `622` | - | `SPECIAL` | `Mega Buster (Bubble)` | Exact name input should work. |
-| Budget Revolver | `80` | - | `SPECIAL` | `SNS` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Budget Revolver | `652` | - | `SPECIAL` | `SNS_Alt` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Bullet | `503` | - | `C` | `Bullet_Gun` | Exact name input should work. |
-| Bullet Bore | `362` | - | `A` | `Cerebral_Bore` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Bullet Bore | `717` | - | `EXCLUDED` | `Cerebral_Bore_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Bundle of Wands | `61` | - | `C` | `Bundle_Wands` | Exact name input should work. |
-| Buzzkill | `341` | - | `C` | `Saw_Gun` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Buzzkill | `740` | - | `EXCLUDED` | `Saw_Gun_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Cactus | `124` | - | `C` | `Cactus` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Cactus | `700` | - | `SPECIAL` | `Cactus_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Camera | `481` | - | `C` | `Camera_Gun` | Exact name input should work. |
-| Casey | `541` | `casey_bat` | `D` | `Baseball_Bat_Gun` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Casey | `616` | `casey_nail` | `SPECIAL` | `Nailbat_Gun` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Cat Claw | `357` | - | `A` | `Claw` | Exact name input should work. |
-| Chamber Gun | `647` | - | `C` | `Chamber_Gun_Castle` | Exact name input should work. |
-| Charge Shot | `328` | - | `B` | `Charge_Shot` | Exact name input should work. |
-| Charmed Bow | `200` | - | `B` | `Bow_Charmed` | Exact name input should work. |
-| Chromesteel Assault Rifle | `355` | - | `EXCLUDED` | `Hmon_Autorifle` | Exact name input should work. |
-| Cobalt Hammer | `390` | - | `A` | `Mjolnir` | Exact name input should work. |
-| Cold 45 | `223` | - | `B` | `Cold_45` | Exact name input should work. |
-| Colt 1851 | `62` | - | `C` | `colt1851` | Exact name input should work. |
-| Com4nd0 | `129` | - | `B` | `Box_Rocket` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Com4nd0 | `723` | - | `EXCLUDED` | `Box_Rocket_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Combined Rifle | `519` | - | `B` | `Combine_Rifle` | Exact name input should work. |
-| Composite Gun | `337` | - | `S` | `Composite_Gun` | Exact name input should work. |
-| Compressed Air Tank | `359` | - | `A` | `Shark_Gun` | Exact name input should work. |
-| Corsair | `327` | - | `C` | `Sailgun` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Corsair | `686` | - | `SPECIAL` | `Sailgun_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Crash Bomber | `624` | - | `SPECIAL` | `Mega Buster (Crash)` | Exact name input should work. |
-| Crescent Crossbow | `52` | - | `A` | `Crescent_Moon_Crossbow` | Exact name input should work. |
-| Crestfaller | `178` | - | `C` | `Crestfallen_Gun` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Crestfaller | `687` | - | `SPECIAL` | `Crestfallen_Gun_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Crossbow | `12` | - | `D` | `CrossBow` | Exact name input should work. |
-| Crown of Guns | `551` | - | `C` | `Crown_Of_Guns` | Exact name input should work. |
-| Dark Marker | `274` | - | `S` | `Matter_Antimatter_Gun` | Exact name input should work. |
-| Dart Gun | `24` | - | `SPECIAL` | `Dart_Gun` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Dart Gun | `811` | - | `SPECIAL` | `Dart_Gun_Alt` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Deck4rd | `81` | - | `A` | `Bladerunner` | Exact name input should work. |
-| Demon Head | `60` | - | `B` | `Demon_Head` | Exact name input should work. |
-| Derringer | `378` | - | `D` | `Derringer` | Exact name input should work. |
-| Devolver | `484` | - | `C` | `Devolver` | Exact name input should work. |
-| Directional Pad | `514` | - | `B` | `dpad_Gun` | Exact name input should work. |
-| Disintegrator | `121` | - | `S` | `Energy_Cannon` | Exact name input should work. |
-| Dragunfire | `146` | - | `A` | `Dragonbreath_Machine_Gun` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Dragunfire | `677` | - | `SPECIAL` | `Dragonbreath_Machine_Gun_Kaliber` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Dueling Laser | `508` | - | `B` | `Dueling_Laser` | Exact name input should work. |
-| Dueling Pistol | `9` | - | `D` | `Dueling_Pistol` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Dueling Pistol | `675` | - | `SPECIAL` | `Dueling_Pistol_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Dungeon Eagle | `23` | - | `C` | `desertEagle` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Dungeon Eagle | `750` | - | `EXCLUDED` | `desertEagle_synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| El Tigre | `368` | - | `EXCLUDED` | `Tiger_Gun` | Exact name input should work. |
-| Elephant Gun | `82` | - | `C` | `Elephant_Gun` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Elephant Gun | `672` | - | `SPECIAL` | `Elephant_Gun_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Elimentaler | `626` | - | `S` | `Resourceful_Rat_Gun` | Exact name input should work. |
-| Evolver | `755` | - | `C` | `Evo_Gun_001` | Exact name input should work. |
-| Excaliber | `377` | - | `B` | `Swordgun` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Excaliber | `680` | - | `SPECIAL` | `Swordgun_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Eye of the Beholster | `90` | - | `B` | `Beholster_Gun` | Exact name input should work. |
-| Face Melter | `149` | - | `B` | `Electric_Guitar_Gun` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Face Melter | `702` | - | `SPECIAL` | `Electric_Guitar_Gun_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Fightsabre | `345` | - | `S` | `Excaliber_Green` | Exact name input should work. |
-| Finished Gun | `762` | - | `S` | `Finished_Gun` | Exact name input should work. |
-| Flame Hand | `125` | - | `B` | `Burning_Hand` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Flame Hand | `698` | - | `SPECIAL` | `Burning_Hand_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Flare Gun | `275` | - | `D` | `Flare_Gun` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Flare Gun | `706` | - | `SPECIAL` | `Flare_Gun_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Flash Ray | `383` | - | `D` | `Flash_Raygun` | Name is ambiguous (3 matches). Prefer `id` or `alias`. |
-| Flash Ray | `657` | - | `SPECIAL` | `Chamber_Gun_Oubliette` | Name is ambiguous (3 matches). Prefer `id` or `alias`. |
-| Flash Ray | `705` | - | `EXCLUDED` | `Flash_Raygun_Synergy` | Name is ambiguous (3 matches). Prefer `id` or `alias`. |
-| Fossilized Gun | `196` | - | `D` | `Fossilized_Gun` | Exact name input should work. |
-| Freeze Ray | `40` | - | `A` | `FreezeRay` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Freeze Ray | `710` | - | `EXCLUDED` | `FreezeRay_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Frost Giant | `387` | - | `B` | `Ice_Giant_Gun` | Exact name input should work. |
-| Gamma Ray | `87` | - | `C` | `Radiation_Laser` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Gamma Ray | `671` | - | `SPECIAL` | `Radiation_Laser_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Gilded Hydra | `231` | - | `S` | `Gilded_Hydra` | Exact name input should work. |
-| Glacier | `130` | - | `A` | `Ice_Gun` | Exact name input should work. |
-| Glass Cannon | `540` | - | `C` | `Glass_Cannon` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Glass Cannon | `819` | - | `SPECIAL` | `Glass_Cannon _Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Grasschopper | `180` | - | `A` | `Noisy_Cricket` | Exact name input should work. |
-| Grenade Launcher | `19` | - | `B` | `M79_Grenade_Launcher` | Exact name input should work. |
-| Grey Mauser | `182` | - | `B` | `Mauser_Pistol` | Exact name input should work. |
-| Gunbow | `210` | - | `A` | `BulletBow` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Gunbow | `693` | - | `SPECIAL` | `BulletBow_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Gunderfury Level 10 | `733` | - | `SPECIAL` | `Gunderfury_LV_20` | Exact name input should work. |
-| Gunderfury Level 20 | `731` | - | `SPECIAL` | `Gunderfury_LV_30` | Exact name input should work. |
-| Gunderfury Level 30 | `730` | - | `SPECIAL` | `Gunderfury_LV_40` | Exact name input should work. |
-| Gunderfury Level 40 | `728` | - | `SPECIAL` | `Gunderfury_LV_50` | Exact name input should work. |
-| Gunderfury Level 50 | `729` | - | `SPECIAL` | `Gunderfury_LV_60` | Exact name input should work. |
-| Gunderfury Lv10 | `732` | - | `A` | `Gunderfury_LV_10` | Exact name input should work. |
-| Gungeon Ant | `176` | - | `C` | `Ant_Gun` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Gungeon Ant | `739` | - | `EXCLUDED` | `Ant_Gun_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Gungine | `401` | - | `S` | `Engine_Gun` | Exact name input should work. |
-| GuNNER | `602` | - | `B` | `Gunner` | Exact name input should work. |
-| Gunslinger's Ashes | `198` | - | `C` | `Urn_Gun` | Exact name input should work. |
-| Gunther | `338` | - | `S` | `Mask_Gun` | Exact name input should work. |
-| Gunzheng | `482` | - | `B` | `Guzheng` | Exact name input should work. |
-| H4mmer | `91` | - | `B` | `H4MMER` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| H4mmer | `715` | - | `SPECIAL` | `H4MMER_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Heck Blaster | `17` | - | `B` | `Earthworm Gun` | Exact name input should work. |
-| Hegemony Carbine | `229` | - | `C` | `Future_Assault_Rifle` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Hegemony Carbine | `724` | - | `EXCLUDED` | `Future_Assault_Rifle_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Hegemony Rifle | `59` | - | `B` | `E12_Blaster_Rifle` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Hegemony Rifle | `699` | - | `SPECIAL` | `E12_Blaster_Rifle_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Helix | `230` | - | `C` | `Twin_Energy_Blaster` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Helix | `708` | - | `SPECIAL` | `Twin_Energy_Blaster_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Heroine | `41` | - | `B` | `Samus Arm` | Exact name input should work. |
-| Heroine (Hyper Beam) | `615` | - | `SPECIAL` | `Samus Arm (Hyper)` | Exact name input should work. |
-| Heroine (Ice Beam) | `613` | - | `SPECIAL` | `Samus Arm (Ice)` | Exact name input should work. |
-| Heroine (Plasma Beam) | `614` | - | `SPECIAL` | `Samus Arm (Plasma)` | Exact name input should work. |
-| Heroine (Wave Beam) | `612` | - | `SPECIAL` | `Samus Arm (Wave)` | Exact name input should work. |
-| Hexagun | `385` | - | `B` | `Magic_Sniper_Rifle` | Exact name input should work. |
-| High Dragunfire | `670` | - | `S` | `HighDragonbreath_Machine_Gun` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| High Dragunfire | `747` | - | `EXCLUDED` | `Space_Turtine_Turtle_Gun` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| High Kaliber | `761` | - | `A` | `Kthuliber_Gun` | Exact name input should work. |
-| Huntsman | `346` | - | `C` | `Shotgun_Axe` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Huntsman | `505` | - | `SPECIAL` | `Wicked_Sister` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Hyper Light Blaster | `504` | - | `B` | `HLD_Gun` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Hyper Light Blaster | `695` | - | `SPECIAL` | `HLD_Gun_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Ice Breaker | `225` | - | `B` | `Ice_Breakers_Gun` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Ice Breaker | `745` | - | `EXCLUDED` | `Ice_Breakers_Gun_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| ITEMS_STRING_NOT_FOUND | `486` | - | `EXCLUDED` | `Tank_Treader_Gun` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| JK-47 | `510` | - | `C` | `JK-47` | Exact name input should work. |
-| Jolter | `47` | - | `B` | `boltRifle` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Jolter | `721` | - | `EXCLUDED` | `boltRifle_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Klobbe | `31` | - | `D` | `Klobb` | Name is ambiguous (3 matches). Prefer `id` or `alias`. |
-| Klobbe | `472` | - | `EXCLUDED` | `Mummy_Gun` | Name is ambiguous (3 matches). Prefer `id` or `alias`. |
-| Klobbe | `690` | - | `EXCLUDED` | `Klobb_Synergy` | Name is ambiguous (3 matches). Prefer `id` or `alias`. |
-| Knight's Gun | `550` | - | `A` | `Shovel_Gun` | Exact name input should work. |
-| Kruller Glaive | `656` | - | `B` | `Glaive` | Exact name input should work. |
-| Lamey | `668` | - | `SPECIAL` | `Resourceful_Rat_Enemy_Gun` | Exact name input should work. |
-| Laser Lotus | `156` | - | `A` | `Plasma_Cell_Gun` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Laser Lotus | `714` | - | `SPECIAL` | `Plasma_Cell_Gun_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Laser Rifle | `54` | - | `C` | `Bowcaster` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Laser Rifle | `676` | - | `SPECIAL` | `Bowcaster_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Leaf Shield | `620` | - | `SPECIAL` | `Mega Buster (Leaf)` | Exact name input should work. |
-| Life Orb | `595` | - | `A` | `Life_Orb_Gun` | Exact name input should work. |
-| Light Gun | `27` | - | `B` | `Zapper` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Light Gun | `711` | - | `EXCLUDED` | `Zapper_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Lil' Bomber | `332` | - | `D` | `Bomb_Gun` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Lil' Bomber | `719` | - | `SPECIAL` | `Bomb_Gun_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Lower Case r | `340` | - | `D` | `Lower_Case_r` | Name is ambiguous (3 matches). Prefer `id` or `alias`. |
-| Lower Case r | `648` | - | `SPECIAL` | `Circle_Gun` | Name is ambiguous (3 matches). Prefer `id` or `alias`. |
-| Lower Case r | `738` | - | `EXCLUDED` | `Lower_Case_r_synergy` | Name is ambiguous (3 matches). Prefer `id` or `alias`. |
-| Luxin Cannon | `199` | - | `C` | `Crystal_Gun` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Luxin Cannon | `701` | - | `EXCLUDED` | `Crystal_Gun_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| M1 | `25` | - | `C` | `M1` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| M1 | `684` | - | `SPECIAL` | `M1_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| M16 | `96` | - | `A` | `M16` | Exact name input should work. |
-| M1911 | `30` | - | `C` | `M1911` | Exact name input should work. |
-| MAC10 | `94` | - | `C` | `MAC10` | Exact name input should work. |
-| Machine Fist | `186` | - | `A` | `Machine_Gun_Hand` | Exact name input should work. |
-| Machine Pistol | `43` | - | `D` | `Uzi` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Machine Pistol | `673` | - | `EXCLUDED` | `Uzi_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Magic Lamp | `0` | - | `B` | `Lamp` | Exact name input should work. |
-| Magnum | `38` | - | `B` | `Magnum` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Magnum | `751` | - | `SPECIAL` | `Magnum_Titan` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Mahoguny | `339` | - | `C` | `Wood_Gun` | Exact name input should work. |
-| Mailbox | `28` | - | `D` | `Mailbox_Gun` | Exact name input should work. |
-| Makarov | `79` | - | `D` | `Makarov` | Exact name input should work. |
-| Makeshift Cannon | `480` | - | `S` | `Kirkcannon` | Exact name input should work. |
-| Marine Sidearm | `86` | - | `SPECIAL` | `SPMA1` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Marine Sidearm | `809` | - | `SPECIAL` | `SPMA1_Alt` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Mass Shotgun | `365` | - | `B` | `ME_Shotgun` | Exact name input should work. |
-| Mega Douser | `10` | - | `D` | `Super Soaker` | Exact name input should work. |
-| Megahand | `36` | - | `B` | `Mega Buster` | Exact name input should work. |
-| Metal Blade | `619` | - | `SPECIAL` | `Mega Buster (Metal)` | Exact name input should work. |
-| Microtransaction Gun | `476` | - | `A` | `Cash_Register_Gun` | Exact name input should work. |
-| Mimic | `734` | - | `SPECIAL` | `Mimic_Gun` | Exact name input should work. |
-| Mine Cutter | `394` | - | `B` | `Mining_Laser` | Exact name input should work. |
-| Molotov Launcher | `292` | - | `C` | `Molotov_Cocktail_Launcher` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Molotov Launcher | `691` | - | `SPECIAL` | `Molotov_Cocktail_Launcher_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Moonlight Tiara | `594` | - | `SPECIAL` | `Moon_Crown` | Exact name input should work. |
-| Moonscraper | `20` | - | `C` | `moonrakerLaser` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Moonscraper | `713` | - | `EXCLUDED` | `moonrakerLaser_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Mourning Star | `515` | - | `S` | `Hammer_of_Dawn` | Exact name input should work. |
-| Mr. Accretion Jr. | `597` | - | `B` | `Planet_Gun` | Exact name input should work. |
-| Mutation | `333` | - | `B` | `Mutant_Arm` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Mutation | `608` | - | `SPECIAL` | `Mutant_TechArm` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Nail Gun | `26` | - | `D` | `Nailgun` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Nail Gun | `692` | - | `SPECIAL` | `Nailgun_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Old Goldie | `93` | - | `A` | `Gold_Double_Barrel_Shotgun` | Exact name input should work. |
-| Origuni | `477` | - | `C` | `Origami_Gun` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Origuni | `744` | - | `EXCLUDED` | `Origami_Gun_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Particulator | `228` | - | `S` | `Distortion_Launcher` | Exact name input should work. |
-| Patriot | `98` | - | `S` | `Excaliber` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Patriot | `544` | - | `EXCLUDED` | `Armored_B_Gun` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Pea Shooter | `197` | - | `D` | `Pea_Shooter` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Pea Shooter | `674` | - | `SPECIAL` | `Pea_Shooter_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Phoenix | `384` | - | `D` | `Phoenix` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Phoenix | `736` | - | `EXCLUDED` | `Phoenix_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Pitchfork | `336` | - | `C` | `Pitchfork` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Pitchfork | `722` | - | `EXCLUDED` | `Pitchfork_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Plague Pistol | `207` | - | `D` | `Rusty_Goop_Gun` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Plague Pistol | `682` | - | `SPECIAL` | `Rusty_Goop_Gun_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Plunger | `208` | - | `C` | `Syringe_Gun` | Exact name input should work. |
-| Polaris | `97` | - | `B` | `Polar_Star` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Polaris | `718` | - | `SPECIAL` | `Polar_Star_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Poxcannon | `513` | - | `C` | `Poxcannon_Gun` | Exact name input should work. |
-| Prize Pistol | `251` | - | `SPECIAL` | `ArtfulDodger_ChallengeGun` | Exact name input should work. |
-| Proton Backpack | `179` | - | `B` | `Proton_Pack_Beam` | Name is ambiguous (3 matches). Prefer `id` or `alias`. |
-| Proton Backpack | `658` | - | `SPECIAL` | `Chamber_Gun_Forge` | Name is ambiguous (3 matches). Prefer `id` or `alias`. |
-| Proton Backpack | `720` | - | `EXCLUDED` | `Proton_Pack_Beam_Synergy` | Name is ambiguous (3 matches). Prefer `id` or `alias`. |
-| Prototype Railgun | `370` | - | `A` | `Railgun Variant` | Exact name input should work. |
-| Pulse Cannon | `123` | - | `C` | `Pulse_Rifle` | Exact name input should work. |
-| Quad Laser | `475` | - | `C` | `Quad_Laser` | Exact name input should work. |
-| Quick Boomerang | `617` | - | `SPECIAL` | `Mega Buster (Quick)` | Exact name input should work. |
-| Rad Gun | `566` | - | `B` | `Rad_Gun` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Rad Gun | `743` | - | `EXCLUDED` | `Rad_Gun_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Raiden Coil | `107` | - | `A` | `Raiden_Laser` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Raiden Coil | `712` | - | `EXCLUDED` | `Raiden_Laser_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Railgun | `358` | - | `S` | `Railgun` | Exact name input should work. |
-| Rattler | `406` | - | `B` | `Rattler_Shotgun` | Exact name input should work. |
-| RC Rocket | `372` | - | `A` | `Nikita` | Exact name input should work. |
-| Really Special Lute | `506` | - | `C` | `Lute_Gun` | Exact name input should work. |
-| Regular Shotgun | `51` | - | `D` | `shotgun` | Name is ambiguous (3 matches). Prefer `id` or `alias`. |
-| Regular Shotgun | `660` | - | `SPECIAL` | `Chamber_Gun_Gungeon` | Name is ambiguous (3 matches). Prefer `id` or `alias`. |
-| Regular Shotgun | `763` | - | `SPECIAL` | `Chamber_Gun_Hell` | Name is ambiguous (3 matches). Prefer `id` or `alias`. |
-| Robot's Left Hand | `576` | - | `A` | `Uberbot_Gun_Hand` | Exact name input should work. |
-| Robot's Right Hand | `88` | - | `SPECIAL` | `Robot_Gunhand` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Robot's Right Hand | `812` | - | `SPECIAL` | `Robot_Gunhand_Alt` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Rogue Special | `89` | - | `SPECIAL` | `Knav3` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Rogue Special | `651` | - | `SPECIAL` | `Knav3_Alt` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| RPG | `39` | - | `B` | `RPG` | Exact name input should work. |
-| RUBE-ADYNE MK.II | `128` | - | `A` | `Purple_Raygun` | Exact name input should work. |
-| RUBE-ADYNE Prototype | `142` | - | `B` | `Yellow_Blaster` | Exact name input should work. |
-| Rubenstein's Monster | `609` | - | `SPECIAL` | `Rubeadyne_Rifle` | Exact name input should work. |
-| Rusty Sidearm | `99` | - | `SPECIAL` | `Rusty_Sidearm` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Rusty Sidearm | `810` | - | `SPECIAL` | `Rusty_Sidearm_Alt` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| SAA | `50` | - | `B` | `SAA` | Exact name input should work. |
-| Sawed-Off | `202` | - | `D` | `Sawedoff_Shotgun` | Exact name input should work. |
-| Science Cannon | `331` | - | `B` | `Disintegrator` | Exact name input should work. |
-| Screecher | `3` | - | `C` | `Screech_Gun` | Exact name input should work. |
-| Ser Manuel's Revolver | `183` | - | `EXCLUDED` | `Tutorial_Knight_Revolver` | Exact name input should work. |
-| Serious Cannon | `37` | - | `A` | `Serious Cannon` | Exact name input should work. |
-| Shades's Revolver | `22` | - | `C` | `Bro Revolver Red` | Exact name input should work. |
-| Shell | `512` | - | `B` | `Shotgun_Gun` | Name is ambiguous (6 matches). Prefer `id` or `alias`. |
-| Shell | `756` | - | `SPECIAL` | `Evo_Gun_002` | Name is ambiguous (6 matches). Prefer `id` or `alias`. |
-| Shell | `757` | - | `SPECIAL` | `Evo_Gun_003` | Name is ambiguous (6 matches). Prefer `id` or `alias`. |
-| Shell | `758` | - | `SPECIAL` | `Evo_Gun_004` | Name is ambiguous (6 matches). Prefer `id` or `alias`. |
-| Shell | `759` | - | `SPECIAL` | `Evo_Gun_005` | Name is ambiguous (6 matches). Prefer `id` or `alias`. |
-| Shell | `760` | - | `SPECIAL` | `Evo_Gun_006` | Name is ambiguous (6 matches). Prefer `id` or `alias`. |
-| Shellegun | `464` | - | `B` | `Shellegun` | Exact name input should work. |
-| Shock Rifle | `153` | - | `B` | `Electric_Rifle` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Shock Rifle | `697` | - | `EXCLUDED` | `Electric_Rifle_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Shotbow | `126` | - | `B` | `Crossbow_Shotgun` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Shotbow | `749` | - | `EXCLUDED` | `Crossbow_Shotgun_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Shotgrub | `347` | - | `C` | `Shotgrub` | Exact name input should work. |
-| Shotgun Full of Hate | `143` | - | `A` | `Shotgun_Hate` | Exact name input should work. |
-| Shotgun Full of Love | `379` | - | `A` | `Shotgun_Love` | Exact name input should work. |
-| Silencer | `335` | - | `C` | `Pillow` | Exact name input should work. |
-| Siren | `404` | - | `C` | `Mermaid_Gun` | Exact name input should work. |
-| Skull Spitter | `45` | - | `C` | `Skull_Gun` | Exact name input should work. |
-| Sling | `382` | - | `D` | `Sling` | Exact name input should work. |
-| Slinger | `604` | - | `SPECIAL` | `Slinger_Gun` | Exact name input should work. |
-| Smiley's Revolver | `35` | - | `B` | `Bro Revolver Green` | Name is ambiguous (4 matches). Prefer `id` or `alias`. |
-| Smiley's Revolver | `752` | - | `EXCLUDED` | `Bro West Revolver Nome` | Name is ambiguous (4 matches). Prefer `id` or `alias`. |
-| Smiley's Revolver | `753` | - | `EXCLUDED` | `Bro West Revolver Tuco` | Name is ambiguous (4 matches). Prefer `id` or `alias`. |
-| Smiley's Revolver | `754` | - | `EXCLUDED` | `Bro West Revolver Angel` | Name is ambiguous (4 matches). Prefer `id` or `alias`. |
-| Snakemaker | `360` | - | `A` | `Snakepoof_Gun` | Exact name input should work. |
-| Sniper Rifle | `49` | - | `C` | `Sniper Rifle` | Exact name input should work. |
-| Snowballer | `402` | - | `D` | `Snowball_Launcher` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Snowballer | `679` | - | `SPECIAL` | `Snowball_Launcher_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Staff of Firepower | `395` | - | `A` | `Hybrid_Magic_Gun` | Exact name input should work. |
-| Starpew | `507` | - | `A` | `Starpew` | Exact name input should work. |
-| Sticky Crossbow | `4` | - | `C` | `Sticky_Crossbow` | Exact name input should work. |
-| Stinger | `92` | - | `B` | `Missile_Launcher` | Exact name input should work. |
-| Stone Dome | `598` | - | `B` | `Big_Giant_Head_Gun` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Stone Dome | `741` | - | `EXCLUDED` | `Eyeball_Head_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| STRAFE® Gun | `542` | - | `S` | `StrafeNailGun` | Exact name input should work. |
-| Sunlight Javelin | `748` | - | `B` | `Sunlight_Spear` | Exact name input should work. |
-| Super Meat Gun | `479` | - | `A` | `Super_Meat_Gun` | Exact name input should work. |
-| Super Space Turtle | `299` | - | `EXCLUDED` | `SST_ISSUE` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| T-Shirt Cannon | `150` | - | `D` | `TShirt_Gun` | Exact name input should work. |
-| Tangler | `175` | - | `C` | `Rectangle_Gun` | Exact name input should work. |
-| Teapot | `596` | - | `C` | `Teapot_Gun` | Exact name input should work. |
-| Tear Jerker | `33` | - | `C` | `Eyeball_Gun` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Tear Jerker | `725` | - | `EXCLUDED` | `Eyeball_Gun_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Tetrominator | `483` | - | `B` | `Tetris_Gun` | Exact name input should work. |
-| The Emperor | `330` | - | `A` | `Electro_Shark_Gun` | Exact name input should work. |
-| The Exotic | `563` | - | `A` | `Exotic_Gun` | Name is ambiguous (3 matches). Prefer `id` or `alias`. |
-| The Exotic | `659` | - | `SPECIAL` | `Chamber_Gun_Catacomb` | Name is ambiguous (3 matches). Prefer `id` or `alias`. |
-| The Exotic | `808` | - | `SPECIAL` | `Chamber_Gun_Rat` | Name is ambiguous (3 matches). Prefer `id` or `alias`. |
-| The Fat Line | `562` | - | `B` | `Tachyon_Gun` | Exact name input should work. |
-| The Judge | `184` | - | `B` | `Lawgiver` | Name is ambiguous (3 matches). Prefer `id` or `alias`. |
-| The Judge | `517` | - | `SPECIAL` | `Trigun_Hand_Gun` | Name is ambiguous (3 matches). Prefer `id` or `alias`. |
-| The Judge | `518` | - | `SPECIAL` | `Trigun_Angel_Gun` | Name is ambiguous (3 matches). Prefer `id` or `alias`. |
-| The Kiln | `152` | - | `C` | `Squad_Red_Gun` | Exact name input should work. |
-| The Membrane | `151` | - | `C` | `Squad_Green_Gun` | Exact name input should work. |
-| The Predator | `543` | - | `B` | `Predator_Gun` | Exact name input should work. |
-| The Scrambler | `445` | - | `C` | `Scrambler` | Exact name input should work. |
-| Thompson Sub-Machinegun | `2` | - | `C` | `Thompson` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Thompson Sub-Machinegun | `685` | - | `SPECIAL` | `Thompson_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Thunderclap | `13` | - | `A` | `Plasma_Rifle` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Thunderclap | `683` | - | `SPECIAL` | `Plasma_Rifle_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Time Stopper | `618` | - | `SPECIAL` | `Mega Buster (Flash)` | Exact name input should work. |
-| Trank Gun | `42` | - | `C` | `Baretta` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Trank Gun | `816` | - | `SPECIAL` | `Baretta_Tranq` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Trashcannon | `154` | - | `C` | `Trash_Gun` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Trashcannon | `704` | - | `SPECIAL` | `Trash_Gun_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Trick Gun | `363` | - | `C` | `Trick_Gun` | Exact name input should work. |
-| Trident | `444` | - | `A` | `Trident` | Exact name input should work. |
-| Triple Crossbow | `381` | - | `C` | `Triple_Crossbow` | Exact name input should work. |
-| Triple Gun | `516` | - | `B` | `Trigun_Gun` | Exact name input should work. |
-| Turbo-Gun | `577` | - | `C` | `Recharge_Gun` | Exact name input should work. |
-| Unfinished Gun | `83` | - | `D` | `Raw_Iron_Gun` | Name is ambiguous (4 matches). Prefer `id` or `alias`. |
-| Unfinished Gun | `603` | - | `EXCLUDED` | `Lamey_Gun` | Name is ambiguous (4 matches). Prefer `id` or `alias`. |
-| Unfinished Gun | `806` | - | `SPECIAL` | `Chamber_Gun_Abbey` | Name is ambiguous (4 matches). Prefer `id` or `alias`. |
-| Unfinished Gun | `807` | - | `SPECIAL` | `Chamber_Gun_Mine` | Name is ambiguous (4 matches). Prefer `id` or `alias`. |
-| Unicorn Horn | `100` | - | `A` | `Unicorn_Horn 2` | Exact name input should work. |
-| Uppercase R | `649` | - | `SPECIAL` | `Upper_Case_R` | Exact name input should work. |
-| VertebraeK-47 | `29` | - | `B` | `Spine_Gun` | Exact name input should work. |
-| Void Core Assault Rifle | `58` | - | `B` | `space_rifle` | Exact name input should work. |
-| Void Core Cannon | `593` | - | `B` | `Voidcore_Rocket_Launcher` | Exact name input should work. |
-| Void Marshal | `32` | - | `B` | `dl45` | Exact name input should work. |
-| Void Shotgun | `55` | - | `B` | `space_shotgun` | Exact name input should work. |
-| Vorpal Gun | `537` | - | `B` | `Critical_Pistol` | Exact name input should work. |
-| Vulcan Cannon | `84` | - | `S` | `Minigun` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Vulcan Cannon | `707` | - | `SPECIAL` | `Minigun_Synergy` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Winchester | `1` | - | `C` | `Winchester_Shotgun` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Winchester | `650` | - | `SPECIAL` | `PaydayShoot_Shotgun` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Winchester Rifle | `181` | - | `D` | `Winchester_rifle` | Exact name input should work. |
-| Wind Up Gun | `334` | - | `D` | `Wind_Up_Gun` | Exact name input should work. |
-| Windgunner | `546` | - | `SPECIAL` | `Sprun_Gun` | Exact name input should work. |
-| Witch Pistol | `145` | - | `C` | `Magic_Revolver` | Exact name input should work. |
-| Wood Beam | `610` | - | `B` | `Wood_Beam` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Wood Beam | `823` | - | `SPECIAL` | `Chamber_Office_Gun` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Wristbow | `227` | - | `EXCLUDED` | `Hand_Crossbow` | Exact name input should work. |
-| Yari Launcher | `16` | - | `S` | `Yari_Rocket_Launcher` | Name is ambiguous (4 matches). Prefer `id` or `alias`. |
-| Zilla Shotgun | `329` | - | `A` | `Zilla_Combat_Shotgun` | Exact name input should work. |
-| Zorgun | `6` | - | `A` | `Zorgun` | Exact name input should work. |
+| 38 Special | `56` | - | `D` | `38_special` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| 38 Special | `681` | - | `SPECIAL` | `38_special_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| 3rd Party Controller | `511` | - | `A` | `Controller_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| A.W.P. | `5` | - | `A` | `AWP` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| A.W.P. | `716` | - | `SPECIAL` | `AWP_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Abyssal Tentacle | `474` | - | `A` | `Tentacle_Gun` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Abyssal Tentacle | `689` | - | `SPECIAL` | `Tentacle_Gun_Kaliber` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| AC-15 | `545` | - | `B` | `Armored_A_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| Air Shooter | `623` | - | `SPECIAL` | `Mega Buster (Air)` | Internal name or ID is recommended. Display name input should also work. |
+| AK-47 | `15` | - | `B` | `AK-47` | Display name is ambiguous (3 matches). Prefer `id`, `alias`, or `internalName`. |
+| AK-47 | `221` | - | `SPECIAL` | `AK-47_tutorial` | Display name is ambiguous (3 matches). Prefer `id`, `alias`, or `internalName`. |
+| AK-47 | `611` | - | `SPECIAL` | `AK-47_Island` | Display name is ambiguous (3 matches). Prefer `id`, `alias`, or `internalName`. |
+| AKEY-47 | `95` | - | `S` | `AKey-47` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| AKEY-47 | `726` | - | `EXCLUDED` | `AKey-47_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Alien Engine | `177` | - | `B` | `Jet_Engine` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Alien Engine | `742` | - | `EXCLUDED` | `Jet_Engine_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Alien Sidearm | `57` | - | `D` | `Pulse_Handgun` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Alien Sidearm | `696` | - | `SPECIAL` | `Pulse_Handgun_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Anvillain | `393` | - | `C` | `Anvil_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| Atomic Fire | `621` | - | `SPECIAL` | `Mega Buster (Heat)` | Internal name or ID is recommended. Display name input should also work. |
+| AU Gun | `53` | - | `S` | `Golden_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| Bait Launcher | `369` | - | `C` | `Meat_Launcher` | Internal name or ID is recommended. Display name input should also work. |
+| Balloon Gun | `520` | - | `C` | `Balloon_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| Banana | `478` | - | `C` | `Banana_Gun` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Banana | `688` | - | `SPECIAL` | `Banana_Gun_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Barrel | `7` | - | `C` | `Fish_Barrel_gun` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Barrel | `709` | - | `SPECIAL` | `Fish_Barrel_gun_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Bee Hive | `14` | - | `B` | `Beehive` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Bee Hive | `703` | - | `SPECIAL` | `Beehive_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Betrayer's Shield | `380` | - | `B` | `Shieldmet_Gun` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Betrayer's Shield | `737` | - | `EXCLUDED` | `Shieldmet_Gun_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Big Iron | `157` | - | `B` | `Bigiron` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Big Iron | `694` | - | `SPECIAL` | `Bigiron_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Big Shotgun | `601` | - | `A` | `Big_Shotgun` | Internal name or ID is recommended. Display name input should also work. |
+| Black Hole Gun | `169` | - | `A` | `Black_Hole_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| Blasphemy | `417` | - | `B` | `Blasphemy` | Display name is ambiguous (3 matches). Prefer `id`, `alias`, or `internalName`. |
+| Blasphemy | `574` | - | `SPECIAL` | `Wonderboy` | Display name is ambiguous (3 matches). Prefer `id`, `alias`, or `internalName`. |
+| Blasphemy | `813` | - | `SPECIAL` | `Blasphemy_Alt` | Display name is ambiguous (3 matches). Prefer `id`, `alias`, or `internalName`. |
+| Blooper | `18` | - | `B` | `Looper` | Internal name or ID is recommended. Display name input should also work. |
+| Blunderbuss | `122` | - | `D` | `Blunderbuss` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Blunderbuss | `678` | - | `SPECIAL` | `Blunderbuss_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Bow | `8` | - | `C` | `Bow` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Bow | `535` | - | `EXCLUDED` | `Bow_Cool` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Boxing Glove | `539` | - | `C` | `Boxing_Glove_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| Brick Breaker | `376` | - | `C` | `Block_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| BSG | `21` | - | `S` | `BSG` | Internal name or ID is recommended. Display name input should also work. |
+| Bubble Blaster | `599` | - | `C` | `Bubble_Blaster` | Internal name or ID is recommended. Display name input should also work. |
+| Bubble Lead | `622` | - | `SPECIAL` | `Mega Buster (Bubble)` | Internal name or ID is recommended. Display name input should also work. |
+| Budget Revolver | `80` | - | `SPECIAL` | `SNS` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Budget Revolver | `652` | - | `SPECIAL` | `SNS_Alt` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Bullet | `503` | - | `C` | `Bullet_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| Bullet Bore | `362` | - | `A` | `Cerebral_Bore` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Bullet Bore | `717` | - | `EXCLUDED` | `Cerebral_Bore_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Bundle of Wands | `61` | - | `C` | `Bundle_Wands` | Internal name or ID is recommended. Display name input should also work. |
+| Buzzkill | `341` | - | `C` | `Saw_Gun` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Buzzkill | `740` | - | `EXCLUDED` | `Saw_Gun_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Cactus | `124` | - | `C` | `Cactus` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Cactus | `700` | - | `SPECIAL` | `Cactus_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Camera | `481` | - | `C` | `Camera_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| Casey | `541` | `casey_bat` | `D` | `Baseball_Bat_Gun` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Casey | `616` | `casey_nail` | `SPECIAL` | `Nailbat_Gun` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Cat Claw | `357` | - | `A` | `Claw` | Internal name or ID is recommended. Display name input should also work. |
+| Chamber Gun | `647` | - | `C` | `Chamber_Gun_Castle` | Internal name or ID is recommended. Display name input should also work. |
+| Charge Shot | `328` | - | `B` | `Charge_Shot` | Internal name or ID is recommended. Display name input should also work. |
+| Charmed Bow | `200` | - | `B` | `Bow_Charmed` | Internal name or ID is recommended. Display name input should also work. |
+| Chromesteel Assault Rifle | `355` | - | `EXCLUDED` | `Hmon_Autorifle` | Internal name or ID is recommended. Display name input should also work. |
+| Cobalt Hammer | `390` | - | `A` | `Mjolnir` | Internal name or ID is recommended. Display name input should also work. |
+| Cold 45 | `223` | - | `B` | `Cold_45` | Internal name or ID is recommended. Display name input should also work. |
+| Colt 1851 | `62` | - | `C` | `colt1851` | Internal name or ID is recommended. Display name input should also work. |
+| Com4nd0 | `129` | - | `B` | `Box_Rocket` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Com4nd0 | `723` | - | `EXCLUDED` | `Box_Rocket_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Combined Rifle | `519` | - | `B` | `Combine_Rifle` | Internal name or ID is recommended. Display name input should also work. |
+| Composite Gun | `337` | - | `S` | `Composite_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| Compressed Air Tank | `359` | - | `A` | `Shark_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| Corsair | `327` | - | `C` | `Sailgun` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Corsair | `686` | - | `SPECIAL` | `Sailgun_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Crash Bomber | `624` | - | `SPECIAL` | `Mega Buster (Crash)` | Internal name or ID is recommended. Display name input should also work. |
+| Crescent Crossbow | `52` | - | `A` | `Crescent_Moon_Crossbow` | Internal name or ID is recommended. Display name input should also work. |
+| Crestfaller | `178` | - | `C` | `Crestfallen_Gun` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Crestfaller | `687` | - | `SPECIAL` | `Crestfallen_Gun_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Crossbow | `12` | - | `D` | `CrossBow` | Internal name or ID is recommended. Display name input should also work. |
+| Crown of Guns | `551` | - | `C` | `Crown_Of_Guns` | Internal name or ID is recommended. Display name input should also work. |
+| Dark Marker | `274` | - | `S` | `Matter_Antimatter_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| Dart Gun | `24` | - | `SPECIAL` | `Dart_Gun` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Dart Gun | `811` | - | `SPECIAL` | `Dart_Gun_Alt` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Deck4rd | `81` | - | `A` | `Bladerunner` | Internal name or ID is recommended. Display name input should also work. |
+| Demon Head | `60` | - | `B` | `Demon_Head` | Internal name or ID is recommended. Display name input should also work. |
+| Derringer | `378` | - | `D` | `Derringer` | Internal name or ID is recommended. Display name input should also work. |
+| Devolver | `484` | - | `C` | `Devolver` | Internal name or ID is recommended. Display name input should also work. |
+| Directional Pad | `514` | - | `B` | `dpad_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| Disintegrator | `121` | - | `S` | `Energy_Cannon` | Internal name or ID is recommended. Display name input should also work. |
+| Dragunfire | `146` | - | `A` | `Dragonbreath_Machine_Gun` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Dragunfire | `677` | - | `SPECIAL` | `Dragonbreath_Machine_Gun_Kaliber` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Dueling Laser | `508` | - | `B` | `Dueling_Laser` | Internal name or ID is recommended. Display name input should also work. |
+| Dueling Pistol | `9` | - | `D` | `Dueling_Pistol` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Dueling Pistol | `675` | - | `SPECIAL` | `Dueling_Pistol_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Dungeon Eagle | `23` | - | `C` | `desertEagle` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Dungeon Eagle | `750` | - | `EXCLUDED` | `desertEagle_synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| El Tigre | `368` | - | `EXCLUDED` | `Tiger_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| Elephant Gun | `82` | - | `C` | `Elephant_Gun` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Elephant Gun | `672` | - | `SPECIAL` | `Elephant_Gun_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Elimentaler | `626` | - | `S` | `Resourceful_Rat_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| Evolver | `755` | - | `C` | `Evo_Gun_001` | Internal name or ID is recommended. Display name input should also work. |
+| Excaliber | `377` | - | `B` | `Swordgun` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Excaliber | `680` | - | `SPECIAL` | `Swordgun_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Eye of the Beholster | `90` | - | `B` | `Beholster_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| Face Melter | `149` | - | `B` | `Electric_Guitar_Gun` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Face Melter | `702` | - | `SPECIAL` | `Electric_Guitar_Gun_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Fightsabre | `345` | - | `S` | `Excaliber_Green` | Internal name or ID is recommended. Display name input should also work. |
+| Finished Gun | `762` | - | `S` | `Finished_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| Flame Hand | `125` | - | `B` | `Burning_Hand` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Flame Hand | `698` | - | `SPECIAL` | `Burning_Hand_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Flare Gun | `275` | - | `D` | `Flare_Gun` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Flare Gun | `706` | - | `SPECIAL` | `Flare_Gun_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Flash Ray | `383` | - | `D` | `Flash_Raygun` | Display name is ambiguous (3 matches). Prefer `id`, `alias`, or `internalName`. |
+| Flash Ray | `657` | - | `SPECIAL` | `Chamber_Gun_Oubliette` | Display name is ambiguous (3 matches). Prefer `id`, `alias`, or `internalName`. |
+| Flash Ray | `705` | - | `EXCLUDED` | `Flash_Raygun_Synergy` | Display name is ambiguous (3 matches). Prefer `id`, `alias`, or `internalName`. |
+| Fossilized Gun | `196` | - | `D` | `Fossilized_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| Freeze Ray | `40` | - | `A` | `FreezeRay` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Freeze Ray | `710` | - | `EXCLUDED` | `FreezeRay_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Frost Giant | `387` | - | `B` | `Ice_Giant_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| Gamma Ray | `87` | - | `C` | `Radiation_Laser` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Gamma Ray | `671` | - | `SPECIAL` | `Radiation_Laser_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Gilded Hydra | `231` | - | `S` | `Gilded_Hydra` | Internal name or ID is recommended. Display name input should also work. |
+| Glacier | `130` | - | `A` | `Ice_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| Glass Cannon | `540` | - | `C` | `Glass_Cannon` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Glass Cannon | `819` | - | `SPECIAL` | `Glass_Cannon _Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Grasschopper | `180` | - | `A` | `Noisy_Cricket` | Internal name or ID is recommended. Display name input should also work. |
+| Grenade Launcher | `19` | - | `B` | `M79_Grenade_Launcher` | Internal name or ID is recommended. Display name input should also work. |
+| Grey Mauser | `182` | - | `B` | `Mauser_Pistol` | Internal name or ID is recommended. Display name input should also work. |
+| Gunbow | `210` | - | `A` | `BulletBow` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Gunbow | `693` | - | `SPECIAL` | `BulletBow_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Gunderfury Level 10 | `733` | - | `SPECIAL` | `Gunderfury_LV_20` | Internal name or ID is recommended. Display name input should also work. |
+| Gunderfury Level 20 | `731` | - | `SPECIAL` | `Gunderfury_LV_30` | Internal name or ID is recommended. Display name input should also work. |
+| Gunderfury Level 30 | `730` | - | `SPECIAL` | `Gunderfury_LV_40` | Internal name or ID is recommended. Display name input should also work. |
+| Gunderfury Level 40 | `728` | - | `SPECIAL` | `Gunderfury_LV_50` | Internal name or ID is recommended. Display name input should also work. |
+| Gunderfury Level 50 | `729` | - | `SPECIAL` | `Gunderfury_LV_60` | Internal name or ID is recommended. Display name input should also work. |
+| Gunderfury Lv10 | `732` | - | `A` | `Gunderfury_LV_10` | Internal name or ID is recommended. Display name input should also work. |
+| Gungeon Ant | `176` | - | `C` | `Ant_Gun` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Gungeon Ant | `739` | - | `EXCLUDED` | `Ant_Gun_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Gungine | `401` | - | `S` | `Engine_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| GuNNER | `602` | - | `B` | `Gunner` | Internal name or ID is recommended. Display name input should also work. |
+| Gunslinger's Ashes | `198` | - | `C` | `Urn_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| Gunther | `338` | - | `S` | `Mask_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| Gunzheng | `482` | - | `B` | `Guzheng` | Internal name or ID is recommended. Display name input should also work. |
+| H4mmer | `91` | - | `B` | `H4MMER` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| H4mmer | `715` | - | `SPECIAL` | `H4MMER_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Heck Blaster | `17` | - | `B` | `Earthworm Gun` | Internal name or ID is recommended. Display name input should also work. |
+| Hegemony Carbine | `229` | - | `C` | `Future_Assault_Rifle` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Hegemony Carbine | `724` | - | `EXCLUDED` | `Future_Assault_Rifle_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Hegemony Rifle | `59` | - | `B` | `E12_Blaster_Rifle` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Hegemony Rifle | `699` | - | `SPECIAL` | `E12_Blaster_Rifle_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Helix | `230` | - | `C` | `Twin_Energy_Blaster` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Helix | `708` | - | `SPECIAL` | `Twin_Energy_Blaster_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Heroine | `41` | - | `B` | `Samus Arm` | Internal name or ID is recommended. Display name input should also work. |
+| Heroine (Hyper Beam) | `615` | - | `SPECIAL` | `Samus Arm (Hyper)` | Internal name or ID is recommended. Display name input should also work. |
+| Heroine (Ice Beam) | `613` | - | `SPECIAL` | `Samus Arm (Ice)` | Internal name or ID is recommended. Display name input should also work. |
+| Heroine (Plasma Beam) | `614` | - | `SPECIAL` | `Samus Arm (Plasma)` | Internal name or ID is recommended. Display name input should also work. |
+| Heroine (Wave Beam) | `612` | - | `SPECIAL` | `Samus Arm (Wave)` | Internal name or ID is recommended. Display name input should also work. |
+| Hexagun | `385` | - | `B` | `Magic_Sniper_Rifle` | Internal name or ID is recommended. Display name input should also work. |
+| High Dragunfire | `670` | - | `S` | `HighDragonbreath_Machine_Gun` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| High Dragunfire | `747` | - | `EXCLUDED` | `Space_Turtine_Turtle_Gun` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| High Kaliber | `761` | - | `A` | `Kthuliber_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| Huntsman | `346` | - | `C` | `Shotgun_Axe` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Huntsman | `505` | - | `SPECIAL` | `Wicked_Sister` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Hyper Light Blaster | `504` | - | `B` | `HLD_Gun` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Hyper Light Blaster | `695` | - | `SPECIAL` | `HLD_Gun_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Ice Breaker | `225` | - | `B` | `Ice_Breakers_Gun` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Ice Breaker | `745` | - | `EXCLUDED` | `Ice_Breakers_Gun_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| ITEMS_STRING_NOT_FOUND | `486` | - | `EXCLUDED` | `Tank_Treader_Gun` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| JK-47 | `510` | - | `C` | `JK-47` | Internal name or ID is recommended. Display name input should also work. |
+| Jolter | `47` | - | `B` | `boltRifle` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Jolter | `721` | - | `EXCLUDED` | `boltRifle_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Klobbe | `31` | - | `D` | `Klobb` | Display name is ambiguous (3 matches). Prefer `id`, `alias`, or `internalName`. |
+| Klobbe | `472` | - | `EXCLUDED` | `Mummy_Gun` | Display name is ambiguous (3 matches). Prefer `id`, `alias`, or `internalName`. |
+| Klobbe | `690` | - | `EXCLUDED` | `Klobb_Synergy` | Display name is ambiguous (3 matches). Prefer `id`, `alias`, or `internalName`. |
+| Knight's Gun | `550` | - | `A` | `Shovel_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| Kruller Glaive | `656` | - | `B` | `Glaive` | Internal name or ID is recommended. Display name input should also work. |
+| Lamey | `668` | - | `SPECIAL` | `Resourceful_Rat_Enemy_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| Laser Lotus | `156` | - | `A` | `Plasma_Cell_Gun` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Laser Lotus | `714` | - | `SPECIAL` | `Plasma_Cell_Gun_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Laser Rifle | `54` | - | `C` | `Bowcaster` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Laser Rifle | `676` | - | `SPECIAL` | `Bowcaster_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Leaf Shield | `620` | - | `SPECIAL` | `Mega Buster (Leaf)` | Internal name or ID is recommended. Display name input should also work. |
+| Life Orb | `595` | - | `A` | `Life_Orb_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| Light Gun | `27` | - | `B` | `Zapper` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Light Gun | `711` | - | `EXCLUDED` | `Zapper_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Lil' Bomber | `332` | - | `D` | `Bomb_Gun` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Lil' Bomber | `719` | - | `SPECIAL` | `Bomb_Gun_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Lower Case r | `340` | - | `D` | `Lower_Case_r` | Display name is ambiguous (3 matches). Prefer `id`, `alias`, or `internalName`. |
+| Lower Case r | `648` | - | `SPECIAL` | `Circle_Gun` | Display name is ambiguous (3 matches). Prefer `id`, `alias`, or `internalName`. |
+| Lower Case r | `738` | - | `EXCLUDED` | `Lower_Case_r_synergy` | Display name is ambiguous (3 matches). Prefer `id`, `alias`, or `internalName`. |
+| Luxin Cannon | `199` | - | `C` | `Crystal_Gun` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Luxin Cannon | `701` | - | `EXCLUDED` | `Crystal_Gun_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| M1 | `25` | - | `C` | `M1` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| M1 | `684` | - | `SPECIAL` | `M1_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| M16 | `96` | - | `A` | `M16` | Internal name or ID is recommended. Display name input should also work. |
+| M1911 | `30` | - | `C` | `M1911` | Internal name or ID is recommended. Display name input should also work. |
+| MAC10 | `94` | - | `C` | `MAC10` | Internal name or ID is recommended. Display name input should also work. |
+| Machine Fist | `186` | - | `A` | `Machine_Gun_Hand` | Internal name or ID is recommended. Display name input should also work. |
+| Machine Pistol | `43` | - | `D` | `Uzi` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Machine Pistol | `673` | - | `EXCLUDED` | `Uzi_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Magic Lamp | `0` | - | `B` | `Lamp` | Internal name or ID is recommended. Display name input should also work. |
+| Magnum | `38` | - | `B` | `Magnum` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Magnum | `751` | - | `SPECIAL` | `Magnum_Titan` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Mahoguny | `339` | - | `C` | `Wood_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| Mailbox | `28` | - | `D` | `Mailbox_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| Makarov | `79` | - | `D` | `Makarov` | Internal name or ID is recommended. Display name input should also work. |
+| Makeshift Cannon | `480` | - | `S` | `Kirkcannon` | Internal name or ID is recommended. Display name input should also work. |
+| Marine Sidearm | `86` | - | `SPECIAL` | `SPMA1` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Marine Sidearm | `809` | - | `SPECIAL` | `SPMA1_Alt` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Mass Shotgun | `365` | - | `B` | `ME_Shotgun` | Internal name or ID is recommended. Display name input should also work. |
+| Mega Douser | `10` | - | `D` | `Super Soaker` | Internal name or ID is recommended. Display name input should also work. |
+| Megahand | `36` | - | `B` | `Mega Buster` | Internal name or ID is recommended. Display name input should also work. |
+| Metal Blade | `619` | - | `SPECIAL` | `Mega Buster (Metal)` | Internal name or ID is recommended. Display name input should also work. |
+| Microtransaction Gun | `476` | - | `A` | `Cash_Register_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| Mimic | `734` | - | `SPECIAL` | `Mimic_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| Mine Cutter | `394` | - | `B` | `Mining_Laser` | Internal name or ID is recommended. Display name input should also work. |
+| Molotov Launcher | `292` | - | `C` | `Molotov_Cocktail_Launcher` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Molotov Launcher | `691` | - | `SPECIAL` | `Molotov_Cocktail_Launcher_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Moonlight Tiara | `594` | - | `SPECIAL` | `Moon_Crown` | Internal name or ID is recommended. Display name input should also work. |
+| Moonscraper | `20` | - | `C` | `moonrakerLaser` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Moonscraper | `713` | - | `EXCLUDED` | `moonrakerLaser_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Mourning Star | `515` | - | `S` | `Hammer_of_Dawn` | Internal name or ID is recommended. Display name input should also work. |
+| Mr. Accretion Jr. | `597` | - | `B` | `Planet_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| Mutation | `333` | - | `B` | `Mutant_Arm` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Mutation | `608` | - | `SPECIAL` | `Mutant_TechArm` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Nail Gun | `26` | - | `D` | `Nailgun` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Nail Gun | `692` | - | `SPECIAL` | `Nailgun_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Old Goldie | `93` | - | `A` | `Gold_Double_Barrel_Shotgun` | Internal name or ID is recommended. Display name input should also work. |
+| Origuni | `477` | - | `C` | `Origami_Gun` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Origuni | `744` | - | `EXCLUDED` | `Origami_Gun_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Particulator | `228` | - | `S` | `Distortion_Launcher` | Internal name or ID is recommended. Display name input should also work. |
+| Patriot | `98` | - | `S` | `Excaliber` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Patriot | `544` | - | `EXCLUDED` | `Armored_B_Gun` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Pea Shooter | `197` | - | `D` | `Pea_Shooter` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Pea Shooter | `674` | - | `SPECIAL` | `Pea_Shooter_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Phoenix | `384` | - | `D` | `Phoenix` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Phoenix | `736` | - | `EXCLUDED` | `Phoenix_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Pitchfork | `336` | - | `C` | `Pitchfork` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Pitchfork | `722` | - | `EXCLUDED` | `Pitchfork_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Plague Pistol | `207` | - | `D` | `Rusty_Goop_Gun` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Plague Pistol | `682` | - | `SPECIAL` | `Rusty_Goop_Gun_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Plunger | `208` | - | `C` | `Syringe_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| Polaris | `97` | - | `B` | `Polar_Star` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Polaris | `718` | - | `SPECIAL` | `Polar_Star_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Poxcannon | `513` | - | `C` | `Poxcannon_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| Prize Pistol | `251` | - | `SPECIAL` | `ArtfulDodger_ChallengeGun` | Internal name or ID is recommended. Display name input should also work. |
+| Proton Backpack | `179` | - | `B` | `Proton_Pack_Beam` | Display name is ambiguous (3 matches). Prefer `id`, `alias`, or `internalName`. |
+| Proton Backpack | `658` | - | `SPECIAL` | `Chamber_Gun_Forge` | Display name is ambiguous (3 matches). Prefer `id`, `alias`, or `internalName`. |
+| Proton Backpack | `720` | - | `EXCLUDED` | `Proton_Pack_Beam_Synergy` | Display name is ambiguous (3 matches). Prefer `id`, `alias`, or `internalName`. |
+| Prototype Railgun | `370` | - | `A` | `Railgun Variant` | Internal name or ID is recommended. Display name input should also work. |
+| Pulse Cannon | `123` | - | `C` | `Pulse_Rifle` | Internal name or ID is recommended. Display name input should also work. |
+| Quad Laser | `475` | - | `C` | `Quad_Laser` | Internal name or ID is recommended. Display name input should also work. |
+| Quick Boomerang | `617` | - | `SPECIAL` | `Mega Buster (Quick)` | Internal name or ID is recommended. Display name input should also work. |
+| Rad Gun | `566` | - | `B` | `Rad_Gun` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Rad Gun | `743` | - | `EXCLUDED` | `Rad_Gun_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Raiden Coil | `107` | - | `A` | `Raiden_Laser` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Raiden Coil | `712` | - | `EXCLUDED` | `Raiden_Laser_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Railgun | `358` | - | `S` | `Railgun` | Internal name or ID is recommended. Display name input should also work. |
+| Rattler | `406` | - | `B` | `Rattler_Shotgun` | Internal name or ID is recommended. Display name input should also work. |
+| RC Rocket | `372` | - | `A` | `Nikita` | Internal name or ID is recommended. Display name input should also work. |
+| Really Special Lute | `506` | - | `C` | `Lute_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| Regular Shotgun | `51` | - | `D` | `shotgun` | Display name is ambiguous (3 matches). Prefer `id`, `alias`, or `internalName`. |
+| Regular Shotgun | `660` | - | `SPECIAL` | `Chamber_Gun_Gungeon` | Display name is ambiguous (3 matches). Prefer `id`, `alias`, or `internalName`. |
+| Regular Shotgun | `763` | - | `SPECIAL` | `Chamber_Gun_Hell` | Display name is ambiguous (3 matches). Prefer `id`, `alias`, or `internalName`. |
+| Robot's Left Hand | `576` | - | `A` | `Uberbot_Gun_Hand` | Internal name or ID is recommended. Display name input should also work. |
+| Robot's Right Hand | `88` | - | `SPECIAL` | `Robot_Gunhand` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Robot's Right Hand | `812` | - | `SPECIAL` | `Robot_Gunhand_Alt` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Rogue Special | `89` | - | `SPECIAL` | `Knav3` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Rogue Special | `651` | - | `SPECIAL` | `Knav3_Alt` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| RPG | `39` | - | `B` | `RPG` | Internal name or ID is recommended. Display name input should also work. |
+| RUBE-ADYNE MK.II | `128` | - | `A` | `Purple_Raygun` | Internal name or ID is recommended. Display name input should also work. |
+| RUBE-ADYNE Prototype | `142` | - | `B` | `Yellow_Blaster` | Internal name or ID is recommended. Display name input should also work. |
+| Rubenstein's Monster | `609` | - | `SPECIAL` | `Rubeadyne_Rifle` | Internal name or ID is recommended. Display name input should also work. |
+| Rusty Sidearm | `99` | - | `SPECIAL` | `Rusty_Sidearm` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Rusty Sidearm | `810` | - | `SPECIAL` | `Rusty_Sidearm_Alt` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| SAA | `50` | - | `B` | `SAA` | Internal name or ID is recommended. Display name input should also work. |
+| Sawed-Off | `202` | - | `D` | `Sawedoff_Shotgun` | Internal name or ID is recommended. Display name input should also work. |
+| Science Cannon | `331` | - | `B` | `Disintegrator` | Internal name or ID is recommended. Display name input should also work. |
+| Screecher | `3` | - | `C` | `Screech_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| Ser Manuel's Revolver | `183` | - | `EXCLUDED` | `Tutorial_Knight_Revolver` | Internal name or ID is recommended. Display name input should also work. |
+| Serious Cannon | `37` | - | `A` | `Serious Cannon` | Internal name or ID is recommended. Display name input should also work. |
+| Shades's Revolver | `22` | - | `C` | `Bro Revolver Red` | Internal name or ID is recommended. Display name input should also work. |
+| Shell | `512` | - | `B` | `Shotgun_Gun` | Display name is ambiguous (6 matches). Prefer `id`, `alias`, or `internalName`. |
+| Shell | `756` | - | `SPECIAL` | `Evo_Gun_002` | Display name is ambiguous (6 matches). Prefer `id`, `alias`, or `internalName`. |
+| Shell | `757` | - | `SPECIAL` | `Evo_Gun_003` | Display name is ambiguous (6 matches). Prefer `id`, `alias`, or `internalName`. |
+| Shell | `758` | - | `SPECIAL` | `Evo_Gun_004` | Display name is ambiguous (6 matches). Prefer `id`, `alias`, or `internalName`. |
+| Shell | `759` | - | `SPECIAL` | `Evo_Gun_005` | Display name is ambiguous (6 matches). Prefer `id`, `alias`, or `internalName`. |
+| Shell | `760` | - | `SPECIAL` | `Evo_Gun_006` | Display name is ambiguous (6 matches). Prefer `id`, `alias`, or `internalName`. |
+| Shellegun | `464` | - | `B` | `Shellegun` | Internal name or ID is recommended. Display name input should also work. |
+| Shock Rifle | `153` | - | `B` | `Electric_Rifle` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Shock Rifle | `697` | - | `EXCLUDED` | `Electric_Rifle_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Shotbow | `126` | - | `B` | `Crossbow_Shotgun` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Shotbow | `749` | - | `EXCLUDED` | `Crossbow_Shotgun_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Shotgrub | `347` | - | `C` | `Shotgrub` | Internal name or ID is recommended. Display name input should also work. |
+| Shotgun Full of Hate | `143` | - | `A` | `Shotgun_Hate` | Internal name or ID is recommended. Display name input should also work. |
+| Shotgun Full of Love | `379` | - | `A` | `Shotgun_Love` | Internal name or ID is recommended. Display name input should also work. |
+| Silencer | `335` | - | `C` | `Pillow` | Internal name or ID is recommended. Display name input should also work. |
+| Siren | `404` | - | `C` | `Mermaid_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| Skull Spitter | `45` | - | `C` | `Skull_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| Sling | `382` | - | `D` | `Sling` | Internal name or ID is recommended. Display name input should also work. |
+| Slinger | `604` | - | `SPECIAL` | `Slinger_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| Smiley's Revolver | `35` | - | `B` | `Bro Revolver Green` | Display name is ambiguous (4 matches). Prefer `id`, `alias`, or `internalName`. |
+| Smiley's Revolver | `752` | - | `EXCLUDED` | `Bro West Revolver Nome` | Display name is ambiguous (4 matches). Prefer `id`, `alias`, or `internalName`. |
+| Smiley's Revolver | `753` | - | `EXCLUDED` | `Bro West Revolver Tuco` | Display name is ambiguous (4 matches). Prefer `id`, `alias`, or `internalName`. |
+| Smiley's Revolver | `754` | - | `EXCLUDED` | `Bro West Revolver Angel` | Display name is ambiguous (4 matches). Prefer `id`, `alias`, or `internalName`. |
+| Snakemaker | `360` | - | `A` | `Snakepoof_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| Sniper Rifle | `49` | - | `C` | `Sniper Rifle` | Internal name or ID is recommended. Display name input should also work. |
+| Snowballer | `402` | - | `D` | `Snowball_Launcher` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Snowballer | `679` | - | `SPECIAL` | `Snowball_Launcher_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Staff of Firepower | `395` | - | `A` | `Hybrid_Magic_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| Starpew | `507` | - | `A` | `Starpew` | Internal name or ID is recommended. Display name input should also work. |
+| Sticky Crossbow | `4` | - | `C` | `Sticky_Crossbow` | Internal name or ID is recommended. Display name input should also work. |
+| Stinger | `92` | - | `B` | `Missile_Launcher` | Internal name or ID is recommended. Display name input should also work. |
+| Stone Dome | `598` | - | `B` | `Big_Giant_Head_Gun` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Stone Dome | `741` | - | `EXCLUDED` | `Eyeball_Head_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| STRAFE® Gun | `542` | - | `S` | `StrafeNailGun` | Internal name or ID is recommended. Display name input should also work. |
+| Sunlight Javelin | `748` | - | `B` | `Sunlight_Spear` | Internal name or ID is recommended. Display name input should also work. |
+| Super Meat Gun | `479` | - | `A` | `Super_Meat_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| Super Space Turtle | `299` | - | `EXCLUDED` | `SST_ISSUE` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| T-Shirt Cannon | `150` | - | `D` | `TShirt_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| Tangler | `175` | - | `C` | `Rectangle_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| Teapot | `596` | - | `C` | `Teapot_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| Tear Jerker | `33` | - | `C` | `Eyeball_Gun` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Tear Jerker | `725` | - | `EXCLUDED` | `Eyeball_Gun_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Tetrominator | `483` | - | `B` | `Tetris_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| The Emperor | `330` | - | `A` | `Electro_Shark_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| The Exotic | `563` | - | `A` | `Exotic_Gun` | Display name is ambiguous (3 matches). Prefer `id`, `alias`, or `internalName`. |
+| The Exotic | `659` | - | `SPECIAL` | `Chamber_Gun_Catacomb` | Display name is ambiguous (3 matches). Prefer `id`, `alias`, or `internalName`. |
+| The Exotic | `808` | - | `SPECIAL` | `Chamber_Gun_Rat` | Display name is ambiguous (3 matches). Prefer `id`, `alias`, or `internalName`. |
+| The Fat Line | `562` | - | `B` | `Tachyon_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| The Judge | `184` | - | `B` | `Lawgiver` | Display name is ambiguous (3 matches). Prefer `id`, `alias`, or `internalName`. |
+| The Judge | `517` | - | `SPECIAL` | `Trigun_Hand_Gun` | Display name is ambiguous (3 matches). Prefer `id`, `alias`, or `internalName`. |
+| The Judge | `518` | - | `SPECIAL` | `Trigun_Angel_Gun` | Display name is ambiguous (3 matches). Prefer `id`, `alias`, or `internalName`. |
+| The Kiln | `152` | - | `C` | `Squad_Red_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| The Membrane | `151` | - | `C` | `Squad_Green_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| The Predator | `543` | - | `B` | `Predator_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| The Scrambler | `445` | - | `C` | `Scrambler` | Internal name or ID is recommended. Display name input should also work. |
+| Thompson Sub-Machinegun | `2` | - | `C` | `Thompson` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Thompson Sub-Machinegun | `685` | - | `SPECIAL` | `Thompson_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Thunderclap | `13` | - | `A` | `Plasma_Rifle` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Thunderclap | `683` | - | `SPECIAL` | `Plasma_Rifle_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Time Stopper | `618` | - | `SPECIAL` | `Mega Buster (Flash)` | Internal name or ID is recommended. Display name input should also work. |
+| Trank Gun | `42` | - | `C` | `Baretta` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Trank Gun | `816` | - | `SPECIAL` | `Baretta_Tranq` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Trashcannon | `154` | - | `C` | `Trash_Gun` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Trashcannon | `704` | - | `SPECIAL` | `Trash_Gun_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Trick Gun | `363` | - | `C` | `Trick_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| Trident | `444` | - | `A` | `Trident` | Internal name or ID is recommended. Display name input should also work. |
+| Triple Crossbow | `381` | - | `C` | `Triple_Crossbow` | Internal name or ID is recommended. Display name input should also work. |
+| Triple Gun | `516` | - | `B` | `Trigun_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| Turbo-Gun | `577` | - | `C` | `Recharge_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| Unfinished Gun | `83` | - | `D` | `Raw_Iron_Gun` | Display name is ambiguous (4 matches). Prefer `id`, `alias`, or `internalName`. |
+| Unfinished Gun | `603` | - | `EXCLUDED` | `Lamey_Gun` | Display name is ambiguous (4 matches). Prefer `id`, `alias`, or `internalName`. |
+| Unfinished Gun | `806` | - | `SPECIAL` | `Chamber_Gun_Abbey` | Display name is ambiguous (4 matches). Prefer `id`, `alias`, or `internalName`. |
+| Unfinished Gun | `807` | - | `SPECIAL` | `Chamber_Gun_Mine` | Display name is ambiguous (4 matches). Prefer `id`, `alias`, or `internalName`. |
+| Unicorn Horn | `100` | - | `A` | `Unicorn_Horn 2` | Internal name or ID is recommended. Display name input should also work. |
+| Uppercase R | `649` | - | `SPECIAL` | `Upper_Case_R` | Internal name or ID is recommended. Display name input should also work. |
+| VertebraeK-47 | `29` | - | `B` | `Spine_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| Void Core Assault Rifle | `58` | - | `B` | `space_rifle` | Internal name or ID is recommended. Display name input should also work. |
+| Void Core Cannon | `593` | - | `B` | `Voidcore_Rocket_Launcher` | Internal name or ID is recommended. Display name input should also work. |
+| Void Marshal | `32` | - | `B` | `dl45` | Internal name or ID is recommended. Display name input should also work. |
+| Void Shotgun | `55` | - | `B` | `space_shotgun` | Internal name or ID is recommended. Display name input should also work. |
+| Vorpal Gun | `537` | - | `B` | `Critical_Pistol` | Internal name or ID is recommended. Display name input should also work. |
+| Vulcan Cannon | `84` | - | `S` | `Minigun` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Vulcan Cannon | `707` | - | `SPECIAL` | `Minigun_Synergy` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Winchester | `1` | - | `C` | `Winchester_Shotgun` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Winchester | `650` | - | `SPECIAL` | `PaydayShoot_Shotgun` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Winchester Rifle | `181` | - | `D` | `Winchester_rifle` | Internal name or ID is recommended. Display name input should also work. |
+| Wind Up Gun | `334` | - | `D` | `Wind_Up_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| Windgunner | `546` | - | `SPECIAL` | `Sprun_Gun` | Internal name or ID is recommended. Display name input should also work. |
+| Witch Pistol | `145` | - | `C` | `Magic_Revolver` | Internal name or ID is recommended. Display name input should also work. |
+| Wood Beam | `610` | - | `B` | `Wood_Beam` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Wood Beam | `823` | - | `SPECIAL` | `Chamber_Office_Gun` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Wristbow | `227` | - | `EXCLUDED` | `Hand_Crossbow` | Internal name or ID is recommended. Display name input should also work. |
+| Yari Launcher | `16` | - | `S` | `Yari_Rocket_Launcher` | Display name is ambiguous (4 matches). Prefer `id`, `alias`, or `internalName`. |
+| Zilla Shotgun | `329` | - | `A` | `Zilla_Combat_Shotgun` | Internal name or ID is recommended. Display name input should also work. |
+| Zorgun | `6` | - | `A` | `Zorgun` | Internal name or ID is recommended. Display name input should also work. |
 
 ## Passive
 
@@ -411,226 +413,226 @@ Count: `220`
 
 | Display Name | ID | Alias | Quality | Internal Name | Notes |
 | --- | --- | --- | --- | --- | --- |
-| +1 Bullets | `286` | - | `C` | `BetterBullets` | Exact name input should work. |
-| Alpha Bullet | `373` | - | `A` | `AlphaItem` | Exact name input should work. |
-| Ammo Belt | `134` | - | `D` | `AmmoBelt` | Exact name input should work. |
-| Ammo Synthesizer | `116` | - | `D` | `Tweezers` | Exact name input should work. |
-| Amulet of the Pit Lord | `158` | - | `D` | `AmuletPitLord` | Exact name input should work. |
-| Ancient Hero's Bandana | `255` | - | `S` | `BlueBandana` | Exact name input should work. |
-| Angry Bullets | `323` | - | `C` | `CrazyBullets` | Exact name input should work. |
-| Antibody | `259` | - | `B` | `Antibody` | Exact name input should work. |
-| Armor of Thorns | `457` | - | `C` | `SpikedArmor` | Exact name input should work. |
-| Armor Synthesizer | `450` | - | `A` | `ArmorSynthesizer` | Exact name input should work. |
-| Baby Good Mimic | `664` | - | `B` | `BabyMimicItem` | Exact name input should work. |
-| Baby Good Shelleton | `818` | - | `S` | `BabyShelletonItem` | Exact name input should work. |
-| Backpack | `133` | - | `D` | `Backpack` | Exact name input should work. |
-| Backup Gun | `287` | - | `B` | `HandMirror` | Exact name input should work. |
-| Badge | `442` | - | `A` | `CopBadge` | Exact name input should work. |
-| Ballistic Boots | `212` | - | `B` | `Ballistic Boots` | Exact name input should work. |
-| Ballot | `115` | - | `C` | `ZShirt` | Exact name input should work. |
-| Battery Bullets | `410` | - | `D` | `RobotBullets` | Exact name input should work. |
-| Battle Standard | `529` | - | `D` | `BattleStandard` | Exact name input should work. |
-| Bionic Leg | `114` | - | `C` | `BionicLeg` | Exact name input should work. |
-| Blank Bullets | `579` | - | `S` | `BlankBullets` | Exact name input should work. |
-| Blank Companion's Ring | `461` | - | `A` | `RingOfBlankCompanionship` | Exact name input should work. |
-| Blast Helmet | `312` | - | `D` | `Helmet` | Exact name input should work. |
-| Blood Brooch | `285` | - | `A` | `VampiricArmor` | Exact name input should work. |
-| Bloodied Scarf | `436` | - | `B` | `RedBandana` | Exact name input should work. |
-| Bloody 9mm | `524` | - | `B` | `Bloody9MMBullet` | Exact name input should work. |
-| Bloody Eye | `167` | - | `B` | `BloodyEye` | Exact name input should work. |
-| Blue Guon Stone | `270` | - | `B` | `IounStone_DarkBlueItem` | Exact name input should work. |
-| Book of Chest Anatomy | `487` | - | `C` | `BookOfChestAnatomy` | Exact name input should work. |
-| Bouncy Bullets | `288` | - | `C` | `FlubberBullets` | Exact name input should work. |
-| Brick of Cash | `490` | - | `B` | `BrickBribe` | Exact name input should work. |
-| Briefcase of Cash | `493` | - | `A` | `BriefcaseFullOfCash` | Exact name input should work. |
-| Broccoli | `258` | - | `A` | `EyeOfTheTiger` | Exact name input should work. |
-| Bug Boots | `193` | - | `B` | `SecretOfTheOoze` | Name is ambiguous (4 matches). Prefer `id` or `alias`. |
-| Bug Boots | `418` | - | `SPECIAL` | `Item_Blueprint_TruckGeneric` | Name is ambiguous (4 matches). Prefer `id` or `alias`. |
-| Bug Boots | `429` | - | `SPECIAL` | `Item_Blueprint_GoopGeneric` | Name is ambiguous (4 matches). Prefer `id` or `alias`. |
-| Bug Boots | `575` | - | `SPECIAL` | `Item_Blueprint_PoopGeneric` | Name is ambiguous (4 matches). Prefer `id` or `alias`. |
-| Bullet Idol | `434` | - | `B` | `BulletIdol` | Exact name input should work. |
-| Bullet That Can Kill The Past | `303` | - | `S` | `BulletThatCanKillThePast` | Exact name input should work. |
-| Bumbullets | `630` | - | `B` | `BeeBullets` | Exact name input should work. |
-| Cartographer's Ring | `112` | - | `C` | `CartographersRing` | Exact name input should work. |
-| Cat Bullet King Throne | `817` | - | `B` | `CatBulletKingThrone` | Exact name input should work. |
-| Chance Bullets | `521` | - | `B` | `Randomizer` | Exact name input should work. |
-| Chaos Ammolet | `325` | - | `A` | `BlankTriEffectItem` | Exact name input should work. |
-| Chaos Bullets | `569` | - | `A` | `ChaosBullets` | Exact name input should work. |
-| Charming Rounds | `527` | - | `B` | `CharmBullets` | Exact name input should work. |
-| Chicken Flute | `572` | - | `B` | `CuccoItem` | Exact name input should work. |
-| Clear Guon Stone | `264` | - | `D` | `IounStone_LightBlueItem` | Exact name input should work. |
-| Clone | `311` | - | `S` | `NextQuarter` | Exact name input should work. |
-| Cloranthy Ring | `309` | - | `C` | `CloranthyRing` | Exact name input should work. |
-| Clown Mask | `607` | - | `B` | `BankMask` | Exact name input should work. |
-| Cog Of Battle | `135` | - | `C` | `CogOfBattle` | Exact name input should work. |
-| Coin Crown | `214` | - | `C` | `CrownOfTheCoinKing` | Exact name input should work. |
-| Copper Ammolet | `343` | - | `B` | `BlankFireItem` | Exact name input should work. |
-| Crisis Stone | `634` | - | `A` | `CrisisStone` | Exact name input should work. |
-| Crutch | `240` | - | `B` | `Crutch` | Exact name input should work. |
-| Cursed Bullets | `571` | - | `C` | `CurseBullets` | Exact name input should work. |
-| Devolver Rounds | `638` | - | `B` | `DevolverBullets` | Exact name input should work. |
-| Disarming Personality | `187` | - | `C` | `NiceSmile` | Exact name input should work. |
-| Dog | `300` | - | `D` | `DogItem` | Exact name input should work. |
-| Drum Clip | `280` | - | `B` | `DrumClip` | Exact name input should work. |
-| Easy Reload Bullets | `375` | - | `C` | `DodgeRollReloadItem` | Exact name input should work. |
-| Emerald Bracelet | `441` | - | `EXCLUDED` | `ThrowBracelet_Green` | Exact name input should work. |
-| Enraging Photo | `353` | - | `D` | `Rage` | Exact name input should work. |
-| Explosive Rounds | `304` | - | `A` | `ExplodingBullets` | Exact name input should work. |
-| Eyepatch | `118` | `eyepatch` | `A` | `Eyepatch` | Exact name input should work. |
-| Fairy Wings | `310` | - | `EXCLUDED` | `FairyWings` | Exact name input should work. |
-| Fat Bullets | `277` | - | `A` | `FatBullets` | Exact name input should work. |
-| Flak Bullets | `531` | - | `C` | `FlakBullets` | Exact name input should work. |
-| Frost Ammolet | `344` | - | `B` | `BlankIceItem` | Exact name input should work. |
-| Frost Bullets | `278` | - | `A` | `Condenser` | Exact name input should work. |
-| Full Metal Jacket | `564` | - | `B` | `AutoblankVest` | Exact name input should work. |
-| Galactic Medal of Valor | `494` | - | `B` | `MedalOfValor` | Exact name input should work. |
-| Gas Mask | `453` | - | `D` | `GasMask` | Exact name input should work. |
-| Ghost Bullets | `172` | - | `C` | `PierceBullets` | Exact name input should work. |
-| Gilded Bullets | `532` | - | `B` | `GoldBullets` | Exact name input should work. |
-| Glass Guon Stone | `565` | - | `COMMON` | `IounStone_GlassItem` | Exact name input should work. |
-| Gnawed Key | `316` | - | `SPECIAL` | `Key_ResourcefulRatLair` | Exact name input should work. |
-| Gold Ammolet | `321` | - | `B` | `BlankDamageItem` | Exact name input should work. |
-| Gold Junk | `641` | - | `SPECIAL` | `GoldJunk` | Exact name input should work. |
-| Green Guon Stone | `466` | - | `A` | `IounStone_GreenItem` | Exact name input should work. |
-| Gun Soul | `489` | - | `A` | `DemonSoul` | Exact name input should work. |
-| Gunboots | `315` | - | `C` | `DownwellBoots` | Exact name input should work. |
-| Gundromeda Strain | `159` | - | `S` | `GundromedaStrain` | Exact name input should work. |
-| Gungeon Blueprint | `281` | - | `S` | `GungeonBlueprint` | Exact name input should work. |
-| Gungeon Pepper | `253` | - | `C` | `SolarRadiation` | Exact name input should work. |
-| Gunknight Armor | `163` | - | `B` | `BulletArmor_Chest` | Exact name input should work. |
-| Gunknight Gauntlet | `162` | - | `C` | `BulletArmor_Glove` | Exact name input should work. |
-| Gunknight Greaves | `161` | - | `C` | `BulletArmor_Boot` | Exact name input should work. |
-| Gunknight Helmet | `160` | - | `A` | `BulletArmor_Helmet` | Exact name input should work. |
-| Hazmat Suit | `454` | - | `B` | `HazmatSuit` | Exact name input should work. |
-| Heart Bottle | `424` | - | `B` | `Heart_Bottle` | Exact name input should work. |
-| Heart Holster | `421` | - | `B` | `Heart_Holster` | Exact name input should work. |
-| Heart Locket | `423` | - | `B` | `Heart_Locket` | Exact name input should work. |
-| Heart Lunchbox | `422` | - | `B` | `Heart_Lunchbox` | Exact name input should work. |
-| Heart of Ice | `364` | - | `A` | `HeartOfIce` | Exact name input should work. |
-| Heart Purse | `425` | - | `B` | `Heart_Purse` | Exact name input should work. |
-| Heart Synthesizer | `164` | - | `A` | `HeartSynthesizer` | Exact name input should work. |
-| Heavy Boots | `256` | - | `D` | `HeavyBoots` | Exact name input should work. |
-| Heavy Bullets | `111` | - | `C` | `HeavyBullets` | Exact name input should work. |
-| Helix Bullets | `568` | - | `B` | `HelixBullets` | Exact name input should work. |
-| Hidden Compartment | `473` | - | `SPECIAL` | `Hidden Compartments` | Exact name input should work. |
-| Hip Holster | `500` | - | `B` | `HipHolster` | Exact name input should work. |
-| Holey Grail | `631` | - | `D` | `BlankPersonality` | Exact name input should work. |
-| Homing Bullets | `284` | - | `B` | `SmartBullets` | Exact name input should work. |
-| Honeycomb | `138` | - | `C` | `Honeycomb` | Exact name input should work. |
-| Hot Lead | `295` | - | `B` | `FireBullets` | Exact name input should work. |
-| Hungry Bullets | `655` | - | `A` | `HungryBullets` | Exact name input should work. |
-| Hunter's Journal | `367` | - | `EXCLUDED` | `TreasureHuntress` | Exact name input should work. |
-| Ice Cube | `170` | - | `B` | `IceCube` | Exact name input should work. |
-| Infuriating Note | `243` | - | `SPECIAL` | `ResourcefulRatNote_01` | Name is ambiguous (6 matches). Prefer `id` or `alias`. |
-| Infuriating Note | `244` | - | `SPECIAL` | `ResourcefulRatNote_02` | Name is ambiguous (6 matches). Prefer `id` or `alias`. |
-| Infuriating Note | `245` | - | `SPECIAL` | `ResourcefulRatNote_03` | Name is ambiguous (6 matches). Prefer `id` or `alias`. |
-| Infuriating Note | `246` | - | `SPECIAL` | `ResourcefulRatNote_04` | Name is ambiguous (6 matches). Prefer `id` or `alias`. |
-| Infuriating Note | `247` | - | `SPECIAL` | `ResourcefulRatNote_05` | Name is ambiguous (6 matches). Prefer `id` or `alias`. |
-| Infuriating Note | `248` | - | `SPECIAL` | `ResourcefulRatNote_06` | Name is ambiguous (6 matches). Prefer `id` or `alias`. |
-| Irradiated Lead | `204` | - | `B` | `Poison Shot` | Exact name input should work. |
-| ITEMS_STRING_NOT_FOUND | `735` | - | `SPECIAL` | `BabyDragunItem` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Junk | `127` | - | `SPECIAL` | `Junk` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Junk | `580` | - | `C` | `SackKnightBoon` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Katana Bullets | `822` | - | `C` | `KatanaBullets` | Exact name input should work. |
-| Laser Sight | `273` | - | `C` | `LaserSight` | Exact name input should work. |
-| Lich's Eye Bullets | `815` | - | `S` | `LichEyeBullets` | Exact name input should work. |
-| Lichy Trigger Finger | `213` | - | `D` | `Lichy Trigger Finger` | Exact name input should work. |
-| Lies | `148` | - | `SPECIAL` | `Junk_Truth` | Exact name input should work. |
-| Liquid Valkyrie | `431` | - | `A` | `Barrel of Slow` | Exact name input should work. |
-| Live Ammo | `414` | - | `SPECIAL` | `LiveAmmo` | Exact name input should work. |
-| Lodestone Ammolet | `322` | - | `D` | `BlankForceItem` | Exact name input should work. |
-| Loot Bag | `605` | - | `C` | `BankBag` | Exact name input should work. |
-| Macho Brace | `665` | - | `C` | `MachoBrace` | Exact name input should work. |
-| Magic Bullets | `533` | - | `B` | `MagicBullets` | Exact name input should work. |
-| Magic Sweet | `110` | - | `A` | `RareCandy` | Exact name input should work. |
-| Map | `137` | - | `D` | `GungeonMap` | Exact name input should work. |
-| Master of Unlocking | `140` | - | `B` | `MasterOfUnlocking` | Exact name input should work. |
-| Master Round | `467` | - | `SPECIAL` | `MasteryToken_Forge` | Name is ambiguous (5 matches). Prefer `id` or `alias`. |
-| Master Round | `468` | - | `SPECIAL` | `MasteryToken_Mines` | Name is ambiguous (5 matches). Prefer `id` or `alias`. |
-| Master Round | `469` | - | `SPECIAL` | `MasteryToken_Castle` | Name is ambiguous (5 matches). Prefer `id` or `alias`. |
-| Master Round | `470` | - | `SPECIAL` | `MasteryToken_Catacombs` | Name is ambiguous (5 matches). Prefer `id` or `alias`. |
-| Master Round | `471` | - | `SPECIAL` | `MasteryToken_Gungeon` | Name is ambiguous (5 matches). Prefer `id` or `alias`. |
-| Metronome | `119` | - | `B` | `Metronome` | Exact name input should work. |
-| Military Training | `354` | - | `C` | `MilitaryTraining` | Exact name input should work. |
-| Mimic Tooth Necklace | `293` | - | `A` | `MimicToothNecklace` | Exact name input should work. |
-| Monster Blood | `313` | - | `C` | `MonsterBlood` | Exact name input should work. |
-| Muscle Relaxant | `437` | - | `B` | `Diazapam` | Exact name input should work. |
-| Mustache | `435` | - | `C` | `MustacheItem` | Exact name input should work. |
-| Nanomachines | `314` | - | `B` | `Nanomachines` | Exact name input should work. |
-| Number 2 | `326` | - | `A` | `CoopPassive` | Exact name input should work. |
-| Obsidian Shell Casing | `350` | - | `SPECIAL` | `PastBullet_ObsidianShellCasing` | Exact name input should work. |
-| Oiled Cylinder | `165` | - | `C` | `ReloadSpeedItem` | Exact name input should work. |
-| Old Crest | `305` | - | `B` | `CathedralCrest` | Exact name input should work. |
-| Old Knight's Helm | `222` | - | `D` | `Tutorial_Knight_Helm` | Exact name input should work. |
-| Old Knight's Shield | `219` | - | `D` | `Tutorial_Knight_Shield` | Exact name input should work. |
-| Omega Bullets | `374` | - | `A` | `OmegaItem` | Exact name input should work. |
-| Orange Guon Stone | `263` | - | `A` | `IounStone_OrangeItem` | Exact name input should work. |
-| Orbital Bullets | `661` | - | `A` | `OrbitBullets` | Exact name input should work. |
-| Owl | `249` | - | `S` | `OwlOrbitalItem` | Exact name input should work. |
-| Pig | `451` | - | `A` | `PigItem` | Exact name input should work. |
-| Pink Guon Stone | `260` | - | `B` | `IounStone_PinkItem` | Exact name input should work. |
-| Planar Lead | `349` | - | `SPECIAL` | `PastBullet_AstralSlug` | Exact name input should work. |
-| Platinum Bullets | `627` | - | `S` | `PlatinumBullets` | Exact name input should work. |
-| Prime Primer | `348` | - | `SPECIAL` | `PastBullet_AncientPrimer` | Exact name input should work. |
-| R2G2 | `318` | - | `S` | `R22Item` | Exact name input should work. |
-| Rat Boots | `667` | - | `C` | `RatBootsItem` | Exact name input should work. |
-| Red Guon Stone | `269` | - | `B` | `IounStone_RedItem` | Exact name input should work. |
-| Remote Bullets | `530` | - | `C` | `RemoteBullets` | Exact name input should work. |
-| Riddle of Lead | `271` | - | `S` | `WhatItTakes` | Exact name input should work. |
-| Ring of Chest Friendship | `254` | - | `B` | `GloriousChestAhead` | Exact name input should work. |
-| Ring of Chest Vampirism | `488` | - | `C` | `RingOfChestVampirism` | Exact name input should work. |
-| Ring of Fire Resistance | `191` | - | `C` | `RingOfFireResistance` | Exact name input should work. |
-| Ring of Mimic Friendship | `294` | - | `D` | `RingOfMimicFriendship` | Exact name input should work. |
-| Ring of Miserly Protection | `132` | - | `C` | `RingOfMiserlyProtection` | Exact name input should work. |
-| Ring of the Resourceful Rat | `463` | - | `B` | `RingOfResourcefulRat` | Exact name input should work. |
-| Ring of Triggers | `456` | - | `A` | `BulletSynergyItem` | Exact name input should work. |
-| Rocket-Powered Bullets | `113` | - | `B` | `RocketBullets` | Exact name input should work. |
-| Roll Bomb | `567` | - | `C` | `MetroidBombs` | Exact name input should work. |
-| Rolling Eye | `190` | - | `C` | `RollingEye` | Exact name input should work. |
-| Ruby Bracelet | `440` | - | `D` | `ThrowBracelet_Red` | Exact name input should work. |
-| Scattershot | `241` | - | `B` | `Scattershot` | Exact name input should work. |
-| Scope | `102` | - | `D` | `Scope` | Exact name input should work. |
-| Scouter | `821` | - | `C` | `Scouter` | Exact name input should work. |
-| Seven-Leaf Clover | `289` | - | `S` | `SevenLeafClover` | Exact name input should work. |
-| Shadow Bullets | `352` | - | `B` | `ShadowBullets` | Exact name input should work. |
-| Shelleton Key | `166` | - | `S` | `ShelletonKey` | Exact name input should work. |
-| Shock Rounds | `298` | - | `A` | `TeslaCoil` | Exact name input should work. |
-| Shotga Cola | `426` | - | `C` | `Shotgun Cola` | Exact name input should work. |
-| Shotgun Coffee | `427` | - | `C` | `Shotgun Coffee` | Exact name input should work. |
-| Silver Bullets | `538` | - | `C` | `SilverBullets` | Exact name input should work. |
-| Sixth Chamber | `407` | - | `A` | `ChamberOfEvil` | Exact name input should work. |
-| Snowballets | `636` | - | `A` | `SnowballBullets` | Exact name input should work. |
-| Space Friend | `232` | - | `B` | `RaidenOrbitalItem` | Exact name input should work. |
-| Sponge | `452` | - | `C` | `MagicMop` | Exact name input should work. |
-| Springheel Boots | `526` | - | `D` | `PegasusBoots` | Exact name input should work. |
-| Sprun | `578` | - | `A` | `SprenOrbitalItem` | Exact name input should work. |
-| Stout Bullets | `523` | - | `B` | `StoutBullets` | Exact name input should work. |
-| Sunglasses | `290` | - | `C` | `Sunglasses` | Exact name input should work. |
-| Super Hot Watch | `279` | - | `S` | `Superhot` | Exact name input should work. |
-| Super Space Turtle | `301` | - | `B` | `TurtleShell` | Name is ambiguous (2 matches). Prefer `id` or `alias`. |
-| Table Tech Blanks | `400` | - | `C` | `TableBlank` | Exact name input should work. |
-| Table Tech Heat | `666` | - | `D` | `TableHeat` | Exact name input should work. |
-| Table Tech Money | `397` | - | `D` | `TableMoney` | Exact name input should work. |
-| Table Tech Rage | `399` | - | `D` | `TableRage` | Exact name input should work. |
-| Table Tech Rocket | `398` | - | `C` | `TableRocket` | Exact name input should work. |
-| Table Tech Shotgun | `633` | - | `D` | `TableShotgun` | Exact name input should work. |
-| Table Tech Sight | `396` | - | `D` | `TableVision` | Exact name input should work. |
-| Table Tech Stun | `465` | - | `C` | `TableStun` | Exact name input should work. |
-| Turkey | `632` | - | `C` | `TurkeyItem` | Exact name input should work. |
-| Turtle Problem | `645` | - | `C` | `TurtleProblem` | Exact name input should work. |
-| Unity | `495` | - | `B` | `OurPowersCombined` | Exact name input should work. |
-| Uranium Ammolet | `342` | - | `B` | `BlankPoisonItem` | Exact name input should work. |
-| Utility Belt | `131` | - | `C` | `UtilityBelt` | Exact name input should work. |
-| Vorpal Bullets | `640` | - | `A` | `CriticalBullets` | Exact name input should work. |
-| Wax Wings | `307` | - | `B` | `WhiteWings` | Exact name input should work. |
-| White Guon Stone | `262` | - | `B` | `IounStone_WhiteItem` | Exact name input should work. |
-| Wingman | `491` | - | `A` | `WingmanItem` | Exact name input should work. |
-| Wolf | `492` | - | `B` | `WolfItem` | Exact name input should work. |
-| Yari Launcher | `296` | - | `SPECIAL` | `Gun_Blueprint_Yari` | Name is ambiguous (4 matches). Prefer `id` or `alias`. |
-| Yari Launcher | `497` | - | `SPECIAL` | `Item_Blueprint_MetaGeneric` | Name is ambiguous (4 matches). Prefer `id` or `alias`. |
-| Yari Launcher | `501` | - | `SPECIAL` | `Item_Blueprint_MetaGenericItem` | Name is ambiguous (4 matches). Prefer `id` or `alias`. |
-| Yellow Chamber | `570` | - | `S` | `YellowChamber` | Exact name input should work. |
-| Zombie Bullets | `528` | - | `C` | `ZombieBullets` | Exact name input should work. |
+| +1 Bullets | `286` | - | `C` | `BetterBullets` | Internal name or ID is recommended. Display name input should also work. |
+| Alpha Bullet | `373` | - | `A` | `AlphaItem` | Internal name or ID is recommended. Display name input should also work. |
+| Ammo Belt | `134` | - | `D` | `AmmoBelt` | Internal name or ID is recommended. Display name input should also work. |
+| Ammo Synthesizer | `116` | - | `D` | `Tweezers` | Internal name or ID is recommended. Display name input should also work. |
+| Amulet of the Pit Lord | `158` | - | `D` | `AmuletPitLord` | Internal name or ID is recommended. Display name input should also work. |
+| Ancient Hero's Bandana | `255` | - | `S` | `BlueBandana` | Internal name or ID is recommended. Display name input should also work. |
+| Angry Bullets | `323` | - | `C` | `CrazyBullets` | Internal name or ID is recommended. Display name input should also work. |
+| Antibody | `259` | - | `B` | `Antibody` | Internal name or ID is recommended. Display name input should also work. |
+| Armor of Thorns | `457` | - | `C` | `SpikedArmor` | Internal name or ID is recommended. Display name input should also work. |
+| Armor Synthesizer | `450` | - | `A` | `ArmorSynthesizer` | Internal name or ID is recommended. Display name input should also work. |
+| Baby Good Mimic | `664` | - | `B` | `BabyMimicItem` | Internal name or ID is recommended. Display name input should also work. |
+| Baby Good Shelleton | `818` | - | `S` | `BabyShelletonItem` | Internal name or ID is recommended. Display name input should also work. |
+| Backpack | `133` | - | `D` | `Backpack` | Internal name or ID is recommended. Display name input should also work. |
+| Backup Gun | `287` | - | `B` | `HandMirror` | Internal name or ID is recommended. Display name input should also work. |
+| Badge | `442` | - | `A` | `CopBadge` | Internal name or ID is recommended. Display name input should also work. |
+| Ballistic Boots | `212` | - | `B` | `Ballistic Boots` | Internal name or ID is recommended. Display name input should also work. |
+| Ballot | `115` | - | `C` | `ZShirt` | Internal name or ID is recommended. Display name input should also work. |
+| Battery Bullets | `410` | - | `D` | `RobotBullets` | Internal name or ID is recommended. Display name input should also work. |
+| Battle Standard | `529` | - | `D` | `BattleStandard` | Internal name or ID is recommended. Display name input should also work. |
+| Bionic Leg | `114` | - | `C` | `BionicLeg` | Internal name or ID is recommended. Display name input should also work. |
+| Blank Bullets | `579` | - | `S` | `BlankBullets` | Internal name or ID is recommended. Display name input should also work. |
+| Blank Companion's Ring | `461` | - | `A` | `RingOfBlankCompanionship` | Internal name or ID is recommended. Display name input should also work. |
+| Blast Helmet | `312` | - | `D` | `Helmet` | Internal name or ID is recommended. Display name input should also work. |
+| Blood Brooch | `285` | - | `A` | `VampiricArmor` | Internal name or ID is recommended. Display name input should also work. |
+| Bloodied Scarf | `436` | - | `B` | `RedBandana` | Internal name or ID is recommended. Display name input should also work. |
+| Bloody 9mm | `524` | - | `B` | `Bloody9MMBullet` | Internal name or ID is recommended. Display name input should also work. |
+| Bloody Eye | `167` | - | `B` | `BloodyEye` | Internal name or ID is recommended. Display name input should also work. |
+| Blue Guon Stone | `270` | - | `B` | `IounStone_DarkBlueItem` | Internal name or ID is recommended. Display name input should also work. |
+| Book of Chest Anatomy | `487` | - | `C` | `BookOfChestAnatomy` | Internal name or ID is recommended. Display name input should also work. |
+| Bouncy Bullets | `288` | - | `C` | `FlubberBullets` | Internal name or ID is recommended. Display name input should also work. |
+| Brick of Cash | `490` | - | `B` | `BrickBribe` | Internal name or ID is recommended. Display name input should also work. |
+| Briefcase of Cash | `493` | - | `A` | `BriefcaseFullOfCash` | Internal name or ID is recommended. Display name input should also work. |
+| Broccoli | `258` | - | `A` | `EyeOfTheTiger` | Internal name or ID is recommended. Display name input should also work. |
+| Bug Boots | `193` | - | `B` | `SecretOfTheOoze` | Display name is ambiguous (4 matches). Prefer `id`, `alias`, or `internalName`. |
+| Bug Boots | `418` | - | `SPECIAL` | `Item_Blueprint_TruckGeneric` | Display name is ambiguous (4 matches). Prefer `id`, `alias`, or `internalName`. |
+| Bug Boots | `429` | - | `SPECIAL` | `Item_Blueprint_GoopGeneric` | Display name is ambiguous (4 matches). Prefer `id`, `alias`, or `internalName`. |
+| Bug Boots | `575` | - | `SPECIAL` | `Item_Blueprint_PoopGeneric` | Display name is ambiguous (4 matches). Prefer `id`, `alias`, or `internalName`. |
+| Bullet Idol | `434` | - | `B` | `BulletIdol` | Internal name or ID is recommended. Display name input should also work. |
+| Bullet That Can Kill The Past | `303` | - | `S` | `BulletThatCanKillThePast` | Internal name or ID is recommended. Display name input should also work. |
+| Bumbullets | `630` | - | `B` | `BeeBullets` | Internal name or ID is recommended. Display name input should also work. |
+| Cartographer's Ring | `112` | - | `C` | `CartographersRing` | Internal name or ID is recommended. Display name input should also work. |
+| Cat Bullet King Throne | `817` | - | `B` | `CatBulletKingThrone` | Internal name or ID is recommended. Display name input should also work. |
+| Chance Bullets | `521` | - | `B` | `Randomizer` | Internal name or ID is recommended. Display name input should also work. |
+| Chaos Ammolet | `325` | - | `A` | `BlankTriEffectItem` | Internal name or ID is recommended. Display name input should also work. |
+| Chaos Bullets | `569` | - | `A` | `ChaosBullets` | Internal name or ID is recommended. Display name input should also work. |
+| Charming Rounds | `527` | - | `B` | `CharmBullets` | Internal name or ID is recommended. Display name input should also work. |
+| Chicken Flute | `572` | - | `B` | `CuccoItem` | Internal name or ID is recommended. Display name input should also work. |
+| Clear Guon Stone | `264` | - | `D` | `IounStone_LightBlueItem` | Internal name or ID is recommended. Display name input should also work. |
+| Clone | `311` | - | `S` | `NextQuarter` | Internal name or ID is recommended. Display name input should also work. |
+| Cloranthy Ring | `309` | - | `C` | `CloranthyRing` | Internal name or ID is recommended. Display name input should also work. |
+| Clown Mask | `607` | - | `B` | `BankMask` | Internal name or ID is recommended. Display name input should also work. |
+| Cog Of Battle | `135` | - | `C` | `CogOfBattle` | Internal name or ID is recommended. Display name input should also work. |
+| Coin Crown | `214` | - | `C` | `CrownOfTheCoinKing` | Internal name or ID is recommended. Display name input should also work. |
+| Copper Ammolet | `343` | - | `B` | `BlankFireItem` | Internal name or ID is recommended. Display name input should also work. |
+| Crisis Stone | `634` | - | `A` | `CrisisStone` | Internal name or ID is recommended. Display name input should also work. |
+| Crutch | `240` | - | `B` | `Crutch` | Internal name or ID is recommended. Display name input should also work. |
+| Cursed Bullets | `571` | - | `C` | `CurseBullets` | Internal name or ID is recommended. Display name input should also work. |
+| Devolver Rounds | `638` | - | `B` | `DevolverBullets` | Internal name or ID is recommended. Display name input should also work. |
+| Disarming Personality | `187` | - | `C` | `NiceSmile` | Internal name or ID is recommended. Display name input should also work. |
+| Dog | `300` | - | `D` | `DogItem` | Internal name or ID is recommended. Display name input should also work. |
+| Drum Clip | `280` | - | `B` | `DrumClip` | Internal name or ID is recommended. Display name input should also work. |
+| Easy Reload Bullets | `375` | - | `C` | `DodgeRollReloadItem` | Internal name or ID is recommended. Display name input should also work. |
+| Emerald Bracelet | `441` | - | `EXCLUDED` | `ThrowBracelet_Green` | Internal name or ID is recommended. Display name input should also work. |
+| Enraging Photo | `353` | - | `D` | `Rage` | Internal name or ID is recommended. Display name input should also work. |
+| Explosive Rounds | `304` | - | `A` | `ExplodingBullets` | Internal name or ID is recommended. Display name input should also work. |
+| Eyepatch | `118` | `eyepatch` | `A` | `Eyepatch` | Internal name or ID is recommended. Display name input should also work. |
+| Fairy Wings | `310` | - | `EXCLUDED` | `FairyWings` | Internal name or ID is recommended. Display name input should also work. |
+| Fat Bullets | `277` | - | `A` | `FatBullets` | Internal name or ID is recommended. Display name input should also work. |
+| Flak Bullets | `531` | - | `C` | `FlakBullets` | Internal name or ID is recommended. Display name input should also work. |
+| Frost Ammolet | `344` | - | `B` | `BlankIceItem` | Internal name or ID is recommended. Display name input should also work. |
+| Frost Bullets | `278` | - | `A` | `Condenser` | Internal name or ID is recommended. Display name input should also work. |
+| Full Metal Jacket | `564` | - | `B` | `AutoblankVest` | Internal name or ID is recommended. Display name input should also work. |
+| Galactic Medal of Valor | `494` | - | `B` | `MedalOfValor` | Internal name or ID is recommended. Display name input should also work. |
+| Gas Mask | `453` | - | `D` | `GasMask` | Internal name or ID is recommended. Display name input should also work. |
+| Ghost Bullets | `172` | - | `C` | `PierceBullets` | Internal name or ID is recommended. Display name input should also work. |
+| Gilded Bullets | `532` | - | `B` | `GoldBullets` | Internal name or ID is recommended. Display name input should also work. |
+| Glass Guon Stone | `565` | - | `COMMON` | `IounStone_GlassItem` | Internal name or ID is recommended. Display name input should also work. |
+| Gnawed Key | `316` | - | `SPECIAL` | `Key_ResourcefulRatLair` | Internal name or ID is recommended. Display name input should also work. |
+| Gold Ammolet | `321` | - | `B` | `BlankDamageItem` | Internal name or ID is recommended. Display name input should also work. |
+| Gold Junk | `641` | - | `SPECIAL` | `GoldJunk` | Internal name or ID is recommended. Display name input should also work. |
+| Green Guon Stone | `466` | - | `A` | `IounStone_GreenItem` | Internal name or ID is recommended. Display name input should also work. |
+| Gun Soul | `489` | - | `A` | `DemonSoul` | Internal name or ID is recommended. Display name input should also work. |
+| Gunboots | `315` | - | `C` | `DownwellBoots` | Internal name or ID is recommended. Display name input should also work. |
+| Gundromeda Strain | `159` | - | `S` | `GundromedaStrain` | Internal name or ID is recommended. Display name input should also work. |
+| Gungeon Blueprint | `281` | - | `S` | `GungeonBlueprint` | Internal name or ID is recommended. Display name input should also work. |
+| Gungeon Pepper | `253` | - | `C` | `SolarRadiation` | Internal name or ID is recommended. Display name input should also work. |
+| Gunknight Armor | `163` | - | `B` | `BulletArmor_Chest` | Internal name or ID is recommended. Display name input should also work. |
+| Gunknight Gauntlet | `162` | - | `C` | `BulletArmor_Glove` | Internal name or ID is recommended. Display name input should also work. |
+| Gunknight Greaves | `161` | - | `C` | `BulletArmor_Boot` | Internal name or ID is recommended. Display name input should also work. |
+| Gunknight Helmet | `160` | - | `A` | `BulletArmor_Helmet` | Internal name or ID is recommended. Display name input should also work. |
+| Hazmat Suit | `454` | - | `B` | `HazmatSuit` | Internal name or ID is recommended. Display name input should also work. |
+| Heart Bottle | `424` | - | `B` | `Heart_Bottle` | Internal name or ID is recommended. Display name input should also work. |
+| Heart Holster | `421` | - | `B` | `Heart_Holster` | Internal name or ID is recommended. Display name input should also work. |
+| Heart Locket | `423` | - | `B` | `Heart_Locket` | Internal name or ID is recommended. Display name input should also work. |
+| Heart Lunchbox | `422` | - | `B` | `Heart_Lunchbox` | Internal name or ID is recommended. Display name input should also work. |
+| Heart of Ice | `364` | - | `A` | `HeartOfIce` | Internal name or ID is recommended. Display name input should also work. |
+| Heart Purse | `425` | - | `B` | `Heart_Purse` | Internal name or ID is recommended. Display name input should also work. |
+| Heart Synthesizer | `164` | - | `A` | `HeartSynthesizer` | Internal name or ID is recommended. Display name input should also work. |
+| Heavy Boots | `256` | - | `D` | `HeavyBoots` | Internal name or ID is recommended. Display name input should also work. |
+| Heavy Bullets | `111` | - | `C` | `HeavyBullets` | Internal name or ID is recommended. Display name input should also work. |
+| Helix Bullets | `568` | - | `B` | `HelixBullets` | Internal name or ID is recommended. Display name input should also work. |
+| Hidden Compartment | `473` | - | `SPECIAL` | `Hidden Compartments` | Internal name or ID is recommended. Display name input should also work. |
+| Hip Holster | `500` | - | `B` | `HipHolster` | Internal name or ID is recommended. Display name input should also work. |
+| Holey Grail | `631` | - | `D` | `BlankPersonality` | Internal name or ID is recommended. Display name input should also work. |
+| Homing Bullets | `284` | - | `B` | `SmartBullets` | Internal name or ID is recommended. Display name input should also work. |
+| Honeycomb | `138` | - | `C` | `Honeycomb` | Internal name or ID is recommended. Display name input should also work. |
+| Hot Lead | `295` | - | `B` | `FireBullets` | Internal name or ID is recommended. Display name input should also work. |
+| Hungry Bullets | `655` | - | `A` | `HungryBullets` | Internal name or ID is recommended. Display name input should also work. |
+| Hunter's Journal | `367` | - | `EXCLUDED` | `TreasureHuntress` | Internal name or ID is recommended. Display name input should also work. |
+| Ice Cube | `170` | - | `B` | `IceCube` | Internal name or ID is recommended. Display name input should also work. |
+| Infuriating Note | `243` | - | `SPECIAL` | `ResourcefulRatNote_01` | Display name is ambiguous (6 matches). Prefer `id`, `alias`, or `internalName`. |
+| Infuriating Note | `244` | - | `SPECIAL` | `ResourcefulRatNote_02` | Display name is ambiguous (6 matches). Prefer `id`, `alias`, or `internalName`. |
+| Infuriating Note | `245` | - | `SPECIAL` | `ResourcefulRatNote_03` | Display name is ambiguous (6 matches). Prefer `id`, `alias`, or `internalName`. |
+| Infuriating Note | `246` | - | `SPECIAL` | `ResourcefulRatNote_04` | Display name is ambiguous (6 matches). Prefer `id`, `alias`, or `internalName`. |
+| Infuriating Note | `247` | - | `SPECIAL` | `ResourcefulRatNote_05` | Display name is ambiguous (6 matches). Prefer `id`, `alias`, or `internalName`. |
+| Infuriating Note | `248` | - | `SPECIAL` | `ResourcefulRatNote_06` | Display name is ambiguous (6 matches). Prefer `id`, `alias`, or `internalName`. |
+| Irradiated Lead | `204` | - | `B` | `Poison Shot` | Internal name or ID is recommended. Display name input should also work. |
+| ITEMS_STRING_NOT_FOUND | `735` | - | `SPECIAL` | `BabyDragunItem` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Junk | `127` | - | `SPECIAL` | `Junk` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Junk | `580` | - | `C` | `SackKnightBoon` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Katana Bullets | `822` | - | `C` | `KatanaBullets` | Internal name or ID is recommended. Display name input should also work. |
+| Laser Sight | `273` | - | `C` | `LaserSight` | Internal name or ID is recommended. Display name input should also work. |
+| Lich's Eye Bullets | `815` | - | `S` | `LichEyeBullets` | Internal name or ID is recommended. Display name input should also work. |
+| Lichy Trigger Finger | `213` | - | `D` | `Lichy Trigger Finger` | Internal name or ID is recommended. Display name input should also work. |
+| Lies | `148` | - | `SPECIAL` | `Junk_Truth` | Internal name or ID is recommended. Display name input should also work. |
+| Liquid Valkyrie | `431` | - | `A` | `Barrel of Slow` | Internal name or ID is recommended. Display name input should also work. |
+| Live Ammo | `414` | - | `SPECIAL` | `LiveAmmo` | Internal name or ID is recommended. Display name input should also work. |
+| Lodestone Ammolet | `322` | - | `D` | `BlankForceItem` | Internal name or ID is recommended. Display name input should also work. |
+| Loot Bag | `605` | - | `C` | `BankBag` | Internal name or ID is recommended. Display name input should also work. |
+| Macho Brace | `665` | - | `C` | `MachoBrace` | Internal name or ID is recommended. Display name input should also work. |
+| Magic Bullets | `533` | - | `B` | `MagicBullets` | Internal name or ID is recommended. Display name input should also work. |
+| Magic Sweet | `110` | - | `A` | `RareCandy` | Internal name or ID is recommended. Display name input should also work. |
+| Map | `137` | - | `D` | `GungeonMap` | Internal name or ID is recommended. Display name input should also work. |
+| Master of Unlocking | `140` | - | `B` | `MasterOfUnlocking` | Internal name or ID is recommended. Display name input should also work. |
+| Master Round | `467` | - | `SPECIAL` | `MasteryToken_Forge` | Display name is ambiguous (5 matches). Prefer `id`, `alias`, or `internalName`. |
+| Master Round | `468` | - | `SPECIAL` | `MasteryToken_Mines` | Display name is ambiguous (5 matches). Prefer `id`, `alias`, or `internalName`. |
+| Master Round | `469` | - | `SPECIAL` | `MasteryToken_Castle` | Display name is ambiguous (5 matches). Prefer `id`, `alias`, or `internalName`. |
+| Master Round | `470` | - | `SPECIAL` | `MasteryToken_Catacombs` | Display name is ambiguous (5 matches). Prefer `id`, `alias`, or `internalName`. |
+| Master Round | `471` | - | `SPECIAL` | `MasteryToken_Gungeon` | Display name is ambiguous (5 matches). Prefer `id`, `alias`, or `internalName`. |
+| Metronome | `119` | - | `B` | `Metronome` | Internal name or ID is recommended. Display name input should also work. |
+| Military Training | `354` | - | `C` | `MilitaryTraining` | Internal name or ID is recommended. Display name input should also work. |
+| Mimic Tooth Necklace | `293` | - | `A` | `MimicToothNecklace` | Internal name or ID is recommended. Display name input should also work. |
+| Monster Blood | `313` | - | `C` | `MonsterBlood` | Internal name or ID is recommended. Display name input should also work. |
+| Muscle Relaxant | `437` | - | `B` | `Diazapam` | Internal name or ID is recommended. Display name input should also work. |
+| Mustache | `435` | - | `C` | `MustacheItem` | Internal name or ID is recommended. Display name input should also work. |
+| Nanomachines | `314` | - | `B` | `Nanomachines` | Internal name or ID is recommended. Display name input should also work. |
+| Number 2 | `326` | - | `A` | `CoopPassive` | Internal name or ID is recommended. Display name input should also work. |
+| Obsidian Shell Casing | `350` | - | `SPECIAL` | `PastBullet_ObsidianShellCasing` | Internal name or ID is recommended. Display name input should also work. |
+| Oiled Cylinder | `165` | - | `C` | `ReloadSpeedItem` | Internal name or ID is recommended. Display name input should also work. |
+| Old Crest | `305` | - | `B` | `CathedralCrest` | Internal name or ID is recommended. Display name input should also work. |
+| Old Knight's Helm | `222` | - | `D` | `Tutorial_Knight_Helm` | Internal name or ID is recommended. Display name input should also work. |
+| Old Knight's Shield | `219` | - | `D` | `Tutorial_Knight_Shield` | Internal name or ID is recommended. Display name input should also work. |
+| Omega Bullets | `374` | - | `A` | `OmegaItem` | Internal name or ID is recommended. Display name input should also work. |
+| Orange Guon Stone | `263` | - | `A` | `IounStone_OrangeItem` | Internal name or ID is recommended. Display name input should also work. |
+| Orbital Bullets | `661` | - | `A` | `OrbitBullets` | Internal name or ID is recommended. Display name input should also work. |
+| Owl | `249` | - | `S` | `OwlOrbitalItem` | Internal name or ID is recommended. Display name input should also work. |
+| Pig | `451` | - | `A` | `PigItem` | Internal name or ID is recommended. Display name input should also work. |
+| Pink Guon Stone | `260` | - | `B` | `IounStone_PinkItem` | Internal name or ID is recommended. Display name input should also work. |
+| Planar Lead | `349` | - | `SPECIAL` | `PastBullet_AstralSlug` | Internal name or ID is recommended. Display name input should also work. |
+| Platinum Bullets | `627` | - | `S` | `PlatinumBullets` | Internal name or ID is recommended. Display name input should also work. |
+| Prime Primer | `348` | - | `SPECIAL` | `PastBullet_AncientPrimer` | Internal name or ID is recommended. Display name input should also work. |
+| R2G2 | `318` | - | `S` | `R22Item` | Internal name or ID is recommended. Display name input should also work. |
+| Rat Boots | `667` | - | `C` | `RatBootsItem` | Internal name or ID is recommended. Display name input should also work. |
+| Red Guon Stone | `269` | - | `B` | `IounStone_RedItem` | Internal name or ID is recommended. Display name input should also work. |
+| Remote Bullets | `530` | - | `C` | `RemoteBullets` | Internal name or ID is recommended. Display name input should also work. |
+| Riddle of Lead | `271` | - | `S` | `WhatItTakes` | Internal name or ID is recommended. Display name input should also work. |
+| Ring of Chest Friendship | `254` | - | `B` | `GloriousChestAhead` | Internal name or ID is recommended. Display name input should also work. |
+| Ring of Chest Vampirism | `488` | - | `C` | `RingOfChestVampirism` | Internal name or ID is recommended. Display name input should also work. |
+| Ring of Fire Resistance | `191` | - | `C` | `RingOfFireResistance` | Internal name or ID is recommended. Display name input should also work. |
+| Ring of Mimic Friendship | `294` | - | `D` | `RingOfMimicFriendship` | Internal name or ID is recommended. Display name input should also work. |
+| Ring of Miserly Protection | `132` | - | `C` | `RingOfMiserlyProtection` | Internal name or ID is recommended. Display name input should also work. |
+| Ring of the Resourceful Rat | `463` | - | `B` | `RingOfResourcefulRat` | Internal name or ID is recommended. Display name input should also work. |
+| Ring of Triggers | `456` | - | `A` | `BulletSynergyItem` | Internal name or ID is recommended. Display name input should also work. |
+| Rocket-Powered Bullets | `113` | - | `B` | `RocketBullets` | Internal name or ID is recommended. Display name input should also work. |
+| Roll Bomb | `567` | - | `C` | `MetroidBombs` | Internal name or ID is recommended. Display name input should also work. |
+| Rolling Eye | `190` | - | `C` | `RollingEye` | Internal name or ID is recommended. Display name input should also work. |
+| Ruby Bracelet | `440` | - | `D` | `ThrowBracelet_Red` | Internal name or ID is recommended. Display name input should also work. |
+| Scattershot | `241` | - | `B` | `Scattershot` | Internal name or ID is recommended. Display name input should also work. |
+| Scope | `102` | - | `D` | `Scope` | Internal name or ID is recommended. Display name input should also work. |
+| Scouter | `821` | - | `C` | `Scouter` | Internal name or ID is recommended. Display name input should also work. |
+| Seven-Leaf Clover | `289` | - | `S` | `SevenLeafClover` | Internal name or ID is recommended. Display name input should also work. |
+| Shadow Bullets | `352` | - | `B` | `ShadowBullets` | Internal name or ID is recommended. Display name input should also work. |
+| Shelleton Key | `166` | - | `S` | `ShelletonKey` | Internal name or ID is recommended. Display name input should also work. |
+| Shock Rounds | `298` | - | `A` | `TeslaCoil` | Internal name or ID is recommended. Display name input should also work. |
+| Shotga Cola | `426` | - | `C` | `Shotgun Cola` | Internal name or ID is recommended. Display name input should also work. |
+| Shotgun Coffee | `427` | - | `C` | `Shotgun Coffee` | Internal name or ID is recommended. Display name input should also work. |
+| Silver Bullets | `538` | - | `C` | `SilverBullets` | Internal name or ID is recommended. Display name input should also work. |
+| Sixth Chamber | `407` | - | `A` | `ChamberOfEvil` | Internal name or ID is recommended. Display name input should also work. |
+| Snowballets | `636` | - | `A` | `SnowballBullets` | Internal name or ID is recommended. Display name input should also work. |
+| Space Friend | `232` | - | `B` | `RaidenOrbitalItem` | Internal name or ID is recommended. Display name input should also work. |
+| Sponge | `452` | - | `C` | `MagicMop` | Internal name or ID is recommended. Display name input should also work. |
+| Springheel Boots | `526` | - | `D` | `PegasusBoots` | Internal name or ID is recommended. Display name input should also work. |
+| Sprun | `578` | - | `A` | `SprenOrbitalItem` | Internal name or ID is recommended. Display name input should also work. |
+| Stout Bullets | `523` | - | `B` | `StoutBullets` | Internal name or ID is recommended. Display name input should also work. |
+| Sunglasses | `290` | - | `C` | `Sunglasses` | Internal name or ID is recommended. Display name input should also work. |
+| Super Hot Watch | `279` | - | `S` | `Superhot` | Internal name or ID is recommended. Display name input should also work. |
+| Super Space Turtle | `301` | - | `B` | `TurtleShell` | Display name is ambiguous (2 matches). Prefer `id`, `alias`, or `internalName`. |
+| Table Tech Blanks | `400` | - | `C` | `TableBlank` | Internal name or ID is recommended. Display name input should also work. |
+| Table Tech Heat | `666` | - | `D` | `TableHeat` | Internal name or ID is recommended. Display name input should also work. |
+| Table Tech Money | `397` | - | `D` | `TableMoney` | Internal name or ID is recommended. Display name input should also work. |
+| Table Tech Rage | `399` | - | `D` | `TableRage` | Internal name or ID is recommended. Display name input should also work. |
+| Table Tech Rocket | `398` | - | `C` | `TableRocket` | Internal name or ID is recommended. Display name input should also work. |
+| Table Tech Shotgun | `633` | - | `D` | `TableShotgun` | Internal name or ID is recommended. Display name input should also work. |
+| Table Tech Sight | `396` | - | `D` | `TableVision` | Internal name or ID is recommended. Display name input should also work. |
+| Table Tech Stun | `465` | - | `C` | `TableStun` | Internal name or ID is recommended. Display name input should also work. |
+| Turkey | `632` | - | `C` | `TurkeyItem` | Internal name or ID is recommended. Display name input should also work. |
+| Turtle Problem | `645` | - | `C` | `TurtleProblem` | Internal name or ID is recommended. Display name input should also work. |
+| Unity | `495` | - | `B` | `OurPowersCombined` | Internal name or ID is recommended. Display name input should also work. |
+| Uranium Ammolet | `342` | - | `B` | `BlankPoisonItem` | Internal name or ID is recommended. Display name input should also work. |
+| Utility Belt | `131` | - | `C` | `UtilityBelt` | Internal name or ID is recommended. Display name input should also work. |
+| Vorpal Bullets | `640` | - | `A` | `CriticalBullets` | Internal name or ID is recommended. Display name input should also work. |
+| Wax Wings | `307` | - | `B` | `WhiteWings` | Internal name or ID is recommended. Display name input should also work. |
+| White Guon Stone | `262` | - | `B` | `IounStone_WhiteItem` | Internal name or ID is recommended. Display name input should also work. |
+| Wingman | `491` | - | `A` | `WingmanItem` | Internal name or ID is recommended. Display name input should also work. |
+| Wolf | `492` | - | `B` | `WolfItem` | Internal name or ID is recommended. Display name input should also work. |
+| Yari Launcher | `296` | - | `SPECIAL` | `Gun_Blueprint_Yari` | Display name is ambiguous (4 matches). Prefer `id`, `alias`, or `internalName`. |
+| Yari Launcher | `497` | - | `SPECIAL` | `Item_Blueprint_MetaGeneric` | Display name is ambiguous (4 matches). Prefer `id`, `alias`, or `internalName`. |
+| Yari Launcher | `501` | - | `SPECIAL` | `Item_Blueprint_MetaGenericItem` | Display name is ambiguous (4 matches). Prefer `id`, `alias`, or `internalName`. |
+| Yellow Chamber | `570` | - | `S` | `YellowChamber` | Internal name or ID is recommended. Display name input should also work. |
+| Zombie Bullets | `528` | - | `C` | `ZombieBullets` | Internal name or ID is recommended. Display name input should also work. |
 
 ## Active
 
@@ -638,75 +640,75 @@ Count: `71`
 
 | Display Name | ID | Alias | Quality | Internal Name | Notes |
 | --- | --- | --- | --- | --- | --- |
-| Aged Bell | `237` | - | `A` | `TStopper` | Exact name input should work. |
-| Air Strike | `252` | - | `B` | `AirStrike` | Exact name input should work. |
-| Arcane Gunpowder | `351` | - | `SPECIAL` | `PastBullet_ArcaneGunpowder` | Exact name input should work. |
-| Big Boy | `443` | - | `B` | `NukeItem` | Exact name input should work. |
-| Blank | `224` | - | `COMMON` | `Blank` | Exact name input should work. |
-| Bomb | `108` | - | `D` | `BombItem` | Exact name input should work. |
-| Boomerang | `448` | - | `B` | `BoomerangItem` | Exact name input should work. |
-| Bottle | `558` | - | `D` | `EmptyBottle` | Exact name input should work. |
-| Box | `216` | - | `A` | `CardboardBoxItem` | Exact name input should work. |
-| Bracket Key | `439` | - | `S` | `BracketKey` | Exact name input should work. |
-| Bubble Shield | `72` | - | `COMMON` | `BubbleShield` | Exact name input should work. |
-| Bullet Time | `69` | - | `D` | `TimeSlow` | Exact name input should work. |
-| Busted Television | `409` | - | `SPECIAL` | `BustedTelevision` | Exact name input should work. |
-| C4 | `136` | - | `D` | `C4Item` | Exact name input should work. |
-| Chaff Grenade | `460` | - | `C` | `ChaffGrenade` | Exact name input should work. |
-| Charm Horn | `206` | - | `B` | `CharmHorn` | Exact name input should work. |
-| Chest Teleporter | `573` | - | `A` | `ChestTeleporter` | Exact name input should work. |
-| Cigarettes | `203` | - | `D` | `CigarettesItem` | Exact name input should work. |
-| Cluster Mine | `308` | - | `C` | `ClusterMineItem` | Exact name input should work. |
-| Coolant Leak | `411` | - | `SPECIAL` | `CoolantLeak` | Exact name input should work. |
-| Daruma | `643` | - | `B` | `KiPulseItem` | Exact name input should work. |
-| Decoy | `71` | - | `D` | `DecoyItem` | Exact name input should work. |
-| Double Vision | `168` | - | `D` | `DoubleVision` | Exact name input should work. |
-| Drill | `625` | - | `D` | `PaydayDrill` | Exact name input should work. |
-| Duct Tape | `239` | - | `A` | `DuctTape` | Exact name input should work. |
-| Elder Blank | `499` | - | `B` | `ReusableBlank` | Exact name input should work. |
-| Escape Rope | `306` | - | `D` | `EscapeRope` | Exact name input should work. |
-| Explosive Decoy | `438` | - | `C` | `ExplodingDecoyItem` | Exact name input should work. |
-| Fortune's Favor | `105` | - | `B` | `FortunesFavor` | Exact name input should work. |
-| Friendship Cookie | `412` | - | `SPECIAL` | `FriendshipCookie` | Exact name input should work. |
-| Grappling Hook | `250` | - | `D` | `GrapplingHookItem` | Exact name input should work. |
-| Hero's Sword | `413` | - | `EXCLUDED` | `HeroSword` | Exact name input should work. |
-| iBomb Companion App | `234` | - | `C` | `iBombCompanionAppItem` | Exact name input should work. |
-| Ice Bomb | `109` | - | `D` | `IceBombItem` | Exact name input should work. |
-| Iron Coin | `272` | - | `C` | `IronCoin` | Exact name input should work. |
-| Jar of Bees | `432` | - | `C` | `JarOfBees` | Exact name input should work. |
-| Jetpack | `106` | - | `C` | `Jetpack` | Exact name input should work. |
-| Knife Shield | `65` | - | `D` | `KnifeShieldItem` | Exact name input should work. |
-| Lament Configurum | `525` | - | `B` | `LamentBox` | Exact name input should work. |
-| Magazine Rack | `814` | - | `C` | `MagazineRackItem` | Exact name input should work. |
-| Meatbun | `291` | - | `D` | `MeatBun` | Exact name input should work. |
-| Medkit | `63` | - | `C` | `Medkit` | Exact name input should work. |
-| Melted Rock | `403` | - | `C` | `MeltedRock` | Exact name input should work. |
-| Molotov | `366` | - | `D` | `MolotovItem` | Exact name input should work. |
-| Napalm Strike | `242` | - | `C` | `NapalmStrike` | Exact name input should work. |
-| Old Knight's Flask | `267` | - | `A` | `EstusFlask` | Exact name input should work. |
-| Orange | `485` | - | `B` | `Orange` | Exact name input should work. |
-| Partially-Eaten Cheese | `662` | - | `A` | `CheeseWheelItem` | Exact name input should work. |
-| Poison Vial | `205` | - | `D` | `PoisonGoopVialItem` | Exact name input should work. |
-| Portable Table Device | `644` | - | `D` | `FoldingTableItem` | Exact name input should work. |
-| Portable Turret | `201` | - | `B` | `TurretItem` | Exact name input should work. |
-| Potion of Gun Friendship | `174` | - | `D` | `PotionOfGunFriendship` | Exact name input should work. |
-| Potion of Lead Skin | `64` | - | `D` | `MetalSkin` | Exact name input should work. |
-| Proximity Mine | `66` | - | `D` | `ProximityMineItem` | Exact name input should work. |
-| Ration | `104` | - | `C` | `Ration` | Exact name input should work. |
-| Relodestone | `536` | - | `S` | `Relodestone` | Exact name input should work. |
-| Resourceful Sack | `663` | - | `A` | `RatSackItem` | Exact name input should work. |
-| Ring of Ethereal Form | `458` | - | `B` | `RingOfGaseousForm` | Exact name input should work. |
-| RogueShipFakeItem | `502` | - | `SPECIAL` | `RogueShipFakeItem` | Exact name input should work. |
-| Sense of Direction | `209` | - | `D` | `SenseOfDirection` | Exact name input should work. |
-| Shadow Clone | `820` | - | `D` | `KageBunshinNoItem` | Exact name input should work. |
-| Shield of the Maiden | `447` | - | `C` | `EitrShield` | Exact name input should work. |
-| Singularity | `155` | - | `C` | `BlackHoleItem` | Exact name input should work. |
-| Smoke Bomb | `462` | - | `C` | `SmokeBombItem` | Exact name input should work. |
-| Spice | `276` | - | `A` | `Spice` | Exact name input should work. |
-| Stuffed Star | `433` | - | `B` | `StuffedStar` | Exact name input should work. |
-| Supply Drop | `77` | - | `D` | `SupplyDropItem` | Exact name input should work. |
-| Teleporter Prototype | `449` | - | `B` | `TeleporterPrototype` | Exact name input should work. |
-| Ticket | `320` | - | `A` | `TicketToTheGunShow` | Exact name input should work. |
-| Trusty Lockpicks | `356` | - | `D` | `Lockpicks` | Exact name input should work. |
-| Weird Egg | `637` | - | `D` | `GungeonEggItem` | Exact name input should work. |
+| Aged Bell | `237` | - | `A` | `TStopper` | Internal name or ID is recommended. Display name input should also work. |
+| Air Strike | `252` | - | `B` | `AirStrike` | Internal name or ID is recommended. Display name input should also work. |
+| Arcane Gunpowder | `351` | - | `SPECIAL` | `PastBullet_ArcaneGunpowder` | Internal name or ID is recommended. Display name input should also work. |
+| Big Boy | `443` | - | `B` | `NukeItem` | Internal name or ID is recommended. Display name input should also work. |
+| Blank | `224` | - | `COMMON` | `Blank` | Internal name or ID is recommended. Display name input should also work. |
+| Bomb | `108` | - | `D` | `BombItem` | Internal name or ID is recommended. Display name input should also work. |
+| Boomerang | `448` | - | `B` | `BoomerangItem` | Internal name or ID is recommended. Display name input should also work. |
+| Bottle | `558` | - | `D` | `EmptyBottle` | Internal name or ID is recommended. Display name input should also work. |
+| Box | `216` | - | `A` | `CardboardBoxItem` | Internal name or ID is recommended. Display name input should also work. |
+| Bracket Key | `439` | - | `S` | `BracketKey` | Internal name or ID is recommended. Display name input should also work. |
+| Bubble Shield | `72` | - | `COMMON` | `BubbleShield` | Internal name or ID is recommended. Display name input should also work. |
+| Bullet Time | `69` | - | `D` | `TimeSlow` | Internal name or ID is recommended. Display name input should also work. |
+| Busted Television | `409` | - | `SPECIAL` | `BustedTelevision` | Internal name or ID is recommended. Display name input should also work. |
+| C4 | `136` | - | `D` | `C4Item` | Internal name or ID is recommended. Display name input should also work. |
+| Chaff Grenade | `460` | - | `C` | `ChaffGrenade` | Internal name or ID is recommended. Display name input should also work. |
+| Charm Horn | `206` | - | `B` | `CharmHorn` | Internal name or ID is recommended. Display name input should also work. |
+| Chest Teleporter | `573` | - | `A` | `ChestTeleporter` | Internal name or ID is recommended. Display name input should also work. |
+| Cigarettes | `203` | - | `D` | `CigarettesItem` | Internal name or ID is recommended. Display name input should also work. |
+| Cluster Mine | `308` | - | `C` | `ClusterMineItem` | Internal name or ID is recommended. Display name input should also work. |
+| Coolant Leak | `411` | - | `SPECIAL` | `CoolantLeak` | Internal name or ID is recommended. Display name input should also work. |
+| Daruma | `643` | - | `B` | `KiPulseItem` | Internal name or ID is recommended. Display name input should also work. |
+| Decoy | `71` | - | `D` | `DecoyItem` | Internal name or ID is recommended. Display name input should also work. |
+| Double Vision | `168` | - | `D` | `DoubleVision` | Internal name or ID is recommended. Display name input should also work. |
+| Drill | `625` | - | `D` | `PaydayDrill` | Internal name or ID is recommended. Display name input should also work. |
+| Duct Tape | `239` | - | `A` | `DuctTape` | Internal name or ID is recommended. Display name input should also work. |
+| Elder Blank | `499` | - | `B` | `ReusableBlank` | Internal name or ID is recommended. Display name input should also work. |
+| Escape Rope | `306` | - | `D` | `EscapeRope` | Internal name or ID is recommended. Display name input should also work. |
+| Explosive Decoy | `438` | - | `C` | `ExplodingDecoyItem` | Internal name or ID is recommended. Display name input should also work. |
+| Fortune's Favor | `105` | - | `B` | `FortunesFavor` | Internal name or ID is recommended. Display name input should also work. |
+| Friendship Cookie | `412` | - | `SPECIAL` | `FriendshipCookie` | Internal name or ID is recommended. Display name input should also work. |
+| Grappling Hook | `250` | - | `D` | `GrapplingHookItem` | Internal name or ID is recommended. Display name input should also work. |
+| Hero's Sword | `413` | - | `EXCLUDED` | `HeroSword` | Internal name or ID is recommended. Display name input should also work. |
+| iBomb Companion App | `234` | - | `C` | `iBombCompanionAppItem` | Internal name or ID is recommended. Display name input should also work. |
+| Ice Bomb | `109` | - | `D` | `IceBombItem` | Internal name or ID is recommended. Display name input should also work. |
+| Iron Coin | `272` | - | `C` | `IronCoin` | Internal name or ID is recommended. Display name input should also work. |
+| Jar of Bees | `432` | - | `C` | `JarOfBees` | Internal name or ID is recommended. Display name input should also work. |
+| Jetpack | `106` | - | `C` | `Jetpack` | Internal name or ID is recommended. Display name input should also work. |
+| Knife Shield | `65` | - | `D` | `KnifeShieldItem` | Internal name or ID is recommended. Display name input should also work. |
+| Lament Configurum | `525` | - | `B` | `LamentBox` | Internal name or ID is recommended. Display name input should also work. |
+| Magazine Rack | `814` | - | `C` | `MagazineRackItem` | Internal name or ID is recommended. Display name input should also work. |
+| Meatbun | `291` | - | `D` | `MeatBun` | Internal name or ID is recommended. Display name input should also work. |
+| Medkit | `63` | - | `C` | `Medkit` | Internal name or ID is recommended. Display name input should also work. |
+| Melted Rock | `403` | - | `C` | `MeltedRock` | Internal name or ID is recommended. Display name input should also work. |
+| Molotov | `366` | - | `D` | `MolotovItem` | Internal name or ID is recommended. Display name input should also work. |
+| Napalm Strike | `242` | - | `C` | `NapalmStrike` | Internal name or ID is recommended. Display name input should also work. |
+| Old Knight's Flask | `267` | - | `A` | `EstusFlask` | Internal name or ID is recommended. Display name input should also work. |
+| Orange | `485` | - | `B` | `Orange` | Internal name or ID is recommended. Display name input should also work. |
+| Partially-Eaten Cheese | `662` | - | `A` | `CheeseWheelItem` | Internal name or ID is recommended. Display name input should also work. |
+| Poison Vial | `205` | - | `D` | `PoisonGoopVialItem` | Internal name or ID is recommended. Display name input should also work. |
+| Portable Table Device | `644` | - | `D` | `FoldingTableItem` | Internal name or ID is recommended. Display name input should also work. |
+| Portable Turret | `201` | - | `B` | `TurretItem` | Internal name or ID is recommended. Display name input should also work. |
+| Potion of Gun Friendship | `174` | - | `D` | `PotionOfGunFriendship` | Internal name or ID is recommended. Display name input should also work. |
+| Potion of Lead Skin | `64` | - | `D` | `MetalSkin` | Internal name or ID is recommended. Display name input should also work. |
+| Proximity Mine | `66` | - | `D` | `ProximityMineItem` | Internal name or ID is recommended. Display name input should also work. |
+| Ration | `104` | - | `C` | `Ration` | Internal name or ID is recommended. Display name input should also work. |
+| Relodestone | `536` | - | `S` | `Relodestone` | Internal name or ID is recommended. Display name input should also work. |
+| Resourceful Sack | `663` | - | `A` | `RatSackItem` | Internal name or ID is recommended. Display name input should also work. |
+| Ring of Ethereal Form | `458` | - | `B` | `RingOfGaseousForm` | Internal name or ID is recommended. Display name input should also work. |
+| RogueShipFakeItem | `502` | - | `SPECIAL` | `RogueShipFakeItem` | Internal name or ID is recommended. Display name input should also work. |
+| Sense of Direction | `209` | - | `D` | `SenseOfDirection` | Internal name or ID is recommended. Display name input should also work. |
+| Shadow Clone | `820` | - | `D` | `KageBunshinNoItem` | Internal name or ID is recommended. Display name input should also work. |
+| Shield of the Maiden | `447` | - | `C` | `EitrShield` | Internal name or ID is recommended. Display name input should also work. |
+| Singularity | `155` | - | `C` | `BlackHoleItem` | Internal name or ID is recommended. Display name input should also work. |
+| Smoke Bomb | `462` | - | `C` | `SmokeBombItem` | Internal name or ID is recommended. Display name input should also work. |
+| Spice | `276` | - | `A` | `Spice` | Internal name or ID is recommended. Display name input should also work. |
+| Stuffed Star | `433` | - | `B` | `StuffedStar` | Internal name or ID is recommended. Display name input should also work. |
+| Supply Drop | `77` | - | `D` | `SupplyDropItem` | Internal name or ID is recommended. Display name input should also work. |
+| Teleporter Prototype | `449` | - | `B` | `TeleporterPrototype` | Internal name or ID is recommended. Display name input should also work. |
+| Ticket | `320` | - | `A` | `TicketToTheGunShow` | Internal name or ID is recommended. Display name input should also work. |
+| Trusty Lockpicks | `356` | - | `D` | `Lockpicks` | Internal name or ID is recommended. Display name input should also work. |
+| Weird Egg | `637` | - | `D` | `GungeonEggItem` | Internal name or ID is recommended. Display name input should also work. |
 

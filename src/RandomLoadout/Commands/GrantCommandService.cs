@@ -41,10 +41,16 @@ namespace RandomLoadout
             EtgGrantOutcome outcome = _pickupGranter.Grant(player, new SelectedPickup(resolveResult.Category.Value, resolveResult.PickupId));
             if (!outcome.Succeeded)
             {
-                return new GrantCommandExecutionResult(false, "Failed to grant " + resolveResult.PickupLabel + ": " + outcome.FailureReason);
+                return new GrantCommandExecutionResult(
+                    false,
+                    "Failed to grant " + resolveResult.PickupLabel + ": " + outcome.FailureReason +
+                    " [Path=" + outcome.GrantPath + "; Detail=" + outcome.GrantDetail + "]");
             }
 
-            return new GrantCommandExecutionResult(true, "Granted " + outcome.Category + ": " + outcome.PickupLabel + ".");
+            return new GrantCommandExecutionResult(
+                true,
+                "Granted " + outcome.Category + ": " + outcome.PickupLabel +
+                " [Path=" + outcome.GrantPath + "; Detail=" + outcome.GrantDetail + "]");
         }
 
         public GrantCommandExecutionResult ExecuteRandom(PlayerController player)
@@ -69,12 +75,16 @@ namespace RandomLoadout
             EtgGrantOutcome outcome = _pickupGranter.Grant(player, new SelectedPickup(resolveResult.Category.Value, resolveResult.PickupId));
             if (!outcome.Succeeded)
             {
-                return new GrantCommandExecutionResult(false, "Failed to grant random pickup " + resolveResult.PickupLabel + ": " + outcome.FailureReason);
+                return new GrantCommandExecutionResult(
+                    false,
+                    "Failed to grant random pickup " + resolveResult.PickupLabel + ": " + outcome.FailureReason +
+                    " [Path=" + outcome.GrantPath + "; Detail=" + outcome.GrantDetail + "]");
             }
 
             return new GrantCommandExecutionResult(
                 true,
-                "Granted random " + outcome.Category + ": " + outcome.PickupLabel + " (ID " + outcome.PickupId + ").");
+                "Granted random " + outcome.Category + ": " + outcome.PickupLabel + " (ID " + outcome.PickupId + ")." +
+                " [Path=" + outcome.GrantPath + "; Detail=" + outcome.GrantDetail + "]");
         }
 
         private EtgPickupResolveResult ResolvePickup(GrantCommandRequest request)
@@ -117,7 +127,8 @@ namespace RandomLoadout
 
             if (!resolveResult.Succeeded &&
                 resolveResult.Warning != null &&
-                string.Equals(resolveResult.Warning.Code, "SpecificNameAmbiguous", System.StringComparison.Ordinal))
+                (string.Equals(resolveResult.Warning.Code, "InternalNameAmbiguous", System.StringComparison.Ordinal) ||
+                 string.Equals(resolveResult.Warning.Code, "DisplayNameAmbiguous", System.StringComparison.Ordinal)))
             {
                 return new EtgPickupResolveResult(
                     false,
@@ -127,7 +138,7 @@ namespace RandomLoadout
                     new SelectionWarning(
                         resolveResult.Warning.Category,
                         resolveResult.Warning.Code,
-                        resolveResult.Warning.Message + " Try using a configured alias or the pickup ID from RandomLoadout.pickups.txt, for example: gun casey_bat or gun 541."));
+                        resolveResult.Warning.Message + " Try a configured alias or a pickup ID from RandomLoadout.pickups.txt, for example: gun casey_bat or gun 541."));
             }
 
             return resolveResult;

@@ -23,10 +23,20 @@ This page covers the current in-game command panel behavior.
 - `item <alias>`
 - `item <id>`
 
-Name matching is exact primary display name, case-insensitive.
+Command lookup now follows a `ModTheGungeonAPI give`-style order:
+`id` -> `alias` -> `internalName` -> `displayName`.
 If the value starts with a number, the command treats that leading number as the pickup ID.
-If the value is not an ID, the command resolves `alias` first and `name` second.
-This means pasted values like `gun 541 Casey Baseball_Bat_Gun` also work.
+Internal pickup identifiers such as `PlatinumBullets` are the recommended string form.
+Display name input remains supported as a compatibility fallback, but it is less stable because it depends on runtime-localized strings.
+This means pasted values like `gun 541 Casey Baseball_Bat_Gun` still work because the leading ID wins.
+
+## Implementation Notes
+
+- Item lookup and grant behavior are intentionally aligned with `ModTheGungeonAPI give` where practical.
+- Implementation reference:
+  - [`modthegungeonapi.md`](./modthegungeonapi.md)
+- Project strategy decision:
+  - [`pickup-grant-strategy.md`](../decisions/pickup-grant-strategy.md)
 
 ## Buttons
 
@@ -36,6 +46,19 @@ This means pasted values like `gun 541 Casey Baseball_Bat_Gun` also work.
   Grants one random supported pickup without requiring text input
 - `Rapid OFF` / `Rapid ON`
   Toggles hold-to-rapid-fire mode. When enabled, semi-automatic gun modules are temporarily treated as automatic while active, so holding left mouse can match rapid clicking speed.
+- `Currency`
+  Opens a secondary menu for resource actions.
+
+## Currency Menu
+
+In the `Currency` submenu:
+
+- `+1 Key`
+  Adds one key to the current player.
+- `+50 Casings`
+  Adds 50 casings to the current player.
+- `+10 Hegemony`
+  Adds 10 Breach meta currency (`TrackedStats.META_CURRENCY`).
 
 ## Character Page Modes
 
@@ -71,15 +94,15 @@ Current minimum behavior:
   - `random`
   - `specific`
 - `specific` rules support either:
-  - `name`: exact primary display name, case-insensitive
+  - `name`: string lookup using `internalName` first and `displayName` as a fallback
   - `alias`: shared alias from `RandomLoadout.aliases.json5`
   - `id`: numeric pickup ID from `RandomLoadout.pickups.txt`
 - `random` rules support either or both:
-  - `pool`: display name list
+  - `pool`: string list resolved as `internalName` first and `displayName` second
   - `poolAliases`: alias list
   - `poolIds`: numeric pickup ID list
-- when `specific` contains multiple references, resolution priority is `id` -> `alias` -> `name`
-- when `random` contains multiple pool sources, resolution priority is `poolIds` -> `poolAliases` -> `pool`
+- when `specific` contains multiple references, resolution priority is `id` -> `alias` -> `internalName` -> `displayName`
+- when `random` contains multiple pool sources, resolution priority is `poolIds` -> `poolAliases` -> `pool`, and string pool entries use `internalName` before `displayName`
 - `RandomLoadout.pickups.txt` is the exported lookup index for `Category`, `ID`, `DisplayName`, and internal name
 - `RandomLoadout.aliases.json5` is the shared readable alias layer that points back to `pickupId`
 

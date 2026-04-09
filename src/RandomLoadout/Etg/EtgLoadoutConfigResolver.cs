@@ -65,7 +65,7 @@ namespace RandomLoadout
                                     new SelectionWarning(
                                         definition.Category,
                                         "RandomAliasNotFound",
-                                        "No pickup alias matched the configured random pool alias '" + pickupAlias + "'."));
+                                        "No pickup alias matched '" + pickupAlias + "'."));
                                 continue;
                             }
 
@@ -91,6 +91,8 @@ namespace RandomLoadout
                         for (int poolIndex = 0; poolIndex < definition.PoolNames.Length; poolIndex++)
                         {
                             string pickupName = definition.PoolNames[poolIndex];
+                            // String pools now follow give-style resolution: internal name first,
+                            // display name as a compatibility fallback.
                             EtgPickupResolveResult randomResolveResult = _pickupResolver.Resolve(definition.Category, pickupName);
                             if (randomResolveResult.Succeeded)
                             {
@@ -148,7 +150,7 @@ namespace RandomLoadout
                         new SelectionWarning(
                             definition.Category,
                             "SpecificAliasNotFound",
-                            "No pickup alias matched the configured specific pickup alias '" + definition.SpecificAlias + "'."));
+                            "No pickup alias matched '" + definition.SpecificAlias + "'."));
                 }
 
                 EtgPickupResolveResult aliasResolveResult = _pickupResolver.Resolve(definition.Category, resolvedAliasPickupId);

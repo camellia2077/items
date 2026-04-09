@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 from collections import Counter, defaultdict
 from pathlib import Path
 
@@ -43,6 +44,14 @@ def load_json_file(path: Path) -> object:
         return json.load(file_obj)
 
 
+def load_json5_file(path: Path) -> object:
+    raw_text = path.read_text(encoding="utf-8")
+    sanitized = re.sub(r"/\*[\s\S]*?\*/", "", raw_text)
+    sanitized = re.sub(r"//.*", "", sanitized)
+    sanitized = re.sub(r",(\s*[}\]])", r"\1", sanitized)
+    return json.loads(sanitized)
+
+
 def normalize_name(value: str) -> str:
     return value.strip().lower()
 
@@ -79,9 +88,9 @@ def format_aliases(aliases: list[str]) -> str:
 
 def format_notes(display_name: str, duplicate_count: int) -> str:
     if duplicate_count > 1:
-        return "Name is ambiguous ({0} matches). Prefer `id` or `alias`.".format(duplicate_count)
+        return "Display name is ambiguous ({0} matches). Prefer `id`, `alias`, or `internalName`.".format(duplicate_count)
 
-    return "Exact name input should work."
+    return "Internal name or ID is recommended. Display name input should also work."
 
 
 def format_table_row(item: dict[str, object], aliases: list[str], duplicate_count: int) -> str:
@@ -139,13 +148,15 @@ def generate_markdown(catalog_data: object, aliases_by_id: dict[int, list[str]])
     lines.append("")
     lines.append("## How To Use")
     lines.append("")
-    lines.append("- Use the exact `Display Name` in the in-game command panel when the name is unique.")
-    lines.append("- Use `pickupId` when a name is ambiguous or when exact text input is inconvenient.")
-    lines.append("- Use `alias` when one is listed. Alias is resolved before display name.")
+    lines.append("- Prefer `pickupId` when exact matching matters or when you are copying values from config/catlog files.")
+    lines.append("- Prefer `internalName` for string input. This matches the project command behavior more closely to `ModTheGungeonAPI give`.")
+    lines.append("- Use `alias` when one is listed.")
+    lines.append("- `Display Name` is still accepted as a compatibility fallback, but it can be less stable because it depends on runtime-localized strings.")
     lines.append("- Command examples:")
     lines.append("  - `gun Casey`")
     lines.append("  - `gun 541`")
     lines.append("  - `gun casey_bat`")
+    lines.append("  - `passive PlatinumBullets`")
     lines.append("")
     lines.append("## Snapshot")
     lines.append("")
@@ -200,9 +211,9 @@ def main() -> int:
     alias_data: object = {}
     if alias_input_path.is_file():
         try:
-            alias_data = load_json_file(alias_input_path)
+            alias_data = load_json5_file(alias_input_path)
         except json.JSONDecodeError as error:
-            return fail("Invalid JSON in alias file '{0}': {1}".format(alias_input_path, error))
+            return fail("Invalid JSON5 in alias file '{0}': {1}".format(alias_input_path, error))
 
     markdown = generate_markdown(catalog_data, build_alias_lookup(alias_data))
     output_path.parent.mkdir(parents=True, exist_ok=True)

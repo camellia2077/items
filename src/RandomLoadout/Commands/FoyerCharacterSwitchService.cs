@@ -164,21 +164,8 @@ namespace RandomLoadout
                 return new GrantCommandExecutionResult(false, option.Label + " is already selected.");
             }
 
-            FoyerCharacterSelectFlag targetFlag = option.Flag;
-            if ((object)targetFlag != null && targetFlag.CanBeSelected())
-            {
-                HashSet<int> existingPlayerIds = CaptureCurrentPlayerInstanceIds();
-                _pendingSelectionFlag = targetFlag;
-                _pendingSelectionStartedAt = Time.unscaledTime;
-                foyer.StartCoroutine(SwitchCharacterRoutine(foyer, targetFlag, existingPlayerIds));
-                return new GrantCommandExecutionResult(true, "Switching character to " + option.Label + ".");
-            }
-
-            if (!CanUseForceSwitchFallback(option.Label))
-            {
-                return new GrantCommandExecutionResult(false, option.Label + " cannot be switched in switch-only mode right now.");
-            }
-
+            // Switch-only mode must avoid the native character-select callback flow,
+            // because that flow can trigger currency costs for some selections.
             string forceSwitchFailureMessage;
             if (TryForceSwitchCharacterInBreach(foyer, option.Label, out forceSwitchFailureMessage))
             {
@@ -194,8 +181,8 @@ namespace RandomLoadout
 
         private static bool CanUseForceSwitchFallback(string label)
         {
-            string prefabSuffix;
-            return TryGetCharacterPrefabSuffix(label, out prefabSuffix);
+            string[] prefabSuffixes;
+            return TryGetCharacterPrefabSuffixes(label, out prefabSuffixes);
         }
 
         private static bool TryForceSwitchCharacterInBreach(Foyer foyer, string label, out string failureMessage)
@@ -207,8 +194,8 @@ namespace RandomLoadout
                 return false;
             }
 
-            string prefabSuffix;
-            if (!TryGetCharacterPrefabSuffix(label, out prefabSuffix))
+            string[] prefabSuffixes;
+            if (!TryGetCharacterPrefabSuffixes(label, out prefabSuffixes))
             {
                 failureMessage = "Force switch is not configured for " + label + ".";
                 return false;
@@ -221,7 +208,7 @@ namespace RandomLoadout
                 return false;
             }
 
-            GameObject prefab = LoadCharacterPrefab(prefabSuffix);
+            GameObject prefab = LoadCharacterPrefab(prefabSuffixes);
             if ((object)prefab == null)
             {
                 failureMessage = "Could not load the character prefab for " + label + ".";
@@ -246,7 +233,7 @@ namespace RandomLoadout
             if ((object)prefabController == null)
             {
                 GameManager.PlayerPrefabForNewGame = null;
-                failureMessage = "The Robot prefab was missing a PlayerController component.";
+                failureMessage = "The " + label + " prefab was missing a PlayerController component.";
                 return false;
             }
 
@@ -260,7 +247,7 @@ namespace RandomLoadout
             GameManager.PlayerPrefabForNewGame = null;
             if ((object)playerObject == null)
             {
-                failureMessage = "Failed to instantiate the Robot character.";
+                failureMessage = "Failed to instantiate the " + label + " character.";
                 return false;
             }
 
@@ -269,7 +256,7 @@ namespace RandomLoadout
             if ((object)selectedPlayer == null)
             {
                 UnityEngine.Object.Destroy(playerObject);
-                failureMessage = "Failed to initialize the Robot character controller.";
+                failureMessage = "Failed to initialize the " + label + " character controller.";
                 return false;
             }
 
@@ -281,7 +268,9 @@ namespace RandomLoadout
                 gameManager.MainCameraController.SetManualControl(false, true);
             }
 
-            FinalizeCharacterSwitch(foyer, selectedPlayer);
+            // Skip Breach character-select callbacks in switch-only mode to avoid
+            // side effects such as currency costs on hidden-character selections.
+            FinalizeCharacterSwitch(foyer, selectedPlayer, false);
 
             if (usedRandomGuns && (object)gameManager.PrimaryPlayer != null)
             {
@@ -296,9 +285,9 @@ namespace RandomLoadout
             return true;
         }
 
-        private static bool TryGetCharacterPrefabSuffix(string label, out string prefabSuffix)
+        private static bool TryGetCharacterPrefabSuffixes(string label, out string[] prefabSuffixes)
         {
-            prefabSuffix = string.Empty;
+            prefabSuffixes = null;
             if (string.IsNullOrEmpty(label))
             {
                 return false;
@@ -307,28 +296,30 @@ namespace RandomLoadout
             switch (label)
             {
                 case "Marine":
-                    prefabSuffix = "soldier";
+                    // In this environment the Marine character prefab is named "marine".
+                    // Do not use "soldier" here or force-switch loading will fail.
+                    prefabSuffixes = new[] { "marine" };
                     return true;
                 case "Hunter":
-                    prefabSuffix = "guide";
+                    prefabSuffixes = new[] { "guide" };
                     return true;
                 case "Pilot":
-                    prefabSuffix = "pilot";
+                    prefabSuffixes = new[] { "pilot" };
                     return true;
                 case "Convict":
-                    prefabSuffix = "convict";
+                    prefabSuffixes = new[] { "convict" };
                     return true;
                 case "Robot":
-                    prefabSuffix = "robot";
+                    prefabSuffixes = new[] { "robot" };
                     return true;
                 case "Bullet":
-                    prefabSuffix = "bullet";
+                    prefabSuffixes = new[] { "bullet" };
                     return true;
                 case "Paradox":
-                    prefabSuffix = "eevee";
+                    prefabSuffixes = new[] { "eevee" };
                     return true;
                 case "Gunslinger":
-                    prefabSuffix = "gunslinger";
+                    prefabSuffixes = new[] { "gunslinger" };
                     return true;
                 default:
                     return false;
@@ -363,7 +354,7 @@ namespace RandomLoadout
 
             if ((object)selectedPlayer != null)
             {
-                FinalizeCharacterSwitch(foyer, selectedPlayer);
+                FinalizeCharacterSwitch(foyer, selectedPlayer, true);
             }
 
             ClearPendingSelection();
@@ -455,9 +446,9 @@ namespace RandomLoadout
             return newestPlayer;
         }
 
-        private static void FinalizeCharacterSwitch(Foyer foyer, PlayerController selectedPlayer)
+        private static void FinalizeCharacterSwitch(Foyer foyer, PlayerController selectedPlayer, bool notifyFoyerCharacterChanged)
         {
-            if ((object)foyer != null)
+            if (notifyFoyerCharacterChanged && (object)foyer != null)
             {
                 foyer.PlayerCharacterChanged(selectedPlayer);
             }
@@ -686,37 +677,46 @@ namespace RandomLoadout
             stats.ForceUnlock(trackable.EncounterGuid);
         }
 
-        private static GameObject LoadCharacterPrefab(string prefabSuffix)
+        private static GameObject LoadCharacterPrefab(params string[] prefabSuffixes)
         {
-            if (string.IsNullOrEmpty(prefabSuffix))
+            if (prefabSuffixes == null || prefabSuffixes.Length == 0)
             {
                 return null;
             }
 
-            string[] candidateNames = new[]
+            for (int suffixIndex = 0; suffixIndex < prefabSuffixes.Length; suffixIndex++)
             {
-                "Player" + prefabSuffix,
-                "Player" + prefabSuffix.ToLowerInvariant(),
-                "Player" + char.ToUpperInvariant(prefabSuffix[0]) + prefabSuffix.Substring(1),
-            };
-
-            for (int i = 0; i < candidateNames.Length; i++)
-            {
-                string candidate = candidateNames[i];
-                if (string.IsNullOrEmpty(candidate))
+                string prefabSuffix = prefabSuffixes[suffixIndex];
+                if (string.IsNullOrEmpty(prefabSuffix))
                 {
                     continue;
                 }
 
-                GameObject prefab = BraveResources.Load(candidate, ".prefab") as GameObject;
-                if ((object)prefab == null)
+                string[] candidateNames = new[]
                 {
-                    prefab = Resources.Load(candidate) as GameObject;
-                }
+                    "Player" + prefabSuffix,
+                    "Player" + prefabSuffix.ToLowerInvariant(),
+                    "Player" + char.ToUpperInvariant(prefabSuffix[0]) + prefabSuffix.Substring(1),
+                };
 
-                if ((object)prefab != null)
+                for (int i = 0; i < candidateNames.Length; i++)
                 {
-                    return prefab;
+                    string candidate = candidateNames[i];
+                    if (string.IsNullOrEmpty(candidate))
+                    {
+                        continue;
+                    }
+
+                    GameObject prefab = BraveResources.Load(candidate, ".prefab") as GameObject;
+                    if ((object)prefab == null)
+                    {
+                        prefab = Resources.Load(candidate) as GameObject;
+                    }
+
+                    if ((object)prefab != null)
+                    {
+                        return prefab;
+                    }
                 }
             }
 
