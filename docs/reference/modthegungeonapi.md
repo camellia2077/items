@@ -72,8 +72,10 @@ Related local code:
 
 * Character switch service:
   * [`../../src/RandomLoadout/Commands/FoyerCharacterSwitchService.cs`](../../src/RandomLoadout/Commands/FoyerCharacterSwitchService.cs)
+  * Implementation details are split across the matching `FoyerCharacterSwitchService*.cs` partial files.
 * Pickup resolver:
   * [`../../src/RandomLoadout/Etg/EtgPickupResolver.cs`](../../src/RandomLoadout/Etg/EtgPickupResolver.cs)
+  * Implementation details are split across the matching `EtgPickupResolver*.cs` partial files.
 * Pickup granter:
   * [`../../src/RandomLoadout/Etg/EtgPickupGranter.cs`](../../src/RandomLoadout/Etg/EtgPickupGranter.cs)
 

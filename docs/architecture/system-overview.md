@@ -28,6 +28,14 @@ It is responsible for:
 
 This layer is allowed to depend on Unity, BepInEx, and game assemblies.
 
+Larger runtime classes in this layer now commonly use a `thin entry file + responsibility-focused partial files` layout.
+
+Examples:
+
+- `Plugin.cs` stays as the plugin entry shell, while startup, run lifecycle, and catalog export live in `Plugin.*.cs`
+- `InGameCommandController.cs` stays as the lifecycle and routing shell, while page rendering and actions live in `InGameCommandController.*.cs`
+- `FoyerCharacterSwitchService`, `GrantCommandService`, `EtgPickupResolver`, and `JsonLoadoutRuleFileProvider` follow the same pattern when their responsibilities are large enough to justify it
+
 ### `src/RandomLoadout.Core/`
 
 This is the pure logic layer.
@@ -52,7 +60,7 @@ It is responsible for:
 - validating parser and configuration edge cases
 - protecting fallback and compatibility rules that are easy to regress
 
-### `scripts/`
+### `tools/`
 
 This is the operational tooling layer.
 
@@ -93,7 +101,8 @@ When adding or changing behavior:
 
 - put pure decision logic in `src/RandomLoadout.Core/` first when possible
 - keep ETG-specific reflection, database lookup, and grant behavior in `src/RandomLoadout/`
-- keep generated files and scripted workflows in `scripts/`, `defaults/`, and `docs/`
+- for larger runtime classes, prefer adding code to an existing responsibility partial before expanding the thin entry file
+- keep generated files and operational tooling in `tools/`, `defaults/`, and `docs/`
 
 ## Recommended Reading Order
 
