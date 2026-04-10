@@ -32,12 +32,24 @@ namespace RandomLoadout.Core.Tests
             AssertEx.Equal("541 Casey Baseball_Bat_Gun", result.Request.PickupName, "The parser should preserve the pasted value for downstream ID detection.");
         }
 
-        public static void RejectsUnknownTarget()
+        public static void ParsesUnknownPrefixAsAny()
         {
             GrantCommandParser parser = new GrantCommandParser();
             GrantCommandParseResult result = parser.Parse("wep AK-47");
 
-            AssertEx.True(!result.Succeeded, "The parser should reject unknown targets.");
+            AssertEx.True(result.Succeeded, "The parser should treat unknown prefixes as item/any input.");
+            AssertEx.Equal(GrantCommandTarget.Any, result.Request.Target, "The parser should fall back to the any target for unknown prefixes.");
+            AssertEx.Equal("wep AK-47", result.Request.PickupName, "The parser should preserve the full input for downstream pickup lookup.");
+        }
+
+        public static void ParsesBareInputAsAny()
+        {
+            GrantCommandParser parser = new GrantCommandParser();
+            GrantCommandParseResult result = parser.Parse("PlatinumBullets");
+
+            AssertEx.True(result.Succeeded, "The parser should accept bare pickup input.");
+            AssertEx.Equal(GrantCommandTarget.Any, result.Request.Target, "Bare pickup input should default to the any target.");
+            AssertEx.Equal("PlatinumBullets", result.Request.PickupName, "The parser should preserve bare pickup input.");
         }
 
         public static void RejectsMissingPickupName()

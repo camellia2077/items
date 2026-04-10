@@ -51,6 +51,15 @@
     <Compile Include="..\..\src\RandomLoadout\Configuration\JsonLoadoutRuleFileProvider.cs">
       <Link>Plugin\Configuration\JsonLoadoutRuleFileProvider.cs</Link>
     </Compile>
+    <Compile Include="..\..\src\RandomLoadout\Configuration\JsonLoadoutRuleFileProvider.Convert.cs">
+      <Link>Plugin\Configuration\JsonLoadoutRuleFileProvider.Convert.cs</Link>
+    </Compile>
+    <Compile Include="..\..\src\RandomLoadout\Configuration\JsonLoadoutRuleFileProvider.Load.cs">
+      <Link>Plugin\Configuration\JsonLoadoutRuleFileProvider.Load.cs</Link>
+    </Compile>
+    <Compile Include="..\..\src\RandomLoadout\Configuration\JsonLoadoutRuleFileProvider.Parse.cs">
+      <Link>Plugin\Configuration\JsonLoadoutRuleFileProvider.Parse.cs</Link>
+    </Compile>
     <Compile Include="..\..\src\RandomLoadout\Configuration\JsonPickupAliasFileProvider.cs">
       <Link>Plugin\Configuration\JsonPickupAliasFileProvider.cs</Link>
     </Compile>

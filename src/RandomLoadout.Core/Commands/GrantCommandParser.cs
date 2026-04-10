@@ -8,33 +8,33 @@ namespace RandomLoadout.Core
         {
             if (string.IsNullOrEmpty(input))
             {
-                return GrantCommandParseResult.Failure("Enter a command like 'gun AK-47' or 'item Scope'.");
+                return GrantCommandParseResult.Failure("Enter a pickup like 'PlatinumBullets' or a command like 'gun AK-47'.");
             }
 
             string trimmedInput = input.Trim();
             if (trimmedInput.Length == 0)
             {
-                return GrantCommandParseResult.Failure("Enter a command like 'gun AK-47' or 'item Scope'.");
+                return GrantCommandParseResult.Failure("Enter a pickup like 'PlatinumBullets' or a command like 'gun AK-47'.");
             }
 
             string[] parts = trimmedInput.Split(new[] { ' ' }, 2, StringSplitOptions.RemoveEmptyEntries);
             if (parts.Length == 0)
             {
-                return GrantCommandParseResult.Failure("Enter a command like 'gun AK-47' or 'item Scope'.");
+                return GrantCommandParseResult.Failure("Enter a pickup like 'PlatinumBullets' or a command like 'gun AK-47'.");
             }
 
             GrantCommandTarget target;
-            if (!TryParseTarget(parts[0], out target))
+            if (TryParseTarget(parts[0], out target))
             {
-                return GrantCommandParseResult.Failure("Unknown command target. Use gun, passive, active, or item.");
+                if (parts.Length < 2 || string.IsNullOrEmpty(parts[1].Trim()))
+                {
+                    return GrantCommandParseResult.Failure("Enter the pickup name after the command target.");
+                }
+
+                return GrantCommandParseResult.Success(new GrantCommandRequest(target, parts[1].Trim()));
             }
 
-            if (parts.Length < 2 || string.IsNullOrEmpty(parts[1].Trim()))
-            {
-                return GrantCommandParseResult.Failure("Enter the pickup name after the command target.");
-            }
-
-            return GrantCommandParseResult.Success(new GrantCommandRequest(target, parts[1].Trim()));
+            return GrantCommandParseResult.Success(new GrantCommandRequest(GrantCommandTarget.Any, trimmedInput));
         }
 
         private static bool TryParseTarget(string rawTarget, out GrantCommandTarget target)

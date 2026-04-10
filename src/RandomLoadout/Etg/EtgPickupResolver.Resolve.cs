@@ -1,0 +1,376 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using RandomLoadout.Core;
+
+namespace RandomLoadout
+{
+    internal sealed partial class EtgPickupResolver
+    {
+        public EtgPickupResolveResult Resolve(PickupCategory category, string pickupName)
+        {
+            return ResolveInternal(category, pickupName, false);
+        }
+
+        public EtgPickupResolveResult Resolve(PickupCategory category, int pickupId)
+        {
+            return ResolveByIdInternal(category, pickupId, false);
+        }
+
+        public EtgPickupResolveResult ResolveAny(string pickupName)
+        {
+            return ResolveInternal(null, pickupName, true);
+        }
+
+        public EtgPickupResolveResult ResolveAny(int pickupId)
+        {
+            return ResolveByIdInternal(null, pickupId, true);
+        }
+
+        public EtgPickupResolveResult ResolveRandomGrantable(int seed)
+        {
+            List<PickupObject> candidates = new List<PickupObject>();
+            foreach (PickupObject pickup in EnumeratePickups())
+            {
+                if ((object)pickup == null)
+                {
+                    continue;
+                }
+
+                PickupCategory? category = GetPickupCategory(pickup);
+                if (!category.HasValue)
+                {
+                    continue;
+                }
+
+                candidates.Add(pickup);
+            }
+
+            if (candidates.Count == 0)
+            {
+                return Failure(null, "RandomPickupUnavailable", "No supported pickups were available for random grant.");
+            }
+
+            Random random = new Random(seed);
+            PickupObject match = candidates[random.Next(candidates.Count)];
+            PickupCategory? resolvedCategory = GetPickupCategory(match);
+            return new EtgPickupResolveResult(true, resolvedCategory, match.PickupObjectId, GetPickupLabel(match), null);
+        }
+
+        private static EtgPickupResolveResult ResolveInternal(PickupCategory? category, string pickupName, bool allowAnyCategory)
+        {
+            if (string.IsNullOrEmpty(pickupName))
+            {
+                return Failure(category, "PickupLookupEmpty", "Enter a pickup ID, alias, internal name, or display name.");
+            }
+
+            EtgPickupResolveResult internalNameResult = ResolveByInternalName(category, pickupName, allowAnyCategory);
+            if (internalNameResult.Succeeded || !ShouldFallbackToDisplayName(internalNameResult))
+            {
+                return internalNameResult;
+            }
+
+            EtgPickupResolveResult displayNameResult = ResolveByDisplayName(category, pickupName, allowAnyCategory);
+            if (displayNameResult.Succeeded)
+            {
+                return displayNameResult;
+            }
+
+            if (displayNameResult.Warning != null &&
+                !string.Equals(displayNameResult.Warning.Code, "DisplayNameNotFound", StringComparison.Ordinal))
+            {
+                return displayNameResult;
+            }
+
+            return internalNameResult;
+        }
+
+        private static EtgPickupResolveResult ResolveByInternalName(PickupCategory? category, string pickupName, bool allowAnyCategory)
+        {
+            return ResolveByLookupMode(
+                category,
+                pickupName,
+                allowAnyCategory,
+                "InternalNameNotFound",
+                "InternalNameAmbiguous",
+                "No pickup matched '{0}'.",
+                "Multiple pickups matched '{0}'. Try an alias, internal name, or pickup ID.");
+        }
+
+        private static EtgPickupResolveResult ResolveByDisplayName(PickupCategory? category, string pickupName, bool allowAnyCategory)
+        {
+            return ResolveByLookupMode(
+                category,
+                pickupName,
+                allowAnyCategory,
+                "DisplayNameNotFound",
+                "DisplayNameAmbiguous",
+                "No pickup matched '{0}'.",
+                "Multiple pickups matched '{0}'. Try an alias, internal name, or pickup ID.");
+        }
+
+        private static EtgPickupResolveResult ResolveByLookupMode(
+            PickupCategory? category,
+            string pickupName,
+            bool allowAnyCategory,
+            string notFoundCode,
+            string ambiguousCode,
+            string notFoundMessageFormat,
+            string ambiguousMessageFormat)
+        {
+            List<PickupObject> matches = FindMatches(category, pickupName, allowAnyCategory, notFoundCode == "InternalNameNotFound");
+
+            if (matches.Count == 0)
+            {
+                return Failure(category, notFoundCode, string.Format(notFoundMessageFormat, pickupName));
+            }
+
+            if (matches.Count > 1)
+            {
+                return Failure(category, ambiguousCode, string.Format(ambiguousMessageFormat, pickupName));
+            }
+
+            PickupObject match = matches[0];
+            PickupCategory? resolvedCategory = GetPickupCategory(match);
+            if (!resolvedCategory.HasValue)
+            {
+                return Failure(category, "PickupCategoryMismatch", "Pickup '" + pickupName + "' was not a supported grantable category.");
+            }
+
+            if (!allowAnyCategory && category.HasValue && resolvedCategory.Value != category.Value)
+            {
+                return Failure(category, "PickupCategoryMismatch", "Pickup '" + pickupName + "' did not match the expected category.");
+            }
+
+            return new EtgPickupResolveResult(true, resolvedCategory, match.PickupObjectId, GetPickupLabel(match), null);
+        }
+
+        private static List<PickupObject> FindMatches(PickupCategory? category, string pickupName, bool allowAnyCategory, bool useInternalName)
+        {
+            List<PickupObject> matches = new List<PickupObject>();
+            string normalizedPickupName = NormalizeLookupValue(pickupName);
+            foreach (PickupObject pickup in EnumeratePickups())
+            {
+                if ((object)pickup == null)
+                {
+                    continue;
+                }
+
+                if (useInternalName)
+                {
+                    if (!MatchesInternalName(pickup, pickupName, normalizedPickupName))
+                    {
+                        continue;
+                    }
+                }
+                else if (!MatchesDisplayName(pickup, pickupName, normalizedPickupName))
+                {
+                    continue;
+                }
+
+                if (!allowAnyCategory && category.HasValue && !MatchesCategory(category.Value, pickup))
+                {
+                    continue;
+                }
+
+                matches.Add(pickup);
+            }
+
+            return matches;
+        }
+
+        private static EtgPickupResolveResult ResolveByIdInternal(PickupCategory? category, int pickupId, bool allowAnyCategory)
+        {
+            PickupObject pickup = PickupObjectDatabase.GetById(pickupId);
+            if ((object)pickup == null)
+            {
+                return Failure(category, "InvalidPickupId", "No pickup matched ID '" + pickupId + "'.");
+            }
+
+            PickupCategory? resolvedCategory = GetPickupCategory(pickup);
+            if (!resolvedCategory.HasValue)
+            {
+                return Failure(category, "InvalidPickupId", "ID '" + pickupId + "' was not a supported grantable category.");
+            }
+
+            if (!allowAnyCategory && category.HasValue && resolvedCategory.Value != category.Value)
+            {
+                return Failure(category, "PickupCategoryMismatch", "ID '" + pickupId + "' did not match the expected category.");
+            }
+
+            return new EtgPickupResolveResult(true, resolvedCategory, pickup.PickupObjectId, GetPickupLabel(pickup), null);
+        }
+
+        private static EtgPickupResolveResult Failure(PickupCategory? category, string code, string message)
+        {
+            return new EtgPickupResolveResult(false, category, 0, string.Empty, new SelectionWarning(category, code, message));
+        }
+
+        private static IEnumerable<PickupObject> EnumeratePickups()
+        {
+            HashSet<int> seenIds = new HashSet<int>();
+            IEnumerable objects = GetDatabaseObjects();
+            if (objects != null)
+            {
+                foreach (object entry in objects)
+                {
+                    PickupObject pickup = entry as PickupObject;
+                    if ((object)pickup == null || !seenIds.Add(pickup.PickupObjectId))
+                    {
+                        continue;
+                    }
+
+                    yield return pickup;
+                }
+
+                yield break;
+            }
+
+            for (int pickupId = 0; pickupId < FallbackScanLimit; pickupId++)
+            {
+                PickupObject pickup = PickupObjectDatabase.GetById(pickupId);
+                if ((object)pickup == null || !seenIds.Add(pickup.PickupObjectId))
+                {
+                    continue;
+                }
+
+                yield return pickup;
+            }
+        }
+
+        private static IEnumerable GetDatabaseObjects()
+        {
+            object database = GetStaticMemberValue(typeof(PickupObjectDatabase), "Instance");
+            if (database == null)
+            {
+                return null;
+            }
+
+            object objects = GetInstanceMemberValue(database, "Objects");
+            if (objects == null)
+            {
+                objects = GetInstanceMemberValue(database, "objects");
+            }
+
+            return objects as IEnumerable;
+        }
+
+        private static bool MatchesCategory(PickupCategory category, PickupObject pickup)
+        {
+            PickupCategory? resolvedCategory = GetPickupCategory(pickup);
+            return resolvedCategory.HasValue && resolvedCategory.Value == category;
+        }
+
+        private static PickupCategory? GetPickupCategory(PickupObject pickup)
+        {
+            if (pickup is Gun)
+            {
+                return PickupCategory.Gun;
+            }
+
+            if (pickup is PassiveItem)
+            {
+                return PickupCategory.Passive;
+            }
+
+            if (pickup is PlayerItem)
+            {
+                return PickupCategory.Active;
+            }
+
+            return null;
+        }
+
+        private static bool MatchesInternalName(PickupObject pickup, string rawLookupValue, string normalizedLookupValue)
+        {
+            if ((object)pickup == null)
+            {
+                return false;
+            }
+
+            string internalName = pickup.name ?? string.Empty;
+            if (string.Equals(internalName, rawLookupValue, StringComparison.OrdinalIgnoreCase))
+            {
+                return true;
+            }
+
+            return string.Equals(NormalizeLookupValue(internalName), normalizedLookupValue, StringComparison.OrdinalIgnoreCase);
+        }
+
+        private static bool MatchesDisplayName(PickupObject pickup, string rawLookupValue, string normalizedLookupValue)
+        {
+            if ((object)pickup == null)
+            {
+                return false;
+            }
+
+            List<string> candidateValues = new List<string>();
+            AddLookupValue(candidateValues, GetPickupLabel(pickup));
+            AddLookupValue(candidateValues, pickup.DisplayName);
+
+            if (pickup.encounterTrackable != null && pickup.encounterTrackable.journalData != null)
+            {
+                AddLookupValue(candidateValues, pickup.encounterTrackable.journalData.PrimaryDisplayName);
+                AddLookupValue(candidateValues, pickup.encounterTrackable.journalData.NotificationPanelDescription);
+            }
+
+            for (int i = 0; i < candidateValues.Count; i++)
+            {
+                string candidateValue = candidateValues[i];
+                if (string.Equals(candidateValue, rawLookupValue, StringComparison.OrdinalIgnoreCase) ||
+                    string.Equals(NormalizeLookupValue(candidateValue), normalizedLookupValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        private static void AddLookupValue(List<string> values, string rawValue)
+        {
+            string resolvedValue = ResolveLocalizedLabel(rawValue);
+            if (string.IsNullOrEmpty(resolvedValue))
+            {
+                return;
+            }
+
+            for (int i = 0; i < values.Count; i++)
+            {
+                if (string.Equals(values[i], resolvedValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    return;
+                }
+            }
+
+            values.Add(resolvedValue);
+        }
+
+        private static string NormalizeLookupValue(string rawValue)
+        {
+            if (string.IsNullOrEmpty(rawValue))
+            {
+                return string.Empty;
+            }
+
+            System.Text.StringBuilder builder = new System.Text.StringBuilder(rawValue.Length);
+            for (int i = 0; i < rawValue.Length; i++)
+            {
+                char current = rawValue[i];
+                if (char.IsLetterOrDigit(current))
+                {
+                    builder.Append(char.ToLowerInvariant(current));
+                }
+            }
+
+            return builder.ToString();
+        }
+
+        private static bool ShouldFallbackToDisplayName(EtgPickupResolveResult result)
+        {
+            return !result.Succeeded &&
+                   result.Warning != null &&
+                   string.Equals(result.Warning.Code, "InternalNameNotFound", StringComparison.Ordinal);
+        }
+    }
+}

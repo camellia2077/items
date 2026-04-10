@@ -15,7 +15,7 @@
       "mode": "random",
       "category": "passive",
       // Grant count is configured by JSON `count` (not hardcoded in code).
-      "count": 1,
+      "count": 0,
       "poolIds": [
         427, // Shotgun Coffee
         114, // Bionic Leg
@@ -31,7 +31,7 @@
       "mode": "random",
       "category": "passive",
       // Grant count is configured by JSON `count` (not hardcoded in code).
-      "count": 3,
+      "count": 0,
       "poolIds": [
         111, // Heavy Bullets
         113, // Rocket-Powered Bullets
