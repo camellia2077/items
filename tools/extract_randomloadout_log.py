@@ -4,7 +4,7 @@ import argparse
 import re
 import sys
 from pathlib import Path
-from script_common import fail, run_cli
+from tool_common import fail, run_cli
 
 
 MESSAGE_PREFIX = "[RandomLoadout]"

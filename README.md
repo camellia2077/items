@@ -24,8 +24,8 @@ The project started as a random starting-loadout prototype and is now being reor
   Pure configuration and selection logic, no Unity dependencies
 - `tests/RandomLoadout.Core.Tests/`
   Lightweight automated tests for core behavior
-- `scripts/`
-  Build, test, deploy, and log helper scripts
+- `tools/`
+  Build, test, deploy, release, and log helper tools
 - `defaults/`
   Repository-shipped baseline config files and pickup catalog snapshots used for first deploys
 - `docs/`
@@ -75,6 +75,8 @@ Useful entry points:
   Lightweight repository responsibility map
 - [`docs/operations/deploy.md`](./docs/operations/deploy.md)
   Deployment steps and notes
+- [`docs/operations/release-package.md`](./docs/operations/release-package.md)
+  Player-facing release zip packaging workflow
 - [`docs/operations/logging.md`](./docs/operations/logging.md)
   Log prefixes and log extraction workflow
 - [`docs/reference/commands.md`](./docs/reference/commands.md)
@@ -94,12 +96,12 @@ Useful entry points:
 
 For day-to-day development, the main entry points are:
 
-- `.\scripts\build.ps1`
-- `.\scripts\test.ps1`
-- `python .\scripts\deploy_mod.py "<game path>"`
-- `python .\scripts\extract_randomloadout_log.py "<BepInEx log path>"`
+- `python .\tools\build.py --configuration Debug`
+- `python .\tools\test.py --configuration Debug`
+- `python .\tools\deploy_mod.py "<game path>"`
+- `python .\tools\extract_randomloadout_log.py "<BepInEx log path>"`
 
-PowerShell wrappers remain available, but build and test logic now lives in Python scripts under `scripts/`.
+PowerShell wrappers remain available, but build and test logic now lives in Python tooling under `tools/`.
 
 ## Default Baselines
 

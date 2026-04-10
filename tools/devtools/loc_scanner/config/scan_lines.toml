@@ -1,0 +1,50 @@
+# over_inclusive = true：判定逻辑为 大于等于 >=
+# over_inclusive = false：判定逻辑为 严格大于 >
+
+[cs]
+display_name = "C#"
+default_paths = ["src", "tests"]
+path_mode = "toml_only"
+extensions = [".cs"]
+ignore_dirs = [
+  ".git",
+  ".idea",
+  ".vscode",
+  "vs",
+  "bin",
+  "obj",
+  "Debug",
+  "Release",
+  "__pycache__",
+]
+ignore_prefixes = ["build", "cmake", "out", "."]
+default_over_threshold = 350
+default_under_threshold = 120
+default_dir_over_files = 16
+over_inclusive = false
+
+
+[py]
+display_name = "Python"
+default_paths = ["tools"]
+path_mode = "toml_only"
+extensions = [".py", ".pyw"]
+ignore_dirs = [
+  ".git",
+  ".idea",
+  ".vscode",
+  "__pycache__",
+  "venv",
+  "env",
+  ".env",
+  ".pytest_cache",
+  "dist",
+  "build",
+  ".mypy_cache",
+  ".tox",
+]
+ignore_prefixes = [".", "site-packages"]
+default_over_threshold = 150
+default_under_threshold = 120
+default_dir_over_files = 10
+over_inclusive = true

@@ -7,19 +7,19 @@ This page covers copying the built plugin into an `Enter the Gungeon` installati
 Debug build:
 
 ```powershell
-python .\scripts\deploy_mod.py "C:\Game\steam\steamapps\common\Enter the Gungeon"
+python .\tools\deploy_mod.py "C:\Game\steam\steamapps\common\Enter the Gungeon"
 ```
 
 Release build:
 
 ```powershell
-python .\scripts\deploy_mod.py "C:\Game\steam\steamapps\common\Enter the Gungeon" --configuration Release
+python .\tools\deploy_mod.py "C:\Game\steam\steamapps\common\Enter the Gungeon" --configuration Release
 ```
 
 Force refresh the repository default config files too:
 
 ```powershell
-python .\scripts\deploy_mod.py "C:\Game\steam\steamapps\common\Enter the Gungeon" --configuration Release --overwrite-config
+python .\tools\deploy_mod.py "C:\Game\steam\steamapps\common\Enter the Gungeon" --configuration Release --overwrite-config
 ```
 
 ## Recommended Flow
@@ -27,13 +27,13 @@ python .\scripts\deploy_mod.py "C:\Game\steam\steamapps\common\Enter the Gungeon
 Build first:
 
 ```powershell
-.\scripts\build.ps1 -Configuration Release
+python .\tools\build.py --configuration Release
 ```
 
 Then deploy:
 
 ```powershell
-python .\scripts\deploy_mod.py "C:\Game\steam\steamapps\common\Enter the Gungeon" --configuration Release
+python .\tools\deploy_mod.py "C:\Game\steam\steamapps\common\Enter the Gungeon" --configuration Release
 ```
 
 ## Notes

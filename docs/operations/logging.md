@@ -18,19 +18,19 @@ These prefixes make it easier to distinguish plugin messages from Unity, ETG, Be
 Print only RandomLoadout-owned lines from a BepInEx log file:
 
 ```powershell
-python .\scripts\extract_randomloadout_log.py "C:\Game\steam\steamapps\common\Enter the Gungeon\BepInEx\LogOutput.log"
+python .\tools\extract_randomloadout_log.py "C:\Game\steam\steamapps\common\Enter the Gungeon\BepInEx\LogOutput.log"
 ```
 
 Write the filtered output to a separate file:
 
 ```powershell
-python .\scripts\extract_randomloadout_log.py "C:\Game\steam\steamapps\common\Enter the Gungeon\BepInEx\LogOutput.log" -o ".\randomloadout.log"
+python .\tools\extract_randomloadout_log.py "C:\Game\steam\steamapps\common\Enter the Gungeon\BepInEx\LogOutput.log" -o ".\randomloadout.log"
 ```
 
 Include older unprefixed plugin lines as well:
 
 ```powershell
-python .\scripts\extract_randomloadout_log.py "C:\Game\steam\steamapps\common\Enter the Gungeon\BepInEx\LogOutput.log" --include-unprefixed-plugin-lines
+python .\tools\extract_randomloadout_log.py "C:\Game\steam\steamapps\common\Enter the Gungeon\BepInEx\LogOutput.log" --include-unprefixed-plugin-lines
 ```
 
 ## Notes

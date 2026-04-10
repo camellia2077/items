@@ -26,6 +26,7 @@ The repository root `README.md` stays high-level; operational and design details
 - [Project Scope](./architecture/research/project-scope.md)
 - [Implementation Guidance](./architecture/research/implementation-guidance.md)
 - [Deploy](./operations/deploy.md)
+- [Release Package](./operations/release-package.md)
 - [Logging](./operations/logging.md)
 - [Command Notes](./notes/cmd.md)
 - [Commands](./reference/commands.md)

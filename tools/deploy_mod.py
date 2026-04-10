@@ -6,7 +6,7 @@ import errno
 import shutil
 import sys
 from pathlib import Path
-from script_common import (
+from tool_common import (
     add_configuration_argument,
     fail,
     get_default_sync_paths,
@@ -98,7 +98,7 @@ def main() -> int:
     repo_root = get_repo_root()
 
     if not args.skip_build:
-        build_script = repo_root / "scripts" / "build.py"
+        build_script = repo_root / "tools" / "build.py"
         build_exit_code = run_process(
             [sys.executable, str(build_script), "--configuration", args.configuration],
             repo_root,
@@ -110,8 +110,9 @@ def main() -> int:
 
     if not source_dll.is_file():
         return fail(
-            "Build output not found: {0}\nRun the build first, for example: .\\scripts\\build.ps1".format(
-                source_dll
+            "Build output not found: {0}\nRun the build first, for example: python .\\tools\\build.py --configuration {1}".format(
+                source_dll,
+                args.configuration,
             )
         )
 

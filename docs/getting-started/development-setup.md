@@ -7,19 +7,19 @@ This page covers local development workflows for `RandomLoadout`.
 PowerShell wrapper:
 
 ```powershell
-.\scripts\build.ps1
+python .\tools\build.py --configuration Debug
 ```
 
 Python entrypoint:
 
 ```powershell
-python .\scripts\build.py --configuration Debug
+python .\tools\build.py --configuration Debug
 ```
 
 Release build:
 
 ```powershell
-python .\scripts\build.py --configuration Release
+python .\tools\build.py --configuration Release
 ```
 
 ## Test
@@ -27,13 +27,13 @@ python .\scripts\build.py --configuration Release
 PowerShell wrapper:
 
 ```powershell
-.\scripts\test.ps1
+python .\tools\test.py --configuration Debug
 ```
 
 Python entrypoint:
 
 ```powershell
-python .\scripts\test.py --configuration Debug
+python .\tools\test.py --configuration Debug
 ```
 
 ## Tooling
@@ -42,7 +42,7 @@ The scripts use the system `.NET Framework` MSBuild at:
 
 - `C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe`
 
-Build logic and test logic now live in Python scripts under [`scripts/`](../../scripts/).
+Build logic and test logic now live in Python tools under [`tools/`](../../tools/).
 The PowerShell files are thin wrappers that forward arguments to Python.
 
 ## Local Dependencies

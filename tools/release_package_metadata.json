@@ -1,0 +1,49 @@
+{
+  "upstreamPackage": {
+    "name": "BepInExPack_EtG",
+    "version": "5.4.2101",
+    "downloadUrl": "https://gcdn.thunderstore.io/live/repository/packages/BepInEx-BepInExPack_EtG-5.4.2101.zip",
+    "packagePageUrl": "https://thunderstore.io/c/enter-the-gungeon/p/BepInEx/BepInExPack_EtG/",
+    "projectHomepageUrl": "https://github.com/BepInEx/BepInEx",
+    "licenseId": "LGPL-2.1",
+    "sha256": "6b97edb311e961e78ca1cd913a886fd72b1ee936c73300c8992b8bf86ffde7ba",
+    "contentRoot": "BepInExPack_EtG/"
+  },
+  "bundledComponents": [
+    {
+      "name": "BepInEx",
+      "homepageUrl": "https://github.com/BepInEx/BepInEx",
+      "licenseId": "LGPL-2.1",
+      "licenseUrl": "https://raw.githubusercontent.com/BepInEx/BepInEx/master/LICENSE",
+      "licenseOutputName": "BepInEx-LICENSE.txt"
+    },
+    {
+      "name": "HarmonyX",
+      "homepageUrl": "https://github.com/BepInEx/HarmonyX",
+      "licenseId": "MIT",
+      "licenseUrl": "https://raw.githubusercontent.com/BepInEx/HarmonyX/master/LICENSE",
+      "licenseOutputName": "HarmonyX-LICENSE.txt"
+    },
+    {
+      "name": "MonoMod",
+      "homepageUrl": "https://github.com/MonoMod/MonoMod",
+      "licenseId": "MIT",
+      "licenseUrl": "https://raw.githubusercontent.com/MonoMod/MonoMod/reorganize/LICENSE",
+      "licenseOutputName": "MonoMod-LICENSE.txt"
+    },
+    {
+      "name": "BepInEx.MonoMod.Loader",
+      "homepageUrl": "https://github.com/BepInEx/BepInEx.MonoMod.Loader",
+      "licenseId": "MIT",
+      "licenseUrl": "https://raw.githubusercontent.com/BepInEx/BepInEx.MonoMod.Loader/master/LICENSE",
+      "licenseOutputName": "BepInEx.MonoMod.Loader-LICENSE.txt"
+    },
+    {
+      "name": "UnityDoorstop",
+      "homepageUrl": "https://github.com/NeighTools/UnityDoorstop",
+      "licenseId": "LGPL-2.1",
+      "licenseUrl": "https://raw.githubusercontent.com/NeighTools/UnityDoorstop/master/LICENSE",
+      "licenseOutputName": "UnityDoorstop-LICENSE.txt"
+    }
+  ]
+}

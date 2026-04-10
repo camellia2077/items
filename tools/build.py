@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import argparse
-from script_common import (
+from tool_common import (
     add_configuration_argument,
     ensure_required_build_dlls,
     get_plugin_project_path,
