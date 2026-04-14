@@ -107,7 +107,7 @@ def build_release_package(
         overlay_randomloadout_files(repo_root, configuration, staging_root)
         staged_components = stage_license_files(repo_root, metadata, staging_root)
         write_install_readme(version_tag, staging_root)
-        write_third_party_notices(version_tag, metadata, staged_components, staging_root)
+        write_third_party_notices(version_tag, metadata, staged_components, repo_root, staging_root)
         ensure_no_game_owned_dlls(staging_root)
         ensure_required_package_files(staging_root)
 

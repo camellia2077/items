@@ -58,15 +58,26 @@ Do not start from source files unless you already know the ETG runtime surface.
 - `lib/`
   local dependency drop folder
 
-## Dependencies
+## Credits / Open Source Dependencies
 
-Direct open-source runtime dependencies:
+Redistributed in the player-facing release package:
 
 - [`BepInEx`](https://github.com/BepInEx/BepInEx)
-- [`SpecialAPI/ModTheGungeonAPI`](https://github.com/SpecialAPI/ModTheGungeonAPI)
 - [`HarmonyX`](https://github.com/BepInEx/HarmonyX)
+- other components bundled through `BepInExPack_EtG`
 
-Implementation references:
+Required runtime dependency not bundled in the player-facing release package:
+
+- [`SpecialAPI/ModTheGungeonAPI`](https://github.com/SpecialAPI/ModTheGungeonAPI)
+
+Implementation references and community inspiration:
 
 - [`SpecialAPI/SaveAPI`](https://github.com/SpecialAPI/SaveAPI)
 - [`Nevernamed22/OnceMoreIntoTheBreach`](https://github.com/Nevernamed22/OnceMoreIntoTheBreach)
+
+License and attribution notes:
+
+- repository-level attribution and dependency notices:
+  [THIRD_PARTY_NOTICES.md](./THIRD_PARTY_NOTICES.md)
+- release-package compliance details:
+  [docs/operations/release-package.md](./docs/operations/release-package.md)

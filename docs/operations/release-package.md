@@ -93,7 +93,7 @@ Downloaded upstream files are cached under:
 
 ## License And Attribution Compliance
 
-The release package is designed to redistribute `BepInExPack_EtG` compliantly.
+The release package is designed to redistribute `BepInExPack_EtG` compliantly while keeping `RandomLoadout` attribution separate from ETG game-owned files and reference-only projects.
 
 It stages:
 
@@ -109,7 +109,23 @@ It stages:
 * the upstream project homepage
 * the bundled open source components and their license files
 
+Repository-level attribution is also recorded in:
+
+* `THIRD_PARTY_NOTICES.md` at the repository root
+
+That repository-level notice intentionally separates:
+
+* components redistributed in the player-facing release package
+* required runtime dependencies that are not bundled in the player-facing release package
+* reference-only projects used for implementation guidance or reverse-engineering context
+
+For this project, that distinction matters because:
+
+* `BepInExPack_EtG` and its bundled components are redistributed in the release zip
+* `ModTheGungeonAPI` is a required runtime dependency for current Boss Rush functionality, but is not bundled by the player-facing release-package workflow described on this page
+* projects such as `SaveAPI` and `OnceMoreIntoTheBreach` are acknowledged as references, not redistributed package contents
+
 ## Notes
 
 * This workflow is for player-facing release zips.
-* Use `tools/deploy_mod.py` for local developer deployment into an existing game install.
+* Use `tools/deploy/deploy_mod.py` for local developer deployment into an existing game install.

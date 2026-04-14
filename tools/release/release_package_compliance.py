@@ -14,6 +14,8 @@ FORBIDDEN_GAME_DLLS = {
     "UnityEngine.TextRenderingModule.dll",
 }
 
+REPOSITORY_NOTICE_FILE_NAME = "THIRD_PARTY_NOTICES.md"
+
 
 def stage_license_files(repo_root: Path, metadata: dict, staging_root: Path) -> list[dict]:
     licenses_directory = staging_root / "licenses"
@@ -68,24 +70,33 @@ def write_third_party_notices(
     version_tag: str,
     metadata: dict,
     staged_components: list[dict],
+    repo_root: Path,
     staging_root: Path,
 ) -> None:
+    repository_notice_path = repo_root / REPOSITORY_NOTICE_FILE_NAME
+    if not repository_notice_path.is_file():
+        raise FileNotFoundError("Repository third-party notice file not found: {0}".format(repository_notice_path))
+
+    repository_notice_text = repository_notice_path.read_text(encoding="utf-8").strip()
+    if not repository_notice_text:
+        raise OSError("Repository third-party notice file was empty: {0}".format(repository_notice_path))
+
     upstream_package = metadata["upstreamPackage"]
-    lines = [
-        "# Third-Party Notices",
+    appendix_lines = [
+        "## Release Package Appendix",
         "",
         "This release package contains `RandomLoadout {0}` together with an unmodified redistribution of `{1} {2}`.".format(
             version_tag, upstream_package["name"], upstream_package["version"]
         ),
         "",
-        "## RandomLoadout",
+        "### RandomLoadout",
         "",
         "- Project: `RandomLoadout`",
         "- Homepage: <https://github.com/camellia2077/items>",
         "- License: `MIT`",
         "- Bundled license file: `licenses/RandomLoadout-LICENSE.txt`",
         "",
-        "## Redistributed Upstream Package",
+        "### Redistributed Upstream Package",
         "",
         "- Package: `{0}`".format(upstream_package["name"]),
         "- Version: `{0}`".format(upstream_package["version"]),
@@ -95,12 +106,12 @@ def write_third_party_notices(
         "- Package license: `{0}`".format(upstream_package["licenseId"]),
         "- Redistribution note: this release package redistributes the upstream package unmodified and preserves its separate license terms.",
         "",
-        "## Bundled Open Source Components From The Upstream Package",
+        "### Bundled Open Source Components From The Upstream Package",
         "",
     ]
 
     for component in staged_components:
-        lines.extend(
+        appendix_lines.extend(
             [
                 "- `{0}`".format(component["name"]),
                 "  - Homepage: <{0}>".format(component["homepageUrl"]),
@@ -109,10 +120,10 @@ def write_third_party_notices(
             ]
         )
 
-    lines.extend(
+    appendix_lines.extend(
         [
             "",
-            "## Distribution Notes",
+            "### Distribution Notes",
             "",
             "- This package does not include `Enter the Gungeon` game files.",
             "- This package does not include development-only DLLs from the repository `lib/` folder such as `Assembly-CSharp.dll` or `UnityEngine*.dll`.",
@@ -121,7 +132,8 @@ def write_third_party_notices(
         ]
     )
 
-    (staging_root / "THIRD_PARTY_NOTICES.md").write_text("\n".join(lines), encoding="utf-8")
+    package_notice_text = repository_notice_text + "\n\n" + "\n".join(appendix_lines) + "\n"
+    (staging_root / "THIRD_PARTY_NOTICES.md").write_text(package_notice_text, encoding="utf-8")
 
 
 def ensure_no_game_owned_dlls(staging_root: Path) -> None:
