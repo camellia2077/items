@@ -7,14 +7,14 @@ namespace RandomLoadout
     {
         private const float PollIntervalSeconds = 0.5f;
 
-        private readonly string _breachSceneName;
+        private readonly string _characterSelectSceneName;
         private bool _isSubscribed;
         private float _nextScenePollTime;
         private GameManager _subscribedGameManager;
 
-        public RunSceneWatcher(string breachSceneName)
+        public RunSceneWatcher(string characterSelectSceneName)
         {
-            _breachSceneName = breachSceneName;
+            _characterSelectSceneName = characterSelectSceneName;
         }
 
         public void Subscribe(GameManager gameManager, Action onNewLevelLoaded)
@@ -93,9 +93,9 @@ namespace RandomLoadout
             return !string.IsNullOrEmpty(sceneName);
         }
 
-        public bool IsBreachScene(string sceneName)
+        public bool IsCharacterSelectScene(string sceneName)
         {
-            return string.Equals(sceneName, _breachSceneName, StringComparison.Ordinal);
+            return string.Equals(sceneName, _characterSelectSceneName, StringComparison.Ordinal);
         }
     }
 }

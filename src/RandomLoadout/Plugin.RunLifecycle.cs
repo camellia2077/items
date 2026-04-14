@@ -37,6 +37,11 @@ namespace RandomLoadout
 
         private void OnNewLevelFullyLoaded()
         {
+            if (_bossRushService != null)
+            {
+                _bossRushService.NotifyLevelLoaded();
+            }
+
             TryHandleCurrentScene("event");
         }
 
@@ -62,6 +67,11 @@ namespace RandomLoadout
                 Logger.LogInfo(RandomLoadoutLog.Run("Observed scene change via " + source + ": " + lifecycle.PreviousSceneName + " -> " + lifecycle.SceneName));
             }
 
+            if (_bossRushService != null)
+            {
+                _bossRushService.NotifySceneObserved(lifecycle.SceneName, lifecycle.SceneChanged);
+            }
+
             if (lifecycle.ResetKind == RunLifecycleResetKind.PrimaryPlayerChanged)
             {
                 if (_runState.HasGrantedThisRun || _runState.CurrentSeed != 0)
@@ -72,11 +82,11 @@ namespace RandomLoadout
                 _runState.Reset();
             }
 
-            if (lifecycle.ResetKind == RunLifecycleResetKind.EnteredBreach)
+            if (lifecycle.ResetKind == RunLifecycleResetKind.EnteredCharacterSelectHub)
             {
                 if (_runState.HasGrantedThisRun || _runState.CurrentSeed != 0)
                 {
-                    Logger.LogInfo(RandomLoadoutLog.Run("Entered breach. Resetting run grant state."));
+                    Logger.LogInfo(RandomLoadoutLog.Run("Entered character select hub. Resetting run grant state."));
                 }
 
                 _runState.Reset();
@@ -85,6 +95,16 @@ namespace RandomLoadout
 
             if (!lifecycle.IsGrantableDungeonScene)
             {
+                return;
+            }
+
+            if (_bossRushService != null && _bossRushService.ShouldSuppressAutomaticLoadout)
+            {
+                if (lifecycle.SceneChanged)
+                {
+                    Logger.LogInfo(RandomLoadoutLog.Run("Boss Rush is active. Suppressing automatic random loadout for scene " + lifecycle.SceneName + "."));
+                }
+
                 return;
             }
 

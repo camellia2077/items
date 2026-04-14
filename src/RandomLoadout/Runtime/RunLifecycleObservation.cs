@@ -3,7 +3,7 @@ namespace RandomLoadout
     internal enum RunLifecycleResetKind
     {
         None,
-        EnteredBreach,
+        EnteredCharacterSelectHub,
         PrimaryPlayerChanged
     }
 

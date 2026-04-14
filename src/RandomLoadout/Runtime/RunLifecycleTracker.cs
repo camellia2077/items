@@ -4,17 +4,17 @@ namespace RandomLoadout
 {
     internal sealed class RunLifecycleTracker
     {
-        private readonly string _breachSceneName;
-        private readonly string _legacyBreachSceneName;
+        private readonly string _characterSelectSceneName;
+        private readonly string _legacyCharacterSelectSceneName;
         private readonly string _loadingSceneName;
 
         private string _lastObservedSceneName;
         private int _lastObservedPlayerInstanceId;
 
-        public RunLifecycleTracker(string breachSceneName, string legacyBreachSceneName, string loadingSceneName)
+        public RunLifecycleTracker(string characterSelectSceneName, string legacyCharacterSelectSceneName, string loadingSceneName)
         {
-            _breachSceneName = breachSceneName;
-            _legacyBreachSceneName = legacyBreachSceneName;
+            _characterSelectSceneName = characterSelectSceneName;
+            _legacyCharacterSelectSceneName = legacyCharacterSelectSceneName;
             _loadingSceneName = loadingSceneName;
             _lastObservedSceneName = string.Empty;
         }
@@ -36,8 +36,8 @@ namespace RandomLoadout
             RunLifecycleResetKind resetKind = RunLifecycleResetKind.None;
             if (IsResetScene(normalizedSceneName))
             {
-                resetKind = RunLifecycleResetKind.EnteredBreach;
-                _lastObservedSceneName = _breachSceneName;
+                resetKind = RunLifecycleResetKind.EnteredCharacterSelectHub;
+                _lastObservedSceneName = _characterSelectSceneName;
                 _lastObservedPlayerInstanceId = 0;
                 playerChanged = false;
             }
@@ -57,8 +57,8 @@ namespace RandomLoadout
 
         private bool IsResetScene(string sceneName)
         {
-            return string.Equals(sceneName, _breachSceneName, StringComparison.Ordinal) ||
-                   string.Equals(sceneName, _legacyBreachSceneName, StringComparison.Ordinal);
+            return string.Equals(sceneName, _characterSelectSceneName, StringComparison.Ordinal) ||
+                   string.Equals(sceneName, _legacyCharacterSelectSceneName, StringComparison.Ordinal);
         }
 
         private bool IsGrantableDungeonScene(string sceneName)

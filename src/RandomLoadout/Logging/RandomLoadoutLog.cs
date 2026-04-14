@@ -25,6 +25,11 @@ namespace RandomLoadout
             return Format("Run", message);
         }
 
+        public static string BossRush(string message)
+        {
+            return Format("BossRush", message);
+        }
+
         public static string Grant(string message)
         {
             return Format("Grant", message);
