@@ -1,69 +1,123 @@
 # Deploy
 
-This page covers copying the built plugin into an `Enter the Gungeon` installation.
+Use this page when you need to copy the built mod bundle into an `Enter the Gungeon` installation.
 
-## Deploy Script
+If you are new to the project, read [Start Here](../getting-started/start-here.md) first.
 
-Debug build:
+## Must Read First
+
+Before deploying runtime changes, read:
+
+1. [Development Setup](../getting-started/development-setup.md)
+2. [Testing Matrix](../reference/testing-matrix.md)
+3. [Tools README](../../tools/README.md)
+
+If the change touches ETG runtime flow, also read:
+
+4. [Runtime Hotspots](../architecture/runtime-hotspots.md)
+5. [Logging](./logging.md)
+
+## 30-Second Commands
+
+Deploy release and overwrite repo-shipped config defaults:
 
 ```powershell
-python .\tools\deploy_mod.py "C:\Game\steam\steamapps\common\Enter the Gungeon"
+python .\tools\deploy\deploy_mod.py "C:\Game\steam\steamapps\common\Enter the Gungeon" --configuration Release --overwrite-config
 ```
 
-Release build:
+Deploy release without overwriting existing game-side config:
 
 ```powershell
-python .\tools\deploy_mod.py "C:\Game\steam\steamapps\common\Enter the Gungeon" --configuration Release
+python .\tools\deploy\deploy_mod.py "C:\Game\steam\steamapps\common\Enter the Gungeon" --configuration Release
 ```
 
-Force refresh the repository default config files too:
+Deploy an already-built DLL without triggering a build:
 
 ```powershell
-python .\tools\deploy_mod.py "C:\Game\steam\steamapps\common\Enter the Gungeon" --configuration Release --overwrite-config
+python .\tools\deploy\deploy_mod.py "C:\Game\steam\steamapps\common\Enter the Gungeon" --configuration Release --skip-build
 ```
 
 ## Recommended Flow
 
-Build first:
+For normal runtime work:
+
+1. build
+2. deploy
+3. run smoke checks
+4. review logs
+
+Typical sequence:
 
 ```powershell
-python .\tools\build.py --configuration Release
+python .\tools\build\build.py --configuration Release
+python .\tools\deploy\deploy_mod.py "C:\Game\steam\steamapps\common\Enter the Gungeon" --configuration Release --overwrite-config
 ```
 
-Then deploy:
+Then continue with:
 
-```powershell
-python .\tools\deploy_mod.py "C:\Game\steam\steamapps\common\Enter the Gungeon" --configuration Release
-```
+- [Smoke Checklist](./smoke-checklist.md)
+- [Logging](./logging.md)
 
-## Notes
+## What The Deploy Script Copies
 
-- `deploy_mod.py` now builds the selected configuration first by default, then copies the generated DLL
-- pass `--skip-build` if you want to deploy an already-built DLL without triggering a build step
-- `deploy_mod.py` copies an already-built DLL and syncs the repository default config files
-- the repository also ships baseline pickup catalog snapshots and a generated full random rule pool template under `defaults/catalog/`
-- if deployment fails while the game is open, close the game and try again
-- the script verifies the copied DLL by SHA-256 after copy
-- runtime config files are created under `BepInEx\config\`
-- the minimum configuration split is:
-  - `randomgun.randomloadout.cfg` for simple switches such as enabling or disabling automatic start-of-run grants
-  - `RandomLoadout.aliases.json5` for shared alias-to-pickup ID mappings
-  - `RandomLoadout.rules.json5` for loadout rules
-  - `RandomLoadout.pickups.txt` for the exported pickup name and ID index
-  - `RandomLoadout.pickups.json` for the flat machine-readable pickup catalog snapshot
-  - `RandomLoadout.pickups.by-category.json` for the grouped machine-readable pickup catalog snapshot
-  - `RandomLoadout.rules.full-pool.json5` for an auto-generated full random pool template
-- by default, existing config files are preserved
-- pass `--overwrite-config` if you want the repository defaults and catalog snapshots to replace files already in the game directory
-- if `RandomLoadout.rules.json5` is missing at runtime, the plugin now falls back to `RandomLoadout.rules.full-pool.json5` in the same `BepInEx\config\` directory
-- if `RandomLoadout.rules.json5` exists but cannot be parsed, the plugin also falls back to `RandomLoadout.rules.full-pool.json5`
-- if both rule files are unavailable, the plugin falls back to the built-in emergency default rules for that session
-- if `RandomLoadout.aliases.json5` is missing at runtime, the plugin logs a warning and falls back to built-in default aliases for that session
-- the repository copies under `defaults/` are read-only baselines; the plugin never writes back into the repository
-- after the game starts successfully, the plugin exports fresh runtime versions of the pickup catalog files into `BepInEx\config\` and those runtime-generated files overwrite the game-side copies there
-- this means the effective priority is:
-  - `RandomLoadout.rules.json5` for explicit user-authored active rules
-  - `RandomLoadout.rules.full-pool.json5` as the full-random fallback when the primary rules file is missing
-  - runtime-generated files in the game directory
-  - repository baseline files copied by `deploy_mod.py`
-  - missing-file fallback behavior inside the plugin
+`deploy_mod.py` builds first by default, then copies:
+
+- `RandomLoadout.dll`
+- the MTG API runtime bundle from `lib\`
+- repository default config files and catalog snapshots when requested
+
+Current MTG API runtime bundle copy targets:
+
+- `0Harmony.dll` -> `BepInEx\plugins\`
+- `ModTheGungeonAPI.dll` -> `BepInEx\plugins\MtGAPI\`
+- `Ionic.Zip.dll` -> `BepInEx\plugins\MtGAPI\`
+- `Newtonsoft.Json.dll` -> `BepInEx\plugins\MtGAPI\`
+- `System.Xml.dll` -> `BepInEx\plugins\MtGAPI\`
+- `System.Xml.Linq.dll` -> `BepInEx\plugins\MtGAPI\`
+- `UnityEngine.CoreModule.MTGAPIPatcher.mm.dll` -> `monomod\`
+
+Keep these DLLs present under `lib\` before deploying.
+
+## Config And Catalog Notes
+
+Game-side config lives under `BepInEx\config\`.
+
+Important files:
+
+- `randomgun.randomloadout.cfg`
+- `RandomLoadout.aliases.json5`
+- `RandomLoadout.rules.json5`
+- `RandomLoadout.pickups.txt`
+- `RandomLoadout.pickups.json`
+- `RandomLoadout.pickups.by-category.json`
+- `RandomLoadout.rules.full-pool.json5`
+
+Default behavior:
+
+- existing config files are preserved unless `--overwrite-config` is used
+- repository copies under `defaults/` are read-only baselines
+- the plugin exports fresh runtime catalog files into the game directory after startup
+
+Fallback behavior:
+
+- missing or invalid `RandomLoadout.rules.json5` falls back to `RandomLoadout.rules.full-pool.json5`
+- if both rule files are unavailable, the plugin falls back to built-in emergency defaults
+- missing `RandomLoadout.aliases.json5` falls back to built-in aliases for that session
+
+## Common Failure Cases
+
+- deployment fails while the game is open:
+  close the game and try again
+- deploy works but runtime still fails:
+  review [Logging](./logging.md)
+- DLL copy succeeds but gameplay is broken:
+  continue with [Smoke Checklist](./smoke-checklist.md)
+
+## Read Next
+
+- Smoke workflow:
+  [./smoke-checklist.md](./smoke-checklist.md)
+- Log workflow:
+  [./logging.md](./logging.md)
+- Build workflow:
+  [../getting-started/development-setup.md](../getting-started/development-setup.md)

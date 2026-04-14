@@ -2,6 +2,9 @@ bin/
 obj/
 .vs/
 .idea/
+temp/
+BepInEx/
+monomod/
 *.user
 *.suo
 *.cache

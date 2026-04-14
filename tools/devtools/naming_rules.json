@@ -1,0 +1,55 @@
+{
+  "targets": [
+    "src/**/*.cs"
+  ],
+  "rules": [
+    {
+      "id": "RL001",
+      "description": "Do not use the old scene-token constant name for the character-select hub.",
+      "pattern": "\\bBreachSceneName\\b",
+      "replacement": "CharacterSelectSceneName"
+    },
+    {
+      "id": "RL002",
+      "description": "Do not use the old legacy scene-token constant name for the character-select hub.",
+      "pattern": "\\bLegacyBreachSceneName\\b",
+      "replacement": "LegacyCharacterSelectSceneName"
+    },
+    {
+      "id": "RL003",
+      "description": "Use gameplay semantics for Boss Rush return methods.",
+      "pattern": "\\bAbortToBreach\\b",
+      "replacement": "ReturnToCharacterSelect"
+    },
+    {
+      "id": "RL004",
+      "description": "Use gameplay semantics for Boss Rush return helpers.",
+      "pattern": "\\bBeginReturnToBreach\\b",
+      "replacement": "BeginReturnToCharacterSelect"
+    },
+    {
+      "id": "RL005",
+      "description": "Do not name character-select hub checks as Breach checks in runtime code.",
+      "pattern": "\\bIsInBreach\\b",
+      "replacement": "IsInCharacterSelectHub"
+    },
+    {
+      "id": "RL006",
+      "description": "Scene-token comparisons should be named as character-select scene checks.",
+      "pattern": "\\bIsBreachScene\\b",
+      "replacement": "IsCharacterSelectScene"
+    },
+    {
+      "id": "RL007",
+      "description": "Run lifecycle reset kinds should use character-select hub terminology.",
+      "pattern": "\\bEnteredBreach\\b",
+      "replacement": "EnteredCharacterSelectHub"
+    },
+    {
+      "id": "RL008",
+      "description": "Boss Rush state names should use character-select terminology.",
+      "pattern": "\\bReturningToBreach\\b",
+      "replacement": "ReturningToCharacterSelect"
+    }
+  ]
+}

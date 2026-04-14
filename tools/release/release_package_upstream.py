@@ -9,7 +9,7 @@ import zipfile
 from pathlib import Path
 
 
-HTTP_USER_AGENT = "RandomLoadoutReleasePackager/0.2.0"
+HTTP_USER_AGENT = "RandomLoadoutReleasePackager/0.2.3"
 
 
 def sha256_for_file(path: Path) -> str:

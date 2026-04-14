@@ -1,86 +1,145 @@
 # ModTheGungeonAPI Reference
 
-This page tracks practical `ModTheGungeonAPI` references used by `RandomLoadout` development.
-It is intentionally curated for day-to-day implementation work, not a full mirror of upstream docs or source.
+Use this page when you need curated upstream references from `ModTheGungeonAPI` that are relevant to `RandomLoadout`.
+
+This is not a full upstream mirror. It is a project-focused reference index for adapting patterns safely.
+
+## When To Read This
+
+Read this page before:
+
+1. copying a `ModTheGungeonAPI` pattern into runtime code
+2. changing character-select-hub flow, item grant flow, or Boss Rush transitions
+3. assuming an upstream helper is safe as a drop-in replacement
+
+## Must Read First
+
+Before copying or adapting an ETG runtime pattern from upstream, read:
+
+1. [Terminology And Naming](./terminology.md)
+2. [Runtime Hotspots](../architecture/runtime-hotspots.md)
+3. [Testing Matrix](./testing-matrix.md)
+4. [Source Guide](../../src/AGENTS.md)
+
+## 30-Second Summary
+
+Use `ModTheGungeonAPI` as a behavioral reference, not as a promise that the exact same call sequence is safe in `RandomLoadout`.
+
+The highest-value references in this project are:
+
+- character switch flow
+- item grant flow
+- level load and return-to-character-select flow
+- unlock and persistence-related call patterns
+
+If upstream already uses a stable vanilla route, prefer that route over inventing a harder custom transition.
 
 ## Primary Upstream
 
-* Repository: [`SpecialAPI/ModTheGungeonAPI`](https://github.com/SpecialAPI/ModTheGungeonAPI)
-* Main console implementation: [`ETGModConsole.cs`](https://github.com/SpecialAPI/ModTheGungeonAPI/blob/main/ModTheGungeonAPI/ETGMod/ETGGUI/ETGModConsole.cs)
+- Repository:
+  [`SpecialAPI/ModTheGungeonAPI`](https://github.com/SpecialAPI/ModTheGungeonAPI)
+- Main console implementation:
+  [`ETGModConsole.cs`](https://github.com/SpecialAPI/ModTheGungeonAPI/blob/main/ModTheGungeonAPI/ETGMod/ETGGUI/ETGModConsole.cs)
 
-## Verified Useful References
+## High-Value Upstream References
 
 ### Character Switch Flow
 
-* `SwitchCharacter` implementation (Breach/runtime character replacement flow):
-  * [`ETGModConsole.cs#L1942`](https://github.com/SpecialAPI/ModTheGungeonAPI/blob/main/ModTheGungeonAPI/ETGMod/ETGGUI/ETGModConsole.cs#L1942)
-* Practical value for this project:
-  * Useful as a reference for force-switch behavior when normal character select flag routes are unstable.
+Reference:
+
+- [`ETGModConsole.cs#L1942`](https://github.com/SpecialAPI/ModTheGungeonAPI/blob/main/ModTheGungeonAPI/ETGMod/ETGGUI/ETGModConsole.cs#L1942)
+
+Why it matters here:
+
+- useful reference for force-switch behavior
+- useful when native character-select callback routes are unstable or have side effects
 
 ### Give Command Flow
 
-* `give` / `GiveItem` implementation:
-  * `PlayerControllerExt.GiveItem(this PlayerController player, string id)`
-  * Internally uses `LootEngine.TryGivePrefabToPlayer(...)` with the item prefab looked up from the game item registry.
-* Practical value for this project:
-  * Useful as the primary behavioral reference for runtime item grant flow.
-  * Useful as the reason `RandomLoadout` now prefers `pickupId` / `internalName` over localized display names for command and rule input.
+Reference:
+
+- `PlayerControllerExt.GiveItem(this PlayerController player, string id)`
+- internally uses `LootEngine.TryGivePrefabToPlayer(...)`
+
+Why it matters here:
+
+- primary behavioral reference for runtime item grant flow
+- one reason this project prefers `pickupId` and `internalName` over localized display names
 
 ### Runtime Object Unlock Pattern
 
-* `ForceUnlock` usage example:
-  * [`ETGModConsole.cs#L1746`](https://github.com/SpecialAPI/ModTheGungeonAPI/blob/main/ModTheGungeonAPI/ETGMod/ETGGUI/ETGModConsole.cs#L1746)
-* Practical value for this project:
-  * Shows a common unlock call shape in mod code paths.
-  * Should be treated as an object unlock reference, not as a guaranteed persistent character-unlock recipe.
+Reference:
+
+- [`ETGModConsole.cs#L1746`](https://github.com/SpecialAPI/ModTheGungeonAPI/blob/main/ModTheGungeonAPI/ETGMod/ETGGUI/ETGModConsole.cs#L1746)
+
+Why it matters here:
+
+- shows a common unlock call shape in mod code paths
+- should be treated as an object-unlock reference, not a guaranteed persistent character-unlock recipe
+
+### Level Load And Character Select Flow
+
+Relevant upstream behaviors:
+
+- `load_level` calls `Foyer.Instance.OnDepartedFoyer()` before `LoadCustomLevel(...)`
+- `charselect` uses `GameManager.Instance.DelayedLoadCharacterSelect(...)`
+
+Why it matters here:
+
+- these flows are safer references than hard custom transitions when leaving or returning to the character-select hub
+- they are directly relevant to Boss Rush floor entry and Boss Rush exit behavior
 
 ## Related External Reference
 
-Although separate from `ModTheGungeonAPI`, this repository is frequently relevant when discussing save/flag persistence:
+When the question is really about save or flag persistence, also check:
 
-* `SaveAPI` repository:
-  * [`SpecialAPI/SaveAPI`](https://github.com/SpecialAPI/SaveAPI)
-* Save hook reference:
-  * [`SaveAPIManager.cs#L417`](https://github.com/SpecialAPI/SaveAPI/blob/main/SaveAPIManager.cs#L417)
+- [`SpecialAPI/SaveAPI`](https://github.com/SpecialAPI/SaveAPI)
+- [`SaveAPIManager.cs#L417`](https://github.com/SpecialAPI/SaveAPI/blob/main/SaveAPIManager.cs#L417)
 
-## How We Use This In RandomLoadout
+## How RandomLoadout Uses These References
 
-Current `RandomLoadout` behavior for `Robot` prioritizes reliable in-session character switching over persistent unlock writes.
+Current project patterns:
 
-Current `RandomLoadout` behavior for item grant and lookup is:
+- character switching:
+  uses `ETGModConsole.SwitchCharacter` as a behavioral reference, but relies on project-specific force-switch paths when native routes are unstable
+- item grant:
+  uses `ModTheGungeonAPI give` as the primary runtime reference
+- pickup lookup:
+  prefers `pickupId` and `internalName` first, then uses `displayName` only as a compatibility fallback
+- Boss Rush flow:
+  uses upstream character-select and level-load behavior as a guide for safer flow transitions
 
-* Character switching:
-  * Uses `ETGModConsole.SwitchCharacter` as a behavioral reference, but the project currently relies on its own force-switch path in `Breach` when native character-select callback routes are unstable or have side effects.
-* Item grant:
-  * Uses `ModTheGungeonAPI give` as the primary runtime reference.
-  * Prefers `LootEngine.TryGivePrefabToPlayer(...)` as the main grant path.
-  * Keeps category-specific fallback calls such as `AddGunToInventory(...)` and `AcquirePassiveItem(...)` as project-level compatibility backups when the prefab path is not sufficient.
-* Pickup lookup:
-  * Prefers `pickupId` and `internalName` first, then uses `displayName` only as a compatibility fallback.
-  * This is intentionally closer to `ModTheGungeonAPI give`, which is more stable when localized display names vary across runtime environments.
+## Local Code Areas That Commonly Use These Patterns
 
-Related local docs:
+- [`../../src/RandomLoadout/Commands/FoyerCharacterSwitchService.cs`](../../src/RandomLoadout/Commands/FoyerCharacterSwitchService.cs)
+- [`../../src/RandomLoadout/Etg/EtgPickupResolver.cs`](../../src/RandomLoadout/Etg/EtgPickupResolver.cs)
+- [`../../src/RandomLoadout/Etg/EtgPickupGranter.cs`](../../src/RandomLoadout/Etg/EtgPickupGranter.cs)
+- [`../../src/RandomLoadout/Runtime/BossRushService.cs`](../../src/RandomLoadout/Runtime/BossRushService.cs)
 
-* Strategy decision:
-  * [`../decisions/character-switch-strategy.md`](../decisions/character-switch-strategy.md)
-* Pickup grant strategy:
-  * [`../decisions/pickup-grant-strategy.md`](../decisions/pickup-grant-strategy.md)
-* Command panel behavior:
-  * [`./commands.md`](./commands.md)
+Implementation details for several of these are split across matching `*.cs` partial files.
 
-Related local code:
+## Rules For Using Upstream Examples
 
-* Character switch service:
-  * [`../../src/RandomLoadout/Commands/FoyerCharacterSwitchService.cs`](../../src/RandomLoadout/Commands/FoyerCharacterSwitchService.cs)
-  * Implementation details are split across the matching `FoyerCharacterSwitchService*.cs` partial files.
-* Pickup resolver:
-  * [`../../src/RandomLoadout/Etg/EtgPickupResolver.cs`](../../src/RandomLoadout/Etg/EtgPickupResolver.cs)
-  * Implementation details are split across the matching `EtgPickupResolver*.cs` partial files.
-* Pickup granter:
-  * [`../../src/RandomLoadout/Etg/EtgPickupGranter.cs`](../../src/RandomLoadout/Etg/EtgPickupGranter.cs)
+- treat upstream code as a behavioral reference, not a drop-in guarantee
+- prefer vanilla ETG flow over custom hard cuts when upstream already uses a stable built-in route
+- validate behavior in the live ETG runtime after adapting a pattern
+- for persistence-sensitive logic, require save-slot and restart validation
+- do not assume upstream naming matches this project's terminology rules; align with [Terminology And Naming](./terminology.md)
 
-## Usage Notes
+## Read Alongside This Page
 
-* Prefer using upstream examples as behavioral references, not drop-in guarantees.
-* Always validate behavior in the live ETG runtime after adopting a pattern.
-* For persistence-sensitive logic, treat save-slot behavior and restart validation as required checks.
+- [Commands](./commands.md)
+- [Pickup Grant Strategy](../decisions/pickup-grant-strategy.md)
+- [Character Switch Strategy](../decisions/character-switch-strategy.md)
+- [Runtime Hotspots](../architecture/runtime-hotspots.md)
+
+## Read Next
+
+- Runtime terminology:
+  [./terminology.md](./terminology.md)
+- Runtime validation:
+  [./testing-matrix.md](./testing-matrix.md)
+- Runtime risk areas:
+  [../architecture/runtime-hotspots.md](../architecture/runtime-hotspots.md)
+- Development workflow:
+  [../getting-started/development-setup.md](../getting-started/development-setup.md)

@@ -1,55 +1,90 @@
-# Development
+# Development Setup
 
-This page covers local development workflows for `RandomLoadout`.
+Use this page when you need the local build, test, dependency, or day-to-day development workflow.
 
-## Build
+If you are new to the project, start with [Start Here](./start-here.md) first.
 
-PowerShell wrapper:
+## Must Read First
 
-```powershell
-python .\tools\build.py --configuration Debug
-```
+Before touching ETG runtime code, read:
 
-Python entrypoint:
+1. [Start Here](./start-here.md)
+2. [Terminology And Naming](../reference/terminology.md)
+3. [Testing Matrix](../reference/testing-matrix.md)
+4. [Tools README](../../tools/README.md)
 
-```powershell
-python .\tools\build.py --configuration Debug
-```
+## 30-Second Commands
 
-Release build:
-
-```powershell
-python .\tools\build.py --configuration Release
-```
-
-## Test
-
-PowerShell wrapper:
+Build debug:
 
 ```powershell
-python .\tools\test.py --configuration Debug
+python .\tools\build\build.py --configuration Debug
 ```
 
-Python entrypoint:
+Build release:
 
 ```powershell
-python .\tools\test.py --configuration Debug
+python .\tools\build\build.py --configuration Release
 ```
 
-## Tooling
+Run automated tests:
 
-The scripts use the system `.NET Framework` MSBuild at:
+```powershell
+python .\tools\build\test.py --configuration Debug
+```
 
-- `C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe`
+Run naming check:
 
-Build logic and test logic now live in Python tools under [`tools/`](../../tools/).
-The PowerShell files are thin wrappers that forward arguments to Python.
+```powershell
+python .\tools\devtools\check_naming.py --verbose
+```
+
+Deploy release to game:
+
+```powershell
+python .\tools\deploy\deploy_mod.py "<game path>" --configuration Release --overwrite-config
+```
+
+## Build And Test Expectations
+
+Use [Testing Matrix](../reference/testing-matrix.md) to decide which checks are required for your change.
+
+At minimum:
+
+- C# or `.csproj` change:
+  build Debug and Release
+- `RandomLoadout.Core` logic change:
+  run automated tests
+- ETG runtime change:
+  build, then run smoke checks and review logs
+
+## Smoke And Runtime Validation
+
+After changing runtime hooks, deployment logic, Boss Rush flow, character-select-hub flow, or scene transitions, also run:
+
+- [Smoke Checklist](../operations/smoke-checklist.md)
+- [Logging](../operations/logging.md)
+
+## Local Tooling
+
+This repository uses Python tooling under [`tools/`](../../tools/).
+
+Relevant entrypoints:
+
+- `tools/build/`
+- `tools/deploy/`
+- `tools/logs/`
+- `tools/devtools/`
+
+For the quick command map, read:
+
+- [Tools README](../../tools/README.md)
 
 ## Local Dependencies
 
-Required local DLLs are described in:
+Required local DLLs and dependency-drop expectations are documented in:
 
-- [`../../lib/README.md`](../../lib/README.md)
+- [lib/README.md](../../lib/README.md)
 
 ## IDE
 
@@ -57,4 +92,13 @@ The repository includes:
 
 - `RandomLoadout.sln`
 
-for IDE-based work.
+Use it for IDE navigation if helpful, but keep the documented Python command paths as the source of truth for build/test workflow.
+
+## Read Next
+
+- Deploy workflow:
+  [../operations/deploy.md](../operations/deploy.md)
+- Log workflow:
+  [../operations/logging.md](../operations/logging.md)
+- Runtime risk areas:
+  [../architecture/runtime-hotspots.md](../architecture/runtime-hotspots.md)

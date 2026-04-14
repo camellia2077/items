@@ -1,14 +1,25 @@
 # Commands
 
-This page covers the current in-game command panel behavior.
+Use this page when you need the current in-game command panel behavior, supported actions, and developer notes for changing that surface.
 
-## Command Panel
+## Must Read First
 
-- Press `F7` to open or close the command panel
-- The panel is positioned near the bottom center of the screen to avoid the top-left HUD
-- The UI uses a darker ETG-friendly color scheme with clearer text sizing
+Before changing command UI, pickup grant behavior, Boss Rush entry flow, or character-select-hub UI actions, read:
 
-## Supported Commands
+1. [Start Here](../getting-started/start-here.md)
+2. [Terminology And Naming](./terminology.md)
+3. [Runtime Hotspots](../architecture/runtime-hotspots.md)
+4. [Testing Matrix](./testing-matrix.md)
+
+## Player-Facing Behavior
+
+### Command Panel
+
+- Press `F7` to open or close the command panel.
+- The panel is positioned near the bottom center of the screen to avoid the top-left HUD.
+- The UI uses a darker ETG-friendly color scheme with clearer text sizing.
+
+### Supported Typed Commands
 
 - `<name>`
 - `<alias>`
@@ -26,44 +37,42 @@ This page covers the current in-game command panel behavior.
 - `item <alias>`
 - `item <id>`
 
-Command lookup now follows a `ModTheGungeonAPI give`-style order:
-`id` -> `alias` -> `internalName` -> `displayName`.
-All lookup inputs are case-insensitive.
-If the value starts with a number, the command treats that leading number as the pickup ID.
-Internal pickup identifiers such as `platinumbullets` are the recommended string form.
-Display name input remains supported as a compatibility fallback, but it is less stable because it depends on runtime-localized strings.
-If the input does not start with a known target such as `gun`, `passive`, `active`, or `item`, the whole input is treated as an `item` / `any` lookup.
-This means pasted values like `gun 541 casey baseball_bat_gun` still work because the leading ID wins.
+Lookup behavior:
 
-## Implementation Notes
+- resolution order is `id -> alias -> internalName -> displayName`
+- all lookup inputs are case-insensitive
+- if the value starts with a number, the leading number is treated as `pickupId`
+- if no known target prefix is present, the input is treated as `item` / `any`
 
-- Item lookup and grant behavior are intentionally aligned with `ModTheGungeonAPI give` where practical.
-- Implementation reference:
-  - [`modthegungeonapi.md`](./modthegungeonapi.md)
-- Project strategy decision:
-  - [`pickup-grant-strategy.md`](../decisions/pickup-grant-strategy.md)
+Recommended input style:
 
-## Buttons
+- prefer internal names such as `platinumbullets`
+- use aliases when you want stable shorthand
+- use display names only as a compatibility fallback
+
+### Main Buttons
 
 - `Grant`
-  Executes the typed command
+  Executes the typed command.
 - `Random`
-  Grants one random supported pickup without requiring text input
+  Grants one random supported pickup without requiring text input.
+- `Boss Rush`
+  Opens the Boss Rush page.
 - `Pickups`
-  Opens a small in-game pickup browser with search, category filters, and runtime sprite icons from the live game data
+  Opens the in-game pickup browser with search, category filters, and runtime sprite icons.
 - `Rapid OFF` / `Rapid ON`
-  Toggles hold-to-rapid-fire mode. When enabled, semi-automatic gun modules are temporarily treated as automatic while active, so holding left mouse can match rapid clicking speed.
+  Toggles hold-to-rapid-fire mode for the current gun.
 - `Currency`
-  Opens a secondary menu for resource actions.
+  Opens the resource-actions submenu.
 
-## Pickup Browser
+### Pickup Browser
 
-- Search matches `alias`, `internalName`, `displayName`, and `pickupId`
-- Category filters support `All`, `Gun`, `Passive`, and `Active`
-- Clicking a result row or its `Grant` button grants the selected pickup directly
-- Icons are reused from the game's runtime pickup sprites; no separate icon pack is bundled with the mod
+- search matches `alias`, `internalName`, `displayName`, and `pickupId`
+- category filters support `All`, `Gun`, `Passive`, and `Active`
+- clicking a result row or its `Grant` button grants the selected pickup directly
+- icons are reused from the game's live pickup sprites
 
-## Currency Menu
+### Currency Menu
 
 In the `Currency` submenu:
 
@@ -72,27 +81,38 @@ In the `Currency` submenu:
 - `+50 Casings`
   Adds 50 casings to the current player.
 - `+10 Hegemony`
-  Adds 10 Breach meta currency (`TrackedStats.META_CURRENCY`).
+  Adds 10 meta currency via `TrackedStats.META_CURRENCY`.
 
-## Character Page Modes
+### Boss Rush Page
 
-In the `Characters` page, the mode button controls what happens when you click a character:
+On the `Boss Rush` page:
+
+- `Start Boss Rush`
+  Starts an independent boss-rush run from the character-select hub.
+- `Return to Character Select`
+  Aborts an active Boss Rush and returns to character select.
+
+Current Boss Rush v1 behavior:
+
+- starts only in the character-select hub (`tt_foyer`, commonly called the Breach)
+- uses the fixed floor order `Keep -> Proper -> Mines -> Hollow -> Forge -> Hell`
+- loads each vanilla floor, then routes the player toward the boss encounter
+- waits for a boss reward claim before loading the next floor
+- returns to character select on death or after clearing Hell
+
+### Character Page Modes
+
+In the `Characters` page:
 
 - `Mode: Unlock`
   Tries to unlock the clicked hidden character in save data.
   `Robot` is excluded from unlock mode in this panel.
 - `Mode: Switch Only`
-  Performs character switching only, without writing unlock flags.
-  This mode is intended for immediate in-session switching behavior.
+  Performs immediate character switching without writing unlock flags.
 
-## Notes
+### Configurable Start Loadout
 
-- command execution logs are tagged with `[RandomLoadout][Command]`
-- the command panel is intended as a minimum useful debug and experimentation tool, not yet a full in-game console
-
-## Configurable Start Loadout
-
-The automatic start-of-run loadout now uses:
+The automatic start-of-run loadout uses:
 
 - `randomgun.randomloadout.cfg`
   simple on/off switches
@@ -103,32 +123,52 @@ The automatic start-of-run loadout now uses:
 
 Current minimum behavior:
 
-- `EnableRandomLoadout` in `randomgun.randomloadout.cfg` controls whether automatic start-of-run grants happen
-- rules in `RandomLoadout.rules.json5` support:
+- `EnableRandomLoadout` controls whether automatic start-of-run grants happen
+- rules support:
   - `random`
   - `specific`
-- `specific` rules support either:
-  - `name`: string lookup using `internalName` first and `displayName` as a fallback
-  - `alias`: shared alias from `RandomLoadout.aliases.json5`
-  - `id`: numeric pickup ID from `RandomLoadout.pickups.txt`
-- `random` rules support either or both:
-  - `pool`: string list resolved as `internalName` first and `displayName` second
-  - `poolAliases`: alias list
-  - `poolIds`: numeric pickup ID list
-- when `specific` contains multiple references, resolution priority is `id` -> `alias` -> `internalName` -> `displayName`
-- when `random` contains multiple pool sources, resolution priority is `poolIds` -> `poolAliases` -> `pool`, and string pool entries use `internalName` before `displayName`
-- `RandomLoadout.pickups.txt` is the exported lookup index for `Category`, `ID`, `DisplayName`, and internal name
-- `RandomLoadout.aliases.json5` is the shared readable alias layer that points back to `pickupId`
+- `specific` rules support:
+  - `name`
+  - `alias`
+  - `id`
+- `random` rules support:
+  - `pool`
+  - `poolAliases`
+  - `poolIds`
 
-The default generated rule file currently starts with:
+Resolution priority:
 
-- `541` for `casey_bat`
-- `118` for `eyepatch`
+- `specific`: `id -> alias -> internalName -> displayName`
+- `random`: `poolIds -> poolAliases -> pool`
 
-The default alias file currently starts with:
+## Developer Notes
 
-- `casey_bat` -> `541`
-- `casey_nail` -> `616`
-- `eyepatch` -> `118`
+### Implementation References
 
-This is intended as a strong and flavorful first preset rather than a fully randomized default.
+- [ModTheGungeonAPI Reference](./modthegungeonapi.md)
+- [Pickup Grant Strategy](../decisions/pickup-grant-strategy.md)
+- [Character Switch Strategy](../decisions/character-switch-strategy.md)
+
+### Runtime Notes
+
+- command execution logs are tagged with `[RandomLoadout][Command]`
+- the command panel is intentionally a compact debug and experimentation surface, not a full console
+- Boss Rush entry and return actions touch ETG runtime hotspots and should be treated as manual-verify areas
+- character-select-hub actions must not assume scene token meaning equals gameplay-state meaning
+
+### After Editing This Surface
+
+At minimum:
+
+- run the checks from [Testing Matrix](./testing-matrix.md)
+- if runtime behavior changed, run [Smoke Checklist](../operations/smoke-checklist.md)
+- review [Logging](../operations/logging.md) after testing
+
+## Read Next
+
+- Runtime terminology:
+  [./terminology.md](./terminology.md)
+- Runtime risk areas:
+  [../architecture/runtime-hotspots.md](../architecture/runtime-hotspots.md)
+- Testing expectations:
+  [./testing-matrix.md](./testing-matrix.md)

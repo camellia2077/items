@@ -1,11 +1,14 @@
 from __future__ import annotations
 
-import re
 import shutil
 import sys
 import tempfile
 import zipfile
 from pathlib import Path
+
+TOOLS_ROOT = Path(__file__).resolve().parents[1]
+if str(TOOLS_ROOT) not in sys.path:
+    sys.path.insert(0, str(TOOLS_ROOT))
 
 from release_package_compliance import (
     ensure_no_game_owned_dlls,
@@ -19,29 +22,14 @@ from release_package_upstream import (
     extract_upstream_content,
     sha256_for_file,
 )
-from tool_common import get_default_sync_paths, get_plugin_output_path, run_process
+from tool_common import get_default_sync_paths, get_plugin_output_path, read_repo_version, run_process, sync_generated_version_files
 
 
-ASSEMBLY_INFO_PATH = Path("src") / "RandomLoadout" / "Properties" / "AssemblyInfo.cs"
 DIST_DIRECTORY = Path("dist")
 
 
 def detect_mod_version(repo_root: Path) -> str:
-    assembly_info_path = repo_root / ASSEMBLY_INFO_PATH
-    if not assembly_info_path.is_file():
-        raise FileNotFoundError("Assembly info not found: {0}".format(assembly_info_path))
-
-    raw_text = assembly_info_path.read_text(encoding="utf-8")
-    patterns = (
-        r'AssemblyInformationalVersion\("(?P<version>[^"]+)"\)',
-        r'AssemblyVersion\("(?P<version>[^"]+)"\)',
-    )
-    for pattern in patterns:
-        match = re.search(pattern, raw_text)
-        if match:
-            return match.group("version").strip()
-
-    raise ValueError("Could not detect mod version from '{0}'.".format(assembly_info_path))
+    return read_repo_version(repo_root)
 
 
 def normalize_version_tag(version: str) -> str:
@@ -104,6 +92,7 @@ def build_release_package(
     skip_build: bool,
     cache_directory: Path,
 ) -> Path:
+    sync_generated_version_files(repo_root)
     build_plugin_if_needed(repo_root, configuration, skip_build)
 
     mod_version = version.strip() if version else detect_mod_version(repo_root)

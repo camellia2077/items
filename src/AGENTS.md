@@ -1,13 +1,17 @@
 # Source Guide
 
-This file is a thin index for agents and contributors working under `src/`.
-It is intentionally brief so it stays stable as the code evolves.
+This file is the runtime-editing checklist for agents and contributors working under `src/`.
 
-## Start Here
+Do not treat it as optional reading for ETG runtime changes.
 
-- Read [`../docs/architecture/system-overview.md`](../docs/architecture/system-overview.md) for the current responsibility split.
-- Read [`../docs/getting-started/development-setup.md`](../docs/getting-started/development-setup.md) for build and test workflow.
-- Read [`../docs/operations/deploy.md`](../docs/operations/deploy.md) if your change affects shipped files or the game install layout.
+## Must Read First
+
+Before changing ETG runtime code, read:
+
+- [`../docs/getting-started/start-here.md`](../docs/getting-started/start-here.md)
+- [`../docs/reference/terminology.md`](../docs/reference/terminology.md)
+- [`../docs/architecture/runtime-hotspots.md`](../docs/architecture/runtime-hotspots.md)
+- [`../docs/reference/testing-matrix.md`](../docs/reference/testing-matrix.md)
 
 ## Task Index
 
@@ -24,7 +28,7 @@ Use this quick map after you know which area you are changing.
 - [`../docs/decisions/pickup-grant-strategy.md`](../docs/decisions/pickup-grant-strategy.md)
 - [`../docs/reference/pickups.md`](../docs/reference/pickups.md)
 
-### Breach Character Switching
+### Character-Select-Hub Switching
 
 - [`../docs/reference/commands.md`](../docs/reference/commands.md)
 - [`../docs/decisions/character-switch-strategy.md`](../docs/decisions/character-switch-strategy.md)
@@ -69,12 +73,27 @@ Treat this as the pure logic layer.
 - deterministic seed behavior
 - structured warnings and results
 
-## Editing Guidance
+## ETG Runtime Checklist
+
+Before editing:
+
+- Do not assume a scene token is the same thing as a gameplay state.
+- Confirm whether the target area is listed in [`../docs/architecture/runtime-hotspots.md`](../docs/architecture/runtime-hotspots.md).
+- Prefer the documented gameplay term first, then map it to the ETG token or ETG runtime type.
+- Check whether the change can stay in `src/RandomLoadout.Core/` instead of runtime ETG code.
+
+When editing:
 
 - Prefer keeping new game-specific behavior in `src/RandomLoadout/`.
 - Prefer moving reusable or testable decision logic into `src/RandomLoadout.Core/`.
-- Prefer following the current `thin entry file + responsibility-focused partial files` pattern for larger runtime classes.
+- Prefer vanilla ETG flow over hard custom transitions.
+- Do not directly hard-cut scene or player state if a stable vanilla path exists.
+- Before editing a Harmony hook, verify the target signature and parameter names first.
 - When a type already uses `*.cs` partial siblings, add or move behavior into the matching responsibility file instead of growing the main entry file again.
-- Examples in the current codebase include `Plugin*.cs`, `InGameCommandController*.cs`, `FoyerCharacterSwitchService*.cs`, `GrantCommandService*.cs`, `EtgPickupResolver*.cs`, and `JsonLoadoutRuleFileProvider*.cs`.
-- Prefer updating `docs/` instead of expanding this file with detailed behavior notes.
-- If a change affects deployment, generated files, or user workflow, add or update the matching doc under `docs/`.
+- Examples in the current codebase include `Plugin*.cs`, `InGameCommandController*.cs`, `FoyerCharacterSwitchService*.cs`, `GrantCommandService*.cs`, `EtgPickupResolver*.cs`, `JsonLoadoutRuleFileProvider*.cs`, and `BossRushService*.cs`.
+
+After editing:
+
+- Run the checks required by [`../docs/reference/testing-matrix.md`](../docs/reference/testing-matrix.md).
+- Read the BepInEx log after any ETG runtime, hook, or scene-transition change.
+- If a change affects deployment, generated files, workflow, or terminology, update the matching doc under `docs/`.

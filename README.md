@@ -1,122 +1,72 @@
 # RandomLoadout
 
 `RandomLoadout` is an `Enter the Gungeon` mod built on `BepInEx`.
-The project started as a random starting-loadout prototype and is now being reorganized into a cleaner runtime layer, pure core logic layer, and script/documentation layer so later feature work can grow on a steadier base.
+It currently combines:
 
-## Project Overview
+- automatic run-start loadout grant
+- in-game command/debug UI
+- ETG runtime integration work such as Boss Rush and character-select-hub utilities
 
-- Grants a run-start loadout after the dungeon has actually loaded
-- Keeps the current working baseline behavior:
-  - `1` gun
-  - `1` passive
-  - `1` active
-- Supports rule-driven selection in code:
-  - random rules
-  - specific pickup rules via `pickupId`, `alias`, `internalName`, or compatible `displayName` input
-- Includes a minimal in-game command panel for quick manual grants and debugging
-- Separates Unity/ETG integration from testable core selection logic
+## Read This First
 
-## Repository Structure
+Do not start from source files unless you already know the ETG runtime surface.
+
+- [Start Here](./docs/getting-started/start-here.md)
+- [Docs Index](./docs/README.md)
+- [Source Guide](./src/AGENTS.md)
+
+## Quick Start
+
+- Build:
+  `python .\tools\build\build.py --configuration Debug`
+- Test:
+  `python .\tools\build\test.py --configuration Debug`
+- Naming check:
+  `python .\tools\devtools\check_naming.py --verbose`
+- Deploy:
+  `python .\tools\deploy\deploy_mod.py "<game path>" --configuration Release --overwrite-config`
+
+## Documentation Map
+
+- New contributor / agent handoff:
+  [docs/getting-started/start-here.md](./docs/getting-started/start-here.md)
+- Runtime terminology:
+  [docs/reference/terminology.md](./docs/reference/terminology.md)
+- High-risk ETG runtime areas:
+  [docs/architecture/runtime-hotspots.md](./docs/architecture/runtime-hotspots.md)
+- Build / deploy / logs:
+  [docs/getting-started/development-setup.md](./docs/getting-started/development-setup.md)
+  [docs/operations/deploy.md](./docs/operations/deploy.md)
+  [docs/operations/logging.md](./docs/operations/logging.md)
+- Testing expectations:
+  [docs/reference/testing-matrix.md](./docs/reference/testing-matrix.md)
+
+## Repository Layout
 
 - `src/RandomLoadout/`
-  BepInEx plugin project, Unity runtime integration, ETG-facing code
+  Unity / ETG runtime integration
 - `src/RandomLoadout.Core/`
-  Pure configuration and selection logic, no Unity dependencies
+  pure selection and config logic
 - `tests/RandomLoadout.Core.Tests/`
-  Lightweight automated tests for core behavior
-- `tools/`
-  Build, test, deploy, release, and log helper tools
-- `defaults/`
-  Repository-shipped baseline config files and pickup catalog snapshots used for first deploys
+  automated tests for core behavior
 - `docs/`
-  Detailed documentation, notes, research, and operational guidance
+  project knowledge base
+- `tools/`
+  build, deploy, logs, release, and dev utilities
+- `defaults/`
+  repository-shipped config and catalog baselines
 - `lib/`
-  Local dependency drop folder for game and modding DLLs
+  local dependency drop folder
 
-## Current Focus
+## Dependencies
 
-The current codebase is centered on three goals:
-
-- keeping the already-working gameplay behavior stable
-- improving maintainability through responsibility-based structure
-- making future features easier to add, especially around configurable or manual item grants
-
-## Open Source Dependencies
-
-This project currently has one direct open source runtime dependency:
+Direct open-source runtime dependencies:
 
 - [`BepInEx`](https://github.com/BepInEx/BepInEx)
-  The plugin loader and runtime framework used to load the mod into `Enter the Gungeon`
-
-The mod also depends on local game and Unity assemblies for compilation, including `Assembly-CSharp.dll` and `UnityEngine*.dll`, but those are installation-local dependencies rather than open source repository dependencies of this project.
-
-`HarmonyX` and `MonoMod` remain relevant parts of the broader `BepInEx` ecosystem, but they are not currently direct project references in this repository.
-
-## Referenced Repositories
-
-The project also uses the following repositories as implementation references and workflow guidance:
-
 - [`SpecialAPI/ModTheGungeonAPI`](https://github.com/SpecialAPI/ModTheGungeonAPI)
-  Used as a practical reference for ETG runtime interaction patterns, especially command-style item grant flow and character switching behavior.
+- [`HarmonyX`](https://github.com/BepInEx/HarmonyX)
+
+Implementation references:
+
 - [`SpecialAPI/SaveAPI`](https://github.com/SpecialAPI/SaveAPI)
-  Used as a practical reference for save and persistence workflow patterns in ETG modding.
-
-## Documentation
-
-Detailed usage and maintenance notes have been moved under [`docs/`](./docs/README.md).
-
-Useful entry points:
-
-- [`docs/README.md`](./docs/README.md)
-  General documentation index
-- [`docs/getting-started/development-setup.md`](./docs/getting-started/development-setup.md)
-  Build, test, dependencies, and tooling workflow
-- [`docs/architecture/system-overview.md`](./docs/architecture/system-overview.md)
-  Lightweight repository responsibility map
-- [`docs/operations/deploy.md`](./docs/operations/deploy.md)
-  Deployment steps and notes
-- [`docs/operations/release-package.md`](./docs/operations/release-package.md)
-  Player-facing release zip packaging workflow
-- [`docs/operations/logging.md`](./docs/operations/logging.md)
-  Log prefixes and log extraction workflow
-- [`docs/reference/commands.md`](./docs/reference/commands.md)
-  In-game command panel usage
-- [`docs/reference/pickups.md`](./docs/reference/pickups.md)
-  Generated player-facing pickup reference grouped by category
-- [`docs/history/`](./docs/history/)
-  Version history snapshots
-- [`docs/notes/cmd.md`](./docs/notes/cmd.md)
-  Command-related working notes
-- [`docs/architecture/research/project-scope.md`](./docs/architecture/research/project-scope.md)
-  Scope and constraints
-- [`docs/architecture/research/implementation-guidance.md`](./docs/architecture/research/implementation-guidance.md)
-  Implementation guidance and next-step context
-
-## Development Entry Points
-
-For day-to-day development, the main entry points are:
-
-- `python .\tools\build.py --configuration Debug`
-- `python .\tools\test.py --configuration Debug`
-- `python .\tools\deploy_mod.py "<game path>"`
-- `python .\tools\extract_randomloadout_log.py "<BepInEx log path>"`
-
-PowerShell wrappers remain available, but build and test logic now lives in Python tooling under `tools/`.
-
-## Default Baselines
-
-The repository includes read-only baseline files under `defaults/`.
-
-- `defaults/config/`
-  Repository default config files copied into `BepInEx\config` on deploy
-- `defaults/catalog/`
-  Repository snapshots of the exported pickup catalog and full random rule pool
-
-These files are intended as a stable fallback for this older game.
-At deploy time they can be copied into the game directory if missing.
-At runtime the plugin writes fresh export files into the game directory and those runtime-generated files replace the game-side copies there.
-The repository copies remain the baseline and are not modified by the plugin.
-
-## Solution
-
-The repository also includes `RandomLoadout.sln` for IDE-based work.
+- [`Nevernamed22/OnceMoreIntoTheBreach`](https://github.com/Nevernamed22/OnceMoreIntoTheBreach)
