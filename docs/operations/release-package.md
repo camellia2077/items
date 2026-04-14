@@ -30,7 +30,7 @@ python .\tools\build_release_package.py --configuration Release
 Override the package version label:
 
 ```powershell
-python .\tools\build_release_package.py --version 0.2.0
+python .\tools\release\build_release_package.py --version 0.2.3
 ```
 
 Skip the build step and package the current compiled DLL:

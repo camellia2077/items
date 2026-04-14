@@ -25,17 +25,83 @@ DEFAULT_CATALOG_FILE_NAMES = (
     "RandomLoadout.rules.full-pool.json5",
 )
 REQUIRED_BUILD_DLLS = (
+    "0Harmony.dll",
     "Assembly-CSharp.dll",
     "BepInEx.dll",
+    "ModTheGungeonAPI.dll",
     "UnityEngine.dll",
     "UnityEngine.CoreModule.dll",
     "UnityEngine.IMGUIModule.dll",
     "UnityEngine.TextRenderingModule.dll",
 )
 
+VERSION_FILE_NAME = "VERSION"
+PLUGIN_VERSION_FILE = Path("src") / "RandomLoadout" / "Properties" / "Version.g.cs"
+CORE_VERSION_FILE = Path("src") / "RandomLoadout.Core" / "Properties" / "Version.g.cs"
+
 
 def get_repo_root() -> Path:
     return Path(__file__).resolve().parent.parent
+
+
+def get_version_file_path(repo_root: Path) -> Path:
+    return repo_root / VERSION_FILE_NAME
+
+
+def read_repo_version(repo_root: Path) -> str:
+    version_path = get_version_file_path(repo_root)
+    if not version_path.is_file():
+        raise FileNotFoundError("Version file not found: {0}".format(version_path))
+
+    version = version_path.read_text(encoding="utf-8").strip()
+    if not version:
+        raise ValueError("Version file was empty: {0}".format(version_path))
+
+    return version
+
+
+def _build_plugin_version_source(version: str) -> str:
+    return """using System.Reflection;
+
+[assembly: AssemblyVersion("{0}")]
+[assembly: AssemblyFileVersion("{0}")]
+[assembly: AssemblyInformationalVersion("{0}")]
+
+namespace RandomLoadout
+{{
+    internal static class BuildVersionInfo
+    {{
+        public const string Version = "{0}";
+    }}
+}}
+""".format(version)
+
+
+def _build_core_version_source(version: str) -> str:
+    return """using System.Reflection;
+
+[assembly: AssemblyVersion("{0}")]
+[assembly: AssemblyFileVersion("{0}")]
+[assembly: AssemblyInformationalVersion("{0}")]
+""".format(version)
+
+
+def _write_if_changed(path: Path, content: str) -> None:
+    normalized_content = content.replace("\r\n", "\n")
+    if path.is_file():
+        existing = path.read_text(encoding="utf-8").replace("\r\n", "\n")
+        if existing == normalized_content:
+            return
+
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(normalized_content, encoding="utf-8", newline="\n")
+
+
+def sync_generated_version_files(repo_root: Path) -> str:
+    version = read_repo_version(repo_root)
+    _write_if_changed(repo_root / PLUGIN_VERSION_FILE, _build_plugin_version_source(version))
+    _write_if_changed(repo_root / CORE_VERSION_FILE, _build_core_version_source(version))
+    return version
 
 
 def add_configuration_argument(parser: argparse.ArgumentParser, help_text: str) -> None:
@@ -75,6 +141,22 @@ def get_plugin_output_path(repo_root: Path, configuration: str) -> Path:
     return (
         repo_root / "src" / PROJECT_NAME / "bin" / configuration / "{0}.dll".format(PROJECT_NAME)
     )
+
+
+def get_local_dependency_path(repo_root: Path, file_name: str) -> Path:
+    return repo_root / "lib" / file_name
+
+
+def get_runtime_dependency_specs() -> list[tuple[str, Path]]:
+    return [
+        ("0Harmony.dll", Path("BepInEx") / "plugins"),
+        ("ModTheGungeonAPI.dll", Path("BepInEx") / "plugins" / "MtGAPI"),
+        ("Ionic.Zip.dll", Path("BepInEx") / "plugins" / "MtGAPI"),
+        ("Newtonsoft.Json.dll", Path("BepInEx") / "plugins" / "MtGAPI"),
+        ("System.Xml.dll", Path("BepInEx") / "plugins" / "MtGAPI"),
+        ("System.Xml.Linq.dll", Path("BepInEx") / "plugins" / "MtGAPI"),
+        ("UnityEngine.CoreModule.MTGAPIPatcher.mm.dll", Path("monomod")),
+    ]
 
 
 def get_default_config_dir(repo_root: Path) -> Path:

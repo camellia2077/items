@@ -1,46 +1,8 @@
 from __future__ import annotations
 
-import argparse
-from tool_common import (
-    add_configuration_argument,
-    fail,
-    get_repo_root,
-    get_test_output_path,
-    get_test_project_path,
-    resolve_msbuild,
-    run_cli,
-    run_process,
-)
-
-
-def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(
-        description="Build and run the RandomLoadout core test executable."
-    )
-    add_configuration_argument(parser, "Build configuration. Defaults to Debug.")
-    return parser.parse_args()
-
-
-def main() -> int:
-    args = parse_args()
-    repo_root = get_repo_root()
-    project_path = get_test_project_path(repo_root)
-    test_exe_path = get_test_output_path(repo_root, args.configuration)
-
-    msbuild_path = resolve_msbuild()
-
-    build_result = run_process(
-        [str(msbuild_path), str(project_path), "/p:Configuration={0}".format(args.configuration)],
-        repo_root,
-    )
-    if build_result != 0:
-        return build_result
-
-    if not test_exe_path.is_file():
-        return fail("Test executable not found at '{0}'.".format(test_exe_path))
-
-    return run_process([str(test_exe_path)], repo_root)
+import runpy
+from pathlib import Path
 
 
 if __name__ == "__main__":
-    raise SystemExit(run_cli(main))
+    runpy.run_path(str(Path(__file__).resolve().parent / "build" / "test.py"), run_name="__main__")
