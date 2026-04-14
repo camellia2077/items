@@ -34,24 +34,7 @@ namespace RandomLoadout
                     resolveResult = _pickupResolver.ResolveAny(request.PickupName);
                     break;
                 default:
-                    return new EtgPickupResolveResult(false, null, 0, string.Empty, new SelectionWarning(null, "CommandTargetUnsupported", "The command target was not supported."));
-            }
-
-            if (!resolveResult.Succeeded &&
-                resolveResult.Warning != null &&
-                (string.Equals(resolveResult.Warning.Code, "InternalNameAmbiguous", System.StringComparison.Ordinal) ||
-                 string.Equals(resolveResult.Warning.Code, "DisplayNameAmbiguous", System.StringComparison.Ordinal)))
-            {
-                string aliasSuggestion = BuildAliasSuggestion(request, aliasRegistry);
-                return new EtgPickupResolveResult(
-                    false,
-                    resolveResult.Category,
-                    0,
-                    string.Empty,
-                    new SelectionWarning(
-                        resolveResult.Warning.Category,
-                        resolveResult.Warning.Code,
-                        resolveResult.Warning.Message + aliasSuggestion));
+                    return new EtgPickupResolveResult(false, null, 0, string.Empty, new SelectionWarning(null, "CommandTargetUnsupported", GuiText.GetEnglish("result.error.command_target_unsupported")));
             }
 
             return resolveResult;
@@ -70,7 +53,7 @@ namespace RandomLoadout
                 case GrantCommandTarget.Any:
                     return _pickupResolver.ResolveAny(pickupId);
                 default:
-                    return new EtgPickupResolveResult(false, null, 0, string.Empty, new SelectionWarning(null, "CommandTargetUnsupported", "The command target was not supported."));
+                    return new EtgPickupResolveResult(false, null, 0, string.Empty, new SelectionWarning(null, "CommandTargetUnsupported", GuiText.GetEnglish("result.error.command_target_unsupported")));
             }
         }
 

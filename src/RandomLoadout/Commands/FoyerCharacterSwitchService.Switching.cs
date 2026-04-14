@@ -19,28 +19,28 @@ namespace RandomLoadout
             failureMessage = string.Empty;
             if ((object)foyer == null)
             {
-                failureMessage = "Character switching is only available in the Breach.";
+                failureMessage = GuiText.Get("result.characters.breach_only_switch");
                 return false;
             }
 
             string[] prefabSuffixes;
             if (!TryGetCharacterPrefabSuffixes(label, out prefabSuffixes))
             {
-                failureMessage = "Force switch is not configured for " + label + ".";
+                failureMessage = GuiText.Get("result.characters.force_switch_not_configured", GuiText.GetCharacterLabel(label));
                 return false;
             }
 
             GameManager gameManager = GameManager.Instance;
             if ((object)gameManager == null || (object)gameManager.PrimaryPlayer == null)
             {
-                failureMessage = "The player is not ready yet.";
+                failureMessage = GuiText.Get("result.common.player_not_ready");
                 return false;
             }
 
             GameObject prefab = LoadCharacterPrefab(prefabSuffixes);
             if ((object)prefab == null)
             {
-                failureMessage = "Could not load the character prefab for " + label + ".";
+                failureMessage = GuiText.Get("result.characters.prefab_not_found", GuiText.GetCharacterLabel(label));
                 return false;
             }
 
@@ -62,7 +62,7 @@ namespace RandomLoadout
             if ((object)prefabController == null)
             {
                 GameManager.PlayerPrefabForNewGame = null;
-                failureMessage = "The " + label + " prefab was missing a PlayerController component.";
+                failureMessage = GuiText.Get("result.characters.prefab_missing_controller", GuiText.GetCharacterLabel(label));
                 return false;
             }
 
@@ -76,7 +76,7 @@ namespace RandomLoadout
             GameManager.PlayerPrefabForNewGame = null;
             if ((object)playerObject == null)
             {
-                failureMessage = "Failed to instantiate the " + label + " character.";
+                failureMessage = GuiText.Get("result.characters.instantiate_failed", GuiText.GetCharacterLabel(label));
                 return false;
             }
 
@@ -85,7 +85,7 @@ namespace RandomLoadout
             if ((object)selectedPlayer == null)
             {
                 UnityEngine.Object.Destroy(playerObject);
-                failureMessage = "Failed to initialize the " + label + " character controller.";
+                failureMessage = GuiText.Get("result.characters.controller_init_failed", GuiText.GetCharacterLabel(label));
                 return false;
             }
 

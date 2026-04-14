@@ -15,85 +15,85 @@ namespace RandomLoadout
         {
             if ((object)player == null)
             {
-                return new GrantCommandExecutionResult(false, "The player is not ready yet.");
+                return GrantCommandExecutionResult.Localized(false, "result.common.player_not_ready");
             }
 
             HealthHaver healthHaver = player.healthHaver;
             if ((object)healthHaver == null)
             {
-                return new GrantCommandExecutionResult(false, "The player's health component was not ready.");
+                return GrantCommandExecutionResult.Localized(false, "result.common.health_not_ready");
             }
 
             healthHaver.FullHeal();
-            return new GrantCommandExecutionResult(true, "Restored the player to full health.");
+            return GrantCommandExecutionResult.Localized(true, "result.debug.full_heal.success");
         }
 
         public GrantCommandExecutionResult HealHalfHeart(PlayerController player)
         {
             if ((object)player == null)
             {
-                return new GrantCommandExecutionResult(false, "The player is not ready yet.");
+                return GrantCommandExecutionResult.Localized(false, "result.common.player_not_ready");
             }
 
             HealthHaver healthHaver = player.healthHaver;
             if ((object)healthHaver == null)
             {
-                return new GrantCommandExecutionResult(false, "The player's health component was not ready.");
+                return GrantCommandExecutionResult.Localized(false, "result.common.health_not_ready");
             }
 
             float maxHealth = healthHaver.GetMaxHealth();
             if (maxHealth <= 0f)
             {
-                return new GrantCommandExecutionResult(false, "This character does not use heart health.");
+                return GrantCommandExecutionResult.Localized(false, "result.debug.health_type_invalid");
             }
 
             float currentHealth = healthHaver.GetCurrentHealth();
             float missingHealth = maxHealth - currentHealth;
             if (missingHealth <= 0f)
             {
-                return new GrantCommandExecutionResult(false, "The player is already at full health.");
+                return GrantCommandExecutionResult.Localized(false, "result.debug.health_already_full");
             }
 
             float healAmount = missingHealth < HalfHeartAmount ? missingHealth : HalfHeartAmount;
             healthHaver.ApplyHealing(healAmount);
-            return new GrantCommandExecutionResult(true, "Recovered " + healAmount.ToString("0.0") + " heart.");
+            return GrantCommandExecutionResult.Localized(true, "result.debug.heal_half.success", healAmount);
         }
 
         public GrantCommandExecutionResult AddArmor(PlayerController player)
         {
             if ((object)player == null)
             {
-                return new GrantCommandExecutionResult(false, "The player is not ready yet.");
+                return GrantCommandExecutionResult.Localized(false, "result.common.player_not_ready");
             }
 
             HealthHaver healthHaver = player.healthHaver;
             if ((object)healthHaver == null)
             {
-                return new GrantCommandExecutionResult(false, "The player's health component was not ready.");
+                return GrantCommandExecutionResult.Localized(false, "result.common.health_not_ready");
             }
 
             float nextArmor = healthHaver.Armor + SingleArmorAmount;
             healthHaver.Armor = nextArmor;
-            return new GrantCommandExecutionResult(true, "Added 1 armor.");
+            return GrantCommandExecutionResult.Localized(true, "result.debug.add_armor.success");
         }
 
         public GrantCommandExecutionResult ClearCurse(PlayerController player)
         {
             if ((object)player == null)
             {
-                return new GrantCommandExecutionResult(false, "The player is not ready yet.");
+                return GrantCommandExecutionResult.Localized(false, "result.common.player_not_ready");
             }
 
             PlayerStats stats = player.stats;
             if ((object)stats == null)
             {
-                return new GrantCommandExecutionResult(false, "The player's stats component was not ready.");
+                return GrantCommandExecutionResult.Localized(false, "result.common.stats_not_ready");
             }
 
             float totalCurse = stats.GetStatValue(PlayerStats.StatType.Curse);
             if (totalCurse <= 0f)
             {
-                return new GrantCommandExecutionResult(false, "The player has no curse to clear.");
+                return GrantCommandExecutionResult.Localized(false, "result.debug.no_curse");
             }
 
             float currentBaseCurse = stats.GetBaseStatValue(PlayerStats.StatType.Curse);
@@ -103,69 +103,69 @@ namespace RandomLoadout
             float remainingCurse = stats.GetStatValue(PlayerStats.StatType.Curse);
             if (remainingCurse > 0f)
             {
-                return new GrantCommandExecutionResult(true, "Reduced curse, but " + remainingCurse.ToString("0.##") + " curse remains.");
+                return GrantCommandExecutionResult.Localized(true, "result.debug.clear_curse.partial", remainingCurse);
             }
 
-            return new GrantCommandExecutionResult(true, "Cleared the player's curse.");
+            return GrantCommandExecutionResult.Localized(true, "result.debug.clear_curse.success");
         }
 
         public GrantCommandExecutionResult RefillBlanks(PlayerController player)
         {
             if ((object)player == null)
             {
-                return new GrantCommandExecutionResult(false, "The player is not ready yet.");
+                return GrantCommandExecutionResult.Localized(false, "result.common.player_not_ready");
             }
 
             PlayerStats stats = player.stats;
             if ((object)stats == null)
             {
-                return new GrantCommandExecutionResult(false, "The player's stats component was not ready.");
+                return GrantCommandExecutionResult.Localized(false, "result.common.stats_not_ready");
             }
 
             int targetBlankCount = stats.NumBlanksPerFloor;
             if (targetBlankCount <= 0)
             {
-                return new GrantCommandExecutionResult(false, "This character does not have a blank allotment to refill.");
+                return GrantCommandExecutionResult.Localized(false, "result.debug.no_blank_allotment");
             }
 
             if (player.Blanks >= targetBlankCount)
             {
-                return new GrantCommandExecutionResult(false, "The player's blanks are already full.");
+                return GrantCommandExecutionResult.Localized(false, "result.debug.blanks_already_full");
             }
 
             player.Blanks = targetBlankCount;
-            return new GrantCommandExecutionResult(true, "Refilled blanks to " + targetBlankCount + ".");
+            return GrantCommandExecutionResult.Localized(true, "result.debug.refill_blanks.success", targetBlankCount);
         }
 
         public GrantCommandExecutionResult RefillCurrentGunAmmo(PlayerController player)
         {
             if ((object)player == null)
             {
-                return new GrantCommandExecutionResult(false, "The player is not ready yet.");
+                return GrantCommandExecutionResult.Localized(false, "result.common.player_not_ready");
             }
 
             Gun currentGun = player.CurrentGun;
             if ((object)currentGun == null)
             {
-                return new GrantCommandExecutionResult(false, "No equipped gun was available.");
+                return GrantCommandExecutionResult.Localized(false, "result.debug.no_equipped_gun");
             }
 
             if (currentGun.InfiniteAmmo)
             {
-                return new GrantCommandExecutionResult(false, "The equipped gun already has infinite ammo.");
+                return GrantCommandExecutionResult.Localized(false, "result.debug.gun_infinite_ammo");
             }
 
             int targetAmmo = currentGun.AdjustedMaxAmmo;
             if (targetAmmo <= 0)
             {
-                return new GrantCommandExecutionResult(false, "The equipped gun does not support ammo refills.");
+                return GrantCommandExecutionResult.Localized(false, "result.debug.gun_refill_unsupported");
             }
 
             bool changedAmmo = currentGun.CurrentAmmo < targetAmmo;
             bool changedClip = currentGun.ClipShotsRemaining < currentGun.ClipCapacity;
             if (!changedAmmo && !changedClip)
             {
-                return new GrantCommandExecutionResult(false, "The equipped gun is already full.");
+                return GrantCommandExecutionResult.Localized(false, "result.debug.gun_already_full");
             }
 
             currentGun.CurrentAmmo = targetAmmo;
@@ -176,46 +176,46 @@ namespace RandomLoadout
             }
 
             string gunLabel = !string.IsNullOrEmpty(currentGun.DisplayName) ? currentGun.DisplayName : currentGun.name;
-            return new GrantCommandExecutionResult(true, "Refilled ammo for " + gunLabel + ".");
+            return GrantCommandExecutionResult.Localized(true, "result.debug.refill_ammo.success", gunLabel);
         }
 
         public GrantCommandExecutionResult AddKey(PlayerController player)
         {
             if ((object)player == null)
             {
-                return new GrantCommandExecutionResult(false, "The player is not ready yet.");
+                return GrantCommandExecutionResult.Localized(false, "result.common.player_not_ready");
             }
 
             PlayerConsumables consumables = player.carriedConsumables;
             if ((object)consumables == null)
             {
-                return new GrantCommandExecutionResult(false, "The player's consumables component was not ready.");
+                return GrantCommandExecutionResult.Localized(false, "result.common.consumables_not_ready");
             }
 
             if (consumables.InfiniteKeys)
             {
-                return new GrantCommandExecutionResult(false, "The player already has infinite keys.");
+                return GrantCommandExecutionResult.Localized(false, "result.debug.keys_infinite");
             }
 
             consumables.KeyBullets = consumables.KeyBullets + SingleKeyAmount;
-            return new GrantCommandExecutionResult(true, "Added 1 key.");
+            return GrantCommandExecutionResult.Localized(true, "result.debug.add_key.success");
         }
 
         public GrantCommandExecutionResult AddCurrency(PlayerController player)
         {
             if ((object)player == null)
             {
-                return new GrantCommandExecutionResult(false, "The player is not ready yet.");
+                return GrantCommandExecutionResult.Localized(false, "result.common.player_not_ready");
             }
 
             PlayerConsumables consumables = player.carriedConsumables;
             if ((object)consumables == null)
             {
-                return new GrantCommandExecutionResult(false, "The player's consumables component was not ready.");
+                return GrantCommandExecutionResult.Localized(false, "result.common.consumables_not_ready");
             }
 
             consumables.Currency = consumables.Currency + CurrencyBundleAmount;
-            return new GrantCommandExecutionResult(true, "Added 50 casings.");
+            return GrantCommandExecutionResult.Localized(true, "result.debug.add_currency.success");
         }
 
         public GrantCommandExecutionResult AddMetaCurrency(PlayerController player)
@@ -223,14 +223,14 @@ namespace RandomLoadout
             GameStatsManager stats = GameStatsManager.Instance;
             if ((object)stats == null)
             {
-                return new GrantCommandExecutionResult(false, "The game stats manager was not ready.");
+                return GrantCommandExecutionResult.Localized(false, "result.common.game_stats_not_ready");
             }
 
             // META_CURRENCY is the Breach (character-select hub) currency, not in-run casings.
             // Runtime behavior is 1:1 with RegisterStatChange for this tracked stat.
             stats.RegisterStatChange(TrackedStats.META_CURRENCY, MetaCurrencyBundleAmount);
             GameStatsManager.Save();
-            return new GrantCommandExecutionResult(true, "Added 50 hegemony credits.");
+            return GrantCommandExecutionResult.Localized(true, "result.debug.add_meta_currency.success");
         }
     }
 }

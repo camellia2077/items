@@ -9,27 +9,27 @@ namespace RandomLoadout
         {
             Rect currencyMenuButtonRect = new Rect(panelRect.x + panelRect.width - CurrencyMenuButtonWidth - 14f, panelRect.y + 12f, CurrencyMenuButtonWidth, 30f);
             Rect pickupMenuButtonRect = new Rect(currencyMenuButtonRect.x - ButtonGap - PickupMenuButtonWidth, panelRect.y + 12f, PickupMenuButtonWidth, 30f);
-            if (GUI.Button(pickupMenuButtonRect, "Pickups", _buttonStyle))
+            if (GUI.Button(pickupMenuButtonRect, GuiText.Get("gui.command.button.pickups"), _buttonStyle))
             {
                 OpenPickupPage(logger);
             }
 
-            if (GUI.Button(currencyMenuButtonRect, "Currency", _buttonStyle))
+            if (GUI.Button(currencyMenuButtonRect, GuiText.Get("gui.command.button.currency"), _buttonStyle))
             {
                 OpenCurrencyPage(logger);
             }
 
             GUI.Label(
                 new Rect(panelRect.x + 14f, panelRect.y + 12f, pickupMenuButtonRect.x - panelRect.x - 28f, 24f),
-                "RandomLoadout Command",
+                GuiText.Get("gui.command.title"),
                 _titleStyle);
             GUI.Label(
                 new Rect(panelRect.x + 14f, panelRect.y + 40f, panelRect.width - 28f, 20f),
-                "Use: <name, alias, or id> or gun/passive/active/item <value>",
+                GuiText.Get("gui.command.hint.input"),
                 _hintStyle);
             GUI.Label(
                 new Rect(panelRect.x + 14f, panelRect.y + 58f, panelRect.width - 28f, 20f),
-                "Press F7 to open or close the command panel.",
+                GuiText.Get("gui.command.hint.toggle"),
                 _hintStyle);
 
             GUI.SetNextControlName(InputControlName);
@@ -65,55 +65,57 @@ namespace RandomLoadout
                 currentEvent.Use();
             }
 
-            if (GUI.Button(grantButtonRect, "Grant", _buttonStyle))
+            if (GUI.Button(grantButtonRect, GuiText.Get("gui.command.button.grant"), _buttonStyle))
             {
                 shouldSubmit = true;
             }
 
-            if (GUI.Button(randomButtonRect, "Random", _buttonStyle))
+            if (GUI.Button(randomButtonRect, GuiText.Get("gui.command.button.random"), _buttonStyle))
             {
                 ExecuteRandom(player, logger);
             }
 
-            if (GUI.Button(charactersButtonRect, "Characters", _buttonStyle))
+            if (GUI.Button(charactersButtonRect, GuiText.Get("gui.command.button.characters"), _buttonStyle))
             {
                 OpenCharacterPage(logger);
             }
 
-            string rapidButtonLabel = _rapidFireToggleService != null && _rapidFireToggleService.IsEnabledFor(player) ? "Rapid ON" : "Rapid OFF";
+            string rapidButtonLabel = _rapidFireToggleService != null && _rapidFireToggleService.IsEnabledFor(player)
+                ? GuiText.Get("gui.command.button.rapid_on")
+                : GuiText.Get("gui.command.button.rapid_off");
             if (GUI.Button(rapidButtonRect, rapidButtonLabel, _buttonStyle))
             {
                 ExecuteToggleRapidFire(player, logger);
             }
 
-            if (GUI.Button(healButtonRect, "+0.5 HP", _buttonStyle))
+            if (GUI.Button(healButtonRect, GuiText.Get("gui.command.button.heal_half"), _buttonStyle))
             {
                 ExecuteHealHalfHeart(player, logger);
             }
 
-            if (GUI.Button(armorButtonRect, "+1 Armor", _buttonStyle))
+            if (GUI.Button(armorButtonRect, GuiText.Get("gui.command.button.add_armor"), _buttonStyle))
             {
                 ExecuteAddArmor(player, logger);
             }
 
-            GUI.Label(debugLabelRect, "Debug actions", _hintStyle);
+            GUI.Label(debugLabelRect, GuiText.Get("gui.command.debug_actions"), _hintStyle);
 
-            if (GUI.Button(fullHealButtonRect, "Full Heal", _buttonStyle))
+            if (GUI.Button(fullHealButtonRect, GuiText.Get("gui.command.button.full_heal"), _buttonStyle))
             {
                 ExecuteFullHeal(player, logger);
             }
 
-            if (GUI.Button(clearCurseButtonRect, "Clear Curse", _buttonStyle))
+            if (GUI.Button(clearCurseButtonRect, GuiText.Get("gui.command.button.clear_curse"), _buttonStyle))
             {
                 ExecuteClearCurse(player, logger);
             }
 
-            if (GUI.Button(blanksButtonRect, "Refill Blanks", _buttonStyle))
+            if (GUI.Button(blanksButtonRect, GuiText.Get("gui.command.button.refill_blanks"), _buttonStyle))
             {
                 ExecuteRefillBlanks(player, logger);
             }
 
-            if (GUI.Button(ammoButtonRect, "Full Ammo", _buttonStyle))
+            if (GUI.Button(ammoButtonRect, GuiText.Get("gui.command.button.full_ammo"), _buttonStyle))
             {
                 ExecuteRefillCurrentGunAmmo(player, logger);
             }
@@ -125,7 +127,7 @@ namespace RandomLoadout
 
             GUI.Label(
                 new Rect(panelRect.x + 14f, panelRect.y + 176f, panelRect.width - 28f, 20f),
-                "Enter to grant, press F7 again to close.",
+                GuiText.Get("gui.command.hint.submit"),
                 _hintStyle);
         }
     }

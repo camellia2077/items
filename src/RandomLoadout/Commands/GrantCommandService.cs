@@ -29,12 +29,12 @@ namespace RandomLoadout
             EtgPickupResolveResult resolveResult = ResolvePickup(request);
             if (!resolveResult.Succeeded)
             {
-                return CreateResolveFailureResult(resolveResult, "Failed to resolve the pickup.");
+                return CreateResolveFailureResult(request, resolveResult, "result.error.resolve_failed", "Failed to resolve the pickup.");
             }
 
             if (!resolveResult.Category.HasValue)
             {
-                return CreateMissingCategoryResult("The resolved pickup category was missing.");
+                return CreateMissingCategoryResult("result.error.missing_category", "The resolved pickup category was missing.");
             }
 
             EtgGrantOutcome outcome = _pickupGranter.Grant(player, new SelectedPickup(resolveResult.Category.Value, resolveResult.PickupId));
@@ -53,12 +53,12 @@ namespace RandomLoadout
             EtgPickupResolveResult resolveResult = _pickupResolver.ResolveRandomGrantable(_random.Next());
             if (!resolveResult.Succeeded)
             {
-                return CreateResolveFailureResult(resolveResult, "Failed to resolve a random pickup.");
+                return CreateResolveFailureResult(null, resolveResult, "result.error.random_resolve_failed", "Failed to resolve a random pickup.");
             }
 
             if (!resolveResult.Category.HasValue)
             {
-                return CreateMissingCategoryResult("The resolved random pickup category was missing.");
+                return CreateMissingCategoryResult("result.error.missing_random_category", "The resolved random pickup category was missing.");
             }
 
             EtgGrantOutcome outcome = _pickupGranter.Grant(player, new SelectedPickup(resolveResult.Category.Value, resolveResult.PickupId));
@@ -76,7 +76,7 @@ namespace RandomLoadout
 
             if (entry == null)
             {
-                return new GrantCommandExecutionResult(false, "The selected pickup entry was missing.");
+                return GrantCommandExecutionResult.Localized(false, "result.error.selected_pickup_missing");
             }
 
             EtgGrantOutcome outcome = _pickupGranter.Grant(player, new SelectedPickup(entry.Category, entry.PickupId));

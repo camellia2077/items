@@ -8,19 +8,19 @@ namespace RandomLoadout.Core
         {
             if (string.IsNullOrEmpty(input))
             {
-                return GrantCommandParseResult.Failure("Enter a pickup like 'PlatinumBullets' or a command like 'gun AK-47'.");
+                return GrantCommandParseResult.Failure("InputRequired", "Enter a pickup like 'platinumbullets' or a command like 'gun ak-47'.");
             }
 
             string trimmedInput = input.Trim();
             if (trimmedInput.Length == 0)
             {
-                return GrantCommandParseResult.Failure("Enter a pickup like 'PlatinumBullets' or a command like 'gun AK-47'.");
+                return GrantCommandParseResult.Failure("InputRequired", "Enter a pickup like 'platinumbullets' or a command like 'gun ak-47'.");
             }
 
             string[] parts = trimmedInput.Split(new[] { ' ' }, 2, StringSplitOptions.RemoveEmptyEntries);
             if (parts.Length == 0)
             {
-                return GrantCommandParseResult.Failure("Enter a pickup like 'PlatinumBullets' or a command like 'gun AK-47'.");
+                return GrantCommandParseResult.Failure("InputRequired", "Enter a pickup like 'platinumbullets' or a command like 'gun ak-47'.");
             }
 
             GrantCommandTarget target;
@@ -28,7 +28,7 @@ namespace RandomLoadout.Core
             {
                 if (parts.Length < 2 || string.IsNullOrEmpty(parts[1].Trim()))
                 {
-                    return GrantCommandParseResult.Failure("Enter the pickup name after the command target.");
+                    return GrantCommandParseResult.Failure("TargetValueRequired", "Enter the pickup name after the command target.");
                 }
 
                 return GrantCommandParseResult.Success(new GrantCommandRequest(target, parts[1].Trim()));

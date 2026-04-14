@@ -17,7 +17,7 @@ namespace RandomLoadout
                 ToggleCharacterActionMode(logger);
             }
 
-            if (GUI.Button(backButtonRect, "Back", _buttonStyle))
+            if (GUI.Button(backButtonRect, GuiText.Get("gui.common.back"), _buttonStyle))
             {
                 _currentPage = PanelPage.Command;
                 _focusInputField = true;
@@ -25,10 +25,10 @@ namespace RandomLoadout
                 return;
             }
 
-            GUI.Label(new Rect(panelRect.x + 14f, panelRect.y + 12f, panelRect.width - CharacterModeButtonWidth - ButtonWidth - 32f, 24f), "Breach Characters", _titleStyle);
+            GUI.Label(new Rect(panelRect.x + 14f, panelRect.y + 12f, panelRect.width - CharacterModeButtonWidth - ButtonWidth - 32f, 24f), GuiText.Get("gui.characters.title"), _titleStyle);
             GUI.Label(
                 new Rect(panelRect.x + 14f, panelRect.y + 40f, panelRect.width - 28f, 20f),
-                "Select a character and apply the selected mode.",
+                GuiText.Get("gui.characters.hint.apply_mode"),
                 _hintStyle);
             GUI.Label(
                 new Rect(panelRect.x + 14f, panelRect.y + 58f, panelRect.width - 28f, 20f),
@@ -52,7 +52,7 @@ namespace RandomLoadout
         {
             GUI.Label(
                 new Rect(panelRect.x + 14f, panelRect.y + topOffset, panelRect.width - 28f, 20f),
-                "Select a character",
+                GuiText.Get("gui.characters.select"),
                 _hintStyle);
 
             for (int i = 0; i < characterOptions.Length; i++)
@@ -66,14 +66,15 @@ namespace RandomLoadout
 
                 bool wasEnabled = GUI.enabled;
                 GUI.enabled = !option.IsPending;
-                string buttonLabel = option.IsSelected ? option.Label + " *" : option.Label;
+                string localizedLabel = GuiText.GetCharacterLabel(option.Label);
+                string buttonLabel = option.IsSelected ? localizedLabel + " *" : localizedLabel;
                 if (option.IsLocked && option.CanUnlock)
                 {
-                    buttonLabel = option.Label + " ?";
+                    buttonLabel = localizedLabel + " ?";
                 }
                 if (option.IsPending)
                 {
-                    buttonLabel = option.Label + " ...";
+                    buttonLabel = localizedLabel + " ...";
                 }
 
                 if (GUI.Button(buttonRect, buttonLabel, _buttonStyle))

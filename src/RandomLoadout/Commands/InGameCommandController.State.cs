@@ -99,6 +99,7 @@ namespace RandomLoadout
         private bool _focusInputField;
         private bool _focusPickupSearchField;
         private PanelPage _currentPage;
+        private string _lastGuiLanguageCode = string.Empty;
         private string _inputText = string.Empty;
         private string _statusMessage = string.Empty;
         private bool _statusIsError;
@@ -106,7 +107,7 @@ namespace RandomLoadout
         private string _lastCharacterAvailabilityLog = string.Empty;
         private CharacterActionMode _characterActionMode = CharacterActionMode.SwitchOnly;
         private FoyerCharacterOption[] _cachedCharacterOptions = EmptyCharacterOptions;
-        private string _cachedCharacterAvailability = "Character switching is only available in the Breach.";
+        private string _cachedCharacterAvailability = string.Empty;
         private float _nextCharacterPageRefreshAt;
         private PickupBrowserEntry[] _cachedPickupEntries = EmptyPickupBrowserEntries;
         private PickupBrowserFilter _pickupBrowserFilter = PickupBrowserFilter.All;

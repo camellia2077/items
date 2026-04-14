@@ -24,7 +24,7 @@ namespace RandomLoadout
         private void DrawPickupPage(Rect panelRect, PlayerController player, ManualLogSource logger)
         {
             Rect backButtonRect = new Rect(panelRect.x + panelRect.width - ButtonWidth - 14f, panelRect.y + 12f, ButtonWidth, 30f);
-            if (GUI.Button(backButtonRect, "Back", _buttonStyle))
+            if (GUI.Button(backButtonRect, GuiText.Get("gui.common.back"), _buttonStyle))
             {
                 _currentPage = PanelPage.Command;
                 _focusInputField = true;
@@ -34,15 +34,15 @@ namespace RandomLoadout
 
             GUI.Label(
                 new Rect(panelRect.x + 14f, panelRect.y + 12f, panelRect.width - ButtonWidth - 32f, 24f),
-                "Pickup Browser",
+                GuiText.Get("gui.pickups.title"),
                 _titleStyle);
             GUI.Label(
                 new Rect(panelRect.x + 14f, panelRect.y + 40f, panelRect.width - 28f, 20f),
-                "Search by alias, internal name, display name, or ID.",
+                GuiText.Get("gui.pickups.hint.search"),
                 _hintStyle);
             GUI.Label(
                 new Rect(panelRect.x + 14f, panelRect.y + 58f, panelRect.width - 28f, 20f),
-                "Click a row or Grant to use the selected pickup. Icons reuse the game's live sprite data.",
+                GuiText.Get("gui.pickups.hint.grant"),
                 _hintStyle);
 
             GUI.SetNextControlName(PickupSearchControlName);
@@ -64,10 +64,10 @@ namespace RandomLoadout
 
         private void DrawPickupFilterButtons(float left, float top)
         {
-            DrawPickupFilterButton(new Rect(left, top, PickupFilterButtonWidth, 30f), PickupBrowserFilter.All, "All");
-            DrawPickupFilterButton(new Rect(left + PickupFilterButtonWidth + ButtonGap, top, PickupFilterButtonWidth, 30f), PickupBrowserFilter.Gun, "Gun");
-            DrawPickupFilterButton(new Rect(left + (PickupFilterButtonWidth + ButtonGap) * 2f, top, PickupFilterButtonWidth, 30f), PickupBrowserFilter.Passive, "Passive");
-            DrawPickupFilterButton(new Rect(left + (PickupFilterButtonWidth + ButtonGap) * 3f, top, PickupFilterButtonWidth, 30f), PickupBrowserFilter.Active, "Active");
+            DrawPickupFilterButton(new Rect(left, top, PickupFilterButtonWidth, 30f), PickupBrowserFilter.All, GuiText.Get("gui.pickups.filter.all"));
+            DrawPickupFilterButton(new Rect(left + PickupFilterButtonWidth + ButtonGap, top, PickupFilterButtonWidth, 30f), PickupBrowserFilter.Gun, GuiText.Get("gui.pickups.filter.gun"));
+            DrawPickupFilterButton(new Rect(left + (PickupFilterButtonWidth + ButtonGap) * 2f, top, PickupFilterButtonWidth, 30f), PickupBrowserFilter.Passive, GuiText.Get("gui.pickups.filter.passive"));
+            DrawPickupFilterButton(new Rect(left + (PickupFilterButtonWidth + ButtonGap) * 3f, top, PickupFilterButtonWidth, 30f), PickupBrowserFilter.Active, GuiText.Get("gui.pickups.filter.active"));
         }
 
         private void DrawPickupFilterButton(Rect rect, PickupBrowserFilter filter, string label)
@@ -89,7 +89,7 @@ namespace RandomLoadout
                 GUI.Box(listRect, GUIContent.none, _pickupRowStyle);
                 GUI.Label(
                     new Rect(listRect.x + 12f, listRect.y + 12f, listRect.width - 24f, listRect.height - 24f),
-                    "No pickups matched the current search.",
+                    GuiText.Get("gui.pickups.empty"),
                     _wrappedHintStyle);
                 return;
             }
@@ -129,7 +129,7 @@ namespace RandomLoadout
                 _pickupSecondaryTextStyle);
 
             Rect grantButtonRect = new Rect(rowRect.x + rowRect.width - PickupGrantButtonWidth - 8f, rowRect.y + 8f, PickupGrantButtonWidth, rowRect.height - 16f);
-            if (GUI.Button(grantButtonRect, "Grant", _buttonStyle))
+            if (GUI.Button(grantButtonRect, GuiText.Get("gui.command.button.grant"), _buttonStyle))
             {
                 ExecutePickupBrowserGrant(entry, player, logger);
             }
@@ -157,14 +157,14 @@ namespace RandomLoadout
             {
                 if (logger != null)
                 {
-                    logger.LogInfo(RandomLoadoutLog.Command(executionResult.Message));
+                    logger.LogInfo(RandomLoadoutLog.Command(executionResult.LogMessage));
                 }
 
                 _focusPickupSearchField = true;
             }
             else if (logger != null)
             {
-                logger.LogWarning(RandomLoadoutLog.Command(executionResult.Message));
+                logger.LogWarning(RandomLoadoutLog.Command(executionResult.LogMessage));
             }
         }
 

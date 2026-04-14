@@ -60,7 +60,7 @@ namespace RandomLoadout
             Foyer foyer = GetActiveFoyer();
             if ((object)foyer == null)
             {
-                return "Character switching is only available in the Breach.";
+                return GuiText.Get("gui.characters.availability.breach_only");
             }
 
             FoyerCharacterOption[] options = GetCharacterOptions();
@@ -79,7 +79,7 @@ namespace RandomLoadout
                 }
             }
 
-            return "Found " + availableCount + " available characters and " + lockedCount + " locked hidden characters.";
+            return GuiText.Get("gui.characters.availability.summary", availableCount, lockedCount);
         }
 
         public GrantCommandExecutionResult SwitchCharacter(FoyerCharacterOption option)
@@ -91,31 +91,31 @@ namespace RandomLoadout
         {
             if (option == null)
             {
-                return new GrantCommandExecutionResult(false, "The selected character option was no longer available.");
+                return GrantCommandExecutionResult.Localized(false, "result.characters.option_missing");
             }
 
             Foyer foyer = GetActiveFoyer();
             if ((object)foyer == null)
             {
-                return new GrantCommandExecutionResult(false, "Character unlocking is only available in the Breach.");
+                return GrantCommandExecutionResult.Localized(false, "result.characters.breach_only_unlock");
             }
 
             if (string.Equals(option.Label, "Robot", StringComparison.OrdinalIgnoreCase))
             {
                 // Robot is intentionally excluded from unlock mode.
                 // In this panel, Robot follows switch-only behavior for reliability.
-                return new GrantCommandExecutionResult(false, "Robot is switch-only in this panel and cannot be unlocked here.");
+                return GrantCommandExecutionResult.Localized(false, "result.characters.robot_unlock_forbidden");
             }
 
             if (!IsUnlockableCharacter(option.Label))
             {
-                return new GrantCommandExecutionResult(false, option.Label + " does not require manual unlock.");
+                return CreateCharacterResult(false, "result.characters.no_manual_unlock", option.Label);
             }
 
             FoyerCharacterSelectFlag refreshedFlag = FindFlagForLabel(GetCharacterFlagsForFoyer(foyer), option.Label);
             if ((object)refreshedFlag != null && refreshedFlag.CanBeSelected())
             {
-                return new GrantCommandExecutionResult(true, option.Label + " is already unlocked.");
+                return CreateCharacterResult(true, "result.characters.already_unlocked", option.Label);
             }
 
             string unlockFailureMessage;
@@ -125,43 +125,44 @@ namespace RandomLoadout
                     false,
                     !string.IsNullOrEmpty(unlockFailureMessage)
                         ? unlockFailureMessage
-                        : option.Label + " could not be unlocked.");
+                        : GuiText.Get("result.characters.unlock_failed", GuiText.GetCharacterLabel(option.Label)),
+                    !string.IsNullOrEmpty(unlockFailureMessage)
+                        ? unlockFailureMessage
+                        : GuiText.GetEnglish("result.characters.unlock_failed", GuiText.GetEnglishCharacterLabel(option.Label)));
             }
 
-            return new GrantCommandExecutionResult(
-                true,
-                "Unlocked " + option.Label + ". Reopen Characters or restart the game to refresh availability.");
+            return CreateCharacterResult(true, "result.characters.unlock_success", option.Label);
         }
 
         public GrantCommandExecutionResult SwitchCharacterOnly(FoyerCharacterOption option)
         {
             if (option == null)
             {
-                return new GrantCommandExecutionResult(false, "The selected character option was no longer available.");
+                return GrantCommandExecutionResult.Localized(false, "result.characters.option_missing");
             }
 
             Foyer foyer = GetActiveFoyer();
             if ((object)foyer == null)
             {
-                return new GrantCommandExecutionResult(false, "Character switching is only available in the Breach.");
+                return GrantCommandExecutionResult.Localized(false, "result.characters.breach_only_switch");
             }
 
             RefreshPendingSelectionState(foyer);
 
             if ((object)_pendingSelectionFlag != null)
             {
-                return new GrantCommandExecutionResult(false, "Character selection is already in progress.");
+                return GrantCommandExecutionResult.Localized(false, "result.characters.selection_in_progress");
             }
 
             if (Foyer.IsCurrentlyPlayingCharacterSelect)
             {
-                return new GrantCommandExecutionResult(false, "Character selection is already in progress.");
+                return GrantCommandExecutionResult.Localized(false, "result.characters.selection_in_progress");
             }
 
             if (option.IsSelected ||
                 ((object)option.Flag != null && (object)foyer.CurrentSelectedCharacterFlag == (object)option.Flag))
             {
-                return new GrantCommandExecutionResult(false, option.Label + " is already selected.");
+                return CreateCharacterResult(false, "result.characters.already_selected", option.Label);
             }
 
             // Switch-only mode must avoid the native character-select callback flow,
@@ -169,14 +170,25 @@ namespace RandomLoadout
             string forceSwitchFailureMessage;
             if (TryForceSwitchCharacterInBreach(foyer, option.Label, out forceSwitchFailureMessage))
             {
-                return new GrantCommandExecutionResult(true, "Switched character to " + option.Label + " (switch-only mode).");
+                return CreateCharacterResult(true, "result.characters.switch_success", option.Label);
             }
 
             return new GrantCommandExecutionResult(
                 false,
                 !string.IsNullOrEmpty(forceSwitchFailureMessage)
                     ? forceSwitchFailureMessage
-                    : "Force switch failed.");
+                    : GuiText.Get("result.characters.force_switch_failed"),
+                !string.IsNullOrEmpty(forceSwitchFailureMessage)
+                    ? forceSwitchFailureMessage
+                    : GuiText.GetEnglish("result.characters.force_switch_failed"));
+        }
+
+        private static GrantCommandExecutionResult CreateCharacterResult(bool succeeded, string key, string characterLabel)
+        {
+            return new GrantCommandExecutionResult(
+                succeeded,
+                GuiText.Get(key, GuiText.GetCharacterLabel(characterLabel)),
+                GuiText.GetEnglish(key, GuiText.GetEnglishCharacterLabel(characterLabel)));
         }
     }
 }

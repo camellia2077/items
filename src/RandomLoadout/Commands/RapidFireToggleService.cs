@@ -25,7 +25,7 @@ namespace RandomLoadout
             Gun currentGun = GetCurrentGun(player);
             if ((object)currentGun == null)
             {
-                return new GrantCommandExecutionResult(false, "No current gun is equipped.");
+                return GrantCommandExecutionResult.Localized(false, "result.rapid.no_current_gun");
             }
 
             return IsEnabledFor(currentGun) ? Disable(currentGun) : Enable(currentGun);
@@ -58,7 +58,7 @@ namespace RandomLoadout
         {
             if ((object)gun == null)
             {
-                return new GrantCommandExecutionResult(false, "No current gun is equipped.");
+                return GrantCommandExecutionResult.Localized(false, "result.rapid.no_current_gun");
             }
 
             _enabledGuns.Add(gun);
@@ -67,19 +67,18 @@ namespace RandomLoadout
             {
                 return new GrantCommandExecutionResult(
                     true,
-                    "Hold-rapid enabled for current gun. Converted " + convertedModuleCount + " semi-auto module(s) to automatic.");
+                    GuiText.Get("result.rapid.enable.success", convertedModuleCount),
+                    GuiText.GetEnglish("result.rapid.enable.success", convertedModuleCount));
             }
 
-            return new GrantCommandExecutionResult(
-                true,
-                "Hold-rapid enabled for current gun. No semi-auto modules were available.");
+            return GrantCommandExecutionResult.Localized(true, "result.rapid.enable.no_modules");
         }
 
         private GrantCommandExecutionResult Disable(Gun gun)
         {
             if ((object)gun == null)
             {
-                return new GrantCommandExecutionResult(false, "No current gun is equipped.");
+                return GrantCommandExecutionResult.Localized(false, "result.rapid.no_current_gun");
             }
 
             int restoredModuleCount = RestoreOverridesForGun(gun);
@@ -88,10 +87,11 @@ namespace RandomLoadout
             {
                 return new GrantCommandExecutionResult(
                     true,
-                    "Hold-rapid disabled for current gun. Restored " + restoredModuleCount + " module(s) to original shoot styles.");
+                    GuiText.Get("result.rapid.disable.success", restoredModuleCount),
+                    GuiText.GetEnglish("result.rapid.disable.success", restoredModuleCount));
             }
 
-            return new GrantCommandExecutionResult(true, "Hold-rapid disabled for current gun.");
+            return GrantCommandExecutionResult.Localized(true, "result.rapid.disable.no_modules");
         }
 
         private int ApplyToGun(Gun gun)

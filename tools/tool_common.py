@@ -15,6 +15,8 @@ DEFAULT_CATALOG_DIRECTORY = Path("defaults") / "catalog"
 DEFAULT_CONFIG_FILE_NAMES = (
     "randomgun.randomloadout.cfg",
     "RandomLoadout.aliases.json5",
+    "RandomLoadout.localization.en.json5",
+    "RandomLoadout.localization.zh-CN.json5",
     "RandomLoadout.rules.json5",
 )
 DEFAULT_CATALOG_FILE_NAMES = (

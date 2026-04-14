@@ -37,6 +37,14 @@ namespace RandomLoadout
         public void OnGUI(PlayerController player, ManualLogSource logger)
         {
             EnsureStyles();
+            string currentLanguageCode = GuiText.CurrentLanguageCode;
+            if (!string.Equals(_lastGuiLanguageCode, currentLanguageCode, System.StringComparison.Ordinal))
+            {
+                _lastGuiLanguageCode = currentLanguageCode;
+                ResetPickupBrowserState();
+                ResetCharacterPageCache();
+            }
+
             FoyerCharacterOption[] characterOptions = EmptyCharacterOptions;
             string characterAvailability = _cachedCharacterAvailability;
             float panelHeight = BasePanelHeight;

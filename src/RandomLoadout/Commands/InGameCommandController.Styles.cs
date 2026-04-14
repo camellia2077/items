@@ -161,14 +161,14 @@ namespace RandomLoadout
 
             private static string BuildMetadataLine(EtgPickupCatalogEntry catalogEntry, string[] aliases, string preferredInput)
             {
-                string metadata = catalogEntry.Category + " | ID " + catalogEntry.PickupId + " | " + preferredInput;
+                string metadata = GuiText.GetCategoryLabel(catalogEntry.Category) + " | " + GuiText.Get("gui.pickups.metadata.id") + " " + catalogEntry.PickupId + " | " + preferredInput;
                 if (aliases.Length > 1)
                 {
-                    metadata += " | aliases: " + string.Join(", ", aliases);
+                    metadata += " | " + GuiText.Get("gui.pickups.metadata.aliases") + ": " + string.Join(", ", aliases);
                 }
                 else if (aliases.Length == 1 && !string.Equals(aliases[0], preferredInput, StringComparison.OrdinalIgnoreCase))
                 {
-                    metadata += " | alias: " + aliases[0];
+                    metadata += " | " + GuiText.Get("gui.pickups.metadata.alias") + ": " + aliases[0];
                 }
                 else if (!string.IsNullOrEmpty(catalogEntry.InternalName) &&
                          !string.Equals(catalogEntry.InternalName, preferredInput, StringComparison.OrdinalIgnoreCase))

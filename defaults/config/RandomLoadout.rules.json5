@@ -31,7 +31,7 @@
       "mode": "random",
       "category": "passive",
       // Grant count is configured by JSON `count` (not hardcoded in code).
-      "count": 0,
+      "count": 1,
       "poolIds": [
         111, // Heavy Bullets
         113, // Rocket-Powered Bullets
@@ -41,7 +41,7 @@
         284, // Homing Bullets
         286, // +1 Bullets
         288, // Bouncy Bullets
-        303, // Bullet That Can Kill The Past
+        // 303, // Bullet That Can Kill The Past (Quest Item: No stat bonuses, story progression only)
         323, // Angry Bullets
         352, // Shadow Bullets
         373, // Alpha Bullet

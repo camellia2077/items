@@ -36,27 +36,27 @@ namespace RandomLoadout
 
             if (executionResult.Succeeded)
             {
-                logger.LogInfo(RandomLoadoutLog.Command(executionResult.Message));
+                logger.LogInfo(RandomLoadoutLog.Command(executionResult.LogMessage));
                 _focusInputField = true;
             }
             else
             {
-                logger.LogWarning(RandomLoadoutLog.Command(executionResult.Message));
+                logger.LogWarning(RandomLoadoutLog.Command(executionResult.LogMessage));
             }
         }
 
         private string GetCharacterModeButtonLabel()
         {
             return _characterActionMode == CharacterActionMode.Unlock
-                ? "Mode: Unlock"
-                : "Mode: Switch Only";
+                ? GuiText.Get("gui.characters.mode.unlock")
+                : GuiText.Get("gui.characters.mode.switch_only");
         }
 
         private string GetCharacterModeHint()
         {
             return _characterActionMode == CharacterActionMode.Unlock
-                ? "Unlock mode: click a character to unlock it (Robot excluded)."
-                : "Switch-only mode: click a character to switch immediately.";
+                ? GuiText.Get("gui.characters.hint.unlock")
+                : GuiText.Get("gui.characters.hint.switch_only");
         }
 
         private void ToggleCharacterActionMode(ManualLogSource logger)
@@ -66,13 +66,16 @@ namespace RandomLoadout
                 : CharacterActionMode.Unlock;
 
             string modeMessage = _characterActionMode == CharacterActionMode.Unlock
-                ? "Character mode changed to Unlock."
-                : "Character mode changed to Switch Only.";
+                ? GuiText.Get("result.characters.mode_changed_unlock")
+                : GuiText.Get("result.characters.mode_changed_switch_only");
+            string logMessage = _characterActionMode == CharacterActionMode.Unlock
+                ? GuiText.GetEnglish("result.characters.mode_changed_unlock")
+                : GuiText.GetEnglish("result.characters.mode_changed_switch_only");
             ShowStatus(modeMessage, false);
 
             if (logger != null)
             {
-                logger.LogInfo(RandomLoadoutLog.Command(modeMessage));
+                logger.LogInfo(RandomLoadoutLog.Command(logMessage));
             }
         }
 
@@ -88,7 +91,7 @@ namespace RandomLoadout
             if (_foyerCharacterSwitchService == null)
             {
                 _cachedCharacterOptions = EmptyCharacterOptions;
-                _cachedCharacterAvailability = "Character switching is unavailable.";
+                _cachedCharacterAvailability = GuiText.Get("gui.characters.availability.unavailable");
                 return;
             }
 
@@ -107,7 +110,7 @@ namespace RandomLoadout
         {
             if (options == null || options.Length == 0)
             {
-                return "Character switching is only available in the Breach.";
+                return GuiText.Get("gui.characters.availability.breach_only");
             }
 
             int availableCount = 0;
@@ -125,13 +128,13 @@ namespace RandomLoadout
                 }
             }
 
-            return "Found " + availableCount + " available characters and " + lockedCount + " locked hidden characters.";
+            return GuiText.Get("gui.characters.availability.summary", availableCount, lockedCount);
         }
 
         private void ResetCharacterPageCache()
         {
             _cachedCharacterOptions = EmptyCharacterOptions;
-            _cachedCharacterAvailability = "Character switching is only available in the Breach.";
+            _cachedCharacterAvailability = GuiText.Get("gui.characters.availability.breach_only");
             _nextCharacterPageRefreshAt = 0f;
         }
     }

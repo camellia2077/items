@@ -9,6 +9,7 @@ namespace RandomLoadout
     {
         private void Awake()
         {
+            GuiText.Initialize(Paths.ConfigPath);
             _enableRandomLoadoutConfig = Config.Bind(
                 "General",
                 "EnableRandomLoadout",

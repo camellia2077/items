@@ -13,7 +13,7 @@ namespace RandomLoadout
             GrantCommandParseResult parseResult = _parser.Parse(_inputText);
             if (!parseResult.Succeeded)
             {
-                ShowStatus(parseResult.ErrorMessage, true);
+                ShowStatus(GetParseErrorMessage(parseResult), true);
                 logger.LogWarning(RandomLoadoutLog.Command(parseResult.ErrorMessage));
                 return;
             }
@@ -23,13 +23,13 @@ namespace RandomLoadout
 
             if (executionResult.Succeeded)
             {
-                logger.LogInfo(RandomLoadoutLog.Command(executionResult.Message));
+                logger.LogInfo(RandomLoadoutLog.Command(executionResult.LogMessage));
                 _inputText = string.Empty;
                 _focusInputField = true;
             }
             else
             {
-                logger.LogWarning(RandomLoadoutLog.Command(executionResult.Message));
+                logger.LogWarning(RandomLoadoutLog.Command(executionResult.LogMessage));
             }
         }
 
@@ -40,12 +40,12 @@ namespace RandomLoadout
 
             if (executionResult.Succeeded)
             {
-                logger.LogInfo(RandomLoadoutLog.Command(executionResult.Message));
+                logger.LogInfo(RandomLoadoutLog.Command(executionResult.LogMessage));
                 _focusInputField = true;
             }
             else
             {
-                logger.LogWarning(RandomLoadoutLog.Command(executionResult.Message));
+                logger.LogWarning(RandomLoadoutLog.Command(executionResult.LogMessage));
             }
         }
 
@@ -56,12 +56,12 @@ namespace RandomLoadout
 
             if (executionResult.Succeeded)
             {
-                logger.LogInfo(RandomLoadoutLog.Command(executionResult.Message));
+                logger.LogInfo(RandomLoadoutLog.Command(executionResult.LogMessage));
                 _focusInputField = true;
             }
             else
             {
-                logger.LogWarning(RandomLoadoutLog.Command(executionResult.Message));
+                logger.LogWarning(RandomLoadoutLog.Command(executionResult.LogMessage));
             }
         }
 
@@ -72,12 +72,12 @@ namespace RandomLoadout
 
             if (executionResult.Succeeded)
             {
-                logger.LogInfo(RandomLoadoutLog.Command(executionResult.Message));
+                logger.LogInfo(RandomLoadoutLog.Command(executionResult.LogMessage));
                 _focusInputField = true;
             }
             else
             {
-                logger.LogWarning(RandomLoadoutLog.Command(executionResult.Message));
+                logger.LogWarning(RandomLoadoutLog.Command(executionResult.LogMessage));
             }
         }
 
@@ -88,12 +88,12 @@ namespace RandomLoadout
 
             if (executionResult.Succeeded)
             {
-                logger.LogInfo(RandomLoadoutLog.Command(executionResult.Message));
+                logger.LogInfo(RandomLoadoutLog.Command(executionResult.LogMessage));
                 _focusInputField = true;
             }
             else
             {
-                logger.LogWarning(RandomLoadoutLog.Command(executionResult.Message));
+                logger.LogWarning(RandomLoadoutLog.Command(executionResult.LogMessage));
             }
         }
 
@@ -104,12 +104,12 @@ namespace RandomLoadout
 
             if (executionResult.Succeeded)
             {
-                logger.LogInfo(RandomLoadoutLog.Command(executionResult.Message));
+                logger.LogInfo(RandomLoadoutLog.Command(executionResult.LogMessage));
                 _focusInputField = true;
             }
             else
             {
-                logger.LogWarning(RandomLoadoutLog.Command(executionResult.Message));
+                logger.LogWarning(RandomLoadoutLog.Command(executionResult.LogMessage));
             }
         }
 
@@ -120,12 +120,12 @@ namespace RandomLoadout
 
             if (executionResult.Succeeded)
             {
-                logger.LogInfo(RandomLoadoutLog.Command(executionResult.Message));
+                logger.LogInfo(RandomLoadoutLog.Command(executionResult.LogMessage));
                 _focusInputField = true;
             }
             else
             {
-                logger.LogWarning(RandomLoadoutLog.Command(executionResult.Message));
+                logger.LogWarning(RandomLoadoutLog.Command(executionResult.LogMessage));
             }
         }
 
@@ -136,12 +136,12 @@ namespace RandomLoadout
 
             if (executionResult.Succeeded)
             {
-                logger.LogInfo(RandomLoadoutLog.Command(executionResult.Message));
+                logger.LogInfo(RandomLoadoutLog.Command(executionResult.LogMessage));
                 _focusInputField = true;
             }
             else
             {
-                logger.LogWarning(RandomLoadoutLog.Command(executionResult.Message));
+                logger.LogWarning(RandomLoadoutLog.Command(executionResult.LogMessage));
             }
         }
 
@@ -152,12 +152,12 @@ namespace RandomLoadout
 
             if (executionResult.Succeeded)
             {
-                logger.LogInfo(RandomLoadoutLog.Command(executionResult.Message));
+                logger.LogInfo(RandomLoadoutLog.Command(executionResult.LogMessage));
                 _focusInputField = true;
             }
             else
             {
-                logger.LogWarning(RandomLoadoutLog.Command(executionResult.Message));
+                logger.LogWarning(RandomLoadoutLog.Command(executionResult.LogMessage));
             }
         }
 
@@ -168,12 +168,12 @@ namespace RandomLoadout
 
             if (executionResult.Succeeded)
             {
-                logger.LogInfo(RandomLoadoutLog.Command(executionResult.Message));
+                logger.LogInfo(RandomLoadoutLog.Command(executionResult.LogMessage));
                 _focusInputField = true;
             }
             else
             {
-                logger.LogWarning(RandomLoadoutLog.Command(executionResult.Message));
+                logger.LogWarning(RandomLoadoutLog.Command(executionResult.LogMessage));
             }
         }
 
@@ -184,12 +184,12 @@ namespace RandomLoadout
 
             if (executionResult.Succeeded)
             {
-                logger.LogInfo(RandomLoadoutLog.Command(executionResult.Message));
+                logger.LogInfo(RandomLoadoutLog.Command(executionResult.LogMessage));
                 _focusInputField = true;
             }
             else
             {
-                logger.LogWarning(RandomLoadoutLog.Command(executionResult.Message));
+                logger.LogWarning(RandomLoadoutLog.Command(executionResult.LogMessage));
             }
         }
 
@@ -197,11 +197,11 @@ namespace RandomLoadout
         {
             if (_rapidFireToggleService == null)
             {
-                const string unavailableMessage = "Rapid fire service is unavailable.";
+                string unavailableMessage = GuiText.Get("result.rapid.unavailable");
                 ShowStatus(unavailableMessage, true);
                 if (logger != null)
                 {
-                    logger.LogWarning(RandomLoadoutLog.Command(unavailableMessage));
+                    logger.LogWarning(RandomLoadoutLog.Command(GuiText.GetEnglish("result.rapid.unavailable")));
                 }
 
                 return;
@@ -217,12 +217,30 @@ namespace RandomLoadout
 
             if (executionResult.Succeeded)
             {
-                logger.LogInfo(RandomLoadoutLog.Command(executionResult.Message));
+                logger.LogInfo(RandomLoadoutLog.Command(executionResult.LogMessage));
                 _focusInputField = true;
             }
             else
             {
-                logger.LogWarning(RandomLoadoutLog.Command(executionResult.Message));
+                logger.LogWarning(RandomLoadoutLog.Command(executionResult.LogMessage));
+            }
+        }
+
+        private static string GetParseErrorMessage(GrantCommandParseResult parseResult)
+        {
+            if (parseResult == null)
+            {
+                return GuiText.Get("result.error.resolve_failed");
+            }
+
+            switch (parseResult.ErrorCode)
+            {
+                case "InputRequired":
+                    return GuiText.Get("parse.input_required");
+                case "TargetValueRequired":
+                    return GuiText.Get("parse.target_value_required");
+                default:
+                    return parseResult.ErrorMessage;
             }
         }
     }

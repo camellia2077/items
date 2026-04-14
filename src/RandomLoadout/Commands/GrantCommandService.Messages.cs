@@ -8,58 +8,112 @@ namespace RandomLoadout
     {
         private static GrantCommandExecutionResult CreatePlayerNotReadyResult()
         {
-            return new GrantCommandExecutionResult(false, "The player is not ready yet.");
+            return GrantCommandExecutionResult.Localized(false, "result.common.player_not_ready");
         }
 
-        private static GrantCommandExecutionResult CreateResolveFailureResult(EtgPickupResolveResult resolveResult, string fallbackMessage)
+        private GrantCommandExecutionResult CreateResolveFailureResult(
+            GrantCommandRequest request,
+            EtgPickupResolveResult resolveResult,
+            string fallbackKey,
+            string fallbackEnglishMessage)
         {
-            string message = resolveResult.Warning != null ? resolveResult.Warning.Message : fallbackMessage;
-            return new GrantCommandExecutionResult(false, message);
+            if (resolveResult == null || resolveResult.Warning == null)
+            {
+                return new GrantCommandExecutionResult(false, GuiText.Get(fallbackKey), GuiText.GetEnglish(fallbackKey));
+            }
+
+            string lookupValue = request != null ? request.PickupName : string.Empty;
+            switch (resolveResult.Warning.Code)
+            {
+                case "PickupLookupEmpty":
+                    return GrantCommandExecutionResult.Localized(false, "result.error.pickup_lookup_empty");
+                case "InternalNameNotFound":
+                case "DisplayNameNotFound":
+                    return GrantCommandExecutionResult.Localized(false, "result.error.no_pickup_matched", lookupValue);
+                case "InternalNameAmbiguous":
+                case "DisplayNameAmbiguous":
+                    return CreateAmbiguousMatchResult(request, lookupValue);
+                case "InvalidPickupId":
+                    return GrantCommandExecutionResult.Localized(false, "result.error.invalid_pickup_id", lookupValue);
+                case "PickupCategoryMismatch":
+                    return GrantCommandExecutionResult.Localized(false, "result.error.pickup_category_mismatch");
+                case "RandomPickupUnavailable":
+                    return GrantCommandExecutionResult.Localized(false, "result.error.random_pickup_unavailable");
+                case "CommandTargetUnsupported":
+                    return GrantCommandExecutionResult.Localized(false, "result.error.command_target_unsupported");
+                default:
+                    return new GrantCommandExecutionResult(
+                        false,
+                        GuiText.Get(fallbackKey),
+                        !string.IsNullOrEmpty(resolveResult.Warning.Message) ? resolveResult.Warning.Message : fallbackEnglishMessage);
+            }
         }
 
-        private static GrantCommandExecutionResult CreateMissingCategoryResult(string message)
+        private static GrantCommandExecutionResult CreateMissingCategoryResult(string key, string englishMessage)
         {
-            return new GrantCommandExecutionResult(false, message);
+            return new GrantCommandExecutionResult(false, GuiText.Get(key), englishMessage);
         }
 
         private static GrantCommandExecutionResult CreateGrantFailureResult(string pickupLabel, EtgGrantOutcome outcome)
         {
             return new GrantCommandExecutionResult(
                 false,
-                "Failed to grant " + pickupLabel + ": " + outcome.FailureReason +
-                " [Path=" + outcome.GrantPath + "; Detail=" + outcome.GrantDetail + "]");
+                GuiText.Get("result.grant.failure", pickupLabel, outcome.FailureReason, outcome.GrantPath, outcome.GrantDetail),
+                GuiText.GetEnglish("result.grant.failure", pickupLabel, outcome.FailureReason, outcome.GrantPath, outcome.GrantDetail));
         }
 
         private static GrantCommandExecutionResult CreateGrantSuccessResult(EtgGrantOutcome outcome, bool includePickupId)
         {
-            string idSuffix = includePickupId ? " (ID " + outcome.PickupId + ")." : string.Empty;
+            string categoryLabel = GuiText.GetCategoryLabel(outcome.Category);
+            string englishCategoryLabel = GuiText.GetEnglishCategoryLabel(outcome.Category);
+            if (includePickupId)
+            {
+                return new GrantCommandExecutionResult(
+                    true,
+                    GuiText.Get("result.grant.success_with_id", categoryLabel, outcome.PickupLabel, outcome.PickupId, outcome.GrantPath, outcome.GrantDetail),
+                    GuiText.GetEnglish("result.grant.success_with_id", englishCategoryLabel, outcome.PickupLabel, outcome.PickupId, outcome.GrantPath, outcome.GrantDetail));
+            }
+
             return new GrantCommandExecutionResult(
                 true,
-                "Granted " + outcome.Category + ": " + outcome.PickupLabel + idSuffix +
-                " [Path=" + outcome.GrantPath + "; Detail=" + outcome.GrantDetail + "]");
+                GuiText.Get("result.grant.success", categoryLabel, outcome.PickupLabel, outcome.GrantPath, outcome.GrantDetail),
+                GuiText.GetEnglish("result.grant.success", englishCategoryLabel, outcome.PickupLabel, outcome.GrantPath, outcome.GrantDetail));
         }
 
         private static GrantCommandExecutionResult CreateRandomGrantFailureResult(string pickupLabel, EtgGrantOutcome outcome)
         {
             return new GrantCommandExecutionResult(
                 false,
-                "Failed to grant random pickup " + pickupLabel + ": " + outcome.FailureReason +
-                " [Path=" + outcome.GrantPath + "; Detail=" + outcome.GrantDetail + "]");
+                GuiText.Get("result.grant.random_failure", pickupLabel, outcome.FailureReason, outcome.GrantPath, outcome.GrantDetail),
+                GuiText.GetEnglish("result.grant.random_failure", pickupLabel, outcome.FailureReason, outcome.GrantPath, outcome.GrantDetail));
         }
 
         private static GrantCommandExecutionResult CreateRandomGrantSuccessResult(EtgGrantOutcome outcome)
         {
+            string categoryLabel = GuiText.GetCategoryLabel(outcome.Category);
+            string englishCategoryLabel = GuiText.GetEnglishCategoryLabel(outcome.Category);
             return new GrantCommandExecutionResult(
                 true,
-                "Granted random " + outcome.Category + ": " + outcome.PickupLabel + " (ID " + outcome.PickupId + ")." +
-                " [Path=" + outcome.GrantPath + "; Detail=" + outcome.GrantDetail + "]");
+                GuiText.Get("result.grant.random_success", categoryLabel, outcome.PickupLabel, outcome.PickupId, outcome.GrantPath, outcome.GrantDetail),
+                GuiText.GetEnglish("result.grant.random_success", englishCategoryLabel, outcome.PickupLabel, outcome.PickupId, outcome.GrantPath, outcome.GrantDetail));
         }
 
-        private static string BuildAliasSuggestion(GrantCommandRequest request, PickupAliasRegistry aliasRegistry)
+        private GrantCommandExecutionResult CreateAmbiguousMatchResult(GrantCommandRequest request, string lookupValue)
         {
-            if (aliasRegistry == null || aliasRegistry.Count == 0 || string.IsNullOrEmpty(request.PickupName))
+            string displayMessage = GuiText.Get("result.error.multiple_pickups_matched", lookupValue);
+            string logMessage = GuiText.GetEnglish("result.error.multiple_pickups_matched", lookupValue);
+            string aliasSuggestion = BuildAliasSuggestion(request, GetAliasRegistry(), false);
+            string englishAliasSuggestion = BuildAliasSuggestion(request, GetAliasRegistry(), true);
+            return new GrantCommandExecutionResult(false, displayMessage + aliasSuggestion, logMessage + englishAliasSuggestion);
+        }
+
+        private static string BuildAliasSuggestion(GrantCommandRequest request, PickupAliasRegistry aliasRegistry, bool englishOnly)
+        {
+            if (aliasRegistry == null || aliasRegistry.Count == 0 || request == null || string.IsNullOrEmpty(request.PickupName))
             {
-                return " Try a configured alias or a pickup ID from RandomLoadout.pickups.txt, for example: gun casey_bat or gun 541.";
+                return englishOnly
+                    ? GuiText.GetEnglish("result.error.alias_suggestion_example")
+                    : GuiText.Get("result.error.alias_suggestion_example");
             }
 
             List<string> matchingAliases = new List<string>();
@@ -83,11 +137,16 @@ namespace RandomLoadout
 
             if (matchingAliases.Count == 0)
             {
-                return " Try a configured alias or a pickup ID from RandomLoadout.pickups.txt, for example: gun casey_bat or gun 541.";
+                return englishOnly
+                    ? GuiText.GetEnglish("result.error.alias_suggestion_example")
+                    : GuiText.Get("result.error.alias_suggestion_example");
             }
 
             matchingAliases.Sort(StringComparer.OrdinalIgnoreCase);
-            return " Try " + string.Join(" or ", matchingAliases.ToArray()) + ", or use the pickup ID.";
+            string aliasText = string.Join(" or ", matchingAliases.ToArray());
+            return englishOnly
+                ? GuiText.GetEnglish("result.error.alias_suggestion_matches", aliasText)
+                : GuiText.Get("result.error.alias_suggestion_matches", aliasText);
         }
 
         private static bool MatchesRequestedTarget(GrantCommandTarget target, PickupObject pickup)

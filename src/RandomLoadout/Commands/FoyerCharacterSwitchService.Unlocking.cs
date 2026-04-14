@@ -13,14 +13,14 @@ namespace RandomLoadout
             failureMessage = string.Empty;
             if (option == null)
             {
-                failureMessage = "The selected character option was no longer available.";
+                failureMessage = GuiText.Get("result.characters.option_missing");
                 return false;
             }
 
             GameStatsManager stats = GameStatsManager.Instance;
             if ((object)stats == null)
             {
-                failureMessage = "Could not access save data to unlock " + option.Label + ".";
+                failureMessage = GuiText.Get("result.characters.unlock_save_unavailable", GuiText.GetCharacterLabel(option.Label));
                 return false;
             }
 
@@ -55,7 +55,7 @@ namespace RandomLoadout
                     unlockCharacterPrefabSuffix = "gunslinger";
                     break;
                 default:
-                    failureMessage = option.Label + " cannot be unlocked from this panel.";
+                    failureMessage = GuiText.Get("result.characters.unlock_panel_forbidden", GuiText.GetCharacterLabel(option.Label));
                     return false;
             }
 
@@ -66,7 +66,7 @@ namespace RandomLoadout
             GameStatsManager.Save();
             if (!AreAllUnlockFlagsSet(stats, unlockFlags))
             {
-                failureMessage = "Failed to persist unlock flags. Verify the active save slot and try again.";
+                failureMessage = GuiText.Get("result.characters.unlock_persist_failed");
                 return false;
             }
 
