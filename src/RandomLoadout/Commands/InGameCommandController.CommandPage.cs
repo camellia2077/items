@@ -9,6 +9,12 @@ namespace RandomLoadout
         {
             Rect currencyMenuButtonRect = new Rect(panelRect.x + panelRect.width - CurrencyMenuButtonWidth - 14f, panelRect.y + 12f, CurrencyMenuButtonWidth, 30f);
             Rect pickupMenuButtonRect = new Rect(currencyMenuButtonRect.x - ButtonGap - PickupMenuButtonWidth, panelRect.y + 12f, PickupMenuButtonWidth, 30f);
+            Rect bossRushMenuButtonRect = new Rect(pickupMenuButtonRect.x - ButtonGap - BossRushMenuButtonWidth, panelRect.y + 12f, BossRushMenuButtonWidth, 30f);
+            if (GUI.Button(bossRushMenuButtonRect, GuiText.Get("gui.command.button.boss_rush"), _buttonStyle))
+            {
+                OpenBossRushPage(logger);
+            }
+
             if (GUI.Button(pickupMenuButtonRect, GuiText.Get("gui.command.button.pickups"), _buttonStyle))
             {
                 OpenPickupPage(logger);
@@ -20,7 +26,7 @@ namespace RandomLoadout
             }
 
             GUI.Label(
-                new Rect(panelRect.x + 14f, panelRect.y + 12f, pickupMenuButtonRect.x - panelRect.x - 28f, 24f),
+                new Rect(panelRect.x + 14f, panelRect.y + 12f, bossRushMenuButtonRect.x - panelRect.x - 28f, 24f),
                 GuiText.Get("gui.command.title"),
                 _titleStyle);
             GUI.Label(

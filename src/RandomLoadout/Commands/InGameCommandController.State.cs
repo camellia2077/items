@@ -13,6 +13,7 @@ namespace RandomLoadout
             Pickups,
             Characters,
             Currency,
+            BossRush,
         }
 
         private enum CharacterActionMode
@@ -39,12 +40,15 @@ namespace RandomLoadout
         private const float CharacterPanelBaseHeaderHeight = 126f;
         private const float CharacterPanelFooterHeight = 26f;
         private const float CurrencyPanelHeight = 208f;
+        private const float BossRushPanelHeight = 226f;
         private const float PanelBottomMargin = 92f;
         private const float StatusMaxWidth = 560f;
         private const float StatusMinHeight = 40f;
         private const float StatusGap = 14f;
         private const float ButtonWidth = 92f;
         private const float ButtonGap = 8f;
+        private const float BossRushMenuButtonWidth = 108f;
+        private const float BossRushActionButtonWidth = 180f;
         private const float CurrencyMenuButtonWidth = 108f;
         private const float PickupMenuButtonWidth = 108f;
         private const float CurrencyActionButtonWidth = 180f;
@@ -74,6 +78,7 @@ namespace RandomLoadout
         private readonly GrantCommandService _commandService;
         private readonly PlayerDebugCommandService _playerDebugCommandService;
         private readonly FoyerCharacterSwitchService _foyerCharacterSwitchService;
+        private readonly BossRushService _bossRushService;
         private readonly RapidFireToggleService _rapidFireToggleService;
         private readonly Func<EtgPickupCatalogEntry[]> _pickupCatalogProvider;
         private readonly Func<PickupAliasRegistry> _aliasRegistryProvider;

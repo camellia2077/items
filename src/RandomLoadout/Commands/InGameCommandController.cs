@@ -9,6 +9,7 @@ namespace RandomLoadout
             GrantCommandService commandService,
             PlayerDebugCommandService playerDebugCommandService,
             FoyerCharacterSwitchService foyerCharacterSwitchService,
+            BossRushService bossRushService,
             RapidFireToggleService rapidFireToggleService,
             System.Func<EtgPickupCatalogEntry[]> pickupCatalogProvider,
             System.Func<PickupAliasRegistry> aliasRegistryProvider)
@@ -16,9 +17,14 @@ namespace RandomLoadout
             _commandService = commandService;
             _playerDebugCommandService = playerDebugCommandService;
             _foyerCharacterSwitchService = foyerCharacterSwitchService;
+            _bossRushService = bossRushService;
             _rapidFireToggleService = rapidFireToggleService;
             _pickupCatalogProvider = pickupCatalogProvider;
             _aliasRegistryProvider = aliasRegistryProvider;
+            if (_bossRushService != null)
+            {
+                _bossRushService.StatusRaised += OnBossRushStatusRaised;
+            }
         }
 
         public void Update()
@@ -64,6 +70,10 @@ namespace RandomLoadout
             {
                 panelHeight = CurrencyPanelHeight;
             }
+            else if (_isVisible && _currentPage == PanelPage.BossRush)
+            {
+                panelHeight = BossRushPanelHeight;
+            }
 
             DrawStatusOverlay(panelHeight);
             if (!_isVisible)
@@ -93,6 +103,12 @@ namespace RandomLoadout
             if (_currentPage == PanelPage.Currency)
             {
                 DrawCurrencyPage(panelRect, player, logger);
+                return;
+            }
+
+            if (_currentPage == PanelPage.BossRush)
+            {
+                DrawBossRushPage(panelRect, logger);
                 return;
             }
 

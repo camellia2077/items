@@ -1,12 +1,13 @@
 using BepInEx.Configuration;
+using HarmonyLib;
 using RandomLoadout.Core;
 
 namespace RandomLoadout
 {
     public sealed partial class Plugin
     {
-        private const string BreachSceneName = "tt_foyer";
-        private const string LegacyBreachSceneName = "tt_breach";
+        private const string CharacterSelectSceneName = "tt_foyer";
+        private const string LegacyCharacterSelectSceneName = "tt_breach";
         private const string LoadingSceneName = "LoadingDungeon";
         private const float GrantDelaySeconds = 1.5f;
         private const string PickupCatalogTextFileName = NAME + ".pickups.txt";
@@ -32,6 +33,8 @@ namespace RandomLoadout
         private JsonLoadoutRuleFileProvider _ruleFileProvider;
         private InGameCommandController _commandController;
         private RapidFireToggleService _rapidFireToggleService;
+        private BossRushService _bossRushService;
+        private Harmony _bossRushHarmony;
         private bool _hasExportedPickupCatalog;
         private string _lastPickupCatalogExportFailure;
         private RunGrantState _runState;

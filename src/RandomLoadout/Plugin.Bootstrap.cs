@@ -1,6 +1,7 @@
 using System.Collections;
 using System.IO;
 using BepInEx;
+using HarmonyLib;
 using RandomLoadout.Core;
 
 namespace RandomLoadout
@@ -24,10 +25,12 @@ namespace RandomLoadout
                 Path.Combine(Paths.ConfigPath, PickupCatalogRulePoolFileName));
             _aliasFileProvider = new JsonPickupAliasFileProvider(Path.Combine(Paths.ConfigPath, NAME + ".aliases.json5"));
             _rapidFireToggleService = new RapidFireToggleService();
+            _bossRushService = new BossRushService(Logger);
             _commandController = new InGameCommandController(
                 new GrantCommandService(_pickupResolver, _pickupGranter, GetAliasRegistry),
                 new PlayerDebugCommandService(),
                 new FoyerCharacterSwitchService(),
+                _bossRushService,
                 _rapidFireToggleService,
                 _pickupResolver.GetGrantablePickupCatalog,
                 GetAliasRegistry);
@@ -36,11 +39,14 @@ namespace RandomLoadout
                 Path.Combine(Paths.ConfigPath, PickupCatalogRulePoolFileName));
             _ruleDefinitions = new LoadoutRuleDefinition[0];
             _runState = new RunGrantState();
-            _runLifecycleTracker = new RunLifecycleTracker(BreachSceneName, LegacyBreachSceneName, LoadingSceneName);
-            _sceneWatcher = new RunSceneWatcher(BreachSceneName);
+            _runLifecycleTracker = new RunLifecycleTracker(CharacterSelectSceneName, LegacyCharacterSelectSceneName, LoadingSceneName);
+            _sceneWatcher = new RunSceneWatcher(CharacterSelectSceneName);
+            _bossRushHarmony = new Harmony(GUID + ".bossrush");
 
             Logger.LogInfo(RandomLoadoutLog.Init("Waiting for GameManager startup."));
             Logger.LogInfo(RandomLoadoutLog.Init("Automatic random loadout is " + (_enableRandomLoadoutConfig.Value ? "enabled" : "disabled") + "."));
+            Logger.LogInfo(RandomLoadoutLog.Init("Boss Rush service initialized. Startup self-check is running."));
+            LogBossRushHookSelfCheck(BossRushHooks.Install(_bossRushHarmony, Logger));
             StartCoroutine(WaitForGameManagerAndSubscribe());
         }
 
@@ -49,6 +55,16 @@ namespace RandomLoadout
             if (_rapidFireToggleService != null)
             {
                 _rapidFireToggleService.Reset();
+            }
+
+            if (_bossRushService != null)
+            {
+                _bossRushService.Dispose();
+            }
+
+            if (_bossRushHarmony != null)
+            {
+                _bossRushHarmony.UnpatchSelf();
             }
 
             if (_sceneWatcher != null)
@@ -67,7 +83,37 @@ namespace RandomLoadout
             EnsureAliasRegistryLoaded();
             _sceneWatcher.Subscribe(GameManager.Instance, OnNewLevelFullyLoaded);
             TryExportPickupCatalogOnce();
+            Logger.LogInfo(RandomLoadoutLog.Init("GameManager startup detected. Scene watcher subscribed and GUI controller is ready."));
             Logger.LogInfo(RandomLoadoutLog.Init(NAME + " v" + VERSION + " started successfully."));
+        }
+
+        private void LogBossRushHookSelfCheck(BossRushHookInstallReport report)
+        {
+            if (report == null)
+            {
+                Logger.LogWarning(RandomLoadoutLog.Init("Boss Rush startup self-check did not produce a hook report."));
+                return;
+            }
+
+            Logger.LogInfo(
+                RandomLoadoutLog.Init(
+                    "Boss Rush startup self-check complete. Applied hooks=" +
+                    report.AppliedCount +
+                    ", Skipped hooks=" +
+                    report.SkippedCount +
+                    "."));
+
+            if (!report.HasSkippedHooks)
+            {
+                Logger.LogInfo(RandomLoadoutLog.Init("Boss Rush startup self-check passed."));
+                return;
+            }
+
+            string[] skippedHooks = report.SkippedHooks;
+            for (int i = 0; i < skippedHooks.Length; i++)
+            {
+                Logger.LogWarning(RandomLoadoutLog.Init("Boss Rush startup self-check warning: " + skippedHooks[i]));
+            }
         }
 
         private void OnGUI()

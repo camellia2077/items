@@ -50,6 +50,14 @@
       <HintPath>..\..\lib\BepInEx.dll</HintPath>
       <Private>false</Private>
     </Reference>
+    <Reference Include="ModTheGungeonAPI">
+      <HintPath>..\..\lib\ModTheGungeonAPI.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="0Harmony">
+      <HintPath>..\..\lib\0Harmony.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
     <Reference Include="UnityEngine">
       <HintPath>..\..\lib\UnityEngine.dll</HintPath>
       <Private>false</Private>
@@ -139,6 +147,7 @@
     <Compile Include="Commands\FoyerCharacterSwitchService.Switching.cs" />
     <Compile Include="Commands\FoyerCharacterSwitchService.Unlocking.cs" />
     <Compile Include="Commands\InGameCommandController.cs" />
+    <Compile Include="Commands\InGameCommandController.BossRush.cs" />
     <Compile Include="Commands\InGameCommandController.CharacterActions.cs" />
     <Compile Include="Commands\InGameCommandController.CharacterPage.cs" />
     <Compile Include="Commands\InGameCommandController.CommandPage.cs" />
@@ -164,11 +173,20 @@
     <Compile Include="Logging\RandomLoadoutLog.cs" />
     <Compile Include="Localization\GuiText.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Version.g.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Plugin.Bootstrap.cs" />
     <Compile Include="Plugin.CatalogExport.cs" />
     <Compile Include="Plugin.RunLifecycle.cs" />
     <Compile Include="Plugin.State.cs" />
+    <Compile Include="Runtime\BossRushEncounter.cs" />
+    <Compile Include="Runtime\BossRushHooks.cs" />
+    <Compile Include="Runtime\BossRushService.cs" />
+    <Compile Include="Runtime\BossRushService.Flow.cs" />
+    <Compile Include="Runtime\BossRushService.Logging.cs" />
+    <Compile Include="Runtime\BossRushService.Player.cs" />
+    <Compile Include="Runtime\BossRushService.Rooms.cs" />
+    <Compile Include="Runtime\BossRushState.cs" />
     <Compile Include="Runtime\RunGrantState.cs" />
     <Compile Include="Runtime\RunLifecycleObservation.cs" />
     <Compile Include="Runtime\RunLifecycleTracker.cs" />
