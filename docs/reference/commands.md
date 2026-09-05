@@ -86,7 +86,7 @@ Recommended input style:
 - `Rapid OFF` / `Rapid ON`
   Toggles hold-to-rapid-fire mode for the current gun.
 - `Reload OFF` / `Reload Fast` / `Reload Anim`
-  Cycles automatic reload between off, instant reload, and vanilla animated reload when the current gun's clip is empty and ammo is available.
+  Cycles automatic reload between off, instant reload, and vanilla animated reload when the current gun's clip is empty and ammo is available. During a dual-wield synergy, an empty clip on either gun starts one shared reload operation for both guns, matching a manual reload input rather than independently reloading only the empty gun.
 - `General -> Cursor Color`
   Opens the cursor color page. The page has an explicit enable/disable button and the color choices `Cyan`, `Lime`,
   `Yellow`, `Pink`, `Red`, `Orange`, `Electric Violet`, and `Electric Blue`. Selecting a color enables custom coloring.
@@ -142,7 +142,7 @@ the renderer logs `Cursor color shader unavailable` and falls back to the origin
 ### Pickup Browser
 
 - The `P1/P2/Both` target button is shared with `General -> Characters`. In Grant mode, pickup-browser grants are sent to the selected player, or to both players when `Both` is selected; selecting P2 or Both requires a second player to have joined.
-- search matches `alias`, `internalName`, `displayName`, and `pickupId`
+- search matches `alias`, `internalName`, catalog display names, the active game-language display name, and `pickupId`
 - in English UI, visible pickup names should prefer the catalog's `EnglishDisplayName`; search still includes both
   localized and English pickup names
 - category filters support `All`, `Gun`, `Passive`, and `Active`

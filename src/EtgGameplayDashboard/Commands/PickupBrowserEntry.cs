@@ -29,7 +29,7 @@ namespace EtgGameplayDashboard
                     : catalogEntry.PickupId.ToString(System.Globalization.CultureInfo.InvariantCulture));
             CommandText = BuildCommandText(catalogEntry.Category, PreferredInput);
             MetadataLine = BuildMetadataLine(catalogEntry, Aliases, PreferredInput);
-            SearchText = BuildSearchText(catalogEntry, Aliases, PreferredInput);
+            SearchText = BuildSearchText(catalogEntry, gameplayDisplayName, Aliases, PreferredInput);
             IconFallbackLabel = GetCategoryInitial(catalogEntry.Category);
         }
 
@@ -78,9 +78,12 @@ namespace EtgGameplayDashboard
             return metadata;
         }
 
-        private static string BuildSearchText(EtgPickupCatalogEntry entry, string[] aliases, string preferredInput)
+        private static string BuildSearchText(EtgPickupCatalogEntry entry, string gameplayDisplayName, string[] aliases, string preferredInput)
         {
-            string rawValue = entry.DisplayName + "|" + entry.EnglishDisplayName + "|" + entry.InternalName + "|" + entry.PickupId + "|" + preferredInput + "|" + string.Join("|", aliases);
+            // The browser can render the name resolved from the game's active language. Include
+            // that same name in the index so, for example, a Chinese in-game item name can be
+            // searched even when the shipped catalog's fallback labels are English.
+            string rawValue = gameplayDisplayName + "|" + entry.DisplayName + "|" + entry.EnglishDisplayName + "|" + entry.InternalName + "|" + entry.PickupId + "|" + preferredInput + "|" + string.Join("|", aliases);
             System.Text.StringBuilder builder = new System.Text.StringBuilder(rawValue.Length);
             for (int index = 0; index < rawValue.Length; index++)
             {

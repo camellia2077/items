@@ -70,9 +70,12 @@ namespace EtgGameplayDashboard
 
             const float iconSize = 30f;
             const float rowPadding = 8f;
-            // Keep the full pickup label readable (including "Hegemony (+50)")
-            // while allowing the action buttons to stay compact.
-            const float labelWidth = 140f;
+            // Reserve enough room for the longest current label, but do not hold the unused
+            // portion of the old fixed label column on short labels such as "Casings".
+            // That recovered space is needed by the longer English action labels.
+            float labelWidth = Mathf.Max(
+                100f,
+                _pickupPrimaryTextStyle.CalcSize(new GUIContent(row.Label)).x + 10f);
             Rect iconRect = new Rect(rowRect.x + rowPadding, rowRect.y + ((rowRect.height - iconSize) * 0.5f), iconSize, iconSize);
                 DrawPickupActionIcon(iconRect, row.SpriteName, row.PickupId);
 
@@ -91,19 +94,22 @@ namespace EtgGameplayDashboard
             float actionAreaLeft = iconRect.xMax + 10f + labelWidth + 4f;
             float actionGap = 8f;
             float actionAreaWidth = actionAreaRight - actionAreaLeft;
-            float actionButtonWidth = (actionAreaWidth - (actionGap * (actions.Length - 1))) / actions.Length;
+            float availableActionWidth = actionAreaWidth - (actionGap * (actions.Length - 1));
+            float[] actionButtonWidths = GetPickupActionButtonWidths(actions, availableActionWidth);
             float actionButtonHeight = rowRect.height - 8f;
+            float actionX = actionAreaLeft;
             for (int actionIndex = 0; actionIndex < actions.Length; actionIndex++)
             {
                 PickupActionButtonDefinition action = actions[actionIndex];
                 Rect actionButtonRect = new Rect(
-                    actionAreaLeft + ((actionButtonWidth + actionGap) * actionIndex),
+                    actionX,
                     rowRect.y + 4f,
-                    actionButtonWidth,
+                    actionButtonWidths[actionIndex],
                     actionButtonHeight);
                 GUIStyle actionStyle = action.Style ?? _buttonStyle;
                 if (!DrawControllerButton(actionButtonRect, action.ControlId, action.Label, actionStyle))
                 {
+                    actionX += actionButtonWidths[actionIndex] + actionGap;
                     continue;
                 }
 
@@ -111,7 +117,63 @@ namespace EtgGameplayDashboard
                 {
                     action.OnClick();
                 }
+
+                actionX += actionButtonWidths[actionIndex] + actionGap;
             }
+        }
+
+        private float[] GetPickupActionButtonWidths(PickupActionButtonDefinition[] actions, float availableActionWidth)
+        {
+            const float minimumButtonWidth = 76f;
+            const float horizontalTextPadding = 20f;
+            float[] widths = new float[actions.Length];
+            float requestedWidth = 0f;
+            for (int actionIndex = 0; actionIndex < actions.Length; actionIndex++)
+            {
+                PickupActionButtonDefinition action = actions[actionIndex];
+                GUIStyle actionStyle = action.Style ?? _buttonStyle;
+                float textWidth = actionStyle.CalcSize(new GUIContent(action.Label)).x;
+                widths[actionIndex] = Mathf.Max(minimumButtonWidth, textWidth + horizontalTextPadding);
+                requestedWidth += widths[actionIndex];
+            }
+
+            float minimumRequestedWidth = minimumButtonWidth * actions.Length;
+            if (availableActionWidth <= minimumRequestedWidth)
+            {
+                float equalWidth = availableActionWidth / actions.Length;
+                for (int actionIndex = 0; actionIndex < widths.Length; actionIndex++)
+                {
+                    widths[actionIndex] = equalWidth;
+                }
+
+                return widths;
+            }
+
+            // English "Consume: OFF" needs more width than its neighboring +100, Clear, and
+            // Spawn buttons. Preserve the per-label proportions even when the preferred total
+            // is wider than the available area; falling back to equal widths clips its opening
+            // letters, which is exactly what happened in the four-button Casings row.
+            float availableExtraWidth = availableActionWidth - minimumRequestedWidth;
+            float requestedExtraWidth = requestedWidth - minimumRequestedWidth;
+            float widthScale = requestedExtraWidth > 0f
+                ? Mathf.Min(1f, availableExtraWidth / requestedExtraWidth)
+                : 0f;
+            for (int actionIndex = 0; actionIndex < widths.Length; actionIndex++)
+            {
+                float requestedExtraForButton = widths[actionIndex] - minimumButtonWidth;
+                widths[actionIndex] = minimumButtonWidth + (requestedExtraForButton * widthScale);
+            }
+
+            if (requestedWidth < availableActionWidth)
+            {
+                float extraWidthPerButton = (availableActionWidth - requestedWidth) / actions.Length;
+                for (int actionIndex = 0; actionIndex < widths.Length; actionIndex++)
+                {
+                    widths[actionIndex] += extraWidthPerButton;
+                }
+            }
+
+            return widths;
         }
 
         private void DrawPickupActionIcon(Rect iconRect, string spriteName, int pickupId = -1)

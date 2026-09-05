@@ -14,9 +14,8 @@ namespace EtgGameplayDashboard
     {
         private readonly System.Action<AmmoMode> _persistMode;
         private AmmoMode _mode;
-        private Gun _trackedGun;
-        private int _trackedAmmo;
-        private int _trackedClipShotsRemaining;
+        private readonly TrackedGunState _primaryGunState = new TrackedGunState();
+        private readonly TrackedGunState _secondaryGunState = new TrackedGunState();
 
         public AmmoModeToggleService(AmmoMode initiallyEnabledMode, System.Action<AmmoMode> persistMode)
         {
@@ -66,44 +65,14 @@ namespace EtgGameplayDashboard
                 return;
             }
 
-            Gun currentGun = player.CurrentGun;
-            if ((object)currentGun == null || currentGun.InfiniteAmmo)
-            {
-                ClearTrackedState();
-                return;
-            }
+            UpdateTrackedGun(_primaryGunState, player.CurrentGun);
 
-            if (!ReferenceEquals(_trackedGun, currentGun))
-            {
-                CaptureCurrentGunState(currentGun);
-                return;
-            }
-
-            if (_trackedAmmo >= 0 && currentGun.CurrentAmmo < _trackedAmmo)
-            {
-                currentGun.CurrentAmmo = _trackedAmmo;
-            }
-            else if (currentGun.CurrentAmmo > _trackedAmmo)
-            {
-                _trackedAmmo = currentGun.CurrentAmmo;
-            }
-
-            if (_mode == AmmoMode.NoConsume)
-            {
-                if (_trackedClipShotsRemaining >= 0 && currentGun.ClipShotsRemaining < _trackedClipShotsRemaining)
-                {
-                    currentGun.ClipShotsRemaining = _trackedClipShotsRemaining;
-                }
-                else if (currentGun.ClipShotsRemaining > _trackedClipShotsRemaining)
-                {
-                    _trackedClipShotsRemaining = currentGun.ClipShotsRemaining;
-                }
-
-                SyncLockedAmmoBehaviour(currentGun);
-                return;
-            }
-
-            RemoveLockedAmmoBehaviour(currentGun);
+            // A dual-wield synergy fires CurrentSecondaryGun independently. It has its own
+            // reserve and clip state, so it must be locked separately from CurrentGun.
+            Gun secondaryGun = player.inventory != null && player.inventory.DualWielding
+                ? player.CurrentSecondaryGun
+                : null;
+            UpdateTrackedGun(_secondaryGunState, secondaryGun);
         }
 
         public void Reset()
@@ -112,25 +81,72 @@ namespace EtgGameplayDashboard
             ClearTrackedState();
         }
 
-        private void CaptureCurrentGunState(Gun gun)
+        private void UpdateTrackedGun(TrackedGunState state, Gun gun)
         {
-            RemoveLockedAmmoBehaviour(_trackedGun);
-            _trackedGun = gun;
-            _trackedAmmo = IsGunUsable(gun) ? gun.CurrentAmmo : 0;
-            _trackedClipShotsRemaining = IsGunUsable(gun) ? gun.ClipShotsRemaining : 0;
-            SyncLockedAmmoBehaviour(gun);
+            if (!IsGunUsable(gun) || gun.InfiniteAmmo)
+            {
+                ClearTrackedGunState(state);
+                return;
+            }
+
+            if (!ReferenceEquals(state.Gun, gun))
+            {
+                ClearTrackedGunState(state);
+                state.Gun = gun;
+                state.Ammo = gun.CurrentAmmo;
+                state.ClipShotsRemaining = gun.ClipShotsRemaining;
+            }
+            else
+            {
+                RestoreTrackedGunState(state);
+            }
+
+            if (_mode == AmmoMode.NoConsume)
+            {
+                SyncLockedAmmoBehaviour(state);
+            }
+            else
+            {
+                RemoveLockedAmmoBehaviour(gun);
+            }
         }
 
         private void ClearTrackedState()
         {
-            RemoveLockedAmmoBehaviour(_trackedGun);
-            _trackedGun = null;
-            _trackedAmmo = 0;
-            _trackedClipShotsRemaining = 0;
+            ClearTrackedGunState(_primaryGunState);
+            ClearTrackedGunState(_secondaryGunState);
         }
 
-        private void SyncLockedAmmoBehaviour(Gun gun)
+        private void RestoreTrackedGunState(TrackedGunState state)
         {
+            Gun gun = state.Gun;
+            if (state.Ammo >= 0 && gun.CurrentAmmo < state.Ammo)
+            {
+                gun.CurrentAmmo = state.Ammo;
+            }
+            else if (gun.CurrentAmmo > state.Ammo)
+            {
+                state.Ammo = gun.CurrentAmmo;
+            }
+
+            if (_mode != AmmoMode.NoConsume)
+            {
+                return;
+            }
+
+            if (state.ClipShotsRemaining >= 0 && gun.ClipShotsRemaining < state.ClipShotsRemaining)
+            {
+                gun.ClipShotsRemaining = state.ClipShotsRemaining;
+            }
+            else if (gun.ClipShotsRemaining > state.ClipShotsRemaining)
+            {
+                state.ClipShotsRemaining = gun.ClipShotsRemaining;
+            }
+        }
+
+        private void SyncLockedAmmoBehaviour(TrackedGunState state)
+        {
+            Gun gun = state.Gun;
             if (!IsGunUsable(gun))
             {
                 return;
@@ -152,7 +168,15 @@ namespace EtgGameplayDashboard
                 behaviour = gun.gameObject.AddComponent<LockedAmmoComponent>();
             }
 
-            behaviour.SetLockedState(_trackedAmmo, _trackedClipShotsRemaining);
+            behaviour.SetLockedState(state.Ammo, state.ClipShotsRemaining);
+        }
+
+        private static void ClearTrackedGunState(TrackedGunState state)
+        {
+            RemoveLockedAmmoBehaviour(state.Gun);
+            state.Gun = null;
+            state.Ammo = 0;
+            state.ClipShotsRemaining = 0;
         }
 
         private static void RemoveLockedAmmoBehaviour(Gun gun)
@@ -201,6 +225,13 @@ namespace EtgGameplayDashboard
         private static bool IsUnityObjectAlive(UnityEngine.Object unityObject)
         {
             return (object)unityObject != null && unityObject != null;
+        }
+
+        private sealed class TrackedGunState
+        {
+            public Gun Gun;
+            public int Ammo;
+            public int ClipShotsRemaining;
         }
     }
 }

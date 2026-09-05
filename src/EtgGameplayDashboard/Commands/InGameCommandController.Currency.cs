@@ -189,7 +189,7 @@ namespace EtgGameplayDashboard
                     }),
                 new PickupActionRowDefinition(
                     GameUiAtlasSpriteHegemonyPickup,
-                    GetLocalizedFallback("gui.command.currency.label.hegemony", "Hegemony (+50)", "霸权币（+50）"),
+                    GetLocalizedFallback("gui.command.currency.label.hegemony", "Hegemony", "霸权币"),
                     new[]
                     {
                         new PickupActionButtonDefinition("currency.hegemony", actionLabel, delegate { ExecuteForSelectedPickupTargets(player, delegate(PlayerController targetPlayer) { ExecuteAddMetaCurrency(targetPlayer, logger); }); }, _buttonStyle),

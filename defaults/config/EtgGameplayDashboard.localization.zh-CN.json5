@@ -202,7 +202,7 @@
   "gui.command.currency.label.cell_key": "牢房钥匙（+1）",
   "gui.command.currency.label.rat_key": "老鼠钥匙（+1）",
   "gui.command.currency.label.casings": "弹壳（+100）",
-  "gui.command.currency.label.hegemony": "霸权币（+50）",
+  "gui.command.currency.label.hegemony": "霸权币",
   "gui.command.currency.button.clear": "清除",
   "gui.command.currency.button.spawn": "生成",
   "gui.teleport.title": "传送",
